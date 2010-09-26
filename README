@@ -4,6 +4,16 @@
 conservancy's webserver runs on a machine called
 dogwood.sfconservancy.org, which is a standard Debian installation.
 
-The following packages are installed to make Django and Apache work:
+The following packages are installed to make Django and Apache work on a
+lenny install:
 
-$ aptitude install python-django apache2
+$ aptitude install python-django apache2 mysql-5-server
+
+
+
+                           DJANGO SETUP
+                           ============
+
+0. Make sure the Python module 'djangopw', with the global variable
+   'djangoadmin_password' is somewhere importable in the default
+   PYTHON_PATH.
