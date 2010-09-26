@@ -1,6 +1,6 @@
 from django.db import models
-from sflc.apps.staff.models import Person
-from sflc.apps.worldmap.models import EarthLocation
+from conservancy.apps.staff.models import Person
+from conservancy.apps.worldmap.models import EarthLocation
 from datetime import datetime, timedelta
 
 class EventTag(models.Model):
@@ -29,7 +29,7 @@ class FutureEventManager(models.Manager):
         return super(FutureEventManager, self).get_query_set().filter(date__gte=datetime.today())
 
 class Event(models.Model):
-    """Model for SFLC staff member events (presentations, etc)"""
+    """Model for Conservancy staff member events (presentations, etc)"""
 
     title = models.CharField(max_length=400)
     date = models.DateField()

@@ -1,6 +1,6 @@
 from django.conf.urls.defaults import *
 from models import Podcast, PodcastTag # relative import
-from sflc.apps.staff.models import Person
+from conservancy.apps.staff.models import Person
 from datetime import datetime
 
 extra_context = {}
@@ -21,7 +21,7 @@ urlpatterns = patterns('django.views.generic.date_based',
 #   (r'^(?P<slug>[-\w]+)/$', 'object_detail', dict(info_dict, slug_field='slug')),
 )
 
-urlpatterns += patterns('sflc.apps.podcast.views',
+urlpatterns += patterns('conservancy.apps.podcast.views',
    (r'^/?$', 'custom_index', dict(info_dict, paginate_by=20)),
    (r'^query/$', 'query'),
 )

@@ -1,7 +1,7 @@
 from django.conf.urls.defaults import *
 from models import Entry, EntryTag # relative import
 from views import last_name # relative import
-from sflc.apps.staff.models import Person
+from conservancy.apps.staff.models import Person
 from datetime import datetime
 
 extra_context = {}
@@ -20,7 +20,7 @@ urlpatterns = patterns('django.views.generic.date_based',
                                                 make_object_list=True)),
 )
 
-urlpatterns += patterns('sflc.apps.blog.views',
+urlpatterns += patterns('conservancy.apps.blog.views',
    (r'^/?$', 'custom_index', dict(info_dict, paginate_by=10)),
    (r'^query/$', 'query'),
 )

@@ -11,8 +11,7 @@ def subscribe(request):
         class Meta:
             model = ContactEntry
 
-    ContactEntryForm.base_fields['subscribe_sflc'].label = 'Receive Software Freedom Law Center updates'
-    ContactEntryForm.base_fields['subscribe_sfc'].label = 'Receive Software Freedom Conservancy updates'
+    ContactEntryForm.base_fields['subscribe_conservancy'].label = 'Receive Software Freedom Conservancy updates'
 
     if request.method == 'POST':
         form = ContactEntryForm(request.POST)

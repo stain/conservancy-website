@@ -1,5 +1,5 @@
 from django.conf.urls.defaults import *
 
-urlpatterns = patterns('sflc.apps.contacts.views',
+urlpatterns = patterns('conservancy.apps.contacts.views',
    (r'^/?$', 'subscribe'),
 )

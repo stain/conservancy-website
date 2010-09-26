@@ -1,6 +1,6 @@
 from django.db import models
 from django.conf import settings
-from sflc.apps.staff.models import Person
+from conservancy.apps.staff.models import Person
 from datetime import datetime, timedelta
 
 class PodcastTag(models.Model):

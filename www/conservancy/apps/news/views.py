@@ -1,6 +1,6 @@
 from django.views.generic.list_detail import object_list
-from sflc.apps.news.models import ExternalArticle
-from sflc.apps.events.models import Event
+from conservancy.apps.news.models import ExternalArticle
+from conservancy.apps.events.models import Event
 from datetime import datetime
 
 def custom_index(request, queryset, *args, **kwargs):

@@ -1,7 +1,7 @@
 from django.db import models
 from django.conf import settings
-from sflc.apps.staff.models import Person
-from sflc.apps.events.models import Event
+from conservancy.apps.staff.models import Person
+from conservancy.apps.events.models import Event
 from django.contrib.sites.models import Site
 from datetime import datetime, timedelta
 
@@ -37,11 +37,11 @@ class PressRelease(models.Model):
 
     def is_in_past_month(self):
         # This function is deprecated.  Use the date_within template
-        # filter instead (example in sflc/templates/frontpage.html)
+        # filter instead (example in conservancy/templates/frontpage.html)
         return self.pub_date > (datetime.now() - timedelta(days=30))
 
     def save(self):
-        if settings.SFLC_DEVEL or True:
+        if settings.CONSERVANCY_DEVEL or True:
             super(PressRelease, self).save()
             return
 
@@ -78,7 +78,7 @@ class PublicExternalArticleManager(models.Manager):
         return super(PublicExternalArticleManager, self).get_query_set().filter(visible=True)
 
 class ExternalArticle(models.Model):
-    """A system for displaying SFLC news mentions on the site.
+    """A system for displaying Conservancy news mentions on the site.
 
     (Currently unused)
     """

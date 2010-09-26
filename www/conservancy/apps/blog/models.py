@@ -1,6 +1,6 @@
 from django.db import models
 from django.conf import settings
-from sflc.apps.staff.models import Person
+from conservancy.apps.staff.models import Person
 from datetime import datetime, timedelta
 
 class EntryTag(models.Model):
@@ -53,7 +53,7 @@ class Entry(models.Model):
     # Ping google blogs and technorati.  Taken from
     # http://blog.foozia.com/blog/2007/apr/21/ping-technorati-your-django-blog-using-xml-rpc/
     def save(self):
-        if settings.SFLC_DEVEL or True: # "or True" means it is disabled always
+        if settings.CONSERVANCY_DEVEL or True: # "or True" means it is disabled always
             super(Entry, self).save()
             return
 

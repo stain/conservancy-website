@@ -1,6 +1,6 @@
 from models import Entry, EntryTag # relative import
 from django.views.generic.list_detail import object_list
-from sflc.apps.staff.models import Person
+from conservancy.apps.staff.models import Person
 from django.shortcuts import get_object_or_404, render_to_response
 from datetime import datetime
 
