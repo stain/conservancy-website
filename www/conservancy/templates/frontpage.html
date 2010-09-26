@@ -1,0 +1,49 @@
+{% extends "base_conservancy.html" %}
+{% load date_within %}
+
+{% block head %}
+<link rel="alternate" type="application/rss+xml" title="Software Freedom Conservancy News" href="/feeds/news/" />
+{% endblock %}
+
+{% block content %}
+
+<h1>Welcome</h1>
+
+<p>The Software Freedom Conservancy is an organization composed of Free
+and Open Source Software (FOSS) projects. As a fiscal sponsor for FOSS
+projects, the Conservancy provides member projects with free financial
+and administrative services, but does not involve itself with
+technological and artistic decisions.</p>
+
+<p>By joining the Conservancy, member FOSS projects obtain the benefits of
+a formal legal structure while keeping themselves focused on software
+development.  These benefits include, most notably, the ability to collect
+earmarked project donations and protection from personal liability for the
+developers of the project.  Another benefit of joining the Conservancy is
+that projects can use it to hold assets, which are managed by the
+Conservancy on behalf of and at the direction of the project.  The
+Conservancy is a tax-exempt 501(c)(3) organization, so member projects can
+receive tax-deductible donations to the extent allowed by law.  To make a
+donation to the Conservancy or to its member projects,
+please <a href="/donate/">visit our donations page</a>.</p>
+
+<p>If you think your FOSS project might benefit from joining the
+Conservancy, please <a href="/about/contact/">contact us</a>.</p>
+
+<p>
+<span class="continued"><a href="/overview/">Overview of the Conservancy...</a></span>
+<span class="continued"><a href="/members/">Member projects...</a></span>
+</p>
+
+{% if press_releases.0.pub_date|date_within_past_days:30 %}
+<div class="shaded">
+<h2><a href="/feeds/news/" class="feedlink"><img src="/img/feed-icon-14x14.png" alt="[RSS]"/></a> <a href="/news/">Latest News</a></h2>
+<p class="date">{{ press_releases.0.pub_date|date:"F j, Y" }}</p>
+<h3><a href="{{ press_releases.0.get_absolute_url }}">{{ press_releases.0.headline|safe }}</a></h3>
+{{ press_releases.0.summary|safe }}
+{% if press_releases.0.body %}<p><span class="continued"><a href="{{ press_releases.0.get_absolute_url }}">Read More...</a></span></p>{% endif %}
+<p><a href="/news/">News Archive...</a></p>
+</div>
+{% endif %}
+
+{% endblock %}

@@ -1,0 +1,74 @@
+{% extends "base_conservancy.html" %}
+{% block subtitle %}Donations - {% endblock %}
+{% block category %}donate{% endblock %}
+{% block content %}
+
+<h1>Donations</h1>
+
+<p>The various ways to donate to the Conservancy's general fund are below.
+  To donate to the directed funds for our <a href="/members/">member
+  projects, visit their individual web pages</a>.</p>
+
+<h3>Donating via Google Checkout</h3>
+
+<p>Donating via Google Checkout puts more of your donation to work, since
+  Google charges no Checkout fees to 501(c)(3) organizations.</p>
+ 
+<script type="text/javascript"> 
+function validateAmount(amount){
+	if(amount.value.match( /^[0-9]+(\.([0-9]+))?$/)){
+		return true;
+	}else{
+		alert('You must enter a valid donation.');
+		amount.focus();
+		return false;
+	}
+}
+</script>
+
+<form action="https://checkout.google.com/cws/v2/Donations/622836985124940/checkoutForm" id="BB_BuyButtonForm" method="post" name="BB_BuyButtonForm" onSubmit="return validateAmount(this.item_price_1)">
+    <input name="item_name_1" type="hidden" value="Software Freedom Conservancy, 501(c)(3) Charity"/>
+    <input name="item_description_1" type="hidden" value="Your general fund donation helps support the Conservancy&apos;s work providing services to its member project."/>
+    <input name="item_quantity_1" type="hidden" value="1"/>
+    <input name="item_currency_1" type="hidden" value="USD"/>
+    <input name="item_is_modifiable_1" type="hidden" value="true"/>
+    <input name="item_min_price_1" type="hidden" value="10.0"/>
+    <input name="item_max_price_1" type="hidden" value="25000.0"/>
+    <input name="_charset_" type="hidden" value="utf-8"/>
+    <table cellpadding="5" cellspacing="0" width="1%">
+        <tr>
+            <td align="right" nowrap="nowrap" width="1%">&#x24; <input id="item_price_1" name="item_price_1" onfocus="this.style.color=&apos;black&apos;; this.value=&apos;&apos;;" size="6" type="text" value="50.00"/>
+            </td>
+            <td align="left" width="1%">
+                <input alt="Donate" src="https://checkout.google.com/buttons/donateNow.gif?merchant_id=622836985124940&amp;w=115&amp;h=50&amp;style=white&amp;variant=text&amp;loc=en_US" type="image"/>
+            </td>
+        </tr>
+    </table>
+</form>
+
+<h3>Donating by paper check</h3>
+
+<p>Send paper check donations to:</p>
+
+<p>Software Freedom Conservancy<br />
+1995 Broadway 17th Floor<br />
+New York, NY 10023-5882<br />
+USA
+</p>
+
+<h3>Donating via Paypal</h3>
+
+<form action="https://www.paypal.com/cgi-bin/webscr" method="post">
+<input type="hidden" name="cmd" value="_s-xclick"/>
+<input type="image" src="https://www.paypal.com/en_US/i/btn/x-click-but21.gif" border="0" name="submit" alt="Make a donation to the Conservancy via PayPal"/>
+<img alt="" border="0" src="https://www.paypal.com/en_US/i/scr/pixel.gif" width="1" height="1"/>
+<input type="hidden" name="encrypted" value="-----BEGIN PKCS7-----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-----END PKCS7-----
+"/>
+</form>
+
+
+<p>The Software Freedom Conservancy is a 501(c)(3) organization, and donations made to it are fully tax-deductible to the extent permitted by law.</p>
+
+<p>Please also consider making an additional donation to the Conservancy's law firm, the <a href="http://www.softwarefreedom.org/about/donate/">Software Freedom Law Center</a>.</p>
+
+{% endblock %}

@@ -1,0 +1,35 @@
+@import "http://www.softwarefreedom.org/sflc.css";
+
+#sflcheader { background: #d4ff9d url(/img/headerbg.png) left top repeat-x; }
+
+#sflcheader h1 {
+  text-indent: 0;
+  margin: 0;
+  margin-left: 104px;
+  line-height: 72px;
+}
+
+#sflcheader h1 a {
+  color: #000;
+}
+
+#affiliate-sflc {
+  padding: 2px 10px;
+  white-space: nowrap;
+  font-size: x-small;
+  text-align: right;
+  background: #cdeaec;
+}
+
+#logobutton {
+  position: absolute; left: 17px; top: 10px; height: 51px; width: 70px;
+}
+
+body.sfc-overview #navbar ul li.overview a,
+body.sfc-members #navbar ul li.members a,
+body.sfc-news #navbar ul li.news a,
+body.sfc-directors #navbar ul li.directors a,
+body.sfc-officers #navbar ul li.officers a,
+body.sfc-contact #navbar ul li.contact a,
+body.sfc-donate #navbar ul li.donate a /* NO COMMA HERE! */
+  { background: #fff url(http://www.softwarefreedom.org/img/nav-bg-up.png) top repeat-x; color: #000; }

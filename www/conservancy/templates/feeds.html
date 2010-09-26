@@ -1,0 +1,17 @@
+{% extends "base_standard.html" %}
+
+{% block subtitle %}News Feeds - {% endblock %}
+
+{% block content %}
+
+<h1>News Feeds Available at conservancy.softwarefreedom.org</h1>
+
+<p>All feeds are RSS 2.0.</p>
+
+<ul>
+{% for feed in feeds %}
+<li><a href="{{ feed.get_absolute_url }}">{{ feed.title }}</a></li>
+{% endfor %}
+</ul>
+
+{% endblock %}

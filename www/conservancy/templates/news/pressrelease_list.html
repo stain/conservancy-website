@@ -1,0 +1,35 @@
+{% extends "base_news.html" %}
+
+{% block subtitle %}News - {% endblock %}
+
+{% block content %}
+
+<h1><a href="/feeds/news/" class="feedlink"><img src="/img/feed-icon-14x14.png" alt="[RSS]"/></a> Conservancy News</h1>
+
+{% ifnotequal page 1 %}<p>(page {{ page }} of {{ pages }})</p>{% endifnotequal %}
+
+{% for object in object_list %}
+    <div class="shaded">
+    <p class="date">{{ object.pub_date|date:"F j, Y" }}</p>
+    <h3><a href="{{ object.get_absolute_url }}">{{ object.headline|safe }}</a></h3>
+    {% if object.is_recent %}
+        {% if object.subhead %}<h4>{{ object.subhead|safe }}</h4>{% endif %}
+        {{ object.summary|safe }}
+    {% if object.body %}<p><span class="continued"><a href="{{ object.get_absolute_url }}">Read More...</a></span></p>{% endif %}
+    {% endif %}
+    </div>
+{% endfor %}
+
+<p>
+{% if has_next %}<a class="next_page_button" href="?page={{ next }}">Next page (older) &raquo;</a>{% endif %}
+{% if has_previous %}<a href="?page={{ previous }}">&laquo; Previous page (newer)</a>{% endif %}
+{% comment %}{% for pagenum in page_navigation %}{% ifequal pagenum page %}[{{ pagenum }}]{% else %}<a href="?page={{ pagenum }}">{{ pagenum }}</a>{% endifequal %} {% endfor %}{% endcomment %}
+</p>
+<div class="clear"></div>
+
+<h3>News index by date</h3>
+<ul>
+{% for year in date_list %}<li><a href="{{ year|date:"Y" }}/">{{ year|date:"Y" }}</a></li>{% endfor %}
+</ul>
+
+{% endblock %}

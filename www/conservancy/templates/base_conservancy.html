@@ -1,0 +1,41 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+
+  <head>
+    <title>{% block title %}{% block subtitle %}{% endblock %}Software Freedom Conservancy{% endblock %}</title>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta name="description" content="The Software Freedom Conservancy provides a non-profit home and services to Free, Libre and Open Source Software (FLOSS) projects." />
+    <meta name="keywords" content="software, law, open source, gnu, GNU, Open Source, Free and Open Source, Free and Open Source Software, FOSS, protect, protection, help, policy, privacy, Eben, Eben Moglen, Lawrence, Lawrence Lessig, Moglen, Lessig, Dan, Daniel Ravicher, Diane, Diane M. Peters, Peters, Open Source Development Labs, OSDL, Free Software Foundation, FSF, Stanford Law School, Harvard Law School, Berkman Center, Berkman Center for Internet and Society, law services, law, Daniel J. Weitzner, W3C, World Wide Web Consortium, Center for Democracy and Technology, CDT, Public Patent Foundation, PPF, MIT, internet, internet public policy, public policy, Electronic Frontier Foundation, EFF, software patents, Linux Foundation, linux" />
+    <link rel="stylesheet" type="text/css" media="screen, projection" href="/sfc.css" />
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+    {% block head %}{% endblock %}
+  </head>
+
+  <body class="sfc-{% block category %}other{% endblock %}">
+    <div id="sflcheader">
+      <h1><a href="/">Software Freedom Conservancy</a></h1>
+    </div>
+    <div id="navbar-outer">
+      <div id="navbar">
+	<ul>
+          <li class="overview"><a href="/overview/">Overview</a></li>
+	  <li class="members"><a href="/members/">Member Projects</a></li>
+          <li class="news"><a href="/news/">News</a></li>
+          <li class="directors"><a href="/about/team/board/">Directors</a></li>
+	  <li class="officers"><a href="/about/team/officers/">Officers</a></li>
+          <li class="contact"><a href="/about/contact/">Contact</a></li>
+	  <li class="donate"><a href="/donate/">Donations</a></li>
+	</ul>
+      </div>
+      <div id="navbar-clear"></div>
+    </div>
+    <div id="mainContent">
+      {% block outercontent %}<div class="singleColumn">{% block content %}{% endblock %}</div>{% endblock %}
+    </div>
+    <div id="sflcfooter">
+      <p><a href="/">Main Page</a> | <a href="/about/contact/">Contact</a> | <a href="/privacy-policy/">Privacy Policy</a> | <a href="/feeds/news/">News Feed</a></p>
+      <p class="copyright_info">This page is licensed under the <a href="http://creativecommons.org/licenses/by-nc-nd/2.0/">Creative Commons Attribution-NonCommercial-NoDerivs 2.0 license</a>.</p>
+    </div>
+  </body>
+</html>

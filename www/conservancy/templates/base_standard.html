@@ -1,0 +1,9 @@
+{% extends "base_conservancy.html" %}
+
+{% block outercontent %}
+<div class="internalNavigate">
+{% block internal_navigate %}{% endblock %}
+</div>
+
+<div class="singleColumn">{% block content %}{% endblock %}</div>
+{% endblock %}
