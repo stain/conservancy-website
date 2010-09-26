@@ -1,23 +1,31 @@
-NameVirtualHost 10.18.73.204:80
-#NameVirtualHost 10.18.73.204:443
+# Copyright (C) 2005-2009, Software Freedom Law Center, Inc.
+# Copyright (C) 2010, Bradley M. Kuhn
 
-<VirtualHost 10.18.73.204:80>
-   ServerName conservancy.softwarefreedom.org
-        ServerAdmin root@softwarefreedom.org
+#   This file is licensed under the ISC license.  See the toplevel file
+#   in this repository, ISC_LICENSE.  If you received this file separated
+#   from its repository, you should be able to find a copy of the license
+#   at: http://www.isc.org/software/license
+
+NameVirtualHost 10.10.11.21:80
+#NameVirtualHost 10.10.11.21:443
+
+<VirtualHost 10.10.11.21:80>
+   ServerName sfconservancy.org
+        ServerAdmin root@sfconservancy.org
 #        SSLCertificateFile /etc/apache2/ssl/apache.pem
-        DocumentRoot /var/www/external-website/conservancy/static
+        DocumentRoot /var/www/conservancy/static
 
-        <Directory /var/www/external-website/conservancy/static>
+        <Directory /var/www/conservancy/static>
              Options -Indexes FollowSymLinks -MultiViews
              Order allow,deny
              allow from all
              AllowOverride None
         </Directory>
 
-        PythonPath "['/var/www/external-website'] + sys.path"
+        PythonPath "['/var/www'] + sys.path"
         SetEnv DJANGO_SETTINGS_MODULE conservancy.settings
         PythonDebug Off
-        PythonPostReadRequestHandler sfcwrapper
+        PythonPostReadRequestHandler wrapper
 
         PythonOutputFilter modpythoncustom DJANGOTEMPLATE
         AddOutputFilter DJANGOTEMPLATE html
@@ -27,13 +35,13 @@ NameVirtualHost 10.18.73.204:80
         ErrorDocument 404 /404error.html
         ErrorDocument 500 /500error.html
 
-        ErrorLog /var/log/apache2/conservancy.softwarefreedom.org_error.log
+        ErrorLog /var/log/apache2/sfconservancy.org_error.log
 
         # Possible values include: debug, info, notice, warn, error, crit,
         # alert, emerg.
         LogLevel warn
 
-        CustomLog /var/log/apache2/conservancy.softwarefreedom.org_access.log combined
+        CustomLog /var/log/apache2/sfconservancy.org_access.log combined
         ServerSignature On
 
 </VirtualHost>
