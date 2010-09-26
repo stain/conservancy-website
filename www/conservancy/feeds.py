@@ -1,5 +1,5 @@
 from django.contrib.syndication.feeds import Feed
-from sflc.apps.news.models import PressRelease
+from conservancy.apps.news.models import PressRelease
 
 from django.shortcuts import render_to_response
 from django.conf import settings

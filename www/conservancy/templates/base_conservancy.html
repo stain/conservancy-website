@@ -6,14 +6,14 @@
     <title>{% block title %}{% block subtitle %}{% endblock %}Software Freedom Conservancy{% endblock %}</title>
     <meta http-equiv="content-type" content="text/html; charset=utf-8" />
     <meta name="description" content="The Software Freedom Conservancy provides a non-profit home and services to Free, Libre and Open Source Software (FLOSS) projects." />
-    <meta name="keywords" content="software, law, open source, gnu, GNU, Open Source, Free and Open Source, Free and Open Source Software, FOSS, protect, protection, help, policy, privacy, Eben, Eben Moglen, Lawrence, Lawrence Lessig, Moglen, Lessig, Dan, Daniel Ravicher, Diane, Diane M. Peters, Peters, Open Source Development Labs, OSDL, Free Software Foundation, FSF, Stanford Law School, Harvard Law School, Berkman Center, Berkman Center for Internet and Society, law services, law, Daniel J. Weitzner, W3C, World Wide Web Consortium, Center for Democracy and Technology, CDT, Public Patent Foundation, PPF, MIT, internet, internet public policy, public policy, Electronic Frontier Foundation, EFF, software patents, Linux Foundation, linux" />
-    <link rel="stylesheet" type="text/css" media="screen, projection" href="/sfc.css" />
+    <meta name="keywords" content="software, freedom, conservancy, open source, gnu, GNU, Open Source, Free and Open Source, Free and Open Source Software, FLOSS, FOSS, protect, protection, help, policy, linux, non-profit" />
+    <link rel="stylesheet" type="text/css" media="screen, projection" href="/conservancy.css" />
     <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
     {% block head %}{% endblock %}
   </head>
 
-  <body class="sfc-{% block category %}other{% endblock %}">
-    <div id="sflcheader">
+  <body class="conservancy-{% block category %}other{% endblock %}">
+    <div id="conservancyheader">
       <h1><a href="/">Software Freedom Conservancy</a></h1>
     </div>
     <div id="navbar-outer">
@@ -33,7 +33,7 @@
     <div id="mainContent">
       {% block outercontent %}<div class="singleColumn">{% block content %}{% endblock %}</div>{% endblock %}
     </div>
-    <div id="sflcfooter">
+    <div id="conservancyfooter">
       <p><a href="/">Main Page</a> | <a href="/about/contact/">Contact</a> | <a href="/privacy-policy/">Privacy Policy</a> | <a href="/feeds/news/">News Feed</a></p>
       <p class="copyright_info">This page is licensed under the <a href="http://creativecommons.org/licenses/by-nc-nd/2.0/">Creative Commons Attribution-NonCommercial-NoDerivs 2.0 license</a>.</p>
     </div>

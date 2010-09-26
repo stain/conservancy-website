@@ -1,5 +1,5 @@
 from django.shortcuts import render_to_response
-from sflc.apps.news.models import PressRelease
+from conservancy.apps.news.models import PressRelease
 from datetime import datetime, timedelta
 
 def view(request):

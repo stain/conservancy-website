@@ -8,5 +8,5 @@ urlpatterns = patterns('',
     (r'^feeds/(?P<url>.*)/$', 'django.contrib.syndication.views.feed',
      {'feed_dict': feed_dict}),
     (r'^feeds/$', 'conservancy.feeds.view'),
-    (r'^news/', include('sflc.apps.news.urls')),
+    (r'^news/', include('conservancy.apps.news.urls')),
 )
