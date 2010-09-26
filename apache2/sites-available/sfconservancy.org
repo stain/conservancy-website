@@ -33,7 +33,7 @@ NameVirtualHost 10.10.11.21:80
         PythonPath "['/var/www'] + sys.path"
         SetEnv DJANGO_SETTINGS_MODULE conservancy.settings
         PythonDebug Off
-        PythonPostReadRequestHandler wrapper
+        PythonPostReadRequestHandler conservancy_wrapper
 
         PythonOutputFilter modpythoncustom DJANGOTEMPLATE
         AddOutputFilter DJANGOTEMPLATE html
