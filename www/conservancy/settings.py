@@ -1,4 +1,4 @@
-# Copyright 2005-2008, Software Freedom Law Center, Inc.
+# Copyright 2005-2008, James Garrison
 # Copyright 2010, Bradley M. Kuhn
 
 # This software's license gives you freedom; you can copy, convey,
