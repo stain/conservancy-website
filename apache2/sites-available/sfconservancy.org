@@ -1,5 +1,5 @@
-# Copyright (C) 2005-2009, Software Freedom Law Center, Inc.
-# Copyright (C) 2010, Bradley M. Kuhn
+# Copyright (C) 2005-2009, Jim Garrison
+# Copyright (C) 2009, 2010, Bradley M. Kuhn
 
 # Permission to use, copy, modify, distribute and/or distributed modified
 # versions of this software for any purpose with or without fee is hereby
