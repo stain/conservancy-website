@@ -1,0 +1,39 @@
+NameVirtualHost 10.18.73.204:80
+#NameVirtualHost 10.18.73.204:443
+
+<VirtualHost 10.18.73.204:80>
+   ServerName conservancy.softwarefreedom.org
+        ServerAdmin root@softwarefreedom.org
+#        SSLCertificateFile /etc/apache2/ssl/apache.pem
+        DocumentRoot /var/www/external-website/conservancy/static
+
+        <Directory /var/www/external-website/conservancy/static>
+             Options -Indexes FollowSymLinks -MultiViews
+             Order allow,deny
+             allow from all
+             AllowOverride None
+        </Directory>
+
+        PythonPath "['/var/www/external-website'] + sys.path"
+        SetEnv DJANGO_SETTINGS_MODULE conservancy.settings
+        PythonDebug Off
+        PythonPostReadRequestHandler sfcwrapper
+
+        PythonOutputFilter modpythoncustom DJANGOTEMPLATE
+        AddOutputFilter DJANGOTEMPLATE html
+
+        ErrorDocument 401 /401error.html
+        ErrorDocument 403 /403error.html
+        ErrorDocument 404 /404error.html
+        ErrorDocument 500 /500error.html
+
+        ErrorLog /var/log/apache2/conservancy.softwarefreedom.org_error.log
+
+        # Possible values include: debug, info, notice, warn, error, crit,
+        # alert, emerg.
+        LogLevel warn
+
+        CustomLog /var/log/apache2/conservancy.softwarefreedom.org_access.log combined
+        ServerSignature On
+
+</VirtualHost>
