@@ -20,14 +20,8 @@
 from djangocommonsettings import *
 
 SITE_ID = 2
-MEDIA_ROOT = '/var/www/conservancy/static/media/'
-MEDIA_URL = 'http://sfconservancy.org/media'
 ROOT_URLCONF = 'conservancy.urls'
 FORCE_CANONICAL_HOSTNAME = "sfconservancy.org"
-
-TEMPLATE_DIRS = (
-    '/var/www/conservancy/templates',
-)
 
 try:
     from djangodebug import conservancy_hostname as FORCE_CANONICAL_HOSTNAME
