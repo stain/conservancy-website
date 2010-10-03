@@ -46,13 +46,14 @@ h2 { border-bottom: 1px solid #aaa; }
 /* Header */
 
 #conservancyheader {
-  height: 90px;
+  height: 50px;
 /*  background-color: #d1ff96; */
-  background-color: #92CC58;
-  background-color: #BDD8A2;
+/*  background-color: #92CC58; */
+/*  background-color: #BDD8A2; */
+  background-color: #ffffff;
   border-bottom: 1px solid #808080;
-  font-size: 4em;
-  display: block;
+  font-size: 300%;
+  padding-top: 40px;
 }
 
 #logobutton {
