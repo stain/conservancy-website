@@ -47,8 +47,11 @@ h2 { border-bottom: 1px solid #aaa; }
 
 #conservancyheader {
   height: 90px;
-  background-color: #d1ff96;
+/*  background-color: #d1ff96; */
+  background-color: #92CC58;
   border-bottom: 1px solid #808080;
+  font-size: 6em;
+  margin-right: 3px;
 }
 
 #logobutton {
