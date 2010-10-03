@@ -46,7 +46,7 @@ h2 { border-bottom: 1px solid #aaa; }
 /* Header */
 
 #conservancyheader {
-  height: 80px;
+  height: 140px;
 /*  background-color: #d1ff96; */
 /*  background-color: #92CC58; */
 /*  background-color: #BDD8A2; */
@@ -54,18 +54,10 @@ h2 { border-bottom: 1px solid #aaa; }
 /*  background-color: #b5cd9d; */
   background-color: #afe578;
   border-bottom: 1px solid #808080;
-  padding-top: 60px;
 }
 #conservancyheader h1 {
-  text-indent: 160px;
-  margin: 0;
-  margin-left: 160px;
-  line-height: 100px;
-}
-#conservancyheader h1 a {
   text-indent: -5000px;
   margin: 0; /* hide in favor of image */
-  color: #afe578;
 }
 #logobutton {
   display: block;
