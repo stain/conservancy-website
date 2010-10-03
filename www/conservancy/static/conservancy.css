@@ -50,10 +50,19 @@ h2 { border-bottom: 1px solid #aaa; }
 /*  background-color: #d1ff96; */
 /*  background-color: #92CC58; */
 /*  background-color: #BDD8A2; */
-  background-color: #ffffff;
+  background-color: #92cc58;
   border-bottom: 1px solid #808080;
-  font-size: 300%;
   padding-top: 40px;
+}
+#conservancyheader h1 {
+  text-indent: 0;
+  margin: 0;
+  margin-left: 104px;
+  line-height: 60px;
+  font-size: 200%;
+}
+#conservancyheader h1 a {
+  color: #000;
 }
 
 #logobutton {
@@ -174,17 +183,6 @@ span.subsectionToc { padding-left: 4em; }
 span.subsubsectionToc { padding-left: 6em;}
 .js, .js p, .js p.bibitem, .js p.bibitem-p { background-color: #cde7e9; }
 
-
-#conservancyheader h1 {
-  text-indent: 0;
-  margin: 0;
-  margin-left: 104px;
-  line-height: 72px;
-}
-
-#conservancyheader h1 a {
-  color: #000;
-}
 
 body.conservancy-overview #navbar ul li.overview a,
 body.conservancy-members #navbar ul li.members a,
