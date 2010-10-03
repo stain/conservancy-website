@@ -51,7 +51,8 @@ h2 { border-bottom: 1px solid #aaa; }
 /*  background-color: #92CC58; */
 /*  background-color: #BDD8A2; */
 /*  background-color: #92cc58; */
-  background-color: #b5cd9d;
+/*  background-color: #b5cd9d; */
+  background-color: #afe578;
   border-bottom: 1px solid #808080;
   padding-top: 40px;
 }
@@ -60,7 +61,6 @@ h2 { border-bottom: 1px solid #aaa; }
   margin: 0;
   margin-left: 104px;
   line-height: 50px;
-  font-size: 200%;
 }
 #conservancyheader h1 a {
   color: #000;
