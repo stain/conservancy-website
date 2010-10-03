@@ -24,7 +24,6 @@ h3 { margin-top: .6em; margin-bottom: .4em; }
 #mainContent h1 { border-bottom: 1px solid #00334b; }
 h2 { border-bottom: 1px solid #aaa; }
 
-#mainContent { clear: both; margin-left: 79px; padding: 4px 25px; }
 #mainContent ul, #mainContent ol { padding-left: 1.5em; }
 
 #mainContent img { margin: 3px; }
@@ -94,6 +93,44 @@ body.conservancy-contact #navbar ul li.contact a,
 body.conservancy-donate #navbar ul li.donate a /* NO COMMA HERE! */
       { background: #fff url(/img/nav-bg-up.png) top repeat-x; color: #000; }
 
+#container {
+    width: 100%;
+}
+#container #mainContent {
+    background: #fffff;
+    margin-left: 200px;
+    padding-bottom: 32767px;
+    margin-bottom: -32767px;
+}
+#container #sidebar {
+    width: 200px;
+    float: left;
+    background-color: #e5e5e5; 
+    padding-bottom: 32767px;
+    margin-bottom: -32767px;
+}
+#container #sidebar li {
+    text-align: center;
+    list-style: none;
+    padding: 3px 10px 3px 10px; 
+    margin: 5px; 
+    border: 1px solid #CCC;
+}
+#container #sidebar li#selected {
+    color: #000033;
+    font-weight: bold;
+}
+#container #sidebar h2 {
+    text-align: center;
+    font-size: 140%;
+    margin: 1.5em 0 0.8em 0;
+}
+#container #sidebar hr {
+    width: 75%;
+    float: center;
+    clear: all;
+}
+
 /* Navbar Submenus (currently unused) */
 #navbar li ul { display: none; border: 1px solid #444; }
 #navbar li:hover ul { display: block; position: absolute; }
@@ -101,8 +138,6 @@ body.conservancy-donate #navbar ul li.donate a /* NO COMMA HERE! */
 #navbar li ul li a { border: 0px; margin: 0px; }
 
 .shaded { background: #ffeab7; padding: .1em .5em; margin-bottom: .5em; }
-
-.singleColumn { width: 79%; }
 
 .columns { margin: 0; }
 
