@@ -11,7 +11,7 @@ p, h1, h2, h3, h4, h5, h6, #mainContent ul, #mainContent ol {
 
 body {
   font-family: "Lucida Grande",Verdana,Lucida,Helvetica,Arial,sans-serif;
-  font-size: 90%;
+  font-size: 95%;
 }
 
 a { text-decoration: none; color: #146624; }
@@ -22,7 +22,7 @@ h2 { margin-top: .75em; margin-bottom: .5em; }
 h3 { margin-top: .6em; margin-bottom: .4em; }
 
 #mainContent h1 { border-bottom: 1px solid #00334b; }
-h2 { border-bottom: 1px solid #aaa; }
+#mainContent h2 { border-bottom: 1px solid #aaa; }
 
 #mainContent ul, #mainContent ol { padding-left: 1.5em; }
 
@@ -93,36 +93,51 @@ body.conservancy-contact #navbar ul li.contact a,
 body.conservancy-donate #navbar ul li.donate a /* NO COMMA HERE! */
       { background: #fff url(/img/nav-bg-up.png) top repeat-x; color: #000; }
 
+#mainContent {
+    margin-left: 50px;
+    margin-right: 50px;
+}
+
 #container {
     width: 100%;
+    overflow: hidden;
 }
 #container #mainContent {
     background: #fffff;
-    margin-left: 200px;
+    margin-left: 210px;
+    margin-right: 50px;
     padding-bottom: 32767px;
     margin-bottom: -32767px;
 }
 #container #sidebar {
     width: 200px;
     float: left;
-    background-color: #e5e5e5; 
     padding-bottom: 32767px;
     margin-bottom: -32767px;
+    background-color: #e5e5e5; 
 }
+
 #container #sidebar li {
     text-align: center;
     list-style: none;
     padding: 3px 10px 3px 10px; 
     margin: 5px; 
     border: 1px solid #CCC;
+    background: #fff url(/img/nav-bg.png) bottom repeat-x;
 }
-#container #sidebar li#selected {
+
+#container #sidebar.Directors ul li.Directors,
+#container #sidebar.Contact ul li.Contact,
+#container #sidebar.Officers ul li.Officers,
+#container #sidebar.Staff ul li.Staff
+{
     color: #000033;
     font-weight: bold;
+    background: #fff url(/img/nav-bg-up.png) top repeat-x; color: #000;
 }
 #container #sidebar h2 {
     text-align: center;
-    font-size: 140%;
+    font-size: 150%;
     margin: 1.5em 0 0.8em 0;
 }
 #container #sidebar hr {
@@ -212,12 +227,13 @@ span.subsectionToc { padding-left: 4em; }
 span.subsubsectionToc { padding-left: 6em;}
 .js, .js p, .js p.bibitem, .js p.bibitem-p { background-color: #cde7e9; }
 
-
 body.conservancy-overview #navbar ul li.overview a,
 body.conservancy-members #navbar ul li.members a,
 body.conservancy-news #navbar ul li.news a,
-body.conservancy-directors #navbar ul li.directors a,
+body.conservancy-About #navbar ul li.About a,
 body.conservancy-officers #navbar ul li.officers a,
 body.conservancy-contact #navbar ul li.contact a,
 body.conservancy-donate #navbar ul li.donate a /* NO COMMA HERE! */
-  { background: #fff url(http://www.softwarefreedom.org/img/nav-bg-up.png) top repeat-x; color: #000; }
+{ 
+    font-weight: bold;
+    background: #fff url(/img/nav-bg-up.png) top repeat-x; color: #000; }
