@@ -9,4 +9,5 @@ urlpatterns = patterns('',
      {'feed_dict': feed_dict}),
     (r'^feeds/$', 'conservancy.feeds.view'),
     (r'^news/', include('conservancy.apps.news.urls')),
+    (r'^blog/', include('conservancy.apps.blog.urls')),
 )
