@@ -1,0 +1,16 @@
+{% extends "base_blog.html" %}
+
+{% block subtitle %}Conservancy Blog Archive: {{ year }} - {% endblock %}
+
+{% block content %}
+
+<h2>Conservancy Blog Archive: {{ year }}</h2>
+
+<ul>
+{% for object in object_list %}
+    <li><a href="{{ object.get_absolute_url }}"><b>{{ object.headline|safe }}</b></a><br/>
+    <i>{{ object.pub_date|date:"F j, Y" }} by {{ object.author.formal_name }}</i></li>
+{% endfor %}
+</ul>
+
+{% endblock %}

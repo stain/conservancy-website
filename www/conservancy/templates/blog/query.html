@@ -1,0 +1,75 @@
+{% extends "base_blog.html" %}
+{% block subtitle %}Conservancy Blog Query - {% endblock %}
+
+{% block head %}
+<script type="text/javascript" src="/js/jquery-1.2.min.js"></script>
+<script type="text/javascript">
+$(function () {
+    function my_display (sel, b) {
+        if (b) { sel.slideDown(); }
+        else { sel.slideUp(); }
+    }
+
+    function my_display_instantly (sel, b) {
+        if (b) { sel.show(); }
+        else { sel.hide(); }
+    }
+
+    $("#all_authors").click(function () {
+        my_display($("#authors"), !this.checked);
+    });
+    $("#all_tags").click(function () {
+        my_display($("#tags"), !this.checked);
+    });
+
+    my_display_instantly($("#authors"), !$("#all_authors").attr("checked"));
+    my_display_instantly($("#tags"), !$("#all_tags").attr("checked"));
+});
+</script>
+<style type="text/css">
+div.query_indent { padding-left: 2em; }
+div.query_indent table tr td { padding-right: 3em; padding-bottom: .3em; }
+</style>
+{% endblock %}
+
+{% block content %}
+
+<form>
+
+<p>Return posts written by any of these authors...</p>
+
+<div class="query_indent">
+
+<p><input type="checkbox" name="all" value="authors" id="all_authors"/> <label>All authors</label></p>
+
+<table id="authors"><tr><td>
+{% for author in authors %}
+<input type="checkbox" name="author" value="{{ author.username}}"/> <label>{{ author.formal_name }}</label>{% cycle </td><td>,</td><td>,</td></tr><tr><td> %}
+{% endfor %}
+</td></tr></table>
+
+</div>
+
+<p>marked with any of these tags...</p>
+
+<div class="query_indent">
+
+<p><input type="checkbox" name="all" value="tags" id="all_tags"/> <label>All tags</label></p>
+
+<table id="tags"><tr><td>
+{% for tag in tags %}
+<input type="checkbox" name="tag" value="{{ tag.slug }}"/> <label>{{ tag.label }}</label>{% cycle </td><td>,</td><td>,</td></tr><tr><td> %}
+{% endfor %}
+</td></tr></table>
+
+</div>
+
+<p><input type="submit" value="View blog entries"/></p>
+<p><input type="submit" value="View RSS feed" name="rss"/></p>
+
+</form>
+
+{% endblock %}
+
+{# get rid of side bar #}
+{% block internal_navigate %}{% endblock %}

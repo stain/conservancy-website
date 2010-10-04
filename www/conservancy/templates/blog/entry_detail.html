@@ -1,0 +1,16 @@
+{% extends "base_blog.html" %}
+
+{% block subtitle %}{{ object.headline|striptags }} - Conservancy Blog - {% endblock %}
+
+{% block content %}
+
+<p class="date">{{ object.pub_date|date:"F j, Y" }} by {{ object.author.formal_name }}</p>
+<h2>{{ object.headline|safe }}</h2>
+{{ object.body|safe }}
+<p><i>Posted by <strong>{{ object.author.formal_name }}</strong> on {{ object.pub_date|date:"F j, Y" }}.  Please email any comments on this entry to press@softwarefreedom.org</a>.</i></p>
+
+{% if object.tags.all %}<p class="blog-tags">Tags: {% for tag in object.tags.all %}<a href="{{ tag.get_absolute_url }}">{{ tag.label }}</a>{% if not forloop.last %}, {% endif %}{% endfor %}</p>{% endif %}
+
+<p><span class="continued"><a href="/blog/">Other Conservancy Blog entries...</a></span></p>
+
+{% endblock %}
