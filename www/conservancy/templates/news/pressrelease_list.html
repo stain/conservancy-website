@@ -1,12 +1,17 @@
 {% extends "base_news.html" %}
-
+{% block category %}News{% endblock %}
 {% block subtitle %}News - {% endblock %}
 
-{% block content %}
-
-<div id="mainContent">
-
-<h1><a href="/feeds/news/" class="feedlink"><img src="/img/feed-icon-14x14.png" alt="[RSS]"/></a> Conservancy News</h1>
+{% block outercontent %}
+    <div id="container">
+         <div id="sidebar" class="{% block submenuselection %}other{% endblock %}">
+         <h2>News Index by Year</h3>
+         <ul>
+         {% for year in date_list reversed %}<li class="{{ year|date:"Y" }}"><a href="{{ year|date:"Y" }}/">{{ year|date:"Y" }}</a></li>{% endfor %}
+         </ul>
+         </div>
+         <div id="mainContent">
+         <h1><a href="/feeds/news/" class="feedlink"><img src="/img/feed-icon-14x14.png" alt="[RSS]"/></a> Conservancy News</h1>
 
 
 {% ifnotequal page 1 %}<p>(page {{ page }} of {{ pages }})</p>{% endifnotequal %}
@@ -28,11 +33,7 @@
 {% if has_previous %}<a href="?page={{ previous }}">&laquo; Previous page (newer)</a>{% endif %}
 {% comment %}{% for pagenum in page_navigation %}{% ifequal pagenum page %}[{{ pagenum }}]{% else %}<a href="?page={{ pagenum }}">{{ pagenum }}</a>{% endifequal %} {% endfor %}{% endcomment %}
 </p>
+ </div>
 <div class="clear"></div>
 
-<h3>News index by date</h3>
-<ul>
-{% for year in date_list %}<li><a href="{{ year|date:"Y" }}/">{{ year|date:"Y" }}</a></li>{% endfor %}
-</ul>
-</div>
 {% endblock %}
