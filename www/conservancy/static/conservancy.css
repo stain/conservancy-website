@@ -81,18 +81,6 @@ h3 { margin-top: .6em; margin-bottom: .4em; }
 #navbar li:hover a { background: #fff99d; }
 #navbar li { float: left; display: inline; margin-bottom: 3px; }
 
-/* Highlight current location on navbar */
-body.conservancy-about #navbar ul li.about a,
-body.conservancy-news #navbar ul li.news a,
-body.conservancy-blog #navbar ul li.blog a,
-body.conservancy-podcast #navbar ul li.podcast a,
-body.conservancy-services #navbar ul li.services a,
-body.conservancy-resources #navbar ul li.resources a,
-body.conservancy-technology #navbar ul li.technology a,
-body.conservancy-contact #navbar ul li.contact a,
-body.conservancy-donate #navbar ul li.donate a /* NO COMMA HERE! */
-      { background: #fff url(/img/nav-bg-up.png) top repeat-x; color: #000; }
-
 #mainContent {
     margin-left: 50px;
     margin-right: 50px;
@@ -240,4 +228,4 @@ body.conservancy-contact #navbar ul li.contact a,
 body.conservancy-donate #navbar ul li.donate a /* NO COMMA HERE! */
 { 
     font-weight: bold;
-    background: #fff url(/img/nav-bg-up.png) top repeat-x; color: #000; }
+    background: #fafafe url(/img/nav-bg-up.png) top repeat-x; color: #000; }
