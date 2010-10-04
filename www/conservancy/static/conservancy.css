@@ -129,7 +129,10 @@ body.conservancy-donate #navbar ul li.donate a /* NO COMMA HERE! */
 #container #sidebar.Directors ul li.Directors,
 #container #sidebar.Contact ul li.Contact,
 #container #sidebar.Officers ul li.Officers,
-#container #sidebar.Staff ul li.Staff
+#container #sidebar.Staff ul li.Staff,
+#container #sidebar.Current ul li.Current,
+#container #sidebar.Services ul li.Services,
+#container #sidebar.Applying ul li.Applying
 {
     color: #000033;
     font-weight: bold;
