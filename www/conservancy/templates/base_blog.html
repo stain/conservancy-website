@@ -1,4 +1,4 @@
-{% extends "base_standard.html" %}
+{% extends "base_conservancy.html" %}
 
 {% block category %}blog{% endblock %}
 
@@ -6,9 +6,10 @@
 <link rel="alternate" type="application/rss+xml" title="RSS" href="/feeds/blog/" />
 {% endblock %}
 
-{% block internal_navigate %}
-
-<h3>Authors</h3>
+{% block outercontent %}
+ <div id="container">
+         <div id="sidebar" class="{% block submenuselection %}other{% endblock %}">
+<h2>Authors</h2>
 <ul>
 {% for author in all_authors %}
 <li><a href="/blog/?author={{ author.username }}">{{ author.formal_name }}</a>
@@ -16,7 +17,7 @@
 {% endfor %}
 </ul>
 
-<h3>Tags</h3>
+<h2>Tags</h2>
 <ul>
 {% for tag in all_tags %}
 <li><a href="{{ tag.get_absolute_url }}">{{ tag.label }}</a>
@@ -24,7 +25,10 @@
 {% endfor %}
 </ul>
 
-<p><a href="/blog/">All posts...</a></p>
-<p><a href="/blog/query/">Query...</a></p>
-
+<h2><a href="/blog/">See all posts&hellip;</a></h2>
+<!-- <p><a href="/blog/query/">Query...</a></p> !--->
+         </div>
+               <div id="mainContent">{% block content %}{% endblock %}
+               </div>
+   </div>
 {% endblock %}
