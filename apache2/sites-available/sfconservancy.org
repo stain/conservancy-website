@@ -30,6 +30,13 @@ NameVirtualHost 10.10.11.21:80
              AllowOverride None
         </Directory>
 
+        <Directory /var/www/conservancy/static/source>
+             Options Indexes FollowSymLinks -MultiViews
+             Order allow,deny
+             allow from all
+             AllowOverride None
+        </Directory>
+
         PythonPath "['/var/www'] + sys.path"
         SetEnv DJANGO_SETTINGS_MODULE conservancy.settings
         PythonDebug Off

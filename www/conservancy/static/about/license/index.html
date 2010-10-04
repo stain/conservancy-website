@@ -1,0 +1,30 @@
+{% extends "base_about.html" %}
+{% block subtitle %}License and Sources - {% endblock %}
+{% block submenuselection %}License{% endblock %}
+{% block content %}
+<h1>License and Source For This Website</h1>
+
+<p>The software running this website is licensed under
+  the <a href="http://www.gnu.org/licenses/agpl-3.0.html">AGPLv3</a>-or-later.
+  You can find a <a href="/source/">full copy of the sources hosted on
+  this site</a>, but it may be more interesting to know that the site is
+  running on stock Debian lenny with Apache, Django, mod_python, and
+  sqlite installed, and that the main sources for the site's code itself
+  is <a href="http://gitorious.org/conservancy/website">hosted on
+  gitorious</a>.</p>
+
+<p>The documents on this website are
+  licensed as <a href="http://creativecommons.org/licenses/by-sa/3.0/">CC-By-SA-3.0
+  Unported</a>.  In some cases, the documents are dual-licensed
+  (AGPLv3-or-later|CC-By-SA-3.0-Unported-or-later), to make it more
+  convenient to intermix the document with code.</p>
+
+<p>Conservancy's Logo is also licensed
+  under <a href="http://creativecommons.org/licenses/by-sa/3.0/">CC-By-SA-3.0
+  Unported</a>.  A <a href="/img/conservancy-logo_7000x6960.png">high
+  quality PNG</a> and an <a href="/img/conservancy-logo.svg">SVG</a>
+  version are available.  We would like to
+  thank <a href="http://identi.ca/fabsh">Fabian A. Scherschel</a>, who
+  designed the Conservancy logo.</p>
+
+{% endblock %}
