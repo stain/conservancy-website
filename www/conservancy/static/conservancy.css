@@ -145,10 +145,23 @@ h3 { margin-top: .6em; margin-bottom: .4em; }
 
 .shaded { background: #ffeab7; padding: .1em .5em; margin-bottom: .5em; }
 
-.columns { margin: 0; }
+.columns {
+    width: 100%;
+    overflow: hidden;
+}
 
-.column-small { width: 31%; }
-.column-large { width: 66%; }
+.column-small {
+    width: 31%;
+    padding-bottom: 32767px;
+    margin-bottom: -32767px;
+ }
+.column-large {
+    margin-left: 35%;
+    margin-right: 50px;
+    padding-bottom: 32767px;
+    margin-bottom: -32767px;
+}
+
 .column-left { float: left; }
 .column-right { float: right; }
 
