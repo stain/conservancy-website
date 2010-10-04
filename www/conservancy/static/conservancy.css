@@ -223,8 +223,6 @@ body.conservancy-Members #navbar ul li.Members a,
 body.conservancy-news #navbar ul li.news a,
 body.conservancy-blog #navbar ul li.blog a,
 body.conservancy-About #navbar ul li.About a,
-body.conservancy-officers #navbar ul li.officers a,
-body.conservancy-contact #navbar ul li.contact a,
 body.conservancy-donate #navbar ul li.donate a /* NO COMMA HERE! */
 { 
     color: #000033;
