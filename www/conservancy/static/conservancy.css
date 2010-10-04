@@ -124,7 +124,7 @@ h3 { margin-top: .6em; margin-bottom: .4em; }
 {
     color: #000033;
     font-weight: bold;
-    background: #fff url(/img/nav-bg-up.png) top repeat-x; color: #000;
+    background: #fff url(/img/nav-bg-up.png) top repeat-x;
 }
 #container #sidebar h2 {
     text-align: center;
@@ -227,5 +227,7 @@ body.conservancy-officers #navbar ul li.officers a,
 body.conservancy-contact #navbar ul li.contact a,
 body.conservancy-donate #navbar ul li.donate a /* NO COMMA HERE! */
 { 
+    color: #000033;
     font-weight: bold;
-    background: #fafafe url(/img/nav-bg-up.png) top repeat-x; color: #000; }
+    background: #fff url(/img/nav-bg-up.png) top repeat-x;
+}
