@@ -12,10 +12,12 @@ p, h1, h2, h3, h4, h5, h6, #mainContent ul, #mainContent ol {
 body {
 /*  font-family: "Lucida Grande",Verdana,Lucida,Helvetica,Arial,sans-serif; */
   font-size: 95%;
+  background-color: #0000;
+  color: #ffff;
 }
 
-a { text-decoration: none; color: #146624; }
-a:hover { text-decoration: underline; color: #665f14; }
+a { text-decoration: none; color: #557733; }
+a:hover { text-decoration: underline; color: #3B6337; }
 
 h1 { margin-top: .75em; margin-bottom: .5em; }
 h2 { margin-top: .75em; margin-bottom: .5em; }
@@ -31,16 +33,6 @@ h3 { margin-top: .6em; margin-bottom: .4em; }
 .internalNavigate { width: 19%; float: right; }
 #mainContent .internalNavigate ul { list-style-type: none; padding-left: 0; }
 .internalNavigate ul li { margin-top: .3em; margin-bottom: .3em; }
-
-.affiliate-link { float: right; }
-#affiliate-conservancy, #affiliate-mr {
-  padding: 2px 10px;
-  white-space: nowrap;
-  font-size: x-small;
-  text-align: right;
-}
-#affiliate-conservancy { background: #d4ff9d; }
-#affiliate-mr { background: #ddd; }
 
 /* Header */
 
@@ -65,7 +57,7 @@ h3 { margin-top: .6em; margin-bottom: .4em; }
 }
 
 /* Navigation bar */
-#navbar-outer { background: #CDDBDC; }
+#navbar-outer { background: #B3D4A3; }
 #navbar { margin-left: 104px; margin-top: 3px; float: left; display: inline; }
 #navbar ul { list-style: none; }
 #navbar-clear { clear: both; border-bottom: 1px solid #808080; }
@@ -78,7 +70,7 @@ h3 { margin-top: .6em; margin-bottom: .4em; }
   font-size: .8em;
   background: #fff url(/img/nav-bg.png) bottom repeat-x;
 }
-#navbar li:hover a { background: #fff99d; }
+#navbar li:hover a { background: #3b6337; color: #fff; }
 #navbar li { float: left; display: inline; margin-bottom: 3px; }
 
 #mainContent {
@@ -102,7 +94,7 @@ h3 { margin-top: .6em; margin-bottom: .4em; }
     float: left;
     padding-bottom: 32767px;
     margin-bottom: -32767px;
-    background-color: #e5e5e5; 
+    background-color: #ccd4a3; 
 }
 
 #container #sidebar li {
@@ -113,6 +105,7 @@ h3 { margin-top: .6em; margin-bottom: .4em; }
     border: 1px solid #CCC;
     background: #fff url(/img/nav-bg.png) bottom repeat-x;
 }
+#container #sidebar li:hover a { background: #3b6337; color: #fff; }
 
 #container #sidebar.Directors ul li.Directors,
 #container #sidebar.Contact ul li.Contact,
@@ -143,7 +136,7 @@ h3 { margin-top: .6em; margin-bottom: .4em; }
 #navbar li ul li { float: none; }
 #navbar li ul li a { border: 0px; margin: 0px; }
 
-.shaded { background: #ffeab7; padding: .1em .5em; margin-bottom: .5em; }
+.shaded { background: #F0FFB8; padding: .1em .5em; margin-bottom: .5em; }
 
 .columns {
     width: 100%;
