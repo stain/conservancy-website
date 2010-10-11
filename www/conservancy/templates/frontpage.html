@@ -45,6 +45,7 @@
 </div>
 
 <div class="column column-large">
+{% if press_releases.0 %}
 {% if press_releases.0.pub_date|date_within_past_days:30 %}
 <div class="shaded">
 <h2><a href="/feeds/news/" class="feedlink"><img src="/img/feed-icon-14x14.png" alt="[RSS]"/></a> <a href="/news/">Recent News</a></h2>
@@ -52,14 +53,26 @@
 <h3><a href="{{ press_releases.0.get_absolute_url }}">{{ press_releases.0.headline|safe }}</a></h3>
 {{ press_releases.0.summary|safe }}
 {% if press_releases.0.body %}<p><span class="continued"><a href="{{ press_releases.0.get_absolute_url }}">Read More...</a></span></p>{% endif %}
+{% if press_releases.1 %}
 {% if press_releases.1.pub_date|date_within_past_days:15 %}
 <hr/>
 <p class="date">{{ press_releases.1.pub_date|date:"F j, Y" }}</p>
 <h3><a href="{{ press_releases.1.get_absolute_url }}">{{ press_releases.1.headline|safe }}</a></h3>
 {{ press_releases.1.summary|safe }}
-{% if press_releases.1.body %}<p><span class="continued"><a href="{{ press_releases.0.get_absolute_url }}">Read More...</a></span></p>{% endif %}
+{% if press_releases.1.body %}<p><span class="continued"><a href="{{ press_releases.1.get_absolute_url }}">Read More...</a></span></p>{% endif %}
+{% endif %}
+{% endif %}
+{% if press_releases.2 %}
+{% if press_releases.2.pub_date|date_within_past_days:10 %}
+<hr/>
+<p class="date">{{ press_releases.2.pub_date|date:"F j, Y" }}</p>
+<h3><a href="{{ press_releases.2.get_absolute_url }}">{{ press_releases.2.headline|safe }}</a></h3>
+{{ press_releases.2.summary|safe }}
+{% if press_releases.2.body %}<p><span class="continued"><a href="{{ press_releases.2.get_absolute_url }}">Read More...</a></span></p>{% endif %}
+{% endif %}
 {% endif %}
 </div>
+{% endif %}
 {% endif %}
 <p><span class="continued"><a href="/news/">Conservancy News
       Archive&hellip;</a></p>
