@@ -23,6 +23,10 @@ SITE_ID = 2
 ROOT_URLCONF = 'conservancy.urls'
 FORCE_CANONICAL_HOSTNAME = "sfconservancy.org"
 
+REDIRECT_TABLE = {
+    'www.sf-conservancy.org': 'sfconservancy.org',
+}
+
 try:
     from djangodebug import conservancy_hostname as FORCE_CANONICAL_HOSTNAME
 except:
