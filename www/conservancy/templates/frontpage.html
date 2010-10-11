@@ -52,6 +52,13 @@
 <h3><a href="{{ press_releases.0.get_absolute_url }}">{{ press_releases.0.headline|safe }}</a></h3>
 {{ press_releases.0.summary|safe }}
 {% if press_releases.0.body %}<p><span class="continued"><a href="{{ press_releases.0.get_absolute_url }}">Read More...</a></span></p>{% endif %}
+{% if press_releases.1.pub_date|date_within_past_days:15 %}
+<hr/>
+<p class="date">{{ press_releases.1.pub_date|date:"F j, Y" }}</p>
+<h3><a href="{{ press_releases.1.get_absolute_url }}">{{ press_releases.1.headline|safe }}</a></h3>
+{{ press_releases.1.summary|safe }}
+{% if press_releases.1.body %}<p><span class="continued"><a href="{{ press_releases.0.get_absolute_url }}">Read More...</a></span></p>{% endif %}
+{% endif %}
 </div>
 {% endif %}
 <p><span class="continued"><a href="/news/">Conservancy News
