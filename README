@@ -7,7 +7,7 @@ dogwood.sfconservancy.org, which is a standard Debian installation.
 The following packages are installed to make Django and Apache work on a
 lenny install:
 
-$ aptitude install python-django apache2 sqlite3 python2.5-sqlite
+$ aptitude install python-django apache2 sqlite3 python2.5-sqlite libapache2-mod-python
 
 
 
