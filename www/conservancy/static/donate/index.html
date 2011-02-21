@@ -15,10 +15,10 @@
   directed donation programs can found on the individual websites
   of our <a href="/members/">members</a>.</p>
 
-<h3>Donate via Google Checkout</h3>
+<h3>Donate via Google Checkout (including Visa, Mastercard, AMEX, or Discover)</h3>
 
 <p>Donating via Google Checkout puts more of your donation to work, since
-  Google charges no Checkout fees to 501(c)(3) organizations.</p>
+  Google charges no checkout fees to 501(c)(3) organizations like ours!.</p>
  
 <script type="text/javascript"> 
 function validateAmount(amount){
@@ -31,10 +31,9 @@ function validateAmount(amount){
 	}
 }
 </script>
-
-<form action="https://checkout.google.com/cws/v2/Donations/622836985124940/checkoutForm" id="BB_BuyButtonForm" method="post" name="BB_BuyButtonForm" onSubmit="return validateAmount(this.item_price_1)">
-    <input name="item_name_1" type="hidden" value="Software Freedom Conservancy, 501(c)(3) Charity"/>
-    <input name="item_description_1" type="hidden" value="Your general fund donation helps support the Conservancy&apos;s work providing services to its member project."/>
+<form action="https://checkout.google.com/cws/v2/Donations/622836985124940/checkoutForm" id="BB_BuyButtonForm" method="post" name="BB_BuyButtonForm" onSubmit="return validateAmount(this.item_price_1)" target="_top">
+    <input name="item_name_1" type="hidden" value="Donation supporting the Software Freedom Conservancy, Inc."/>
+    <input name="item_description_1" type="hidden" value="This donation is to the Software Freedom Conservancy, Inc., a 501(c)(3) non-profit organization incorporated in New York."/>
     <input name="item_quantity_1" type="hidden" value="1"/>
     <input name="item_currency_1" type="hidden" value="USD"/>
     <input name="item_is_modifiable_1" type="hidden" value="true"/>
@@ -43,7 +42,7 @@ function validateAmount(amount){
     <input name="_charset_" type="hidden" value="utf-8"/>
     <table cellpadding="5" cellspacing="0" width="1%">
         <tr>
-            <td align="right" nowrap="nowrap" width="1%">&#x24; <input id="item_price_1" name="item_price_1" onfocus="this.style.color=&apos;black&apos;; this.value=&apos;&apos;;" size="6" type="text" value="50.00"/>
+            <td align="right" nowrap="nowrap" width="1%">&#x24; <input id="item_price_1" name="item_price_1" onfocus="this.style.color='black'; this.value='';" size="6" type="text" value="100.00"/>
             </td>
             <td align="left" width="1%">
                 <input alt="Donate" src="https://checkout.google.com/buttons/donateNow.gif?merchant_id=622836985124940&amp;w=115&amp;h=50&amp;style=white&amp;variant=text&amp;loc=en_US" type="image"/>
@@ -62,7 +61,7 @@ Brooklyn, NY 11201-3548<br/>
 USA
 </p>
 
-<h3>Donate via Paypal, Visa, Mastercard, AMEX or ACH</h3>
+<h3>Donate via Paypal (including Visa, Mastercard, AMEX or ACH)</h3>
 
 <form action="https://www.paypal.com/cgi-bin/webscr" method="post">
 <input type="hidden" name="cmd" value="_s-xclick"/>
