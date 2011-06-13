@@ -65,7 +65,7 @@ class OmnibusFeedType(Rss201rev2Feed):
 
 class OmnibusFeed(ConservancyFeedBase):
     feed_type = OmnibusFeedType
-    link ="/omnibus/"
+    link ="/news/"
     title = "The Software Freedom Conservancy"
     description = "An aggregated feed of all RSS content available from the Software Freedom Conservancy, including both news items and blogs."
     title_template = "feeds/omnibus_title.html"
