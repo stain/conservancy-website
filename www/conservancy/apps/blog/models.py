@@ -47,7 +47,7 @@ class Entry(models.Model):
                    self.slug))
 
     def is_recent(self):
-        return self.pub_date > (datetime.now() - timedelta(days=14))
+        return self.pub_date > (datetime.now() - timedelta(days=30))
         # question: does datetime.now() do a syscall each time is it called?
 
     # Ping google blogs and technorati.  Taken from
