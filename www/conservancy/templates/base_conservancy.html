@@ -15,6 +15,11 @@
   <body class="conservancy-{% block category %}other{% endblock %}">
     <div id="conservancyheader">
       <h1><span id="logobutton"><a href="/">Software Freedom Conservancy</a></span></h1>
+      <span id="subbox">
+        <form method="post" action="http://lists.sfconservancy.org/mailman/subscribe/announce">
+          Subscribe to our announcements mailing list<br/><input name="email" placeholder="joe@example.org"/><input type="submit" name="email-button" value="Subscribe"/>
+        </form>
+      </span>
     </div>
     <div id="navbar-outer">
       <div id="navbar">
