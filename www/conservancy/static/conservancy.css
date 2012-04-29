@@ -86,14 +86,10 @@ h3 { margin-top: .6em; margin-bottom: .4em; }
     background: #fffff;
     margin-left: 210px;
     margin-right: 50px;
-    padding-bottom: 32767px;
-    margin-bottom: -32767px;
 }
 #container #sidebar {
     width: 200px;
     float: left;
-    padding-bottom: 32767px;
-    margin-bottom: -32767px;
     background-color: #ccd4a3; 
 }
 
@@ -147,14 +143,10 @@ h3 { margin-top: .6em; margin-bottom: .4em; }
 
 .column-small {
     width: 31%;
-    padding-bottom: 32767px;
-    margin-bottom: -32767px;
  }
 .column-large {
     margin-left: 35%;
     margin-right: 50px;
-    padding-bottom: 32767px;
-    margin-bottom: -32767px;
 }
 
 .column-left { float: left; }
