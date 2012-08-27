@@ -234,6 +234,7 @@ body.conservancy-sponsors #navbar ul li.sponsors a /* NO COMMA HERE! */
 
 #sponsor ul {
   clear: all;
+  margin-bottom: 10px;
 }
 #sponsor li {
   width: 100%;
