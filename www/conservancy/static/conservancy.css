@@ -231,3 +231,17 @@ body.conservancy-sponsors #navbar ul li.sponsors a /* NO COMMA HERE! */
     font-weight: bold;
     background: #fff url(/img/nav-bg-up.png) top repeat-x;
 }
+
+#sponsor ul {
+  clear: all;
+}
+#sponsor li {
+  width: 100%;
+  float: left;
+  height: 250px;
+  line-height: 100px;
+  text-align: center;
+  list-style: none;
+  border: 1px solid #ccc;
+  margin-right: 5px;
+}
