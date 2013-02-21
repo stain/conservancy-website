@@ -243,4 +243,11 @@ body.conservancy-sponsors #navbar ul li.sponsors a /* NO COMMA HERE! */
   text-align: center;
   list-style: none;
   margin-right: 5px;
+
+#subbox {
+   position: absolute;
+   padding-top: 10px;
+   right: 0px;
+   width: 200px;
+   font-size: 12px;
 }
