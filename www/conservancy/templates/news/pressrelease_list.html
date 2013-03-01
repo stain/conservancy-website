@@ -4,7 +4,7 @@
 {% block outercontent %}
     <div id="container">
          <div id="sidebar" class="{% block submenuselection %}other{% endblock %}">
-         <h2>News Index by Year</h3>
+         <h2>News Index by Year</h2>
          <ul>
          {% for year in date_list reversed %}<li class="{{ year|date:"Y" }}"><a href="{{ year|date:"Y" }}/">{{ year|date:"Y" }}</a></li>{% endfor %}
          </ul>
