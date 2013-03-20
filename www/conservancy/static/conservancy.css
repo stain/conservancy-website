@@ -43,7 +43,7 @@ h3 { margin-top: .6em; margin-bottom: .4em; }
 /*  background-color: #BDD8A2; */
 /*  background-color: #92cc58; */
 /*  background-color: #b5cd9d; */
-  background-color: #afe578;
+  background-color: #ffffff;
   border-bottom: 1px solid #808080;
 }
 #conservancyheader h1 {
@@ -52,7 +52,7 @@ h3 { margin-top: .6em; margin-bottom: .4em; }
 }
 #logobutton {
   display: block;
-  position: absolute; left: 17px; top: 10px; height: 120px; width: 440px;
+  position: absolute; left: 17px; top: 10px; height: 120px; width: 933px;
   background: url(/img/conservancy-header.png)  left center no-repeat;
 }
 
