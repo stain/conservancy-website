@@ -104,6 +104,7 @@ h3 { margin-top: .6em; margin-bottom: .4em; }
 #container #sidebar li:hover a { background: #3b6337; color: #fff; }
 
 #container #sidebar.Directors ul li.Directors,
+#container #sidebar.EvalCommittee ul li.EvalCommittee,
 #container #sidebar.Contact ul li.Contact,
 #container #sidebar.Officers ul li.Officers,
 #container #sidebar.Staff ul li.Staff,
