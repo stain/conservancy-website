@@ -13,6 +13,11 @@ class ForceCanonicalHostnameMiddleware(object):
         * adds cache headers to provide hints to squid
         """
 
+        # Never allow connection to the /admin part of the site without SSL
+        if (not request.is_secure) and request.path.startswith('/admin'):
+            url = 'https://sfconservancy.org%s' % request.path
+            return http.HttpResponseRedirect(url)
+
         # Check for a redirect based on settings.APPEND_SLASH
         host = http.get_host(request)
         old_url = [host, request.path]
