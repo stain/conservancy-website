@@ -71,14 +71,14 @@ class OmnibusFeed(ConservancyFeedBase):
     title_template = "feeds/omnibus_title.html"
     description_template = "feeds/omnibus_description.html"
     author_email = "info@sfconservancy.org"
-    author_link = "http://sfconservancy.org/"
+    author_link = "https://sfconservancy.org/"
     author_name = "Software Freedom Conservancy"
 
     def item_enclosure_mime_type(self): return "audio/mpeg"
 
     def item_enclosure_url(self, item):
         if hasattr(item, 'mp3_path'):
-            return "http://sfconservancy.org" + item.mp3_path
+            return "https://sfconservancy.org" + item.mp3_path
     def item_enclosure_length(self, item):
         if hasattr(item, 'mp3_path'):
             return item.mp3_length
@@ -93,7 +93,7 @@ class OmnibusFeed(ConservancyFeedBase):
             return "Software Freedom Conservancy"
 
     def item_author_link(self, obj):
-        return "http://sfconservancy.org"
+        return "https://sfconservancy.org"
 
     def item_author_email(self, item):
         if item.omnibus_type == "news":
