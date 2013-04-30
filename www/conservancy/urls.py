@@ -34,4 +34,5 @@ urlpatterns = patterns('',
     (r'^feeds/?$', 'conservancy.feeds.view'),
     (r'^news(/|$)', include('conservancy.apps.news.urls')),
     (r'^blog(/|$)', include('conservancy.apps.blog.urls')),
+    (r'^campaign/', 'conservancy.campaign.view'),
 )

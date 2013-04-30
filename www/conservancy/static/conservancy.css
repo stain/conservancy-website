@@ -11,13 +11,14 @@ p, h1, h2, h3, h4, h5, h6, #mainContent ul, #mainContent ol {
 
 body {
 /*  font-family: "Lucida Grande",Verdana,Lucida,Helvetica,Arial,sans-serif; */
+  font-family: Helvetica;
   font-size: 95%;
   background-color: #0000;
   color: #ffff;
 }
 
 a { text-decoration: none; color: #557733; }
-a:hover { text-decoration: underline; color: #3B6337; }
+a:hover { text-decoration: underline; color: #577632; }
 
 h1 { margin-top: .75em; margin-bottom: .5em; }
 h2 { margin-top: .75em; margin-bottom: .5em; }
@@ -57,7 +58,7 @@ h3 { margin-top: .6em; margin-bottom: .4em; }
 }
 
 /* Navigation bar */
-#navbar-outer { background: #B3D4A3; }
+#navbar-outer { background: #577632; }
 #navbar { margin-left: 104px; margin-top: 3px; float: left; display: inline; }
 #navbar ul { list-style: none; }
 #navbar-clear { clear: both; border-bottom: 1px solid #808080; }
@@ -69,8 +70,10 @@ h3 { margin-top: .6em; margin-bottom: .4em; }
   border: 1px solid #808080;
   font-size: .8em;
   background: #fff url(/img/nav-bg.png) bottom repeat-x;
+  border-color: #ffffff;
 }
-#navbar li:hover a { background: #3b6337; color: #fff; }
+#navbar li:hover a { background: #577632; color: #fff; }
+#navbar li.campaign:hover a { background: #577632; color: #CE1F1F; }
 #navbar li { float: left; display: inline; margin-bottom: 3px; }
 
 #mainContent {
@@ -101,7 +104,7 @@ h3 { margin-top: .6em; margin-bottom: .4em; }
     border: 1px solid #CCC;
     background: #fff url(/img/nav-bg.png) bottom repeat-x;
 }
-#container #sidebar li:hover a { background: #3b6337; color: #fff; }
+#container #sidebar li:hover a { background: #577632; color: #fff; }
 
 #container #sidebar.Directors ul li.Directors,
 #container #sidebar.Eval ul li.Eval,
@@ -232,6 +235,12 @@ body.conservancy-sponsors #navbar ul li.sponsors a /* NO COMMA HERE! */
     color: #000033;
     font-weight: bold;
     background: #fff url(/img/nav-bg-up.png) top repeat-x;
+}
+
+body.conservancy-campaign #navbar ul li.campaign a
+{ 
+    color: #000033;
+    font-weight: bold;
 }
 
 #sponsor ul {

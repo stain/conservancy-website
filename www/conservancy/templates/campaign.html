@@ -1,0 +1,390 @@
+{% extends "base_conservancy.html" %}
+{% block subtitle %}Campaign - {% endblock %}
+{% block category %}campaign{% endblock %}
+
+{% block head %}
+<link href="/jquery-ui.css" rel="stylesheet" type="text/css"/>
+<script src="/jquery.min.js"></script>
+<script src="/jquery-ui.min.js"></script>
+
+<style type="text/css">
+  #progressbar .ui-widget-header { background: rgb(206, 31, 31); }
+</style>
+
+<script type="text/javascript">
+  $(document).ready(function() {
+    $("#progressbar").progressbar({ value: (200 / 1000) * 100 });
+  });
+</script>
+{% endblock %}
+
+{% block content %}
+
+<div style="position:fixed;top:180px;right:2%;width=18%">
+<table style="background-color:#afe478;width=100%;">
+<tr><td style="text-align:center;padding:10px;padding-bottom:10px;">
+
+<!--
+<script type="text/javascript" src="https://js.balancedpayments.com/v1/balanced.js"></script>
+
+<script type="text/javascript">
+   // FOR DEMONSTRATION PURPOSES ONLY - if you already have a server you can POST to, replace
+   //                                   the URL with the URL to post to.
+   // go to http://requestb.in/
+   // click create new request bin and COPY that URL without the ?inspect at the end
+   var requestBinURL = 'http://requestb.in/1dk2x8y1';  // make sure it doesn't end in ?inspect
+
+   var marketplaceUri = '/v1/marketplaces/TEST-MPMp7ZUPDpbj69vk2wGHRVY';
+   //var marketplaceUri = 'https://www.balancedpayments.com/marketplaces/TEST-MPMp7ZUPDpbj69vk2wGHRVY';
+   balanced.init(marketplaceUri);
+
+var cardData = {
+  "name": "Bernhard Riemann",                 // Optional
+  "card_number": "4111 1111 1111 1111",
+  "expiration_month": 4,
+  "expiration_year": 2014,
+};
+
+function evbind(el, ev, handler) {
+if(el.addEventListener) {
+el.addEventListener(ev, handler, false);
+} else if(el.attachEvent) {
+el.attachEvent('on'+ev, function() {handler.apply(el);});
+}
+}
+
+/*
+
+   function responseCallbackHandler(response) {
+      alert(response.status);
+      switch (response.status) {
+        case 400:
+            // missing or invalid field - check response.error for details
+            console.log(response.error);
+            break;
+        case 404:
+            // your marketplace URI is incorrect
+            console.log(response.error);
+            break;
+        case 201:
+            // WOO HOO! MONEY!
+            // response.data.uri == URI of the bank account resource you
+            // should store this bank account URI to later credit it
+            console.log(response.data);
+            var $form = $("#bank-account-form");
+            // the uri is an opaque token referencing the tokenized bank account
+            var bank_account_uri = response.data['uri'];
+            // append the token as a hidden field to submit to the server
+            $('<input>').attr({
+               type: 'hidden',
+               value: bank_account_uri,
+               name: 'balancedBankAccountURI'
+            }).appendTo($form);
+            $form.attr({action: requestBinURL});
+            $form.get(0).submit();
+		break;
+	default:
+		console.log(response.status);
+        }
+    }
+   //alert('allo?');
+
+   var tokenizeInstrument = function(e) {
+        alert('what"s going on?');
+        e.preventDefault();
+   
+        var $form = $('#bank-account-form');
+        var bankAccountData = {
+            name: $form.find('.ba-name').val(),
+            account_number: $form.find('.ba-an').val(),
+            bank_code: $form.find('.ba-rn').val(),
+            type: $form.find('select').val()
+        };
+ 
+ 
+        balanced.bankAccount.create(bankAccountData, responseCallbackHandler);
+    };
+   $('#bank-account-form').submit(tokenizeInstrument);
+*/
+</script>
+-->
+
+<p>$200 of $1000 (20.0%)</p>
+<div id="progressbar" style="height:20px;"></div>
+<p>Help us reach our goal:</p>
+
+<!-- Google Checkout start -->
+<script type="text/javascript"> 
+function validateAmount(amount){
+	if(amount.value.match( /^[0-9]+(\.([0-9]+))?$/)){
+		return true;
+	}else{
+		alert('You must enter a valid donation.');
+		amount.focus();
+		return false;
+	}
+}
+</script>
+<form action="https://checkout.google.com/cws/v2/Donations/622836985124940/checkoutForm" id="BB_BuyButtonForm" method="post" name="BB_BuyButtonForm" onSubmit="return validateAmount(this.item_price_1)" target="_top">
+    <input name="item_name_1" type="hidden" value="Directed Donation for Conservancy's NPO accounting software project"/>
+    <input name="item_description_1" type="hidden" value="This donation to the Software Freedom Conservancy, Inc. is directed toward Conservancy's NPO accounting software project.  Conservancy is a 501(c)(3) charity in New York."/>
+    <input name="item_quantity_1" type="hidden" value="1"/>
+    <input name="item_currency_1" type="hidden" value="USD"/>
+    <input name="item_is_modifiable_1" type="hidden" value="true"/>
+    <input name="item_min_price_1" type="hidden" value="6.0"/>
+    <input name="item_max_price_1" type="hidden" value="25000.0"/>
+    <input name="_charset_" type="hidden" value="utf-8"/>
+    <table cellpadding="5" cellspacing="0" width="1%">
+        <tr>
+            <td align="right" valign="top" style="padding-top:9px;" nowrap="nowrap" width="1%">&#x24; <input id="item_price_1" name="item_price_1" onfocus="this.style.color='black'; this.value='';" size="6" type="text" value="250.00"/>
+            </td>
+            <td align="left" width="1%">
+                <input alt="Donate" src="https://checkout.google.com/buttons/donateNow.gif?merchant_id=622836985124940&amp;w=115&amp;h=50&amp;style=trans&amp;variant=text&amp;loc=en_US" type="image"/>
+            </td>
+        </tr>
+    </table>
+</form>
+<!-- Google Checkout end -->
+
+<!-- PayPal start -->
+<form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+<input type="hidden" name="cmd" value="_s-xclick">
+<input type="hidden" name="hosted_button_id" value="3VRTJALJ5PQRW">
+<input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
+<img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
+</form>
+<!-- PayPal end -->
+
+<!-- Flattr start -->
+<p><a href="https://flattr.com/thing/1296704/Campaign-to-develop-Free-and-Open-Source-Non-Profit-Accounting-Software" target="_blank"><img src="https://api.flattr.com/button/flattr-badge-large.png" alt="Flattr this" title="Flattr this" border="0" /></a></p>
+<!-- Flattr end -->
+
+<!-- Balanced start -
+<div class="container">
+- <form action="#" method="POST" id="bank-account-form" class="form-horizontal" onsubmit="balanced.card.create(cardData, function(response) { alert(response.status); });"> -
+<form action="#" method="POST" id="bank-account-form" class="form-horizontal">
+    <fieldset>
+        <legend>Bank Account Information</legend>
+        <p><label>Account Holder's Name
+            <input type="text"
+                   autocomplete="off"
+                   placeholder="Bank Account Holder's name"
+                   class="ba-name"
+                   name="ba_name"
+                   value="4111 1111 1111 1111">
+        </label></p>
+        <p><label>Routing Number
+            <input type="text"
+                   autocomplete="off"
+                   placeholder="Routing Number"
+                   class="ba-rn"
+                   name="ba_rn"
+                   value="4">
+        </label></p>
+        <p><label>Account Number
+            <input type="text"
+                   autocomplete="off"
+                   placeholder="Account Number"
+                   class="ba-an"
+                   name="ba_an"
+                   value="2014">
+        </label></p>
+        <p><label>Account Something
+            <input type="text"
+                   autocomplete="off"
+                   placeholder="Account Something"
+                   class="ba-as"
+                   name="ba_as"
+                   value="something someone">
+        </label></p>
+        <p><label>Account Type
+            <select name="ba_type">
+                <option value='' disabled selected style='display:none;'>
+                    Select Account Type
+                </option>
+                <option value="checking" default>CHECKING</option>
+                <option value="savings">SAVINGS</option>
+            </select>
+        </label></p>
+        <button type="submit" class="btn">
+            Tokenize
+        </button>
+    </fieldset>
+</form>
+</div>
+<script type="text/javascript">
+
+evbind(document.getElementById('bank-account-form'), 'submit',
+  function(e) {
+    e.preventDefault();
+    console.log(this.ba_as.value);
+    balanced.card.create(
+ {
+  "name": this.ba_as.value,
+  "card_number": this.ba_name.value,
+  "expiration_month": this.ba_rn.value,
+  "expiration_year": this.ba_an.value,
+/*
+  "name": "Bernhard Riemann",                 // Optional
+  "card_number": "4111 1111 1111 1111",
+  "expiration_month": 4,
+  "expiration_year": 2014,
+*/
+ },
+    function(response) {
+      console.log(response);
+      console.log(response.data.uri);
+      $.ajax("/campaign/?token=" + response.data.uri + '&amount=' + document.getElementById('bank-account-form').ba_an.value);
+      alert(response.status);
+    });
+});
+
+</script>
+- Balanced end -->
+
+<p>Contact <a href="mailto:accounting@sfconservancy.org">Conservancy by email</a><br/> for other donation methods.</p>
+
+</td></tr></table>
+</div>
+
+<div style="align:left;width:75%;">
+
+<h2>Conservancy's Fundraising Campaign For Non-Profit Accounting Software</h2>
+
+<img src="/img/Official-Conservancy-accounting-campaign.png" alt="Conservancy accounting campaign logo" style="float:left;" />
+
+<h3>Summary</h3>
+
+<!-- begin campaign text -->
+
+<p>Software Freedom Conservancy is a not-for-profit organization that
+  helps promote, improve, develop, and defend Free, Libre, and Open Source
+  Software (FLOSS) projects.  Conservancy provides a non-profit home and
+  infrastructure for FLOSS projects.  This allows FLOSS developers to
+  focus on what they do best &mdash; writing and improving FLOSS for the
+  general public &mdash; while Conservancy takes care of the projects' needs that
+  do not relate directly to software development and documentation.</p>
+
+<p>Software Freedom Conservancy is a not-for-profit organization that
+  helps promote, improve, develop, and defend Free, Libre, and Open Source
+  Software (FLOSS) projects.  Conservancy provides a non-profit home and
+  infrastructure for FLOSS projects.  This allows FLOSS developers to
+  focus on what they do best &mdash; writing and improving FLOSS for the
+  general public &mdash; while Conservancy takes care of the projects' needs that
+  do not relate directly to software development and documentation.</p>
+
+<p>Software Freedom Conservancy is a not-for-profit organization that
+  helps promote, improve, develop, and defend Free, Libre, and Open Source
+  Software (FLOSS) projects.  Conservancy provides a non-profit home and
+  infrastructure for FLOSS projects.  This allows FLOSS developers to
+  focus on what they do best &mdash; writing and improving FLOSS for the
+  general public &mdash; while Conservancy takes care of the projects' needs that
+  do not relate directly to software development and documentation.</p>
+
+<p>Software Freedom Conservancy is a not-for-profit organization that
+  helps promote, improve, develop, and defend Free, Libre, and Open Source
+  Software (FLOSS) projects.  Conservancy provides a non-profit home and
+  infrastructure for FLOSS projects.  This allows FLOSS developers to
+  focus on what they do best &mdash; writing and improving FLOSS for the
+  general public &mdash; while Conservancy takes care of the projects' needs that
+  do not relate directly to software development and documentation.</p>
+
+<p>Software Freedom Conservancy is a not-for-profit organization that
+  helps promote, improve, develop, and defend Free, Libre, and Open Source
+  Software (FLOSS) projects.  Conservancy provides a non-profit home and
+  infrastructure for FLOSS projects.  This allows FLOSS developers to
+  focus on what they do best &mdash; writing and improving FLOSS for the
+  general public &mdash; while Conservancy takes care of the projects' needs that
+  do not relate directly to software development and documentation.</p>
+
+<p>Software Freedom Conservancy is a not-for-profit organization that
+  helps promote, improve, develop, and defend Free, Libre, and Open Source
+  Software (FLOSS) projects.  Conservancy provides a non-profit home and
+  infrastructure for FLOSS projects.  This allows FLOSS developers to
+  focus on what they do best &mdash; writing and improving FLOSS for the
+  general public &mdash; while Conservancy takes care of the projects' needs that
+  do not relate directly to software development and documentation.</p>
+
+<p>Software Freedom Conservancy is a not-for-profit organization that
+  helps promote, improve, develop, and defend Free, Libre, and Open Source
+  Software (FLOSS) projects.  Conservancy provides a non-profit home and
+  infrastructure for FLOSS projects.  This allows FLOSS developers to
+  focus on what they do best &mdash; writing and improving FLOSS for the
+  general public &mdash; while Conservancy takes care of the projects' needs that
+  do not relate directly to software development and documentation.</p>
+
+<p>Software Freedom Conservancy is a not-for-profit organization that
+  helps promote, improve, develop, and defend Free, Libre, and Open Source
+  Software (FLOSS) projects.  Conservancy provides a non-profit home and
+  infrastructure for FLOSS projects.  This allows FLOSS developers to
+  focus on what they do best &mdash; writing and improving FLOSS for the
+  general public &mdash; while Conservancy takes care of the projects' needs that
+  do not relate directly to software development and documentation.</p>
+
+<p>Software Freedom Conservancy is a not-for-profit organization that
+  helps promote, improve, develop, and defend Free, Libre, and Open Source
+  Software (FLOSS) projects.  Conservancy provides a non-profit home and
+  infrastructure for FLOSS projects.  This allows FLOSS developers to
+  focus on what they do best &mdash; writing and improving FLOSS for the
+  general public &mdash; while Conservancy takes care of the projects' needs that
+  do not relate directly to software development and documentation.</p>
+
+<p>Software Freedom Conservancy is a not-for-profit organization that
+  helps promote, improve, develop, and defend Free, Libre, and Open Source
+  Software (FLOSS) projects.  Conservancy provides a non-profit home and
+  infrastructure for FLOSS projects.  This allows FLOSS developers to
+  focus on what they do best &mdash; writing and improving FLOSS for the
+  general public &mdash; while Conservancy takes care of the projects' needs that
+  do not relate directly to software development and documentation.</p>
+
+<p>Software Freedom Conservancy is a not-for-profit organization that
+  helps promote, improve, develop, and defend Free, Libre, and Open Source
+  Software (FLOSS) projects.  Conservancy provides a non-profit home and
+  infrastructure for FLOSS projects.  This allows FLOSS developers to
+  focus on what they do best &mdash; writing and improving FLOSS for the
+  general public &mdash; while Conservancy takes care of the projects' needs that
+  do not relate directly to software development and documentation.</p>
+
+<p>Software Freedom Conservancy is a not-for-profit organization that
+  helps promote, improve, develop, and defend Free, Libre, and Open Source
+  Software (FLOSS) projects.  Conservancy provides a non-profit home and
+  infrastructure for FLOSS projects.  This allows FLOSS developers to
+  focus on what they do best &mdash; writing and improving FLOSS for the
+  general public &mdash; while Conservancy takes care of the projects' needs that
+  do not relate directly to software development and documentation.</p>
+
+<p>Software Freedom Conservancy is a not-for-profit organization that
+  helps promote, improve, develop, and defend Free, Libre, and Open Source
+  Software (FLOSS) projects.  Conservancy provides a non-profit home and
+  infrastructure for FLOSS projects.  This allows FLOSS developers to
+  focus on what they do best &mdash; writing and improving FLOSS for the
+  general public &mdash; while Conservancy takes care of the projects' needs that
+  do not relate directly to software development and documentation.</p>
+
+<p>Software Freedom Conservancy is a not-for-profit organization that
+  helps promote, improve, develop, and defend Free, Libre, and Open Source
+  Software (FLOSS) projects.  Conservancy provides a non-profit home and
+  infrastructure for FLOSS projects.  This allows FLOSS developers to
+  focus on what they do best &mdash; writing and improving FLOSS for the
+  general public &mdash; while Conservancy takes care of the projects' needs that
+  do not relate directly to software development and documentation.</p>
+
+<p>Software Freedom Conservancy is a not-for-profit organization that
+  helps promote, improve, develop, and defend Free, Libre, and Open Source
+  Software (FLOSS) projects.  Conservancy provides a non-profit home and
+  infrastructure for FLOSS projects.  This allows FLOSS developers to
+  focus on what they do best &mdash; writing and improving FLOSS for the
+  general public &mdash; while Conservancy takes care of the projects' needs that
+  do not relate directly to software development and documentation.</p>
+
+<p>Software Freedom Conservancy is a not-for-profit organization that
+  helps promote, improve, develop, and defend Free, Libre, and Open Source
+  Software (FLOSS) projects.  Conservancy provides a non-profit home and
+  infrastructure for FLOSS projects.  This allows FLOSS developers to
+  focus on what they do best &mdash; writing and improving FLOSS for the
+  general public &mdash; while Conservancy takes care of the projects' needs that
+  do not relate directly to software development and documentation.</p>
+
+<!-- end campaign text -->
+
+{% endblock %}
