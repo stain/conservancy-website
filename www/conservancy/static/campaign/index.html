@@ -230,7 +230,10 @@ evbind(document.getElementById('bank-account-form'), 'submit',
 </script>
 - Balanced end -->
 
-<h4>Prefer Google Checkout?</h4>
+<div class="toggle-unit">
+    <h4 class="toggle-control" data-text="Donate by Google Checkout?" 
+    data-expanded-text="Donate by Google Checkout:">Donate by Google Checkout?</h4>
+    <div class="toggle-content">
 <!-- Google Checkout start -->
 <script type="text/javascript"> 
 function validateAmount(amount){
@@ -263,6 +266,8 @@ function validateAmount(amount){
     </table>
 </form>
 <!-- Google Checkout end -->
+    </div><!-- /.toggle-content -->
+</div><!-- /.toggle.unit -->
 
 <div class="toggle-unit">
     <h4 class="toggle-control" data-text="Donate by Wire Transfer?" 
