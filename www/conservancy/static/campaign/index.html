@@ -101,9 +101,9 @@ el.attachEvent('on'+ev, function() {handler.apply(el);});
             }).appendTo($form);
             $form.attr({action: requestBinURL});
             $form.get(0).submit();
-		break;
-	default:
-		console.log(response.status);
+        break;
+    default:
+        console.log(response.status);
         }
     }
    //alert('allo?');
@@ -136,13 +136,13 @@ our $75,000 goal.</p>
 <!-- Google Checkout start -->
 <script type="text/javascript"> 
 function validateAmount(amount){
-	if(amount.value.match( /^[0-9]+(\.([0-9]+))?$/)){
-		return true;
-	}else{
-		alert('You must enter a valid donation.');
-		amount.focus();
-		return false;
-	}
+    if(amount.value.match( /^[0-9]+(\.([0-9]+))?$/)){
+        return true;
+    }else{
+        alert('You must enter a valid donation.');
+        amount.focus();
+        return false;
+    }
 }
 </script>
 <form action="https://checkout.google.com/cws/v2/Donations/622836985124940/checkoutForm" id="BB_BuyButtonForm" method="post" name="BB_BuyButtonForm" onSubmit="return validateAmount(this.item_price_1)" target="_top">
