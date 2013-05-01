@@ -14,6 +14,25 @@
 <script type="text/javascript">
   $(document).ready(function() {
     $("#progressbar").progressbar({ value: (2515 / 75000) * 100 });
+
+    $('.toggle-content').hide();
+
+    $('.toggle-control')
+     .addClass('clickable')
+     .bind('click', function() {
+        var $control = $(this);
+        var $parent = $control.parents('.toggle-unit');
+
+        $parent.toggleClass('expanded');
+        $parent.find('.toggle-content').slideToggle();
+
+        // if control has HTML5 data attributes, use to update text
+        if ($parent.hasClass('expanded')) {
+            $control.html($control.attr('data-expanded-text'));
+        } else {
+            $control.html($control.attr('data-text'));
+        }
+    })
   });
 </script>
 {% endblock %}
@@ -243,7 +262,29 @@ evbind(document.getElementById('bank-account-form'), 'submit',
 </script>
 - Balanced end -->
 
-<p>Contact <a href="mailto:accounting@sfconservancy.org">Conservancy by email</a><br/> for other donation methods.</p>
+<div class="toggle-unit">
+    <h4 class="toggle-control" data-text="Donate by Wire Transfer?" 
+    data-expanded-text="Donate by Wire Transfer:">Donate by Wire Transfer?</h4>
+    <div class="toggle-content">
+        Please
+            contact <a href="mailto:accounting@sfconservancy.org">Conservancy
+            by email</a><br/> for wire transfer instructions.<br/>
+            Please Include your currency and country.<br/>
+    </div><!-- /.toggle-content -->
+</div><!-- /.toggle.unit -->
+
+<div class="toggle-unit">
+    <h4 class="toggle-control" data-text="Donate by Paper Check?" 
+    data-expanded-text="Donate by Paper Check:">Donate by Paper Check?</h4>
+    <div class="toggle-content">
+    Send paper check donations to:<br/>
+    Software Freedom Conservancy, Inc.<br/>
+    137 MONTAGUE ST  STE 380<br/>
+    BROOKLYN, NY 11201-3548<br/>
+    Please write <q>NPO ACCOUNTING</q> in the memo line. 
+    </div><!-- /.toggle-content -->
+</div><!-- /.toggle.unit -->
+
 
 </td></tr></table>
 </div>

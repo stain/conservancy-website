@@ -272,3 +272,5 @@ body.conservancy-campaign #navbar ul li.campaign a
    width: 200px;
    font-size: 12px;
 }
+
+.clickable {cursor: pointer;}
