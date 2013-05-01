@@ -62,6 +62,16 @@ h3 { margin-top: .6em; margin-bottom: .4em; }
 #navbar { margin-left: 104px; margin-top: 3px; float: left; display: inline; }
 #navbar ul { list-style: none; }
 #navbar-clear { clear: both; border-bottom: 1px solid #808080; }
+#navbar li.campaign a {
+  display: block;
+  background: #fafafe;
+  padding: .2em .8em;
+  margin-right: 3px;
+  border: 1px solid #808080;
+  font-size: .8em;
+  background: url(/img/nav-bg-campaign.png) bottom repeat-x;
+  border-color: #ffffff;
+}
 #navbar li a {
   display: block;
   background: #fafafe;
@@ -236,11 +246,11 @@ body.conservancy-sponsors #navbar ul li.sponsors a /* NO COMMA HERE! */
     font-weight: bold;
     background: #fff url(/img/nav-bg-up.png) top repeat-x;
 }
-
 body.conservancy-campaign #navbar ul li.campaign a
 { 
     color: #000033;
     font-weight: bold;
+    background: url(/img/nav-bg-campaign-up.png) bottom repeat-x;
 }
 
 #sponsor ul {
