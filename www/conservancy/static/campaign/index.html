@@ -32,7 +32,16 @@
         } else {
             $control.html($control.attr('data-text'));
         }
-    })
+    });
+    $('a.donate-now')
+      .addClass('clickable')
+      .bind('click', function() {
+        var $control = $('#donate-box');
+
+        $control.toggleClass('expanded');
+        $control.find('.toggle-content').slideUp("slow");
+        $control.find('.toggle-content').slideDown("slow");
+    });
   });
 </script>
 {% endblock %}
@@ -42,6 +51,9 @@
 <div style="position:fixed;top:180px;right:2%;width:18%">
 <table style="background-color:#afe478;width:100%;">
 <tr><td style="text-align:center;padding:10px;padding-bottom:10px;">
+
+<div id="donate-box" class="toggle-unit"><h1 class="toggle-content">Donate Now!</h1></div>
+</div>
 
 <!--
 <script type="text/javascript" src="https://js.balancedpayments.com/v1/balanced.js"></script>
@@ -314,7 +326,7 @@ on proprietary software, paying exorbitant licensing fees.  This is
 fundamentally at cross purposes with their underlying missions of charity,
 equality, democracy, and sharing.</p>
 
-<p>You can help Conservancy fix this problem by <a href="http://sfconservancy.org/campaign">donating now</a>.  We seek to
+<p>You can help Conservancy fix this problem by <a href="#donate-box" class="donate-now">donating now</a>.  We seek to
 raise $75,000 to employ a 
 developer for one year to make substantial progress on this project.</p>
 
@@ -329,7 +341,7 @@ will increase the agility and collaborative potential
 for the non-profit sector &mdash; a boon to funders, boards, and employees &mdash;  bringing the Free Software and general NPO communities
 into closer collaboration and understanding.</p>
 
-<p>Thanks in advance for <a href="http://sfconservancy.org/campaign">helping us</a> develop Free Software to benefit all
+<p>Thanks in advance for <a href="#donate-box" class="donate-now">helping us</a> develop Free Software to benefit all
 non-profit organizations, and the 
 populations they serve.</p>
 
@@ -339,7 +351,7 @@ populations they serve.</p>
 <p><a href="http://sfconservancy.org/campaign#endorsements">Endorsers of this effort</a> include Fractured Atlas, Free Software
 Foundation, Mozilla Foundation, GNOME Foundation, OpenHatch, Open
 Source Initiative, QuestionCopyright.org, and Software in the Public
-Interest; all encourage you to <a href="http://sfconservancy.org/campaign">donate and support it</a>.</p>
+Interest; all encourage you to <a href="#donate-box" class="donate-now">donate and support it</a>.</p>
 
 
 <h3>Background</h3>
@@ -385,8 +397,8 @@ Interest; all encourage you to <a href="http://sfconservancy.org/campaign">donat
 Foundation</a>, The <a href="http://www.gnome.org/foundation/">GNOME Foundation</a>,  <a
         href="https://openhatch.org/">OpenHatch</a>, <a href="http://opensource.org">Open Source Initiative</a>,
   <a href="http://QuestionCopyright.org">QuestionCopyright.org</a>, and <a href="http://www.spi-inc.org/">Software in the Public Interest</a> have
-  <a id="endorsements" style="text-decoration:none">all endorsed</a> Conservancy's plan, and they encourage you to donate and
-  support it.</p>
+  <a id="endorsements" style="text-decoration:none">all endorsed</a> Conservancy's plan, and they encourage you to <a href="#donate-box" class="donate-now">donate and
+  support it</a>.</p>
 
 <p>Conservancy is uniquely qualified to undertake this task.  Using only Free
   Software, Conservancy already meets the complex accounting challenges of
@@ -522,8 +534,8 @@ Thus, this project is a great way to pursue Conservancy's mission and address a
 specific need that so many NPOs (including us) have.  If no one steps up to create Free Software to replace the widely used
 proprietary software, NPOs in aggregate will pay <em>much more</em> money for
 proprietary licensing than Conservancy will ever spend in developing a
-replacement. Please donate
-generously to help us do it!</p>
+replacement. Please <a href="#donate-box" class="donate-now">donate
+generously</a> to help us do it!</p>
 
 <a id="quotes"></a>
 <h3>Statements of Support For This Project from Others</h3>
@@ -594,7 +606,7 @@ Foundation</a></p>
 
 <p><q>As a young free software non-profit, OpenHatch is thrilled to see this
 effort; it would let us spend more of our time on programs and less on
-paperwork.  I have already personally donated.</q> &mdash; Asheesh Laroia,
+paperwork.  I have already personally <a href="#donate-box" class="donate-now">donated</a>.</q> &mdash; Asheesh Laroia,
 Executive Director, <a href="https://openhatch.org/">OpenHatch</a>.</p>
 
 <h3>Some Important Details for this Fundraiser</h3>
