@@ -302,33 +302,35 @@ function validateAmount(amount){
 
 <img src="/img/conservancy-accounting-campaign-logo.png" alt="Conservancy accounting campaign logo" style="float:left;" />
 
-<p>Please help all non-profit organizations (NPOs) by <a href="http://sfconservancy.org/campaign">donating</a> to Conservancy
-to begin creating an Open Source and Free Software accounting system usable by non-technical bookkeepers,
-accountants, and non-profit managers.</p>
+<p>Conservancy has a plan to help all non-profit organizations (NPOs) by
+creating an Open Source and Free Software accounting system usable by
+non-technical bookkeepers, accountants, and non-profit managers.  You can
+help us do it by donating now.
+</p>
 
-<p>To keep books and produce annual government filings, NPOs must
-maintain complicated home grown systems. Most use proprietary 
-software, paying exorbitant licensing fees &mdash; fundamentally at cross purposes with their underlying missions of
-charity, equality, democracy, and sharing.</p>
+<p>To keep their books and produce annual government filings, most NPOs rely
+on proprietary software, paying exorbitant licensing fees.  This is
+fundamentally at cross purposes with their underlying missions of charity,
+equality, democracy, and sharing.</p>
 
 <p>You can help Conservancy fix this problem by <a href="http://sfconservancy.org/campaign">donating now</a>.  We seek to
 raise $75,000 to employ a 
-developer one year to make substantial progress on this project.</p>
+developer for one year to make substantial progress on this project.</p>
 
-<p>If successful, this project will save the non-profit sector many
-millions every year in licensing fees.  Even non-profits that continue to use proprietary accounting
+<p>This project has the potential to save the non-profit sector
+millions in licensing fees every year.  Even non-profits that continue to use proprietary accounting
 software will benefit, since the existence of quality Open Source and Free
   Software for a particular task curtails predatory behavior by proprietary
   software companies, and creates a new standard of comparison.</p>
 
 <p>But, more powerfully, this project's realization
 will increase the agility and collaborative potential
-for the non-profit sector &mdash; a boon to funders, boards, employees, and the 
-populations they serve &mdash;  bringing the Free Software and general NPO communities
+for the non-profit sector &mdash; a boon to funders, boards, and employees &mdash;  bringing the Free Software and general NPO communities
 into closer collaboration and understanding.</p>
 
 <p>Thanks in advance for <a href="http://sfconservancy.org/campaign">helping us</a> develop Free Software to benefit all
-non-profit organizations, and thus all of society.</p>
+non-profit organizations, and the 
+populations they serve.</p>
 
 <p>Donors of $500 or more will be acknowledged in the THANKS file and other
   appropriate places in the codebase itself.</p>
@@ -345,20 +347,20 @@ Interest; all encourage you to <a href="http://sfconservancy.org/campaign">donat
   financial accounts are audited annually by an independent accounting firm;
   we recently completed our fiscal year 2011 audit.  As usual, our auditors
   asked plenty of questions about our accounting software.  Conservancy uses
-  only Free Software, of course, using a series of straightforward reporting
+  only Free Software, of course, centered around a set of straightforward reporting
   scripts that we created to run on top
   of <a href="http://www.ledger-cli.org/">Ledger CLI</a>. (Conservancy's
   current configuration using Ledger CLI
   is <a href="https://gitorious.org/ledger/npo-ledger-cli">publicly
-  documented and explained</a>).</p>
+  documented and explained</a>.)</p>
 
-<p>Our auditors were only familiar with proprietary accounting systems, and
-  our system seemed foreign to them (since it relies on Ledger CLI's text files, Emacs and
-  version control).  During their questions
+<p>Our auditors were only familiar with proprietary accounting software, and
+  so our system seemed foreign to them, as it relies on Ledger CLI's text files, Emacs and
+  version control.  During their questions
   about our setup, we asked them to hypothetically prescribe a specific
-  proprietary software setup as a model for how to manage Conservancy's
+  proprietary software setup as a model for  managing Conservancy's
   accounts.  Our chief auditor started by mentioning a few well-known
-  proprietary solutions &mdash; but, then he paused and continued &mdash; <q>Given
+  proprietary solutions.   But then he paused and continued:  <q>Given
   that Conservancy's a fiscal sponsor with so many temporarily restricted
   accounts, existing systems really wouldn't do that good of a job for
   you</q>.</p>
@@ -373,16 +375,16 @@ Interest; all encourage you to <a href="http://sfconservancy.org/campaign">donat
   freedom community; it's missing altogether.</p>
 
 
-<p>The project that Conservancy proposes to undertake below is a modest step
-  forward to begin creating a better solution for everyone, and 
-  <a href="#quotes">many NPO leaders and academics agree</a> with Conservancy about the
+<p>The project that Conservancy proposes will take a modest step
+  forward in creating a better solution for everyone. 
+  <a href="#quotes">Many NPO leaders and academics agree</a> with Conservancy about the
   immediate need for work to begin on this
   effort.  <a href="https://www.fracturedatlas.org">Fractured Atlas</a>, <a href="http://fsf.org">Free Software
   Foundation</a>, The <a href="https://www.mozilla.org/foundation/">Mozilla
 Foundation</a>, The <a href="http://www.gnome.org/foundation/">GNOME Foundation</a>,  <a
         href="https://openhatch.org/">OpenHatch</a>, <a href="http://opensource.org">Open Source Initiative</a>,
   <a href="http://QuestionCopyright.org">QuestionCopyright.org</a>, and <a href="http://www.spi-inc.org/">Software in the Public Interest</a> have
-  <a id="endorsements" style="text-decoration:none">all endorsed</a> Conservancy's plan herein, and they encourage you to donate and
+  <a id="endorsements" style="text-decoration:none">all endorsed</a> Conservancy's plan, and they encourage you to donate and
   support it.</p>
 
 <p>Conservancy is uniquely qualified to undertake this task.  Using only Free
@@ -411,7 +413,7 @@ Foundation</a>, The <a href="http://www.gnome.org/foundation/">GNOME Foundation<
 <p>Some Free Software accounting systems do exist.  A previous informal
   survey of these systems that Conservancy conducted in 2007 led us to the
   conclusion that, in general, these systems were heavily geared toward
-  for-profit endeavors, and ignored the unique needs of NPOs generally, and
+  for-profit endeavors, ignored the unique needs of NPOs generally, and
   were completely hopeless for the specific needs of a fiscal sponsoring
   organization.  Conservancy's assessment at the time was that these
   challenges could be addressed only with a large rewrite of one of these
@@ -445,10 +447,10 @@ Foundation</a>, The <a href="http://www.gnome.org/foundation/">GNOME Foundation<
 <li>Basic backup documentation tracking for expenses and payments</li>
 <li>Basic bank statement reconciliation reporting</li>
 <li>Basic annual audit preparation reporting
-  (a <a href="https://github.com/ledger/ledger/tree/next/contrib/non-profit-audit-reports">prototype
+  (A <a href="https://github.com/ledger/ledger/tree/next/contrib/non-profit-audit-reports">prototype
   of this portion is already complete</a> and has been relied on for
   real-life audits; but the prototype is just a hack and needs to be
-  rewritten)</li>
+  rewritten.)</li>
 <li>Ability to easily handle all these features on a project-by-project
   subset of the accounts, and to easily export and excise that subset from
   the system. (i.e., support for temporarily restricted assets, earmarked for
@@ -490,7 +492,7 @@ Foundation</a>, The <a href="http://www.gnome.org/foundation/">GNOME Foundation<
   advice from our auditors and other fiscal sponsors, Conservancy understands that <em>no existing
   solution &mdash; proprietary or Free &mdash; meets the requirements of fiscal sponsorship accounting</em>).  Fiscal sponsors like
   Conservancy must track a separate set of books for every project, keeping
-  in mind that a project may leave at any time to another NPO and need to take
+  in mind that a project may leave at any time for another NPO and need to take
   their books with them.  Yet, the books of the entire organization are the
   aggregate of the books of all these projects, and internally, they need to
   be presented as a single set of books for those purposes.</p>
@@ -507,23 +509,23 @@ Foundation</a>, The <a href="http://www.gnome.org/foundation/">GNOME Foundation<
 <p>Conservancy's existing system is working adequately, but requires daily
   the relatively more expensive time of a highly technical person to do the
   job of bookkeeping.  Also, the system cannot easily be adapted in its
-  current form for another NPO, unless they also have the staff time of a
-  skilled technical person to act as bookkeeper.  This project aims to build
+  current form for another NPO, unless they also have a
+  skilled technical employee to act as bookkeeper.  This project aims to build
   on what Conservancy has learned and produce a non-profit accounting system
   that corrects these flaws.</p>
 
 <p>Finally, Conservancy's mission (as stated
 on <a href="http://sfconservancy.org/docs/conservancy_Form-1023.pdf">our Form
 1023 with the USA IRS</a>) includes producing Open Source and Free Software.
-Thus, this project is a great way to meet Conservancy's mission and address a
+Thus, this project is a great way to pursue Conservancy's mission and address a
 specific need that so many NPOs (including us) have.  If no one steps up to create Free Software to replace the widely used
 proprietary software, NPOs in aggregate will pay <em>much more</em> money for
 proprietary licensing than Conservancy will ever spend in developing a
 replacement. Please donate
 generously to help us do it!</p>
 
-
-<h3><a id="quotes" style="text-decoration:none">Statements of Support</a> For This Project from Others</h3>
+<a id="quotes"></a>
+<h3>Statements of Support For This Project from Others</h3>
 
 <p><q>As a national fiscal sponsor with over 3,000 arts and cultural projects
 under our umbrella, Fractured Atlas is ecstatic about this effort's
@@ -536,7 +538,7 @@ work on this front and look forward to seeing where it leads.</q> &mdash;
 
 <p><q><a href="http://QuestionCopyright.org">QuestionCopyright.org</a> is
 just one of many organizations that would benefit from a Free Software
-accounting system that is useable by non-technical people.  We
+accounting system that is usable by non-technical people.  We
 enthusiastically support the Conservancy's campaign to create one, and look
 forward to using the result.</q>
 &mdash; <a href="http://questioncopyright.org/speakers/karl_fogel">Karl
@@ -568,7 +570,7 @@ Director, The <a href="http://www.gnome.org/foundation/">GNOME Foundation</a></p
      Freedom Conservancy in navigating the financial management needs of
      non-profit organisations and shares their concern. We have many NPOs as
      members and we welcome this useful initiative by Conservancy.</q>
-     &mdash; Simon Phipps, <a href="http://opensource.org">Open Source
+     &mdash; Simon Phipps, President, <a href="http://opensource.org">Open Source
      Initiative</a></p>
 
 <p><q>The <a href="https://fsf.org/">Free Software Foundation</a> is committed to doing all of its work,
