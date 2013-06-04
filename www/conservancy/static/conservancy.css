@@ -11,13 +11,20 @@ p, h1, h2, h3, h4, h5, h6, #mainContent ul, #mainContent ol {
 
 body {
 /*  font-family: "Lucida Grande",Verdana,Lucida,Helvetica,Arial,sans-serif; */
+  font-family: Helvetica;
   font-size: 95%;
   background-color: #0000;
   color: #ffff;
 }
 
 a { text-decoration: none; color: #557733; }
-a:hover { text-decoration: underline; color: #3B6337; }
+a:hover { text-decoration: underline; color: #577632; }
+
+.toggle-control  {
+cursor: pointer;
+text-decoration: none; color: #557733;
+}
+.toggle-control:hover { text-decoration: underline; color: #577632; }
 
 h1 { margin-top: .75em; margin-bottom: .5em; }
 h2 { margin-top: .75em; margin-bottom: .5em; }
@@ -57,10 +64,20 @@ h3 { margin-top: .6em; margin-bottom: .4em; }
 }
 
 /* Navigation bar */
-#navbar-outer { background: #B3D4A3; }
+#navbar-outer { background: #577632; }
 #navbar { margin-left: 104px; margin-top: 3px; float: left; display: inline; }
 #navbar ul { list-style: none; }
 #navbar-clear { clear: both; border-bottom: 1px solid #808080; }
+#navbar li.campaign a {
+  display: block;
+  background: #fafafe;
+  padding: .2em .8em;
+  margin-right: 3px;
+  border: 1px solid #808080;
+  font-size: .8em;
+  background: url(/img/nav-bg-campaign.png) bottom repeat-x;
+  border-color: #ffffff;
+}
 #navbar li a {
   display: block;
   background: #fafafe;
@@ -69,8 +86,10 @@ h3 { margin-top: .6em; margin-bottom: .4em; }
   border: 1px solid #808080;
   font-size: .8em;
   background: #fff url(/img/nav-bg.png) bottom repeat-x;
+  border-color: #ffffff;
 }
-#navbar li:hover a { background: #3b6337; color: #fff; }
+#navbar li:hover a { background: #577632; color: #fff; }
+#navbar li.campaign:hover a { background: #577632; color: #CE1F1F; }
 #navbar li { float: left; display: inline; margin-bottom: 3px; }
 
 #mainContent {
@@ -101,14 +120,16 @@ h3 { margin-top: .6em; margin-bottom: .4em; }
     border: 1px solid #CCC;
     background: #fff url(/img/nav-bg.png) bottom repeat-x;
 }
-#container #sidebar li:hover a { background: #3b6337; color: #fff; }
+#container #sidebar li:hover a { background: #577632; color: #fff; }
 
 #container #sidebar.Directors ul li.Directors,
+#container #sidebar.Eval ul li.Eval,
 #container #sidebar.Contact ul li.Contact,
 #container #sidebar.Officers ul li.Officers,
 #container #sidebar.Staff ul li.Staff,
 #container #sidebar.Outside ul li.Outside,
 #container #sidebar.Filings ul li.Filings,
+#container #sidebar.License ul li.License,
 #container #sidebar.Current ul li.Current,
 #container #sidebar.Services ul li.Services,
 #container #sidebar.Applying ul li.Applying
@@ -231,6 +252,12 @@ body.conservancy-sponsors #navbar ul li.sponsors a /* NO COMMA HERE! */
     font-weight: bold;
     background: #fff url(/img/nav-bg-up.png) top repeat-x;
 }
+body.conservancy-campaign #navbar ul li.campaign a
+{ 
+    color: #000033;
+    font-weight: bold;
+    background: url(/img/nav-bg-campaign-up.png) bottom repeat-x;
+}
 
 #sponsor ul {
   clear: all;
@@ -251,3 +278,5 @@ body.conservancy-sponsors #navbar ul li.sponsors a /* NO COMMA HERE! */
    width: 200px;
    font-size: 12px;
 }
+
+
