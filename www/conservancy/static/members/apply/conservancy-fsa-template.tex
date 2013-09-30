@@ -3,6 +3,7 @@
 \usepackage{enumitem}
 \usepackage{parskip}
 \usepackage{fancyhdr}
+\usepackage{xspace}
 \usepackage[verbose, twoside, dvips,
               paperwidth=8.5in, paperheight=11in,
               left=1in, right=1in, top=1.25in, bottom=.75in,
@@ -20,6 +21,31 @@
 \renewcommand{\headrulewidth}{0pt}
 \renewcommand{\footrulewidth}{0pt}
 
+\newcommand{\projectname}{FIXME-PROJECT-NAME\xspace}
+\newcommand{\signatories}{FIXME-SIGNATORIES\xspace}
+\newcommand{\leadershipbody}{FIXME-LEADERSHIP-BODY-NAME\xspace}
+\newcommand{\signature}[3]{
+\vspace{2ex}
+
+By: \hspace{0.95em}\rule{0.50\textwidth}{0.2mm} \hfill{}Date: \rule{0.25\textwidth}{0.2mm}
+
+\if\relax\detokenize{#1}\relax
+\else
+\hspace{2.5em} \textsc{#1}
+\fi
+\if\relax\detokenize{#2}\relax
+\else
+
+\hspace{2.5em} #2
+\fi
+\if\relax\detokenize{#3}\relax
+\else
+
+\hspace{2.5em} #3
+\fi
+\vspace{6ex}
+}
+
 \begin{document}
 
 \begin{center}
@@ -30,8 +56,8 @@
 
 
 This Agreement is made by and between The Software Freedom Conservancy
-(``Conservancy'') and FIXME-CONTRIBUTOR-NAMES (the ``FIXME-SIGNATORIES'')
-on behalf of the project known as FIXME (the ``Project'') (each, a 
+(``Conservancy'') and FIXME-CONTRIBUTOR-NAMES (the ``\signatories'')
+on behalf of the project known as \projectname (the ``Project'') (each, a 
 ``Party''; together, ``the Parties'').  Conservancy is a New York nonprofit 
 public benefit corporation located in Brooklyn, New York, which has received 
 ecognition of exemption from federal income tax under Section 501(c)(3) of 
@@ -52,7 +78,7 @@ of use.
 \item Conservancy desires to act as the fiscal sponsor of the Project beginning
 on the Effective Date (as defined below) to assist the Project in
 accomplishing its purpose, which Conservancy has determined will further
-Conservancy's charitable goals. The FIXME-SIGNATORIES desire to manage
+Conservancy's charitable goals. The \signatories desire to manage
 the Project under the sponsorship of Conservancy. 
 \item Conservancy's Board of Directors has approved the establishment
 of a fund to receive donations of cash and other property earmarked
@@ -73,16 +99,16 @@ terminated as set forth in \ref{Termination}.
 
 
 \begin{enumerate}[label=\alph*.,ref=\theenumi(\alph*)]
-\item \textbf{The FIXME-LEADERSHIP-BODY-NAME Will Manage the Project}. \label{ProjectManagement}
+\item \textbf{The \leadershipbody Will Manage the Project}. \label{ProjectManagement}
 Authority to manage the technical, artistic and philanthropic direction
 of the Project and the program activities of the Project is delegated
-to the FIXME-LEADERSHIP-BODY-NAME as defined in \ref{Representation},
+to the \leadershipbody as defined in \ref{Representation},
 subject at all times to the direction and control of Conservancy's
 Board of Directors. Conservancy will only intervene in the program
 activities to the extent the Project is not in compliance with \ref{FreeSoftware}
 or \ref{CharitablePurpose} of this Agreement. 
 \item \textbf{The Project Will Be Free Software}. \label{FreeSoftware}
-Conservancy and the FIXME-LEADERSHIP-BODY-NAME agree that any and all software
+Conservancy and the \leadershipbody agree that any and all software
 and/or documentation distributed by the Project will be distributed solely as Free Software.
 Conservancy retains the sole right to determine whether Project's
 software and/or documentation constitutes Free Software (as defined herein).
@@ -94,17 +120,17 @@ and contracts, disbursement of Project funds (including grants), and
 other activities planned by the Project shall be the ultimate responsibility
 of Conservancy and shall be conducted in the name of Conservancy,
 beginning on the Effective Date. 
-\item \textbf{Project Not An Agent Of Conservancy}. The FIXME-SIGNATORIES
-hereby acknowledge that the Project and the FIXME-LEADERSHIP-BODY-NAME
+\item \textbf{Project Not An Agent Of Conservancy}. The \signatories
+hereby acknowledge that the Project and the \leadershipbody
 do not and shall not act as an agent for Conservancy unless specifically
 authorized in writing by Conservancy to do so. 
 \end{enumerate}
-\item \textbf{Fees}. The FIXME-SIGNATORIES agree to donate ten percent
+\item \textbf{Fees}. The \signatories agree to donate ten percent
 (10\%) of the Project's gross revenue (including, but not necessarily limited
 to, all income and donations) to Conservancy for its general operations.
 
 
-Notwithstanding the above, the FIXME-SIGNATORIES agree that should Conservancy
+Notwithstanding the above, the \signatories agree that should Conservancy
 be required to pay any taxes (including but not limited to sales taxes
 and unrelated business taxable income) as the result of any activity
 of the Project and/or activities undertaken by Conservancy on the
@@ -120,7 +146,7 @@ given Conservancy's tax exempt status.
 Conservancy shall place all gifts, grants, contributions and other
 revenues received by Conservancy and identified with the Project into
 a Project Fund to be used for the sole benefit of the Project's mission
-as that mission may be defined by the FIXME-LEADERSHIP-BODY-NAME from
+as that mission may be defined by the \leadershipbody from
 time to time with the approval of Conservancy. Conservancy retains
 the unilateral right to spend such funds so as to accomplish the purposes
 of the Project as nearly as possible within Conservancy's sole judgment.
@@ -140,7 +166,7 @@ Standards Board, while this Agreement is in effect.
 \label{CharitablePurpose} All of the assets received by Conservancy
 under the terms of this Agreement shall be devoted to the purposes
 of the Project, within the tax-exempt purposes of Conservancy. The
-FIXME-SIGNATORIES agree not to use its funds or operate in any way which would
+\signatories agree not to use its funds or operate in any way which would
 jeopardize the tax-exempt status of Conservancy. No item of revenue
 shall be earmarked for use in any attempt to influence legislation
 within the meaning of IRC Section 501(c)(3) and no agreement, oral
@@ -153,16 +179,16 @@ or improper private benefit to occur, nor to take any other action
 inconsistent with IRC Section 501(c)(3). 
 
 \item \textbf{Representation of the Project in Conservancy}. \label{Representation}The
-FIXME-SIGNATORIES, each a signatory hereto, hereby establish and comprise
-the initial members of the FIXME-LEADERSHIP-BODY-NAME
+\signatories, each a signatory hereto, hereby establish and comprise
+the initial members of the \leadershipbody
 to represent the Project in its official communication with Conservancy.
-The FIXME-SIGNATORIES hereby acknowledge that the FIXME-LEADERSHIP-BODY-NAME
+The \signatories hereby acknowledge that the \leadershipbody
 will be subject to all terms of this Agreement.
-On the Effective Date, the FIXME-SIGNATORIES hereby transfer all
+On the Effective Date, the \signatories hereby transfer all
 rights, obligations and privileges of this Agreement over to the
-FIXME-LEADERSHIP-BODY-NAME.
+\leadershipbody.
 
-[FIXME: Note: This section should describe the way in which the
+[FIXME: Note: The rest of this section should describe the way in which the
 Project wishes to interface with Conservancy; including who has
 authority to communicate with Conservancy regarding the Project
 and what is required in order for Conservancy to act on behalf
@@ -174,9 +200,9 @@ represent the Project. Here a few samples of how projects have handled
 this clause in the other projects:
 
 \begin{itemize}
-\item \textbf{Simple Self-Perpetuating Committee}. The FIXME-SIGNATORIES,
+\item \textbf{Simple Self-Perpetuating Committee}. The \signatories,
 each a signatory hereto, shall initially [FIXME: form or comprise]
-the FIXME-LEADERSHIP-BODY-NAME as a Project Committee (``Committee'')
+the \leadershipbody as a Project Committee (``Committee'')
 to represent the Project in its official communication with Conservancy.
 Existing Project Committee Members (``Members'') can be removed
 from and new Members can be added to the Committee by simple majority
@@ -197,8 +223,8 @@ the Project community to replace any unreachable Members and/or to
 increase the Committee composition to three Members.
 
 \item \textbf{Self-Perpetuating Committee, w/ avoiding employees of same
-company serving together}. The FIXME-SIGNATORIES, each a signatory
-hereto, shall initially [FIXME: form or comprise] the FIXME-LEADERSHIP-BODY-NAME
+company serving together}. The \signatories, each a signatory
+hereto, shall initially [FIXME: form or comprise] the \leadershipbody
 as a Project Committee (``Committee'') to represent the Project
 in its official communication with Conservancy. Existing Project
 Committee Members (``Members'') can be removed from and new Members
@@ -238,9 +264,9 @@ new Members from the Project community to replace any unreachable
 Members and/or to increase the Committee composition to the required
 Minimum.
 
-\item \textbf{An Elected Oversight Committee.} The FIXME-SIGNATORIES, each
+\item \textbf{An Elected Oversight Committee.} The \signatories, each
 a hereto, shall initially [FIXME: form or comprise] the 
-FIXME-LEADERSHIP-BODY-NAME as a Project Committee (``Committee'') to 
+\leadershipbody as a Project Committee (``Committee'') to 
 represent the Project in its official communication with Conservancy.  The
 Committee shall hereafter be elected by community members of the Project as
 designated by the Committee or a subcommittee of the Committee (the 
@@ -271,17 +297,17 @@ Conservancy's goal is to draft the Representation section to match
 the existing and natural leadership structure of the Project, so each
 project usually has a uniquely worded Representation section. ]
 
-\item \textbf{Outstanding Liabilities}. The FIXME-SIGNATORIES represent
+\item \textbf{Outstanding Liabilities}. The \signatories represent
 that any liabilities that may be outstanding in connection with the
 Project have been disclosed to Conservancy. 
-\item \textbf{Termination}. \label{Termination} The FIXME-LEADERSHIP-BODY-NAME or Conservancy
+\item \textbf{Termination}. \label{Termination} The \leadershipbody or Conservancy
 may terminate this Agreement at any time subject to the following
 understandings:
 
 
 \begin{enumerate}[label=\alph*.,ref=\theenumi(\arabic*)]
 
-\item \textbf{Notice and Successor Search}. Either Conservancy or the FIXME-LEADERSHIP-BODY-NAME
+\item \textbf{Notice and Successor Search}. Either Conservancy or the \leadershipbody
 may terminate this Agreement on sixty (60) days' written notice to
 the other Party, so long as a Successor can be found that meets the
 following requirements (the ``Successor has Qualified''):
@@ -299,7 +325,7 @@ under IRC Section 501(c)(3),
 the 60-day period, such approval not to be unreasonably withheld. 
 \end{enumerate}
 \item \textbf{Additional Search Periods}. If the Parties cannot agree on
-a Successor to sponsor the Project, the FIXME-LEADERSHIP-BODY-NAME
+a Successor to sponsor the Project, the \leadershipbody
 shall have an additional 60 days to find a Successor willing and able
 to sponsor the Project. Any subsequent search periods of any length
 shall only be granted at Conservancy's written permission. 
@@ -314,9 +340,9 @@ that may be required.
 Conservancy may dispose of Project assets and liabilities
 in any manner consistent with applicable tax and charitable trust
 laws. 
-\item \textbf{FIXME-SIGNATORIES' Right to Terminate.} 
-The FIXME-SIGNATORIES hereby acknowledge that they will relinquish any
-       rights to terminate separate from the FIXME-LEADERSHIP-BODY-NAME as
+\item \textbf{\signatories' Right to Terminate.} 
+The \signatories hereby acknowledge that they will relinquish any
+       rights to terminate separate from the \leadershipbody as
        of the Effective Date.
 \end{enumerate}
 \item \textbf{Miscellaneous}. Each provision of this Agreement shall be
@@ -328,7 +354,7 @@ only agreement, and supersedes all prior agreements and understandings,
 both written and oral, among the Parties with respect to the subject
 matter hereof. 
 \item \textbf{Amendments. }This Agreement may not be amended or modified,
-except in writing and signed by both Conservancy and the entirety of FIXME-LEADERSHIP-BODY-NAME. 
+except in writing and signed by both Conservancy and the entirety of \leadershipbody. 
 \item \textbf{Counterparts / Facsimile}. This Agreement may be executed
 in two or more counterparts, each of which shall constitute an original,
 but all of which, when together, shall constitute but one and the
@@ -346,26 +372,9 @@ Sponsorship Agreement effective on the FIXME day of FIXME, FIXME (the
 
 \vspace{3em}
 
+\signature{The Software Freedom Conservancy, Inc.}{Bradley M. Kuhn}{Title: Executive Director}
 
-By: \hspace{0.95em}\rule{0.50\textwidth}{0.2mm} \hfill{}Date: \rule{0.25\textwidth}{0.2mm}
-
-\hspace{2.5em} \textsc{The Software Freedom Conservancy, Inc. }
-
-\hspace{2.5em} Bradley M. Kuhn
-
-\hspace{2.5em} Title: Executive Director \\[6ex]
-
-\vspace{2ex}
-
-
-By: \hspace{0.95em}\rule{0.50\textwidth}{0.2mm} \hfill{}Date: \rule{0.25\textwidth}{0.2mm}
-
-\hspace{2.5em} [FIXME-CONTRIBUTOR]
-
-\vspace{2ex}
-
-
-By: \hspace{0.95em}\rule{0.50\textwidth}{0.2mm} \hfill{}Date: \rule{0.25\textwidth}{0.2mm}
-
-\hspace{2.5em} [FIXME-CONTRIBUTOR] 
+\signature{}{FIXME-CONTRIBUTOR}{}
+\signature{}{FIXME-CONTRIBUTOR}{}
+\signature{}{FIXME-CONTRIBUTOR}{}
 \end{document}
