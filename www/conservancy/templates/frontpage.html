@@ -95,7 +95,6 @@
 <p><span class="continued"><a href="{{ blog.0.get_absolute_url }}">Read More...</a></span></p>
 <p class="small date">Posted by {{ blog.0.author.formal_name }}</p>
 {% endif %}
-
 {% if blog.1.is_recent %}
 <hr/>
 <p class="date">{{ blog.1.pub_date|date:"F j, Y" }}</p>
@@ -103,13 +102,9 @@
 {{ blog.1.summary|safe }}
 <p><span class="continued"><a href="{{ blog.1.get_absolute_url }}">Read More...</a></span></p>
 <p class="small date">Posted by {{ blog.1.author.formal_name }}</p>
-<hr/>
-<p><a href="/blog/">Conservancy Blog Archive&hellip;</a></p>
-</div>
-{% else %}
-<p><span class="continued"><a href="/blog/">Conservancy Blog Archive&hellip;</a></span></p>
-</div>
 {% endif %}
+</div>
+<p><span class="continued"><a href="/blog/">Conservancy Blog Archive&hellip;</a></span></p>
 </div>
 </div>
 {% endblock %}
