@@ -97,13 +97,14 @@
 {% endif %}
 
 {% if blog.1.is_recent %}
-<div class="shaded">
+<hr/>
 <p class="date">{{ blog.1.pub_date|date:"F j, Y" }}</p>
 <h3><a href="{{ blog.1.get_absolute_url }}">{{ blog.1.headline|safe }}</a></h3>
 {{ blog.1.summary|safe }}
 <p><span class="continued"><a href="{{ blog.1.get_absolute_url }}">Read More...</a></span></p>
 <p class="small date">Posted by {{ blog.1.author.formal_name }}</p>
-<p><a href="/blog/">Conservancy Blog Archive...</a></p>
+<hr/>
+<p><a href="/blog/">Conservancy Blog Archive&hellip;</a></p>
 </div>
 {% else %}
 <p><span class="continued"><a href="/blog/">Conservancy Blog Archive&hellip;</a></span></p>
