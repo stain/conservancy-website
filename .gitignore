@@ -3,3 +3,4 @@
 *.pyc
 www/djangocommonsettings.py
 www/conservancy/static/source
+logs
