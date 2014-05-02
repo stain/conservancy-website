@@ -99,8 +99,8 @@ on {{ blog.0.pub_date|date:"F j, Y" }}</p>
 {% endif %}
 
 {% if blog.1.is_recent %}
-<hr/>
 <div class="shaded">
+<hr/>
 <h3><a href="{{ blog.1.get_absolute_url }}">{{ blog.1.headline|safe }}</a></h3>
 <p class="date">Posted by {{ blog.1.author.formal_name }}
 on {{ blog.1.pub_date|date:"F j, Y" }}</p>
