@@ -1,4 +1,4 @@
-from django.contrib.syndication.feeds import Feed
+from django.contrib.syndication.views import Feed
 from django.utils.feedgenerator import Rss201rev2Feed 
 from conservancy.apps.news.models import PressRelease
 from conservancy.apps.blog.models import Entry as BlogEntry
