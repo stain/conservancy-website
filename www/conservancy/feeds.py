@@ -154,9 +154,6 @@ class BlogFeed(ConservancyFeedBase):
     get_absolute_url = '/feeds/blog/'
 
     def get_object(self, request):
-        # This is a hack:  keep GET object handy so I always have it in all methods.
-        if not hasattr(self, 'GET') and request and hasattr(request, 'GET'):
-            self.GET = request.GET
         return request
 
     def title(self, obj):
@@ -226,29 +223,13 @@ class BlogFeed(ConservancyFeedBase):
         return item.author.formal_name
 
     def item_author_email(self, item):
-        GET = self.GET
-        if not 'author' in GET:
-            return "%s@sfconservancy.org" % item.author
-        else:
-            answer = ""
-            authors = GET.getlist('author')
-            firstTime = True
-            for author in authors:
-                if not firstTime:
-                    answer = "%s@sfconservancy.org" % author
-                    firstTime = False
-                else:
-                    answer += ",%s@sfconservancy.org" % author
+        return "%s@sfconservancy.org" % item.author
 
     def item_pubdate(self, item):
         return item.pub_date
 
     def items(self, obj):
-        # This is a hack:  keep GET object handy so I always have it in all methods.
-        if not hasattr(self, 'GET') and request and hasattr(request, 'GET'):
-            self.GET = request.GET
-
-        GET = self.GET
+        GET = obj.GET
 
         def OR_filter(field_name, subfield_name, objs):
             from django.db.models import Q
