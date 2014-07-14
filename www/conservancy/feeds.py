@@ -42,6 +42,11 @@ class PressReleaseFeed(Feed):
     def items(self):
         return PressRelease.objects.filter(pub_date__lte=datetime.now(),
                                            sites__id__exact=settings.SITE_ID).order_by('-pub_date')[:10]
+    def item_title(self, item):
+        return item.title
+
+    def item_description(self, item):
+        return item.title
 
     def item_pubdate(self, item):
         return item.pub_date
@@ -75,6 +80,12 @@ class OmnibusFeed(ConservancyFeedBase):
     author_email = "info@sfconservancy.org"
     author_link = "https://sfconservancy.org/"
     author_name = "Software Freedom Conservancy"
+
+    def item_title(self, item):
+        return item.title
+
+    def item_description(self, item):
+        return item.description
 
     def item_enclosure_mime_type(self): return "audio/mpeg"
 
@@ -199,6 +210,12 @@ class BlogFeed(ConservancyFeedBase):
 
         return answer
         
+    def item_title(self, item):
+        return item.title
+
+    def item_description(self, item):
+        return item.description
+
     def item_author_name(self, item):
         return item.author.formal_name
 
