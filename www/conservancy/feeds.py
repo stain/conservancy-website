@@ -34,6 +34,7 @@ class ConservancyFeedBase(Feed):
         return { 'year' : year }
 
 class PressReleaseFeed(Feed):
+    get_absolute_url = '/feeds/news/'
     title = "Software Freedom Conservancy News"
     link = "/news/"
     description = ""
@@ -64,6 +65,7 @@ class OmnibusFeedType(Rss201rev2Feed):
         handler.addQuickElement("itunes:block", 'Yes')
 
 class OmnibusFeed(ConservancyFeedBase):
+    get_absolute_url = '/feeds/omnibus/'
     feed_type = OmnibusFeedType
     link ="/news/"
     title = "The Software Freedom Conservancy"
@@ -138,6 +140,7 @@ class OmnibusFeed(ConservancyFeedBase):
 
 class BlogFeed(ConservancyFeedBase):
     link = "/blog/"
+    get_absolute_url = '/feeds/blog/'
 
     def title(self):
         answer = "The Software Freedom Conservancy Blog"
@@ -237,11 +240,6 @@ class BlogFeed(ConservancyFeedBase):
 
         return queryset.order_by('-pub_date')[:10]
 
-
-
-BlogFeed.get_absolute_url = '/feeds/blog/'
-PressRelease.get_absolute_url = '/feeds/news/'
-OmnibusFeed.get_absolute_url = '/feeds/omnibus/'
 
 def view(request):
     """Listing of all available feeds
