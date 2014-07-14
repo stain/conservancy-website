@@ -153,10 +153,13 @@ class BlogFeed(ConservancyFeedBase):
     link = "/blog/"
     get_absolute_url = '/feeds/blog/'
 
-    def title(self):
+    def get_object(self, request):
+        return request
+
+    def title(self, obj):
         answer = "The Software Freedom Conservancy Blog"
 
-        GET = self.request.GET
+        GET = obj.GET
         tags = []
         if 'author' in GET:
             tags = GET.getlist('author')
@@ -182,10 +185,10 @@ class BlogFeed(ConservancyFeedBase):
             answer += "."
         return answer
         
-    def description(self):
+    def description(self, obj):
         answer = "Blogs at the Software Freedom Conservancy"
 
-        GET = self.request.GET
+        GET = obj.GET
         tags = []
         if 'author' in GET: tags = GET.getlist('author')
         if 'tag' in GET:    tags += GET.getlist('tag')
@@ -220,7 +223,7 @@ class BlogFeed(ConservancyFeedBase):
         return item.author.formal_name
 
     def item_author_email(self, item):
-        GET = self.request.GET
+        GET = self.get_object().GET
         if not 'author' in GET:
             return "%s@sfconservancy.org" % item.author
         else:
@@ -236,8 +239,9 @@ class BlogFeed(ConservancyFeedBase):
 
     def item_pubdate(self, item):
         return item.pub_date
-    def items(self):
-        GET = self.request.GET
+
+    def items(self, obj):
+        GET = obj.GET
 
         def OR_filter(field_name, subfield_name, objs):
             from django.db.models import Q
