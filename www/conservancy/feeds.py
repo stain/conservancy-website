@@ -239,8 +239,9 @@ class BlogFeed(ConservancyFeedBase):
 
 
 
-for k, v in feed_dict.items():
-    v.get_absolute_url = '/feeds/%s/' % k
+BlogFeed.get_absolute_url = '/feeds/blog/'
+PressRelease.get_absolute_url = '/feeds/news/'
+OmnibusFeed.get_absolute_url = '/feeds/omnibus/'
 
 def view(request):
     """Listing of all available feeds
