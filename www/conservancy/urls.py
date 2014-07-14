@@ -28,7 +28,7 @@ admin.autodiscover()
 urlpatterns = patterns('',
     (r'^$', 'conservancy.frontpage.view'),
     (r'^admin/doc/', include('django.contrib.admindocs.urls')),
-    (r'^admin/(.*)', admin.site.urls),
+    (r'^admin/', admin.site.urls),
     (r'^feeds/blog/?$', BlogFeed()),
     (r'^feeds/news/?$', PressReleaseFeed()),
     (r'^feeds/omnibus/?$', OmnibusFeed()),
