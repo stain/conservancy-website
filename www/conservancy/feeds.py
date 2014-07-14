@@ -238,13 +238,6 @@ class BlogFeed(ConservancyFeedBase):
         return queryset.order_by('-pub_date')[:10]
 
 
-feed_dict = {
-    'blog': BlogFeed,
-    'news': PressReleaseFeed,
-    'omnibus': OmnibusFeed,
-#    'event-media': RecentEventMediaFeed,
-}
-# make each feed know its canonical url
 
 for k, v in feed_dict.items():
     v.get_absolute_url = '/feeds/%s/' % k
