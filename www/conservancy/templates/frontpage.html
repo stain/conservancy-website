@@ -95,11 +95,7 @@ on {{ blog.0.pub_date|date:"F j, Y" }}</p>
 {{ blog.0.summary|safe }}
 <p><span class="continued"><a href="{{ blog.0.get_absolute_url }}">Read More
       from {{ blog.0.author.casual_name }} on this&hellip;</a></span></p>
-</div>
-{% endif %}
-
 {% if blog.1.is_recent %}
-<div class="shaded">
 <hr/>
 <h3><a href="{{ blog.1.get_absolute_url }}">{{ blog.1.headline|safe }}</a></h3>
 <p class="date">Posted by {{ blog.1.author.formal_name }}
@@ -107,6 +103,7 @@ on {{ blog.1.pub_date|date:"F j, Y" }}</p>
 {{ blog.1.summary|safe }}
 <p><span class="continued"><a href="{{ blog.0.get_absolute_url }}">Read More
       from {{ blog.1.author.casual_name }} on this&hellip;</a></span></p>
+{% endif %}
 </div>
 {% endif %}
 <p><span class="continued"><a href="/blog/">Conservancy Blog Archive&hellip;</a></span></p>
