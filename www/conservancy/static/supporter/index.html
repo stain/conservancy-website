@@ -1,3 +1,98 @@
+{% extends "base_conservancy.html" %}
+{% block subtitle %}Support Conservancy - {% endblock %}
+{% block category %}supporter{% endblock %}
+
+{% block head %}
+<link href="/jquery-ui.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="/jquery.min.js"></script>
+<script type="text/javascript" src="/jquery-ui.min.js"></script>
+
+{% endblock %}
+
+{% block content %}
+<div style="position:fixed;top:180px;right:2%;width:18%">
+<table style="background-color:#afe478;width:100%;">
+<tr><td style="text-align:center;padding:10px;padding-bottom:10px;">
+
+<div id="donate-box" class="toggle-unit"><h1 class="toggle-content">Become a Supporter Now!</h1></div>
+
+
+<form id="supporter-form"
+            action="https://www.paypal.com/cgi-bin/webscr"
+            method="post" name="supporter">
+                <input type="hidden" name="business" value="info@sfconservancy.org" />
+                <input type="hidden" name="return" value="https://sfconservancy.org/thank-you/" />
+                  <input type="hidden" name="item_name" value="Conservancy Supporter, Annual" />
+                      <input type="hidden" name="cmd" value="_s-xclick" />
+                      <input id="amount" type="text" name="amount" size="1" value="120" />
+                      <small>($120 minimum to become a supporter; please increase the amount above if you want to
+                      make a bigger impact to support Conservancy.)</small>
+
+                                            <h5>Do you want to receive a t-shirt?</h5>
+                      <input type="hidden" name="on1" value="Donation Gift" />
+                      <input type="radio" checked="checked" name="os1" value="Yes" />Yes
+                      <input type="radio" name="os1" value="No" />No
+                      <br />
+                                            <h5>T-shirt size:</h5>
+                      <input type="hidden" name="on3" value="T-shirt Size" />
+                      <input type="radio" name="os3" value="MenS" />Men's S
+                      <input type="radio" name="os3" value="MenM" />Men's M
+                      <input type="radio" checked="checked" name="os3" value="MenL" />Men's L
+                      <input type="radio" checked="checked" name="os3" value="MenXL" />Men's XL
+                      <input type="radio" name="os3" value="Men2XL" />Men's 2XL
+                                  <input type="radio" name="os3" value="LadiesS" />Ladies' S
+                      <input type="radio" name="os3" value="LadiesM" />Ladies' M
+                      <input type="radio" checked="checked" name="os3" value="LadiesL" />Ladies' L
+                      <input type="radio" checked="checked" name="os3" value="LadiesXL" />Ladies' XL
+            
+                      <h5>Do you want your name listed publicly as a Conservancy supporter?:</h5>
+                      <input type="hidden" name="on2" value="List name in the donors page" />
+                      <input type="radio" checked="checked" name="os2" value="Yes" />Yes
+                      <input type="radio" name="os2" value="No" />No
+            
+                                            <h5>Join Conservancy's Low-Traffic Announcement Email List?</h5>
+                      <input type="hidden" name="on4" value="Join Mailing List" />
+                      <input type="radio" checked="checked" name="os4" value="Yes" />Yes
+                      <input type="radio" name="os4" value="No" />No
+                      <br />
+                      <small>You will be redirected to the Paypal website.</small>
+                      <input type="hidden" name="hosted_button_id" value="WJZ98RW3A49XJ">
+                      <input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
+                      <img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
+                    </form>
+<p>
+Other payment methods  to become a supporter:
+<div class="toggle-unit">
+    <h4 class="toggle-control" data-text="Wire Transfer" 
+    data-expanded-text="Wire Transfer:">Wire Transfer</h4>
+    <div class="toggle-content">
+        Please
+            contact <a href="mailto:accounting@sfconservancy.org">Conservancy
+            by email</a><br/> for wire transfer instructions.<br/>
+            Please Include your currency and country.<br/>
+    </div><!-- /.toggle-content -->
+</div><!-- /.toggle.unit -->
+
+<div class="toggle-unit">
+    <h4 class="toggle-control" data-text="Paper Check" 
+    data-expanded-text="Paper Check:">Paper Check</h4>
+    <div class="toggle-content">
+    Send paper check donations of $120 to:<br/>
+    Software Freedom Conservancy, Inc.<br/>
+    137 MONTAGUE ST  STE 380<br/>
+    BROOKLYN, NY 11201-3548<br/>
+    Please write <q>SUPPORTER PROGRAM</q> and your t-shirt size in the memo line. 
+    </div><!-- /.toggle-content -->
+</div><!-- /.toggle.unit -->
+
+<p><a href="/donate">Other Ways to Donate</a></p>
+<!-- Flattr end -->
+</td></tr></table>
+</div>
+
+
+<div style="align:left;width:80%;">
+<!-- begin campaign text -->
 <p>Software Freedom Conservancy is an essential organization to free and
 open source software. We are the home of over
 <a href="http://sfconservancy.org/members/current/">30 projects</a> like 
@@ -60,7 +155,6 @@ internal policies</a> are published and available for scrutiny.</p>
 <p>Please join our Supporter program and spread software freedom!</p>
 
 [1] the shirts will ship First Quarter 2015.
+</div>
 
-
-
-
+{% endblock %}
