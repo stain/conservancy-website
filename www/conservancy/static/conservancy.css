@@ -68,7 +68,7 @@ h3 { margin-top: .6em; margin-bottom: .4em; }
 #navbar { margin-left: 104px; margin-top: 3px; float: left; display: inline; }
 #navbar ul { list-style: none; }
 #navbar-clear { clear: both; border-bottom: 1px solid #808080; }
-#navbar li.campaign a {
+#navbar li.supporter a {
   display: block;
   background: #fafafe;
   padding: .2em .8em;
@@ -89,7 +89,7 @@ h3 { margin-top: .6em; margin-bottom: .4em; }
   border-color: #ffffff;
 }
 #navbar li:hover a { background: #577632; color: #fff; }
-#navbar li.campaign:hover a { background: #577632; color: #CE1F1F; }
+#navbar li.supporter:hover a { background: #577632; color: #CE1F1F; }
 #navbar li { float: left; display: inline; margin-bottom: 3px; }
 
 #mainContent {
@@ -252,7 +252,7 @@ body.conservancy-sponsors #navbar ul li.sponsors a /* NO COMMA HERE! */
     font-weight: bold;
     background: #fff url(/img/nav-bg-up.png) top repeat-x;
 }
-body.conservancy-campaign #navbar ul li.campaign a
+body.conservancy-supporter #navbar ul li.supporter a
 { 
     color: #000033;
     font-weight: bold;
