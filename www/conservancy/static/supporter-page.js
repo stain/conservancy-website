@@ -78,8 +78,26 @@ $(document).ready(function() {
         $('#annualSelector').css("font-weight", "bold").css("font-size", "127%");
         $('#monthlySelector').css("font-weight", "normal").css("font-size", "125%");
     });
-
-  });
+    $( ".footnote-mark" ).tooltip({
+        items: "a",
+        hide: { duration: 5000 },
+        position: {
+            my: "center bottom-20",
+            at: "center left",
+            using: function( position, feedback ) {
+                $( this ).css( position );
+                $( "<div>" )
+                    .addClass( "arrow" )
+                    .addClass( feedback.vertical )
+                    .addClass( feedback.horizontal )
+                    .appendTo( this );
+            }
+        },
+        content: function() {
+            return $('.footnote-1-text').text();
+        }
+    });
+});
 
 $(window).load(function () {
     verifySelctionCorrectOnPageLoad = function() {
