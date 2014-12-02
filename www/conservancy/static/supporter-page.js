@@ -36,9 +36,10 @@ $(document).ready(function() {
         var input=$(this);
         var value = input.val();
         var errorElement=$("span", input.parent());
-
-        var re = /^[0-9,\.]+$/;
-        var isValid = (re.test(value) && parseInt(value) >= 120);
+        var noCommaValue = value;
+        noCommaValue = value.replace(/,/g, "");
+        var re = /^((\d{1,3}(,?\d{3})*?(\.\d{0,2})?)|\d+(\.\d{0,2})?)$/;
+        var isValid = ( re.test(value) && parseInt(noCommaValue) >= 120);
         if (isValid)  {
            input.removeClass("invalid").addClass("valid");
            errorElement.removeClass("form-error-show").addClass("form-error");
