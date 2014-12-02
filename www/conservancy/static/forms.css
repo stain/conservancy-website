@@ -49,3 +49,8 @@ img.appeal {
     float: left;
     padding-right: 40px;
 }
+
+img.appeal-header {
+    max-width: 100%;
+    height: auto;
+}
