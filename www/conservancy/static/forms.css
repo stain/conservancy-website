@@ -48,6 +48,9 @@ div.supporter-type-selector {
 img.appeal {
     float: left;
     padding-right: 40px;
+    min-width: 10%;
+    max-width: 100%;
+    height: auto;
 }
 
 img.appeal-header {
