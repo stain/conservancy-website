@@ -37,7 +37,7 @@ $(document).ready(function() {
         var value = input.val();
         var errorElement=$("span", input.parent());
 
-        var re = /^[0-9\.]+$/;
+        var re = /^[0-9\,\.]+$/;
         var isValid = (re.test(value) && parseInt(value) >= 120);
         if (isValid)  {
            input.removeClass("invalid").addClass("valid");
