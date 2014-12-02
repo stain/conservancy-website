@@ -32,6 +32,7 @@ $(document).ready(function() {
         $control.find('.toggle-content').slideUp("slow");
         $control.find('.toggle-content').slideDown("slow");
     });
+    $('#amount').addClass("valid");
     $('#amount').on('input', function() {
         var input=$(this);
         var value = input.val();
