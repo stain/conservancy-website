@@ -57,3 +57,11 @@ img.appeal-header {
     max-width: 100%;
     height: auto;
 }
+
+img.appeal-footer {
+    max-width: 40%;
+    float: right;
+    width: 10%;
+    min-width: 1%;
+    height: auto;
+}
