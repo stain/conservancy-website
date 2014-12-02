@@ -121,7 +121,7 @@ internal policies</a> are published and available for scrutiny.</p>
 <h2>Become a Supporter Now!</h2>
 <a id="now"></a>
 <form id="supporter-form" action="https://www.paypal.com/cgi-bin/webscr" method="post" name="supporter">
-<div>
+<div id="supporter-form-inputs">
             <input type="hidden" name="cmd" value="_xclick" />
             <input type="hidden" name="business" value="supporter@sfconservancy.org" />
             <input type="hidden" name="item_name" value="Conservancy Supporter, Annual" />
@@ -159,18 +159,17 @@ internal policies</a> are published and available for scrutiny.</p>
                       <input type="hidden" name="on4" value="joinList" />
                       <input type="radio" checked="checked" name="os4" value="Yes" />Yes
                       <input type="radio" name="os4" value="No" />No<br>
-                      <br />
+                      <br /></div>
                       <div id="supporter-form-submit">
                       <input type="image"
                              src="https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif"
                              border="0" name="submit" alt="Become a Supporter Now!">
                       <img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
-                      </div><br/>
-                      <small>You will be redirected to the Paypal website to
-                      become a supporter when you click &ldquo;Donate&rdquo;.</small>
+                      <br/><small>You will be redirected to PayPal's site when you click &ldquo;Donate&rdquo;.</small>
+                      </div>
+                      </div>
 
-</div></form>
-
+</form>
 </div>
 
 {% endblock %}

@@ -3,9 +3,13 @@
     width: 200px;
     text-align: right;
 }
-
+#supporter-form-inputs {
+    float: left;
+}
 #supporter-form-submit {
-    padding-left: 100px;
+    padding-left: 500px;
+    padding-top: 100px;
+    float: center;
 }
 
 #supporter-form div {
