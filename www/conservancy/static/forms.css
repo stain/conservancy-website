@@ -44,3 +44,8 @@ div.supporter-type-selector {
     clear: both;
     padding-bottom: 60px;
 }
+
+.appeal {
+    float: left;
+    margin: 0px 50px 15px 0px;
+}
