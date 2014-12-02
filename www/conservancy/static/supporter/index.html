@@ -4,6 +4,7 @@
 
 {% block head %}
 <link href="/jquery-ui.css" rel="stylesheet" type="text/css"/>
+<link href="/forms.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="/jquery.min.js"></script>
 <script type="text/javascript" src="/jquery-ui.min.js"></script>
 <script type="text/javascript" src="/supporter-page.js"></script>
@@ -123,17 +124,19 @@ internal policies</a> are published and available for scrutiny.</p>
 <form id="supporter-form" action="https://www.paypal.com/cgi-bin/webscr" method="post" name="supporter">
             <input type="hidden" name="cmd" value="_xclick" />
             <input type="hidden" name="business" value="supporter@sfconservancy.org" />
-            <input type="hidden" id="min_amount" type="text" name="min_amount" value="120" />
             <input type="hidden" name="item_name" value="Conservancy Supporter, Annual" />
-                      <h5>Amount:</h5>$<input id="amount" type="text" name="amount" size="7" value="120" /><br/>
-                      <small>($120 minimum; increase the amount if you'd like to help us more.)</small>
+<div>
+  <label for="amount"><strong>Amount:</strong> $</label>
+  <input id="amount" type="text" name="amount" size="7" value="120" />
+  <span class="form-error"><small>$120 minimum to become a Conservancy Supporter.  Visit <a href="/donate">our regular donate page</a> if you'd like
+  to donate less than $120.</small></span><br/>
 
-                                            <h5>Do you want to receive a t-shirt?</h5>
+                      <label for="wantGift"><strong>Do you want to receive a t-shirt? </strong></label>
                       <input type="hidden" name="on1" value="wantGift" />
                       <input type="radio" checked="checked" name="os1" value="Yes" />Yes
                       <input type="radio" name="os1" value="No" />No
                       <br />
-                      <h5>T-shirt size:</h5>
+                      <label for="wantGift"><strong>T-shirt size: </strong></label>
                       <input type="hidden" name="on3" value="size"/>
                       <select name="os3" id="os3">
                         <option name="os3" id="os3" value="MenS" />Men's S</option>
@@ -146,12 +149,14 @@ internal policies</a> are published and available for scrutiny.</p>
                         <option name="os3" id="os3" value="LadiesL" />Ladies' L</option>
                          <option name="os3" id="os3" value="LadiesXL" />Ladies' XL</option>
                       </select><br/>
-                      <h5>Would you like to be acknowledged publicly as a Conservancy Supporter?</h5>
+                      <label for="publicAck"><strong>
+                          Should we list you publicly as a Conservancy Supporter? </strong></label>
                       <input type="hidden" name="on2" value="publicAck" />
                       <input type="radio" checked="checked" name="os2" value="Yes" />Yes
                       <input type="radio" name="os2" value="No" />No<br/>
             
-                                            <h5>Join Conservancy's Low-Traffic Announcement Email List?</h5>
+                      <label for="joinList"><strong>Join Conservancy's
+                      Low-Traffic Announcement Email List? </strong></label>
                       <input type="hidden" name="on4" value="joinList" />
                       <input type="radio" checked="checked" name="os4" value="Yes" />Yes
                       <input type="radio" name="os4" value="No" />No<br>

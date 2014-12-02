@@ -32,4 +32,21 @@ $(document).ready(function() {
         $control.find('.toggle-content').slideUp("slow");
         $control.find('.toggle-content').slideDown("slow");
     });
+    $('#amount').on('input', function() {
+        var input=$(this);
+        var value = input.val();
+        var errorElement=$("span", input.parent());
+
+        var re = /^[0-9\.]+$/;
+        var isValid = (re.test(value) && parseInt(value) >= 120);
+        if (isValid)  {
+           input.removeClass("invalid").addClass("valid");
+           errorElement.removeClass("form-error-show").addClass("form-error");
+        }
+        else {
+            input.removeClass("valid").addClass("invalid");
+            errorElement.removeClass("form-error").addClass("form-error-show");
+        }
+  });
+
   });
