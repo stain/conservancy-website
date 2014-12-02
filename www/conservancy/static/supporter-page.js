@@ -47,6 +47,44 @@ $(document).ready(function() {
             input.removeClass("valid").addClass("invalid");
             errorElement.removeClass("form-error").addClass("form-error-show");
         }
-  });
+    });
+    /* Handle toggling of annual/monthly form selections */
+    $('.supporter-type-selection#monthly').hide();
+    $('#annualSelector').css("font-weight", "bold").css("font-size", "127%");
+
+    $("a[href$='monthly']").bind('click', function() {
+        $('.supporter-type-selection#annual').hide();
+        $('.supporter-type-selection#monthly').show();
+        $('#monthlySelector').css("font-weight", "bold").css("font-size", "127%");
+        $('#annualSelector').css("font-weight", "normal").css("font-size", "125%");
+    });
+    $("a[href$='annual']").bind('click', function() {
+        $('.supporter-type-selection#annual').show();
+        $('.supporter-type-selection#monthly').hide();
+        $('#annualSelector').css("font-weight", "bold").css("font-size", "127%");
+        $('#monthlySelector').css("font-weight", "normal").css("font-size", "125%");
+    });
 
   });
+
+$(window).load(function () {
+    verifySelctionCorrectOnPageLoad = function() {
+        var ourURL = document.URL;
+        if (ourURL.search("#monthly") > 0) {
+            $('.supporter-type-selection#annual').hide();
+            $('.supporter-type-selection#monthly').show();
+            $('#monthlySelector').css("font-weight", "bold").css("font-size", "127%");
+            $('#annualSelector').css("font-weight", "normal").css("font-size", "125%");
+        }
+        if (ourURL.search("#annual") > 0) {
+            $('.supporter-type-selection#monthly').hide();
+            $('.supporter-type-selection#annual').show();
+            $('#annualSelector').css("font-weight", "bold").css("font-size", "127%");
+            $('#monthlySelector').css("font-weight", "normal").css("font-size", "125%");
+        }
+    }
+    if (location.hash) {
+        setTimeout(verifySelctionCorrectOnPageLoad, 1);
+    }
+    window.addEventListener("hashchange", verifySelctionCorrectOnPageLoad);
+});

@@ -34,3 +34,13 @@ input.invalid, textarea.invalid {
 input.valid, textarea.valid {
     border: 2px solid green;
 }
+
+div.supporter-type-selector {
+    font-size: 125%;
+    text-align: center;
+}
+
+.supporter-type-selection {
+    clear: both;
+    padding-bottom: 60px;
+}

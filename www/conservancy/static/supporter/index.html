@@ -20,9 +20,10 @@
     Now!</h1></div>
 <h3>Become a Supporter now!</h3>
 
-<h4><a href="#now">Support us via PayPal or credit card.</a></h4>
+<h4><a href="#annual">Annual supporter via PayPal, ACH, or credit card.</a></h4>
+<h4><a href="#monthly">Monthly supporter via PayPal, ACH, or credit card.</a></h4>
    
-Other payment methods  to become a supporter:
+Other payment methods  to become an annual supporter:
 <div class="toggle-unit">
     <h4 class="toggle-control" data-text="Wire Transfer" 
     data-expanded-text="Wire Transfer:">Wire Transfer</h4>
@@ -118,8 +119,12 @@ internal policies</a> are published and available for scrutiny.</p>
 
 [1] the shirts will ship First Quarter 2015.
 
-<h2>Become a Supporter Now!</h2>
-<a id="now"></a>
+<hr/>
+<div class="supporter-type-selector">
+  <strong>Become a Supporter Now:</strong>  <a id="annualSelector" href="#annual">Annual</a> | <a id="monthlySelector" href="#monthly">Monthly</a></div>
+<div id="annual" class="supporter-type-selection">
+<h3>Join as an Annual Supporter</h3>
+<a id="annual"></a>
 <form id="supporter-form" action="https://www.paypal.com/cgi-bin/webscr" method="post" name="supporter">
 <div id="supporter-form-inputs">
             <input type="hidden" name="cmd" value="_xclick" />
@@ -170,5 +175,55 @@ internal policies</a> are published and available for scrutiny.</p>
 
 </form>
 </div>
-
+<div id="monthly" class="supporter-type-selection">
+<h3>Join as an Monthly Supporter</h3>
+<a id="monthly"></a>
+<p>Monthly supporters will not receive their t-shirts until they've been a
+  monthly supporter for at least 12 months.</p>
+<form id="supporter-form" action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+<div id="supporter-form-inputs">
+            <input type="hidden" name="cmd" value="_s-xclick">
+            <input type="hidden" name="item_name" value="Conservancy Supporter, Monthly" />
+            <input type="hidden" name="hosted_button_id" value="UU7VBCXYV7UPQ">
+                      <label for="wantGift"><strong>Do you want to receive a t-shirt? </strong></label>
+                      <input type="hidden" name="on1" value="wantGift" />
+                      <input type="radio" checked="checked" name="os1" value="Yes" />Yes
+                      <input type="radio" name="os1" value="No" />No
+                      <br />
+                      <label for="wantGift"><strong>T-shirt size: </strong></label>
+                      <input type="hidden" name="on3" value="size"/>
+                      <select name="os3" id="os3">
+                        <option name="os3" id="os3" value="MenS">Men's S</option>
+                        <option name="os3" id="os3" value="MenM">Men's M</option>
+                        <option name="os3" id="os3" value="MenL">Men's L</option>
+                        <option name="os3" id="os3" value="MenXL">Men's XL</option>
+                        <option name="os3" id="os3" value="Men2XL">Men's 2XL</option>
+                        <option name="os3" id="os3" value="LadiesS">Ladies' S</option>
+                        <option name="os3" id="os3" value="LadiesM">Ladies' M</option>
+                        <option name="os3" id="os3" value="LadiesL">Ladies' L</option>
+                         <option name="os3" id="os3" value="LadiesXL">Ladies' XL</option>
+                      </select><br/>
+                      <label for="publicAck"><strong>
+                          Should we list you publicly as a Conservancy Supporter? </strong></label>
+                      <input type="hidden" name="on2" value="publicAck" />
+                      <input type="radio" checked="checked" name="os2" value="Yes" />Yes
+                      <input type="radio" name="os2" value="No" />No<br/>
+                      <label for="joinList"><strong>Join Conservancy's
+                      Low-Traffic Announcement Email List? </strong></label>
+                      <input type="hidden" name="on4" value="joinList" />
+                      <input type="radio" checked="checked" name="os4" value="Yes" />Yes
+                      <input type="radio" name="os4" value="No" />No<br>
+                      <br /></div>
+                      <div id="supporter-form-submit">
+                      <input type="image"
+                      src="https://www.paypalobjects.com/en_US/i/btn/btn_subscribeCC_LG.gif"
+                      border="0" name="submit" alt="Become a Monthly Supporter Now!">
+<img alt="" border="0"
+                      src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif"
+     width="1" height="1">
+<br/><small>You will be redirected to PayPal's site when you click &ldquo;Subscribe&rdquo;.</small>
+                      </div>
+</form>
+</div>
+</div>
 {% endblock %}
