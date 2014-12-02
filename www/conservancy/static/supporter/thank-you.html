@@ -1,0 +1,34 @@
+{% extends "base_conservancy.html" %}
+{% block subtitle %}Thanks for Your Support - {% endblock %}
+{% block category %}supporter{% endblock %}
+
+{% block head %}
+<link href="/jquery-ui.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="/jquery.min.js"></script>
+<script type="text/javascript" src="/jquery-ui.min.js"></script>
+<script type="text/javascript" src="/supporter-page.js"></script>
+{% endblock %}
+{% block content %}
+<h1>Thanks!</h1>
+
+<p>Thank you for being a Supporter of Software Freedom Conservancy!</p>
+
+<p>Spread the word about supporting Conservancy with a &ldquo;Supporter
+  Badge&rdquo; on your website, Twitter account, or other locations where
+  people view information about you:</p>
+
+<p><a href="https://sfconservancy.org/supporter/"><img src="https://sfconservancy.org/img/supporter-badge.png" width="194" height="90" alt="Become a Conservancy Supporter!" border="0"/></a></p>
+
+<p><strong>Copy and paste this HTML for the image above:</strong></p>
+<p><textarea rows="2"
+             cols="65">
+<a href="https://sfconservancy.org/supporter/"><img src="https://sfconservancy.org/img/supporter-badge.png" width="194" height="90" alt="Become a Conservancy Supporter!" border="0"/></a>
+ </textarea></p>
+
+<p>Also, please enjoy these &ldquo;Supporter Cards&rdquo;, which you print out and
+  carry with you.  You've earned it! The cards are available in two different
+  styles: <a href="/img/supporter-card-1.svg">Style 1
+  (SVG)</a>, <a href="/img/supporter-card-2.svg">Style 2
+  (SVG)</a>.</p>
+
+{% endblock %}
