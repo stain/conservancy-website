@@ -151,8 +151,9 @@ internal policies</a> are published and available for scrutiny.</p>
 <a id="now"></a>
 <form id="supporter-form" action="https://www.paypal.com/cgi-bin/webscr" method="post" name="supporter">
             <input type="hidden" name="cmd" value="_xclick" />
-            <input type="hidden" name="hosted_button_id" value="FECH4D8EQUTFY">
-                  <input type="hidden" name="item_name" value="Conservancy Supporter, Annual" />
+            <input type="hidden" name="business" value="supporter@sfconservancy.org" />
+            <input type="hidden" id="min_amount" type="text" name="min_amount" value="120" />
+            <input type="hidden" name="item_name" value="Conservancy Supporter, Annual" />
                       <h5>Amount:</h5>$<input id="amount" type="text" name="amount" size="7" value="120" /><br/>
                       <small>($120 minimum; increase the amount if you'd like to help us more.)</small>
 
