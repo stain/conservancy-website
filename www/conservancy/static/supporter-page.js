@@ -70,6 +70,7 @@ $(document).ready(function() {
         $('.supporter-type-selection#monthly').show();
         $('#monthlySelector').css("font-weight", "bold").css("font-size", "127%");
         $('#annualSelector').css("font-weight", "normal").css("font-size", "125%");
+        $("#form-correction-needed").removeClass("form-error-show").addClass("form-error");
     });
     $("a[href$='annual']").bind('click', function() {
         $('.supporter-type-selection#annual').show();
