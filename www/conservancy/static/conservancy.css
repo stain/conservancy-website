@@ -33,7 +33,7 @@ text-decoration: none; color: #557733;
     right: 2%;
     width: 18%;
 }
-@media all and (max-width: 500px) {
+@media all and (max-width: 600px) {
     .donate-sidebar { display: none; }
 }
 
