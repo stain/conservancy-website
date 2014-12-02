@@ -43,10 +43,21 @@ $(document).ready(function() {
         if (isValid)  {
            input.removeClass("invalid").addClass("valid");
            errorElement.removeClass("form-error-show").addClass("form-error");
+           $("#form-correction-needed").removeClass("form-error-show").addClass("form-error");
         }
         else {
             input.removeClass("valid").addClass("invalid");
             errorElement.removeClass("form-error").addClass("form-error-show");
+        }
+    });
+    $("#supporter-form-submit").click(function(event){
+	var valid = $('#amount').hasClass("valid");
+        if (! valid) {
+            $("#form-correction-needed").removeClass("form-error").addClass("form-error-show")
+                                        .css("font-weight", "bold").css("font-size", "150%");
+	    event.preventDefault();
+        } else {
+            $("#form-correction-needed").removeClass("form-error-show").addClass("form-error");
         }
     });
     /* Handle toggling of annual/monthly form selections */
