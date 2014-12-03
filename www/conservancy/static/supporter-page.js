@@ -38,8 +38,10 @@ $(document).ready(function() {
         var value = input.val();
         if (value == "Yes") {
             $(".t-shirt-size-selector").show();
+            $("#no_shipping").val("2");
         } else {
             $(".t-shirt-size-selector").hide();
+            $("#no_shipping").val("0");
         }
     });
     $('.amount').addClass("valid");
