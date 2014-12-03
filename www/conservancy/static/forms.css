@@ -35,14 +35,18 @@ input.valid, textarea.valid {
     border: 2px solid green;
 }
 
-div.supporter-type-selector {
+.supporter-type-selector {
     font-size: 125%;
     text-align: center;
+    width: 80%;
+    align: left;
 }
 
 .supporter-type-selection {
     clear: both;
     padding-bottom: 60px;
+    width: 80%;
+    align: left;
 }
 
 img.appeal {
