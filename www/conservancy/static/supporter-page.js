@@ -32,6 +32,16 @@ $(document).ready(function() {
         $control.find('.toggle-content').slideUp("slow");
         $control.find('.toggle-content').slideDown("slow");
     });
+    $(".t-shirt-size-selector").show();
+    $('input[name=os1]:radio').change(function() {
+        var input=$(this);
+        var value = input.val();
+        if (value == "Yes") {
+            $(".t-shirt-size-selector").show();
+        } else {
+            $(".t-shirt-size-selector").hide();
+        }
+    });
     $('#amount').addClass("valid");
     $('#amount').on('input', function() {
         var input=$(this);
