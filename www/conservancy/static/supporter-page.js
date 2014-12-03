@@ -32,7 +32,7 @@ $(document).ready(function() {
         $control.find('.toggle-content').slideUp("slow");
         $control.find('.toggle-content').slideDown("slow");
     });
-    $(".t-shirt-size-selector").show();
+    $(".t-shirt-size-selector").hide();
     $('input[name=os1]:radio').change(function() {
         var input=$(this);
         var value = input.val();
