@@ -140,7 +140,7 @@ internal policies</a> are published and available for scrutiny.</p>
             <input type="hidden" name="business" value="supporter@sfconservancy.org" />
             <input type="hidden" name="item_name" value="Conservancy Supporter, Annual" />
   <label for="amount"><strong>Amount:</strong> $</label>
-  <input id="amount" type="text" name="amount" size="7" value="120" />
+  <input class="amount" type="text" name="amount" size="7" minimum="120" value="120" />
   <span class="form-error"><small>$120 is a minimum for Conservancy
   Supporters.  <a href="/donate">Donate smaller amounts here</a>.</small></span><br/>
 
@@ -194,10 +194,21 @@ internal policies</a> are published and available for scrutiny.</p>
   monthly supporters for 12 months.</p>
 <form id="supporter-form" action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
 <div id="supporter-form-inputs">
-            <input type="hidden" name="return" value="https://sfconservancy.org/supporter/thank-you.html" />
-            <input type="hidden" name="cmd" value="_s-xclick">
+            <input type="hidden" name="business" value="supporter@sfconservancy.org" />
             <input type="hidden" name="item_name" value="Conservancy Supporter, Monthly" />
-            <input type="hidden" name="hosted_button_id" value="UU7VBCXYV7UPQ">
+            <input type="hidden" name="return" value="https://sfconservancy.org/supporter/thank-you.html" />
+            <input type="hidden" name="cmd" value="_xclick-subscriptions">
+            <input type="hidden" name="lc" value="US">
+            <input type="hidden" name="no_note" value="1">
+            <input type="hidden" name="t3" value="M" />
+            <input type="hidden" name="p3" value="1" />
+            <input type="hidden" name="src" value="1" />
+            <input type="hidden" name="srt" value="0" />
+            <input type="hidden" name="item_name" value="Conservancy Supporter, Monthly" />
+  <label for="amount"><strong>Monthly Amount:</strong> $</label>
+  <input class="amount" type="text" name="a3" size="5" minimum="10" value="10" />
+  <span class="form-error"><small>$10/month is a minimum for Conservancy
+  Supporters.  <a href="/donate">Donate smaller amounts here</a>.</small></span><br/>
                       <label for="wantGift"><strong>Do you want to receive a t-shirt? </strong></label>
                       <input type="hidden" name="on1" value="wantGift" />
                       <input type="radio" name="os1" value="Yes" />Yes

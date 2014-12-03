@@ -42,15 +42,16 @@ $(document).ready(function() {
             $(".t-shirt-size-selector").hide();
         }
     });
-    $('#amount').addClass("valid");
-    $('#amount').on('input', function() {
+    $('.amount').addClass("valid");
+    $('.amount').on('input', function() {
         var input=$(this);
         var value = input.val();
         var errorElement=$("span", input.parent());
         var noCommaValue = value;
         noCommaValue = value.replace(/,/g, "");
         var re = /^((\d{1,3}(,?\d{3})*?(\.\d{0,2})?)|\d+(\.\d{0,2})?)$/;
-        var isValid = ( re.test(value) && parseInt(noCommaValue) >= 120);
+        var isValid = ( re.test(value) &&
+                        parseInt(noCommaValue) >= parseInt(input.attr("minimum")));
         if (isValid)  {
            input.removeClass("invalid").addClass("valid");
            errorElement.removeClass("form-error-show").addClass("form-error");
@@ -62,7 +63,7 @@ $(document).ready(function() {
         }
     });
     $("#supporter-form-submit").click(function(event){
-	var valid = $('#amount').hasClass("valid");
+	var valid = $('.amount').hasClass("valid");
         if (! valid) {
             $("#form-correction-needed").removeClass("form-error").addClass("form-error-show")
                                         .css("font-weight", "bold").css("font-size", "150%");
