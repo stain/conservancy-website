@@ -1,4 +1,4 @@
-#supporter-form label {
+.supporter-form label {
     display: inline-block;
     width: 200px;
     text-align: right;
@@ -6,13 +6,13 @@
 #supporter-form-inputs {
     float: left;
 }
-#supporter-form-submit {
+.supporter-form-submit {
     padding-left: 20em;
     padding-top: 40px;
     float: center;
 }
 
-#supporter-form div {
+.supporter-form div {
     margin-top: 1em;
 }
 
