@@ -35,13 +35,15 @@ $(document).ready(function() {
     $(".t-shirt-size-selector").hide();
     $('input[name=os1]:radio').change(function() {
         var input=$(this);
+        var tShirtSelector = input.parent().children('.t-shirt-size-selector')
+        var noShippingSelector = input.parent().children('input#no_shipping');
         var value = input.val();
         if (value == "Yes") {
-            $(".t-shirt-size-selector").show();
-            $("#no_shipping").val("2");
+            tShirtSelector.show();
+            noShippingSelector.val("2");
         } else {
-            $(".t-shirt-size-selector").hide();
-            $("#no_shipping").val("0");
+            tShirtSelector.hide();
+            noShippingSelector.val("0");
         }
     });
     $('*#amount').addClass("valid");
