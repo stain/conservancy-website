@@ -64,15 +64,21 @@ $(document).ready(function() {
             errorElement.removeClass("form-error").addClass("form-error-show");
         }
     });
-    $("#supporter-form-submit").click(function(event){
-	var valid = $('.amount').hasClass("valid");
-        if (! valid) {
-            $("#form-correction-needed").removeClass("form-error").addClass("form-error-show")
+    var validateFormAtSubmission = function(element, event) {
+            var valid = element.hasClass("valid");
+            if (! valid) {
+                $("#form-correction-needed").removeClass("form-error").addClass("form-error-show")
                                         .css("font-weight", "bold").css("font-size", "150%");
-	    event.preventDefault();
-        } else {
-            $("#form-correction-needed").removeClass("form-error-show").addClass("form-error");
-        }
+	        event.preventDefault();
+            } else {
+                $("#form-correction-needed").removeClass("form-error-show").addClass("form-error");
+            }
+    };
+    $(".supporter-form-submit#monthly").click(function (event) {
+        validateFormAtSubmission($(".supporter-form#monthly input#amount"), event);
+    });
+    $(".supporter-form-submit#annual").click(function (event) {
+        validateFormAtSubmission($(".supporter-form#annual input#amount"), event);
     });
     /* Handle toggling of annual/monthly form selections */
     $('.supporter-type-selection#monthly').hide();
