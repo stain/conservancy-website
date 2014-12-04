@@ -44,11 +44,11 @@ $(document).ready(function() {
             $("#no_shipping").val("0");
         }
     });
-    $('.amount').addClass("valid");
-    $('.amount').on('input', function() {
+    $('*#amount').addClass("valid");
+    $('*#amount').on('input', function() {
         var input=$(this);
         var value = input.val();
-        var errorElement=$("span", input.parent());
+        var errorElement=$("span#error", input.parent());
         var noCommaValue = value;
         noCommaValue = value.replace(/,/g, "");
         var re = /^((\d{1,3}(,?\d{3})*?(\.\d{0,2})?)|\d+(\.\d{0,2})?)$/;

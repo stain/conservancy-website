@@ -25,6 +25,7 @@
 .form-error-show {
     color: red;
     margin-left: 10px;
+    font-size: 75%;
 }
 
 input.invalid, textarea.invalid {
