@@ -46,7 +46,14 @@ $(document).ready(function() {
             noShippingSelector.val("0");
         }
     });
+
+    // Forms start in "invalid" form, with the errors shown, so that
+    // non-Javascript users see the errors by default and know what they must
+    // enter.  The following two lines correct that.
     $('*#amount').addClass("valid");
+    $('.supporter-form-inputs .form-error-show')
+        .removeClass('form-error-show').addClass('form-error');
+
     $('*#amount').on('input', function() {
         var input=$(this);
         var value = input.val();
