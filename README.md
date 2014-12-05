@@ -6,6 +6,16 @@ The canonical location for this repository is
 repository elsewhere, such as Github, are for backup purposes only.  If you
 have contributions, submit them on Gitorious.
 
+License
+=======
+
+The software included herein, such as the Python source files, are generally
+licensed [AGPLv3](AGPLv3)-or-later.  The Javascript is a hodgepodge of
+licensing, but all of it is compatible with [AGPLv3](AGPLv3)-or-later.  See
+the notices at the top of each Javascript file for licensing details.
+
+The content and text (such as the HTML files) is currently
+[CC-BY-SA-3.0](CC-By-SA-3.0).
 
 Server Configuration
 ====================
