@@ -3,7 +3,7 @@
     width: 200px;
     text-align: right;
 }
-#supporter-form-inputs {
+.supporter-form-inputs {
     float: left;
 }
 .supporter-form-submit {
