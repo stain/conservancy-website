@@ -5,6 +5,8 @@
 */
 
 $(document).ready(function() {
+    $("#progressbar").progressbar({ value: (0.00 / 5000.00) * 100 });
+
     $('.toggle-content').hide();
 
     $('.toggle-control')
