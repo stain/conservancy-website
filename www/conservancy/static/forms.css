@@ -70,3 +70,18 @@ img.appeal-footer {
     min-width: 1%;
     height: auto;
 }
+img.appeal-match {
+    float: left;
+    height: auto;
+    border: 1px solid #fff;
+    width: 10%;
+    margin-top: .25em;
+    margin-bottom: .25em;
+    margin-right: 1em;
+    background: #eee;
+}
+p.appeal-match-text  {
+    width: 100%;
+    border: 1px solid #fff;
+    background: #eee;
+}
