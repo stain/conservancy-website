@@ -26,7 +26,8 @@ text-decoration: none; color: #557733;
 }
 .toggle-control:hover { text-decoration: underline; color: #577632; }
 
-
+/* FIXME: We should do this:          */
+/* http://www.waypointarts.com/blog/2013/06/29/fixing-a-side-bar-while-scrolling-until-bottom */
 .donate-sidebar {
     position: fixed;
     top: 180px;
