@@ -5,7 +5,12 @@
 */
 
 $(document).ready(function() {
-    $("#progressbar").progressbar({ value: (0.00 / 5000.00) * 100 });
+    var goal  = $('span#fundraiser-goal').text();
+    var soFar = $('span#fundraiser-so-far').text();
+    var noCommaGoal = goal.replace(/,/g, "");
+    var noCommaSoFar = soFar.replace(/,/g, "");
+
+    $("#progressbar").progressbar({ value: (parseFloat(noCommaSoFar) / parseFloat(noCommaGoal)) * 100 });
 
     $('.toggle-content').hide();
 
