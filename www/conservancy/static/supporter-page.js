@@ -40,12 +40,12 @@ $(document).ready(function() {
         $control.find('.toggle-content').slideDown("slow");
     });
     $(".t-shirt-size-selector").hide();
-    $('input[name=os1]:radio').change(function() {
+    $('input[name=on0]:radio').change(function() {
         var input=$(this);
         var tShirtSelector = input.parent().children('.t-shirt-size-selector')
         var noShippingSelector = input.parent().children('input#no_shipping');
         var value = input.val();
-        if (value == "Yes") {
+        if (value == "wantGiftYes") {
             tShirtSelector.show();
             noShippingSelector.val("2");
         } else {
