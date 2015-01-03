@@ -27,6 +27,9 @@ admin.autodiscover()
 
 urlpatterns = patterns('',
     (r'^$', 'conservancy.frontpage.view'),
+    (r'^sponsors$', 'conservancy.frontpage.view'),
+    (r'^sponsors/$', 'conservancy.sponsors.view'),
+    (r'^sponsors/index.html$', 'conservancy.sponsors.view'),
     (r'^admin/doc/', include('django.contrib.admindocs.urls')),
     (r'^admin/', admin.site.urls),
     (r'^feeds/blog/?$', BlogFeed()),
