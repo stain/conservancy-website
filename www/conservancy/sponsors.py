@@ -9,8 +9,11 @@ def view(request):
     """
 
     supporters = Supporter.objects.all().filter(display_until_date__gte=datetime.now())
+    anonymous_count  = len(supporters.filter(display_name = 'Anonymous'))
+    supporters = supporters.exclude(display_name = 'Anonymous')
 
     c = {
-        'supporters' : supporters
+        'supporters' : supporters,
+        'anonymous_count' : anonymous_count
     }
     return render_to_response("sponsors.html", c)
