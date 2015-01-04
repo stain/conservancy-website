@@ -13,4 +13,4 @@ class Supporter(models.Model):
         return self.display_name
 
     class Meta:
-        ordering = ('-ledger_entity_id',)
+        ordering = ('ledger_entity_id',)
