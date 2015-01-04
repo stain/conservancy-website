@@ -11,7 +11,7 @@ def view(request):
     supporters = Supporter.objects.all().filter(display_until_date__gte=datetime.now())
     supporters_count = len(supporters)
     anonymous_count  = len(supporters.filter(display_name = 'Anonymous'))
-    supporters = supporters.exclude(display_name = 'Anonymous')
+    supporters = supporters.exclude(display_name = 'Anonymous').order_by('ledger_entity_id')
 
     c = {
         'supporters' : supporters,
