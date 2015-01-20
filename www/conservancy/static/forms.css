@@ -3,7 +3,15 @@
     width: 200px;
     text-align: right;
 }
+.dinner-form label {
+    display: inline-block;
+    width: 200px;
+    text-align: right;
+}
 .supporter-form-inputs {
+    float: left;
+}
+.dinner-form-inputs {
     float: left;
 }
 .supporter-form-submit {
@@ -11,8 +19,17 @@
     padding-top: 40px;
     float: center;
 }
+.dinner-form-submit {
+    padding-left: 20em;
+    padding-top: 40px;
+    float: center;
+}
 
 .supporter-form div {
+    margin-top: 1em;
+}
+
+.dinner-form div {
     margin-top: 1em;
 }
 

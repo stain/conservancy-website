@@ -1,0 +1,120 @@
+{% extends "base_conservancy.html" %}
+{% block subtitle %}Support Conservancy - {% endblock %}
+{% block category %}supporter{% endblock %}
+
+{% block head %}
+<link href="/jquery-ui.css" rel="stylesheet" type="text/css"/>
+<link href="/forms.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="/jquery.min.js"></script>
+<script type="text/javascript" src="/jquery-ui.min.js"></script>
+<script type="text/javascript" src="/supporter-page.js"></script>
+
+{% endblock %}
+
+{% block content %}
+<div class="donate-sidebar">
+<table style="background-color:#afe478;width:100%;">
+<tr><td style="text-align:center;padding:10px;padding-bottom:10px;">
+
+<div id="donate-box"
+     class="toggle-unit"><h1 class="toggle-content">Supporter Night!</h1></div>
+
+<h3>Supporter Night 2015</h3>
+
+<p>The easiest way to attend Conservancy's Annual Supporter Night &mdash;
+  hosted this year on the evening of 30 January 2015 in Brussels, Belgium
+  &mdash; is to <a href="/supporter/">become an annual
+  supporter <strong>now</strong></a>, and chose &ldquo;Yes&Rdquo; to the
+  related question during signup.</p>
+
+<p>Annual supporters are all invited!</p>
+</td></tr></table>
+</div>
+<div style="align:left;width:80%;">
+  <h1><a href="/supporter"><img class="appeal-header" alt="Become a Conservancy Supporter!" src="/img/conservancy-supporter-header.png"/></a></h1>
+  <p>
+  <dl>
+    <dt>When:</dt> <dd>Friday 30 January 2015 at 18:30 (6:30PM)</dd>
+    <dt>Where:</dt> <dd><a href="http://www.drugopera.be/">Drug Opera</a>
+    Restaurant at Rue Gr&egrave;try 51, 1000 Brussels (aka Bruxelles),
+    Belgium
+    (<a href="http://www.openstreetmap.org/node/2698048172#map=18/50.84898/4.35214">map</a>)</dd>
+    <dt>Who:</dt> <dd>Conservancy Supporters and/or those who sign up to attend (see below)</dd>
+    <dt>What:</dt> <dd>Full prix fixe dinner (one drink included)</dd>
+    <dt>Why:</dt> <dd>Enjoy a meal while meeting and discussing Free Software
+    with fellow Conservancy supporters
+    and <a href="/about/staff/#bkuhn">Bradley</a> and
+    <a href="/about/staff/#karen">Karen</a> from
+    Conservancy's executive team (and the <a href="http://faif.us"><cite>Free
+        as in Freedom</cite> audcast</a>).</dd>
+    </dl>
+    </p>
+
+  <p>Conservancy's Annual Supporter Night will be held this year on the
+  evening of Friday 30 January 2015 in Brussels, Belgium (which is the night
+    before <a href="https://fosdem.org/2015/">FOSDEM 2015</a> begins).</p>
+
+<p>Space this exclusive dinner is limited so you must reserve your slot via
+  one of the following means:
+  <ul>
+       <li><a href="/supporter/#annual">Become an annual supporter of
+           Conservancy now</a>, and choose &ldquo;Yes&rdquo; to attend.</li>
+       <li>If you are already an annual supporter,
+         email <a href="mailto:dinner@sfconservancy.org">&lt;dinner@sfconservancy.org&gt;</a></li>
+       <li><a href="#dinnerpay">Pay US$40</a> (or more, if you want to support
+       Conservancy further) below.</li>
+       <li>Pay &euro;40 at the door on 30 January 2015. (However, We strongly
+       encourage you to use one of the other options above.  We may have to
+       turn at-the-door attendees away, since space is limited!)</li>
+       </ul>
+</p>
+  <p>The menu for this special evening is as follows:
+    
+    <ul>
+
+      <li>1 drink (soft drink, mineral water or standard beer)</li>
+      <li>Cream soup of the day (likely vegetarian </li>
+      <li>Choice of:
+        <ul>
+        <li><a href="http://en.wikipedia.org/wiki/Carbonade_flamande">Beef
+            stew</a> with french fries, or:</li>
+        <li>Spaghetti with tomato sauce (Vegetarian)</li> 
+      </ul>
+      </li>
+      <li>   <a href="http://en.wikipedia.org/wiki/Dame_blanche_%28dessert%29">Ice
+          cream with chocolate sauce</a> (Vegetarian)</li>
+     </ul>
+We have discussed other dietary needs with the venue, and they have committed
+to do their best to accommodate other dietary needs.  If you'd like, please
+contact us at <a href="mailto:dinner@sfconservancy.org">&lt;dinner@sfconservancy.org&gt;</a>
+to discuss your dietary needs.
+</p>
+
+<hr/>
+<div id="dinnerpay">
+<h3>Attend the Annual Supporter Night</h3>
+<a id="dinnerpay"></a>
+<form id="annual" class="dinner-form" action="https://www.paypal.com/cgi-bin/webscr" method="post" name="supporter">
+<div class="dinner-form-inputs">
+            <input type="hidden" name="cmd" value="_xclick" />
+            <input type="hidden" name="business" value="dinner@sfconservancy.org" />
+            <input type="hidden" name="item_name" value="Conservancy Supporter Night, FOSDEM 2015" />
+            <input id="no_shipping" type="hidden" name="no_shipping" value="0" />
+  <label for="amount"><strong>Amount:</strong> $</label>
+  <input id="amount" type="text" name="amount" size="7" minimum="40" value="40" />
+  <span id="error" class="form-error-show">$40 is a minimum donation to
+  attend  the dinner.</span><br/>
+  <br /></div>
+                      <div id="annual" class="dinner-form-submit">
+                      <input type="image"
+                             src="/img/supporter-payment-button-annual.png"
+                             height="81" width="188"
+                             border="0" name="submit" alt="Attend the 2015 Conservancy Supporter Night!">
+                      <img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
+<br/><br/><small>Button above redirects to PayPal's site for credit
+        card, bank account or PayPal balance payment methods.  Select options first.</small>
+</div></form></div>
+<span id="form-correction-needed" class="form-error">Please ensure all form data above is correct.</span>
+</div>
+
+{% endblock %}

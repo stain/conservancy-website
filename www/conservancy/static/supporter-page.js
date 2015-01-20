@@ -60,6 +60,8 @@ $(document).ready(function() {
     $('*#amount').addClass("valid");
     $('.supporter-form-inputs .form-error-show')
         .removeClass('form-error-show').addClass('form-error');
+    $('.dinner-form-inputs .form-error-show')
+        .removeClass('form-error-show').addClass('form-error');
 
     $('*#amount').on('input', function() {
         var input=$(this);
@@ -95,6 +97,9 @@ $(document).ready(function() {
     });
     $(".supporter-form-submit#annual").click(function (event) {
         validateFormAtSubmission($(".supporter-form#annual input#amount"), event);
+    });
+    $(".dinner-form-submit").click(function (event) {
+        validateFormAtSubmission($(".dinner-form input#amount"), event);
     });
     /* Handle toggling of annual/monthly form selections */
     $('.supporter-type-selection#monthly').hide();
