@@ -44,7 +44,8 @@ def custom_index(request, queryset, *args, **kwargs):
     kwargs = dict(kwargs, extra_context={'articles': articles,
                                          'date_list': date_list,
                                          'future_events': future_events,
-                                         'past_events': past_events})
+                                         'past_events': past_events,
+                                         'page': 1})
     del kwargs['date_field']
 
     # return object_list(request, queryset, *args, **kwargs)
