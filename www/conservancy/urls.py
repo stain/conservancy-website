@@ -17,11 +17,22 @@
 # along with this program in a file in the toplevel directory called
 # "AGPLv3".  If not, see <http://www.gnu.org/licenses/>.
 
-from django.conf.urls.defaults import *
+from django.conf.urls import patterns, url, include
 from django.contrib import admin
-from conservancy.feeds import BlogFeed, PressReleaseFeed, OmnibusFeed
 
-handler404 = 'modpythoncustom.view404'
+# import conservancy.settings
+from django.conf import settings
+from conservancy.feeds import BlogFeed, PressReleaseFeed, OmnibusFeed
+# from django.views.static import serve
+# from django.conf.urls.static import static
+# from django.contrib.staticfiles.urls import staticfiles_urlpatterns
+# import conservancy.static.overview.views
+
+# handler404 = 'modpythoncustom.view404'
+# handler401 = 'conservancy.static.views.handler401'
+# handler403 = 'conservancy.static.views.handler403'
+handler404 = 'conservancy.static.views.handler404'
+# handler500 = 'conservancy.static.views.handler500'
 
 admin.autodiscover()
 
@@ -38,4 +49,38 @@ urlpatterns = patterns('',
     (r'^feeds/?$', 'conservancy.feeds.view'),
     (r'^news(/|$)', include('conservancy.apps.news.urls')),
     (r'^blog(/|$)', include('conservancy.apps.blog.urls')),
+    # formerly static templated things... (dirs with templates)
+    (r'^error', 'conservancy.static.views.index'),
+    (r'^about', 'conservancy.static.views.index'),
+    (r'^donate', 'conservancy.static.views.index'),
+    (r'^linux-compliance', 'conservancy.static.views.index'),
+    (r'^members', 'conservancy.static.views.index'),
+    (r'^npoacct', 'conservancy.static.views.index'),
+    (r'^overview', 'conservancy.static.views.index'),
+    (r'^privacy-policy', 'conservancy.static.views.index'),
+    (r'^supporter', 'conservancy.static.views.index'),
 )
+
+# urlpatterns += url(regex  = r'^%s(?P<path>.*)$' % conservancy.settings.STATIC_URL[1:],
+# urlpatterns += url(regex  = r'^/overview',
+#                    view   = 'django.views.static.serve',
+#                    kwargs = {'document_root': conservancy.settings.STATIC_ROOT,
+#                              'show_indexes' : True})
+# urlpatterns += (r'^(?P<path>.*)$', 'django.views.static.serve', 
+# urlpatterns += (r'^overview/$', 'django.views.static.serve', 
+#                 {'document_root': conservancy.settings.STATIC_ROOT,
+#                  'show_indexes' : True})
+
+# https://docs.djangoproject.com/en/1.7/howto/static-files/
+#  + static(conservancy.settings.STATIC_URL, document_root=conservancy.settings.STATIC_ROOT)
+
+# urlpatterns += staticfiles_urlpatterns()
+
+# urlpatterns += static(settings.STATIC_URL, view='django.contrib.staticfiles.views.serve',
+# urlpatterns += static('/', view='django.contrib.staticfiles.views.serve',
+#                       document_root=settings.STATIC_ROOT,
+#                       show_indexes=True)
+
+
+
+

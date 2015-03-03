@@ -74,8 +74,8 @@ class ExternalArticleTag(models.Model):
         return self.label
 
 class PublicExternalArticleManager(models.Manager):
-    def get_query_set(self):
-        return super(PublicExternalArticleManager, self).get_query_set().filter(visible=True)
+    def get_queryset(self):
+        return super(PublicExternalArticleManager, self).get_queryset().filter(visible=True)
 
 class ExternalArticle(models.Model):
     """A system for displaying Conservancy news mentions on the site.
@@ -87,7 +87,8 @@ class ExternalArticle(models.Model):
     info = models.CharField(help_text="subscribers only? audio? pdf warning?",
                             blank=True, max_length=300)
     publication = models.CharField("source of article", max_length=300)
-    url = models.URLField(blank=True, verify_exists=False)
+    # verify_exists removed https://docs.djangoproject.com/en/1.7/releases/1.4/
+    url = models.URLField(blank=True)
     date = models.DateField()
     visible = models.BooleanField(help_text="Whether to display on website")
 

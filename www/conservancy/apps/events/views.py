@@ -1,9 +1,11 @@
-from django.views.generic.list_detail import object_list
+# from django.views.generic.list_detail import object_list
 from django.shortcuts import render_to_response
 from django.http import Http404, HttpResponse
 from django.template import loader
 from django.core.exceptions import ObjectDoesNotExist
 from models import Event # relative import
+# for debugging...
+from django.http import HttpResponse
 
 def event_detail(request, year, slug, queryset, **kwargs):
     """This view shows event detail.
@@ -35,7 +37,8 @@ def custom_index(request, queryset, *args, **kwargs):
     del kwargs['date_field']
     del kwargs['allow_future']
 
-    return object_list(request, queryset, *args, **kwargs)
+    # return object_list(request, queryset, *args, **kwargs)
+    return HttpResponse("FIXME: events must be updated like blog and news.")
 
 def future_event_ics(request, queryset, *args, **kwargs):
     """ICS calendar view of future events

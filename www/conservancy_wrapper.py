@@ -5,4 +5,4 @@ from os import environ
 environ["DJANGO_SETTINGS_MODULE"] = 'conservancy.settings'
 environ["CANONICAL_HOSTNAME"] = 'sfconservancy.org'
 
-from modpythoncustom import *
+# from modpythoncustom import *

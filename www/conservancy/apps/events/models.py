@@ -19,14 +19,14 @@ class EventTag(models.Model):
 class PastEventManager(models.Manager):
     """Returns all past events"""
 
-    def get_query_set(self):
-        return super(PastEventManager, self).get_query_set().filter(date__lt=datetime.today())
+    def get_queryset(self):
+        return super(PastEventManager, self).get_queryset().filter(date__lt=datetime.today())
 
 class FutureEventManager(models.Manager):
     """Returns all future events"""
 
-    def get_query_set(self):
-        return super(FutureEventManager, self).get_query_set().filter(date__gte=datetime.today())
+    def get_queryset(self):
+        return super(FutureEventManager, self).get_queryset().filter(date__gte=datetime.today())
 
 class Event(models.Model):
     """Model for Conservancy staff member events (presentations, etc)"""
@@ -78,7 +78,8 @@ class EventMedia(models.Model):
                                        ('V', 'Video')))
     local = models.CharField(max_length=300, blank=True,
                              help_text="Local filename of the resource.  File should be uploaded into the static directory that corresponds to the event.")
-    remote = models.URLField(blank=True, verify_exists=False,
+    # verify_exists removed https://docs.djangoproject.com/en/1.7/releases/1.4/
+    remote = models.URLField(blank=True,
                              help_text="Remote URL of the resource.  Required if 'local' is not given.")
     novel = models.BooleanField(help_text="Is it a new piece of media or another form of an old one?  If it is new it will be included in the event-media RSS feed and shown on the front page for a bit.")
 

@@ -1,5 +1,7 @@
 from models import Entry, EntryTag # relative import
-from django.views.generic.list_detail import object_list
+# from django.views.generic.list_detail import object_list
+from django.views.generic import ListView
+from django.views.generic.dates import YearArchiveView, MonthArchiveView, DayArchiveView, DateDetailView
 from conservancy.apps.staff.models import Person
 from django.shortcuts import get_object_or_404, render_to_response
 from datetime import datetime
@@ -12,6 +14,15 @@ def OR_filter(field_name, objs):
 def last_name(person):
     return person.formal_name.rpartition(' ')[2]
 
+class BlogListView(ListView):
+    extra_context = {}
+    
+    def get_context_data(self, **kwargs):
+        context = super(BlogListView, self).get_context_data(**kwargs)
+        # context['key'] = 'value'
+        context.update(self.extra_context)
+        return context
+                                    
 def custom_index(request, queryset, *args, **kwargs):
     """Blog list view that allows scrolling and also shows an index by
     year.
@@ -50,7 +61,11 @@ def custom_index(request, queryset, *args, **kwargs):
         date_list = queryset.dates(date_field, 'year')
         extra_context['date_list'] = date_list
 
-    return object_list(request, queryset, *args, **kwargs)
+    # return object_list(request, queryset, *args, **kwargs)
+    kwargs['queryset'] = queryset
+    kwargs['extra_context'] = extra_context
+    callable = BlogListView.as_view(**kwargs)
+    return callable(request)
 
 def techblog_redirect(request):
     """Redirect from the old 'techblog' to the new blog
@@ -95,9 +110,46 @@ def relative_redirect(request, path):
     from django import http
     from django.conf import settings
 
-    host = http.get_host(request)
+    host = request.get_host()
     if settings.FORCE_CANONICAL_HOSTNAME:
         host = settings.FORCE_CANONICAL_HOSTNAME
 
     url = "%s://%s%s" % (request.is_secure() and 'https' or 'http', host, path)
     return http.HttpResponseRedirect(url)
+
+class BlogYearArchiveView(YearArchiveView):
+    make_object_list = True
+    allow_future = True
+    extra_context = {}
+    
+    def get_context_data(self, **kwargs):
+        context = super(BlogYearArchiveView, self).get_context_data(**kwargs)
+        context.update(self.extra_context)
+        return context
+
+class BlogMonthArchiveView(MonthArchiveView):
+    allow_future = True
+    extra_context = {}
+    
+    def get_context_data(self, **kwargs):
+        context = super(BlogMonthArchiveView, self).get_context_data(**kwargs)
+        context.update(self.extra_context)
+        return context
+
+class BlogDayArchiveView(DayArchiveView):
+    allow_future = True
+    extra_context = {}
+    
+    def get_context_data(self, **kwargs):
+        context = super(BlogDayArchiveView, self).get_context_data(**kwargs)
+        context.update(self.extra_context)
+        return context
+
+class BlogDateDetailView(DateDetailView):
+    allow_future = True
+    extra_context = {}
+    
+    def get_context_data(self, **kwargs):
+        context = super(BlogDateDetailView, self).get_context_data(**kwargs)
+        context.update(self.extra_context)
+        return context

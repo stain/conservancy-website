@@ -1,5 +1,5 @@
-from django.conf import settings
 from django import http
+from django.conf import settings
 from django.utils.cache import patch_response_headers
 
 class ForceCanonicalHostnameMiddleware(object):
@@ -19,7 +19,7 @@ class ForceCanonicalHostnameMiddleware(object):
             return http.HttpResponseRedirect(url)
 
         # Check for a redirect based on settings.APPEND_SLASH
-        host = http.get_host(request)
+        host = request.get_host()
         old_url = [host, request.path]
         new_url = old_url[:]
         # Append a slash if append_slash is set and the URL doesn't have a

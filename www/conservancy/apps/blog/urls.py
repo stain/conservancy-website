@@ -1,8 +1,8 @@
-from django.conf.urls.defaults import *
+from django.conf.urls import patterns, url, include
 from models import Entry, EntryTag # relative import
-from views import last_name # relative import
 from conservancy.apps.staff.models import Person
 from datetime import datetime
+from views import last_name, BlogYearArchiveView, BlogMonthArchiveView, BlogDayArchiveView, BlogDateDetailView
 
 extra_context = {}
 
@@ -12,12 +12,17 @@ info_dict = {
     'extra_context': extra_context,
 }
 
-urlpatterns = patterns('django.views.generic.date_based',
-   (r'^(?P<year>\d{4})/(?P<month>[a-z]{3})/(?P<day>\w{1,2})/(?P<slug>[-\w]+)/$', 'object_detail', dict(info_dict, slug_field='slug')),
-   (r'^(?P<year>\d{4})/(?P<month>[a-z]{3})/(?P<day>\w{1,2})/$', 'archive_day', info_dict),
-   (r'^(?P<year>\d{4})/(?P<month>[a-z]{3})/$', 'archive_month', info_dict),
-   (r'^(?P<year>\d{4})/$', 'archive_year', dict(info_dict,
-                                                make_object_list=True)),
+# urlpatterns = patterns('django.views.generic.date_based',
+urlpatterns = patterns('',
+   # (r'^(?P<year>\d{4})/(?P<month>[a-z]{3})/(?P<day>\w{1,2})/(?P<slug>[-\w]+)/$', 'object_detail', dict(info_dict, slug_field='slug')),
+   # (r'^(?P<year>\d{4})/(?P<month>[a-z]{3})/(?P<day>\w{1,2})/$', 'archive_day', info_dict),
+   # (r'^(?P<year>\d{4})/(?P<month>[a-z]{3})/$', 'archive_month', info_dict),
+   # (r'^(?P<year>\d{4})/$', 'archive_year', dict(info_dict,
+   #                                              make_object_list=True)),
+   (r'^(?P<year>\d{4})/(?P<month>[a-z]{3})/(?P<day>\w{1,2})/(?P<slug>[-\w]+)/$', BlogDateDetailView.as_view(**info_dict)),
+   (r'^(?P<year>\d{4})/(?P<month>[a-z]{3})/(?P<day>\w{1,2})/$', BlogDayArchiveView.as_view(**info_dict)),
+   (r'^(?P<year>\d{4})/(?P<month>[a-z]{3})/$', BlogMonthArchiveView.as_view(**info_dict)),
+   (r'^(?P<year>\d{4})/$', BlogYearArchiveView.as_view(**info_dict)),
 )
 
 urlpatterns += patterns('conservancy.apps.blog.views',
