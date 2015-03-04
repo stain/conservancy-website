@@ -1,10 +1,10 @@
 {% extends "base_blog.html" %}
 
-{% block subtitle %}Conservancy Blog Archive: {{ year }} - {% endblock %}
+{% block subtitle %}Conservancy Blog Archive: {{ year|date:"Y" }} - {% endblock %}
 
 {% block content %}
 
-<h2>Conservancy Blog Archive: {{ year }}</h2>
+<h2>Conservancy Blog Archive: {{ year|date:"Y" }}</h2>
 
 <ul>
 {% for object in object_list %}
