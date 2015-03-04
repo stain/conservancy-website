@@ -44,5 +44,5 @@ urlpatterns = patterns('',
 )
 
 urlpatterns += patterns('',
-   (r'^/?$', 'conservancy.apps.news.views.custom_index', dict(info_dict, paginate_by=6)),
+   (r'^/?$', 'conservancy.apps.news.views.listing', dict(info_dict, paginate_by=6)),
 )

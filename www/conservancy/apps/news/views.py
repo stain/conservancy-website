@@ -3,6 +3,7 @@ from django.views.generic import ListView
 from django.views.generic.dates import YearArchiveView, MonthArchiveView, DayArchiveView, DateDetailView
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from conservancy.apps.news.models import ExternalArticle
+from conservancy.apps.news.models import PressRelease
 from conservancy.apps.events.models import Event
 from datetime import datetime
 # for debugging...
@@ -17,6 +18,29 @@ class NewsListView(ListView):
         context.update(self.extra_context)
         return context
                                     
+def listing(request):
+    news = PressRelease.objects.all()
+
+#    if (not kwargs.has_key('allow_future')) or not kwargs['allow_future']:
+    news = news.filter(**{'%s__lte' % kwargs['date_field']:
+                          datetime.now()})
+
+    date_list = news.dates(kwargs['date_field'], 'year')
+
+    paginator = Paginator(news, 6) # Show 6 news items per page
+
+    page = request.GET.get('page')
+    try:
+        contacts = paginator.page(page)
+    except PageNotAnInteger:
+        # If page is not an integer, deliver first page.
+        contacts = paginator.page(1)
+    except EmptyPage:
+        # If page is out of range (e.g. 9999), deliver last page of results.
+        contacts = paginator.page(paginator.num_pages)
+
+    return render_to_response('pressrelease_list.html', {"news": news, "date_list" : date_list})
+
 def custom_index(request, queryset, *args, **kwargs):
     """News index.  Calls a generic list view, but passes additional
     context including past and future events, and an index of news by
