@@ -23,10 +23,9 @@ SITE_ID = 2
 ROOT_URLCONF = 'conservancy.urls'
 
 
-# FORCE_CANONICAL_HOSTNAME = "sfconservancy.org"
-FORCE_CANONICAL_HOSTNAME = False
+FORCE_CANONICAL_HOSTNAME = "sfconservancy.org"
 
-ALLOWED_HOSTS = [ 'aspen.sfconservancy.org', 'sfconservancy.org' ]
+ALLOWED_HOSTS = [ 'www.sfconservancy.org', 'aspen.sfconservancy.org', 'sfconservancy.org' ]
 
 REDIRECT_TABLE = {
     'www.sf-conservancy.org': 'sfconservancy.org',
