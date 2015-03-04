@@ -62,7 +62,7 @@ def all_authors():
                   key=last_name)
 
 def all_year_list():
-    return Entry.objects.dates(date_field, 'year')
+    return Entry.objects.dates('pub_date', 'year')
 
 # The functions are passed to the context uncalled so they will be
 # called for each web request.  If we want to only make these database
