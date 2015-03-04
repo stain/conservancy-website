@@ -25,7 +25,7 @@ def listing(request, *args, **kwargs):
     news_queryset = news_queryset.filter(**{'%s__lte' % kwargs['date_field']:
                           datetime.now()})
 
-    date_list = news.dates(kwargs['date_field'], 'year')
+    date_list = news_queryset.dates(kwargs['date_field'], 'year')
 
     paginate_by = kwargs.get('paginate_by', 6)  # Show 6 news items per page, by default
     paginator = Paginator(news_queryset, paginate_by)
