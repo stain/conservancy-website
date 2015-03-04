@@ -41,67 +41,6 @@ def listing(request):
 
     return render_to_response('pressrelease_list.html', {"news": news, "date_list" : date_list})
 
-def custom_index(request, queryset, *args, **kwargs):
-    """News index.  Calls a generic list view, but passes additional
-    context including past and future events, and an index of news by
-    year.
-    """
-    # debug = '<pre>This is news'
-    # debug += '\nqueryset: ' + str(queryset)
-    # debug += '\nargs: ' + str(args)
-    # debug += '\nkwargs: ' + str(kwargs)
-    # debug += '</pre>'
-    # return HttpResponse(debug)
-
-    articles = None
-    #if not request.GET.has_key("page"):
-    #    articles = ExternalArticle.public.all().order_by("-date")[:10]
-
-    if (not kwargs.has_key('allow_future')) or not kwargs['allow_future']:
-        queryset = queryset.filter(**{'%s__lte' % kwargs['date_field']:
-                                      datetime.now()})
-
-    future_events = Event.future.all().filter(date_tentative=False).order_by("date")
-    past_events = Event.past.all().order_by("-date")[:6]
-
-    date_list = queryset.dates(kwargs['date_field'], 'year')
-
-    paginate_by = kwargs.get('paginate_by', 6)
-    paginator = Paginator(queryset, paginate_by)
-    page = request.GET.get('page')
-    try:
-        p = paginator.page(page)
-    except PageNotAnInteger:
-        # If page is not an integer, deliver first page.
-        p = paginator.page(1)
-        page = 1
-    except EmptyPage:
-        # If page is out of range (e.g. 9999), deliver last page of results.
-        p = paginator.page(paginator.num_pages)
-        page = paginator.num_pages
-    kwargs = dict(kwargs, extra_context={'articles': articles,
-                                         'date_list': date_list,
-                                         'future_events': future_events,
-                                         'past_events': past_events,
-                                         # 'paginator': paginator,
-                                         'page': page,
-                                         # 'is_paginated': True,
-                                         # 'num_pages': paginator.num_pages
-                                     })
-    del kwargs['date_field']
-    kwargs['queryset'] = queryset
-    
-    # return object_list(request, queryset, *args, **kwargs)
-    # callable = NewsListView.as_view(queryset=queryset,
-    #                                 extra_context=kwargs,
-    #                                 paginate_by=kwargs['paginate_by'])
-    callable = NewsListView.as_view(**kwargs)
-    return callable(request)
-
-#    num_navigation = 3 # in each direction
-#    page_navigation = range(max((page - num_navigation), 1),
-#                            min((page + num_navigation), page_count) + 1)
-
 class NewsYearArchiveView(YearArchiveView):
     # queryset = Article.objects.all()
     # date_field = "pub_date"
