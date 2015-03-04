@@ -24,7 +24,7 @@
 
 <p>
 {% if blog_entries.has_next %}<a class="next_page_button" href="?page={{ blog_entries.next_page_number }}{% if query_string %}&amp;{{ query_string|escape }}{% endif %}">Next page (older) &raquo;</a>{% endif %}
-{% if blog_entries.has_previous %}<a href="?page={{ blog_entires.previous_page_number }}{% if query_string %}&amp;{{ query_string|escape }}{% endif %}">&laquo; Previous page (newer)</a>{% endif %}
+{% if blog_entries.has_previous %}<a href="?page={{ blog_entries.previous_page_number }}{% if query_string %}&amp;{{ query_string|escape }}{% endif %}">&laquo; Previous page (newer)</a>{% endif %}
 </p>
 <p class="pagination_list">{% for pagenum in blog_entries.paginator.page_range %}{% ifequal pagenum blog_entries.number %}[{{ pagenum }}]{% else %}<a href="?page={{ pagenum }}">{{ pagenum }}</a>{% endifequal %} {% endfor %}
 </p>
