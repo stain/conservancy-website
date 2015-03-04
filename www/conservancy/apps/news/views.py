@@ -18,7 +18,7 @@ class NewsListView(ListView):
         context.update(self.extra_context)
         return context
                                     
-def listing(request):
+def listing(request, *args, **kwargs):
     news_queryset = PressRelease.objects.all()
 
 #    if (not kwargs.has_key('allow_future')) or not kwargs['allow_future']:
@@ -27,7 +27,8 @@ def listing(request):
 
     date_list = news.dates(kwargs['date_field'], 'year')
 
-    paginator = Paginator(news_queryset, 6) # Show 6 news items per page
+    paginate_by = kwargs.get('paginate_by', 6)  # Show 6 news items per page, by default
+    paginator = Paginator(news_queryset, paginate_by)
 
     page = request.GET.get('page')
     try:
