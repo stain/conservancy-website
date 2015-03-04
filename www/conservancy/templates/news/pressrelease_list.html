@@ -31,7 +31,7 @@
 {% if news.has_next %}<a class="next_page_button" href="?page={{ news.next_page_number }}">Next page (older) &raquo;</a>{% endif %}
 {% if news.has_previous %}<a href="?page={{ news.previous_page_number }}">&laquo; Previous page (newer)</a>{% endif %}
 </p>
-<p class="pagination_list">{% if blog_entries.num_pages > 1 %} {% for pagenum in blog_entries.paginator.page_range %}{% ifequal pagenum blog_entries.number %}[{{ pagenum }}]{% else %}<a href="?page={{ pagenum }}">{{ pagenum }}</a>{% endifequal %} {% endfor %}{% endif %}</p>
+<p class="pagination_list">{% if news.paginator.num_pages > 1 %} {% for pagenum in news.paginator.page_range %}{% ifequal pagenum news.number %}[{{ pagenum }}]{% else %}<a href="?page={{ pagenum }}">{{ pagenum }}</a>{% endifequal %} {% endfor %}{% endif %}</p>
          </div>
  </div>
 <div class="clear"></div>
