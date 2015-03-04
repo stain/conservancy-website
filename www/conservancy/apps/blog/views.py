@@ -15,15 +15,6 @@ def OR_filter(field_name, objs):
 def last_name(person):
     return person.formal_name.rpartition(' ')[2]
 
-class BlogListView(ListView):
-    extra_context = {}
-    
-    def get_context_data(self, **kwargs):
-        context = super(BlogListView, self).get_context_data(**kwargs)
-        # context['key'] = 'value'
-        context.update(self.extra_context)
-        return context
-                                    
 def custom_index(request, queryset, *args, **kwargs):
     """Blog list view that allows scrolling and also shows an index by
     year.
@@ -83,9 +74,6 @@ def custom_index(request, queryset, *args, **kwargs):
     extra_context['blog_entries'] = blog_entries
 
     return render_to_response('blog/entry_list.html', extra_context)
-
-    callable = BlogListView.as_view(**kwargs)
-    return callable(request)
 
 def techblog_redirect(request):
     """Redirect from the old 'techblog' to the new blog
