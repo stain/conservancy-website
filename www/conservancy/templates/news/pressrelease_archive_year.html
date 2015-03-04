@@ -1,11 +1,11 @@
 {% extends "base_news.html" %}
 
-{% block title %}Conservancy News Index - {{ year }}{% endblock %}
+{% block title %}Conservancy News Index - {{ year|date:"Y" }}{% endblock %}
 
 {% block content %}
 
          <div id="mainContent">
-<h2>Conservancy News Index - {{ year }}</h2>
+<h2>Conservancy News Index - {{ year|date:"Y" }}</h2>
 
 <ul>
 
