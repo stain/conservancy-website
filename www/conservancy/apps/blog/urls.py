@@ -26,7 +26,7 @@ urlpatterns = patterns('',
 )
 
 urlpatterns += patterns('conservancy.apps.blog.views',
-   (r'^/?$', 'custom_index', dict(info_dict, paginate_by=10)),
+                        (r'^/?$', 'custom_index', dict(info_dict, paginate_by=4)),
    (r'^query/$', 'query'),
 )
 
