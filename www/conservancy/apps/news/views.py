@@ -41,7 +41,7 @@ def listing(request, *args, **kwargs):
         # If page is out of range (e.g. 9999), deliver last page of results.
         news = paginator.page(paginator.num_pages)
 
-    return render_to_response('pressrelease_list.html', {"news": news, "date_list" : date_list})
+    return render_to_response('news/pressrelease_list.html', {"news": news, "date_list" : date_list})
 
 class NewsYearArchiveView(YearArchiveView):
     # queryset = Article.objects.all()
