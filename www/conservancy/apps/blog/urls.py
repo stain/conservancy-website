@@ -61,6 +61,9 @@ def all_authors():
     return sorted(Person.objects.filter(entry__isnull=False).distinct(),
                   key=last_name)
 
+def all_year_list():
+    return Entry.objects.dates(date_field, 'year')
+
 # The functions are passed to the context uncalled so they will be
 # called for each web request.  If we want to only make these database
 # queries a single time when a web server process begins, call both
@@ -68,3 +71,4 @@ def all_authors():
 
 extra_context['all_authors'] = all_authors
 extra_context['all_tags'] = all_tags_by_use_amount
+extra_context['all_year_list'] = all_year_list

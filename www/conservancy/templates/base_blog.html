@@ -24,10 +24,10 @@
 (<a href="/feeds/blog/?tag={{ tag.slug }}">rss</a>)</li>
 {% endfor %}
 </ul>
-{% if date_list %}
+{% if all_year_list %}
 <h2>Blog Index by Year</h2>
 <ul>
-{% for year in date_list reversed %}<li><a href="{{ year|date:"Y" }}/">{{ year|date:"Y" }}</a></li>{% endfor %}
+{% for year in all_year_list reversed %}<li><a href="{{ year|date:"Y" }}/">{{ year|date:"Y" }}</a></li>{% endfor %}
 </ul>
 {% endif %}
 
