@@ -66,6 +66,7 @@ def custom_index(request, queryset, *args, **kwargs):
     kwargs['queryset'] = queryset
     kwargs['extra_context'] = extra_context
 
+    paginate_by = kwargs.get('paginate_by', 6)  # Show 6 news items per page, by default
     paginator = Paginator(queryset, paginate_by)
 
     page = request.GET.get('page')
