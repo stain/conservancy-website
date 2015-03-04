@@ -29,11 +29,4 @@
 <p class="pagination_list">{% if blog_entries.num_pages > 1 %} {% for pagenum in blog_entries.paginator.page_range %}{% ifequal pagenum blog_entries.number %}[{{ pagenum }}]{% else %}<a href="?page={{ pagenum }}">{{ pagenum }}</a>{% endifequal %} {% endfor %}{% endif %}</p>
 <div class="clear"></div>
 
-{% if date_list %}
-<h3>Blog Index by Year</h3>
-<ul>
-{% for year in date_list reversed %}<li><a href="{{ year|date:"Y" }}/">{{ year|date:"Y" }}</a></li>{% endfor %}
-</ul>
-{% endif %}
-
 {% endblock %}
