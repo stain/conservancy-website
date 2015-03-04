@@ -31,7 +31,7 @@
 {% if date_list %}
 <h3>Index by date</h3>
 <ul>
-{% for year in date_list %}<li><a href="{{ year|date:"Y" }}/">{{ year|date:"Y" }}</a></li>{% endfor %}
+{% for year in date_list reversed %}<li><a href="{{ year|date:"Y" }}/">{{ year|date:"Y" }}</a></li>{% endfor %}
 </ul>
 {% endif %}
 
