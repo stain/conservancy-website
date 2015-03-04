@@ -81,7 +81,7 @@ def custom_index(request, queryset, *args, **kwargs):
         blog_entires = paginator.page(paginator.num_pages)
 
     return render_to_response('blog/entry_list.html',
-                              {"blog_entries": blog_entries, "date_list" : date_list,
+                              {"blog_entries": blog_entries, "date_list" : extra_context['date_list'],
                                "authors" : extra_context['authors'], "tags" : extra_context['tags'] })
 
     callable = BlogListView.as_view(**kwargs)
