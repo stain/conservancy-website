@@ -64,6 +64,24 @@ def custom_index(request, queryset, *args, **kwargs):
     # return object_list(request, queryset, *args, **kwargs)
     kwargs['queryset'] = queryset
     kwargs['extra_context'] = extra_context
+
+    paginator = Paginator(queryset, paginate_by)
+
+    page = request.GET.get('page')
+
+    try:
+        blog_entries = paginator.page(page)
+    except PageNotAnInteger:
+        # If page is not an integer, deliver first page.
+        blog_entries = paginator.page(1)
+    except EmptyPage:
+        # If page is out of range (e.g. 9999), deliver last page of results.
+        blog_entires = paginator.page(paginator.num_pages)
+
+    return render_to_response('blog/entry_list.html',
+                              {"blog_entries": blog_entries, "date_list" : date_list,
+                               "authors" : authors, "tags" : tags })
+
     callable = BlogListView.as_view(**kwargs)
     return callable(request)
 
