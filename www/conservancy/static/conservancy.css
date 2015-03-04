@@ -234,6 +234,7 @@ blockquote, div.quote /* div.quote is used by conservancy whitepaper */ {
 
 .secondary_info { font-size: 83%; }
 .next_page_button { float: right; }
+.pagination_list { float: center; }
 .document_format { border: 1px solid #888; padding: .2em; background: #fff99d;}
 .copyright_info { font-size: 90%; }
 hr.footnote-separator { width: 80%; margin-left: auto; margin-right: auto; }
