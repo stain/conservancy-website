@@ -2,6 +2,7 @@ from models import Entry, EntryTag # relative import
 # from django.views.generic.list_detail import object_list
 from django.views.generic import ListView
 from django.views.generic.dates import YearArchiveView, MonthArchiveView, DayArchiveView, DateDetailView
+from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from conservancy.apps.staff.models import Person
 from django.shortcuts import get_object_or_404, render_to_response
 from datetime import datetime
