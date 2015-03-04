@@ -80,9 +80,9 @@ def custom_index(request, queryset, *args, **kwargs):
         # If page is out of range (e.g. 9999), deliver last page of results.
         blog_entires = paginator.page(paginator.num_pages)
 
-    extra_content['blog_entries'] = blog_entries
+    extra_context['blog_entries'] = blog_entries
 
-    return render_to_response('blog/entry_list.html', extra_content)
+    return render_to_response('blog/entry_list.html', extra_context)
 
     callable = BlogListView.as_view(**kwargs)
     return callable(request)
