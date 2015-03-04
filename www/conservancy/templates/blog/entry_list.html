@@ -29,7 +29,7 @@
 <div class="clear"></div>
 
 {% if date_list %}
-<h3>Index by date</h3>
+<h3>Blog Index by Year</h3>
 <ul>
 {% for year in date_list reversed %}<li><a href="{{ year|date:"Y" }}/">{{ year|date:"Y" }}</a></li>{% endfor %}
 </ul>
