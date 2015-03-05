@@ -349,7 +349,6 @@ dl {
 }
 dt {
     float: left;
-    clear: left;
     text-align: center;
     width: 10em;
     margin: 0em 1em 0.5em 0.5em;
