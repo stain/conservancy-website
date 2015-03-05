@@ -334,14 +334,14 @@ dl {
 dt {
     float: left;
     clear: left;
-    width: 100px;
-    text-align: right;
+    width: 10em;
+    margin: 0em 1em 0.5em 0.5em;
+    text-align: center;
     font-weight: bold;
     color: green; }
 dt:after {
     content: ":";
 }
 dd {
-    margin: 0 0 0 110px;
-    padding: 0 0 0.5em 0;
+    margin: 0 0 2em 11em;
 }
