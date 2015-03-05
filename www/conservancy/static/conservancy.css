@@ -117,6 +117,14 @@ h3 { margin-top: .6em; margin-bottom: .4em; }
     margin-right: 50px;
 }
 
+#progressbar {
+    height: 30px;
+}
+
+#progressbar .ui-widget-header {
+    background: rgb(206, 31, 31);
+}
+
 .content-with-donate-sidebar {
     align: left;
     width: 80%;
