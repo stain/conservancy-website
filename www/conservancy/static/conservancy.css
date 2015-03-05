@@ -344,6 +344,12 @@ body.conservancy-supporter #navbar ul li.supporter a
    font-size: 12px;
 }
 
+img.inside-faq {
+  max-width: 100%;
+  width: auto;
+  overflow: scroll;
+}
+
 /* Make dl's ( such as for FAQ entries) look nice on screens, both big and small. */
 
 dl {
