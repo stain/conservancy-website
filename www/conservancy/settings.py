@@ -25,7 +25,7 @@ ROOT_URLCONF = 'conservancy.urls'
 
 FORCE_CANONICAL_HOSTNAME = "sfconservancy.org"
 
-ALLOWED_HOSTS = [ 'www.sfconservancy.org', 'aspen.sfconservancy.org', 'sfconservancy.org' ]
+ALLOWED_HOSTS = [ 'www.sfconservancy.org', 'aspen.sfconservancy.org', 'sfconservancy.org',  u'104.130.70.210' ]
 
 REDIRECT_TABLE = {
     'www.sf-conservancy.org': 'sfconservancy.org',
