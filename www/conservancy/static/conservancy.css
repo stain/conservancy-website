@@ -36,6 +36,10 @@ text-decoration: none; color: #557733;
 }
 @media all and (max-width: 625px) {
     .donate-sidebar { display: none; }
+    .content-with-donate-sidebar {
+        align: center;
+        width: 100%;
+    }
 }
 
 p.footnote {
@@ -111,6 +115,11 @@ h3 { margin-top: .6em; margin-bottom: .4em; }
 #mainContent {
     margin-left: 50px;
     margin-right: 50px;
+}
+
+.content-with-donate-sidebar {
+    align: left;
+    width: 80%;
 }
 
 #container {
