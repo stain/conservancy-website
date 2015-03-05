@@ -9,8 +9,10 @@ $(document).ready(function() {
     var soFar = $('span#fundraiser-so-far').text();
     var noCommaGoal = goal.replace(/,/g, "");
     var noCommaSoFar = soFar.replace(/,/g, "");
+    var percentage = (parseFloat(noCommaSoFar) / parseFloat(noCommaGoal)) * 100;
 
-    $("#progressbar").progressbar({ value: (parseFloat(noCommaSoFar) / parseFloat(noCommaGoal)) * 100 });
+    $('span#fundraiser-percentage').text(percentage.toFixed(2) + "%");
+    $("#progressbar").progressbar({ value:  percentage });
 
     $('.toggle-content').hide();
 
