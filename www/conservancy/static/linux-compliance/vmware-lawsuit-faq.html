@@ -1,0 +1,154 @@
+{% extends "base_compliance.html" %}
+{% block subtitle %}GPL Compliance Project For Linux Developers - {% endblock %}
+{% block submenuselection %}VMwareLawsuitFAQ{% endblock %}
+{% block content %}
+<h1>Frequently Asked Questions about Christoph Hellwig's VMware Lawsuit</h1>
+
+<p>Conservancy maintains this
+  <acronym title="Frequently Asked Questions">FAQ</acronym> list regarding
+  <a href="/news/2015/mar/05/vmware-lawsuit/">Christoph Hellwig's lawsuit against VMware
+  in Germany over alleged GPL violations on Linux</a> as a service to the
+  Free Software community, and in particular, the copyleft community.  Conservancy
+  realizes this lawsuit generates many questions and interest
+  from the community.  Legal counsel (both Conservancy's own, and
+  Christoph's lawyer, Till Jaeger) correctly advise us to limit our public
+  comments regarding specific details of the case while litigation remains
+  pending in court.  Nevertheless, Conservancy, as a
+  non-profit charity serving the public good, seeks to be as transparent as
+  possible.  If you have additional questions you'd like to see answered
+  here, please <a href="mailto:info@sfconservancy.org">email
+  &lt;info@sfconservancy.org&gt;</a>, but understand that we may often need
+  to answer: <q>We cannot comment on this while litigation is pending</q>.</p>
+
+<dl>
+  <dt>Who is the Plaintiff in the lawsuit?</dt>
+
+  <dd>Christoph is one of most active developers of the Linux kernel. He has
+   contributed 279.653 lines of code to the latest Linux 3.19 kernel, and
+   thus ranks 20th amongst the 1,340 developers involved in that release.
+   Christoph also ranks 4th among those who have reviewed third-party source
+   code, tirelessly corrected and commented on other developers'
+   contributions.</dd>
+
+  <dt>Are there any court documents to read?</dt>
+
+  <dd>Not currently.  Court proceedings are not public by default in Germany
+  (unlike in the USA).  Conservancy will continue to update this FAQ with
+  information that Conservancy knows about the case.  We would all also
+  welcome an agreement with VMware whereby both sides would agree to publish
+  all Court documents. </dd>
+
+  <dt>Who is funding this lawsuit?</dt>
+
+  <dd>Conservancy has engaged in a grant agreement with Christoph Hellwig for
+  the purposes of pursuing this specific legal action in Germany.
+  Conservancy is funding this legal action specifically as part of
+  Conservancy's program activity in
+  its <a href="/linux-compliance/about.html">GPL Compliance
+  Project for Linux Developers</a>.</dd>
+
+  <dt>Is this the Great Test Case of Combined/Derivative Works?</dt>
+
+  <dd>This case is specifically regarding a combined work that VMware
+  allegedly created by combining their own code (&ldquo;vmkernel&rdquo;) with
+  portions of Linux's code, which was licensed only under GPLv2.  As such,
+  this, to our knowledge, marks the first time an enforcement case is
+  exclusively focused on this type of legal question relating to GPL.
+  However, there are so many different ways to make combined and/or
+  derivative works that are covered by GPL that no single case could possibly
+  include all such issues. </dd>
+
+  <dt>Why must you file a lawsuit?  Isn't there any other way to convince
+    VMware to comply with GPL?</dt>
+
+  <dd><p>Neither Conservancy nor Christoph takes this action lightly nor without
+  exhausting every other possible alternative first.  This lawsuit is the
+    outgrowth of years of effort to convince VMware to comply with GPL.</p>
+
+    <p>In October 2011, Conservancy received a GPL violation report on
+  BusyBox for VMware's ESXi products.  Conservancy opened the matter in its
+  usual, friendly, and non-confrontational way.  Nevertheless, VMware
+  immediately referred Conservancy to VMware's outside legal counsel in the
+  USA, and Conservancy negotiated with VMware's legal counsel throughout
+  late 2011, 2012 and 2013.  We exchanged and reviewed CCS candidates, and
+  admittedly, VMware made substantial and good efforts toward compliance on
+  BusyBox.  However, VMware still refused to fix a few minor and one major
+  compliance problem that we discovered during the process.  Namely, there
+  was a major violation regarding Linux itself that ultimately became
+  Christoph's key complaint in this lawsuit.</p>
+
+ <p>Meanwhile, when Conservancy realized in late 2012 there might be a major
+ Linux violation still present in VMware's ESXi products, Conservancy
+ representatives sought every industry contact we had for assistance,
+ including those from trade associations, companies (both competitors and
+ collaborators with VMware), and everyone else we could think of who might be
+ able to help us proceed with friendly negotiations that would achieve
+ compliance.  While we cannot name publicly the people we asked for help
+ to convince VMware to comply, they include some of the most notable
+ executives, diplomats, and engineering managers in the Linux community.  No
+ one was able to assist Conservancy in convincing VMware to comply with the
+ GPL.  Then, in early 2014, VMware's outside legal counsel in the USA finally
+ took a clear and hard line with Conservancy stating that they would not
+ comply with the GPL on Linux and argued (in our view, incorrectly) that they
+ were already in compliance.</p>
+
+ <p>Conservancy in parallel informed Christoph fully of the details of the
+   Linux violation on Christoph's copyrights, and based on Conservancy's
+   findings, Christoph began his own investigation and confirmed
+   Conservancy's compliance conclusions.  Christoph then began his own
+   enforcement effort with legal representation from Till Jaeger.  Christoph has
+   been unable to achieve compliance, either, through his negotiations in
+   2014.  VMware's last offer was a proposal for a settlement agreement that VMware would
+   only provide if Christoph signed an NDA, and Christoph chose (quite
+   reasonably) not to sign an NDA merely to look at settlement offer.</p>
+
+ <p>Thus, this lawsuit comes after years of negotiations by Conservancy to
+ achieve compliance &mdash; negotiations that ended in an outright refusal by
+ VMware's lawyers to comply.  Those events were then followed by a year of
+   work by Christoph and Till to achieve compliance in a separate action.</p>
+
+ <p>Simply put, Conservancy and Christoph fully exhausted every possible
+ non-litigation strategy and tactic to convince VMware to do the right thing
+ before filing this litigation.</p>
+  </dd>    
+
+  <dt>Can you explain further how VMware incorporated code from Linux into
+  their kernel?</dt>
+
+  <dd>Conservancy prepared this diagram to show the technical situation as we
+    understand it.  The diagram compares the technical architecture of a full,
+    running Linux kernel with a full, running VMware kernel:
+    <p>
+    <svg width="519" height="392">
+    <image xlink:href="/linux-compliance/linux-vs-vmkernel_en.svg" src="/linux-compliance/linux-vs-vmkernel_en.png" width="519" height="392" />
+    </svg></p>
+
+    <p>If you want to download the diagram, it's available
+    in <a href="/linux-compliance/linux-vs-vmkernel_en.svg">SVG
+    (English)</a>, <a href="/linux-compliance/linux-vs-vmkernel_en.png">PNG
+    (English)</a>, <a href="/linux-compliance/linux-vs-vmkernel_de.svg">SVG
+    (German)</a>, and <a href="/linux-compliance/linux-vs-vmkernel_de.png">PNG
+    (German)</a>.</p>
+  </dd>
+
+  <dt>I care about the future of copyleft and the GPL.  How can I help this effort?</dt>
+
+  <dd>Conservancy needs <a href="#donate-box" class="donate-now">your immediate financial
+  support to proceed with this litigation</a>.  Litigation costs are
+  unpredictable, and this lawsuit may take years to resolve.  Conservancy is
+  prepared to fund this case through its conclusion, but we can only do so
+  with <a href="/supporter/"><em>your</em> support</a>.  If you are an
+  individual who supports copyleft and wants to see it defended, please
+  donate now.</dd>
+
+  <dt>Why is the case in Germany?</dt>
+
+  <dd>Copyright infringement claims can be brought anywhere that distribution
+  of the copyrighted works occur.  VMware distributes ESXi throughout the
+  world, but Germany is close to Christoph's home and his lawyer was
+  available to do the litigation work there.  Finally, historically,
+  Mr. Jaeger's cases in Germany have usually achieved worldwide compliance on
+  the products at issue in those cases.</dd>
+  
+</dl>
+{% endblock %}
