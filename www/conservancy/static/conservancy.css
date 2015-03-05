@@ -150,7 +150,7 @@ h3 { margin-top: .6em; margin-bottom: .4em; }
 #container #sidebar.Current ul li.Current,
 #container #sidebar.Services ul li.Services,
 #container #sidebar.Applying ul li.Applying,
-#container #sidebar.Applying ul li.AboutCompliance
+#container #sidebar.AboutCompliance ul li.AboutCompliance
 {
     color: #000033;
     font-weight: bold;
