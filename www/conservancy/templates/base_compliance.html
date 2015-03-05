@@ -1,0 +1,55 @@
+{% extends "base_conservancy.html" %}
+{% block head %}
+<link href="/jquery-ui.css" rel="stylesheet" type="text/css"/>
+<link href="/forms.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="/jquery.min.js"></script>
+<script type="text/javascript" src="/jquery-ui.min.js"></script>
+<script type="text/javascript" src="/supporter-page.js"></script>
+
+{% endblock %}
+
+{% block outercontent %}
+<div class="donate-sidebar">
+<table style="background-color:#afe478;width:100%;">
+<tr><td style="text-align:center;padding:10px;padding-bottom:10px;">
+<div id="donate-box" class="toggle-unit"><h1 class="toggle-content">Support
+    Now!</h1></div>
+
+<h3>Support GPL Compliance Now!</h3>
+
+<p>Support our GPL compliance work now &amp; <strong>donation counts double!</strong></p>
+
+<p>Thanks to an generous anonymous donation match generous, donations during
+  this campaign will be matched dollar-for-dollar!  You can effectively
+  double your donation if you support our GPL compliance work now!</p>
+
+$<span id="fundraiser-so-far">0</span>
+of $<span id="fundraiser-goal">50,000</span> match met.<br/>
+<div id="progressbar" style="height:20px;"><span id="fundraiser-percentage" style="float:right; align:center; margin-right:40%"></span></div>
+
+<p>There are many ways to donate!  Donate now via PayPal:
+<!-- PayPal start -->
+<form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+<input type="hidden" name="cmd" value="_s-xclick">
+<input type="hidden" name="hosted_button_id" value="4ZKJN4F9BMFAS">
+<input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif" style="border:0" name="submit" alt="PayPal - The safer, easier way to pay online!">
+<img alt="" style="border:0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
+</form>
+<!-- PayPal end -->
+</p>
+
+<p>Or, <a href="/supporter/#annual"><strong>become a Conservancy
+      Supporter</strong></a>.</p>
+</td></tr></table>
+</div>
+    <div id="container">
+         <div id="sidebar" class="{% block submenuselection %}other{% endblock %}">
+            <h2>Conservancy's GPL {% block category %}Compliance{% endblock %} Work</h2>
+            <ul>
+            <li class="About"><a href="/linux-compliance/about.html">About GPL Compliance Project for Linux Developers</a></li>
+            </ul>
+         </div>
+               <div id="mainContent">{% block content %}{% endblock %}
+               </div>
+   </div>
+{% endblock %}
