@@ -39,6 +39,17 @@ def index(request, *args, **kwargs):
     context = RequestContext(request, kwargs)
     return HttpResponse(template.render(context))
 
+def fundgoal_lookup(fundraiser_sought):
+    try:
+        return FundraisingGoal.objects.get(fundraiser_code_name=fundraiser_sought)
+    except FundraisingGoal.DoesNotExist:
+     # we have no object!  do something
+        return None
+
+def index_with_fundraiser_data(request, *args, **kwargs):
+    kwargs['fundgoal'] = fundgoal_lookup(kwargs['fundraiser_sought'])
+    return index(request, kwargs)
+
 def debug(request):
     path = request.get_full_path()
     path = path.lstrip('/')

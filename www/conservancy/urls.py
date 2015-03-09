@@ -37,13 +37,6 @@ handler404 = 'conservancy.static.views.handler404'
 
 admin.autodiscover()
 
-def fundgoal_lookup(fundraiser_sought):
- try:
-     return FundraisingGoal.objects.get(fundraiser_code_name=fundraiser_sought)
- except FundraisingGoal.DoesNotExist:
-     # we have no object!  do something
-     return None
-
 urlpatterns = patterns('',
     (r'^$', 'conservancy.frontpage.view'),
     (r'^sponsors$', 'conservancy.frontpage.view'),
@@ -61,9 +54,11 @@ urlpatterns = patterns('',
     (r'^error', 'conservancy.static.views.index'),
     (r'^about', 'conservancy.static.views.index'),
     (r'^donate', 'conservancy.static.views.index'),
-    (r'^linux-compliance', 'conservancy.static.views.index', {'fundgoal' : fundgoal_lookup('vmware-match-0')}),
+    (r'^linux-compliance', 'conservancy.static.views.index_with_fundraiser_data',
+                           {'fundraiser_sought' : 'vmware-match-0'}),
     (r'^members', 'conservancy.static.views.index'),
-    (r'^npoacct', 'conservancy.static.views.index', {'fundgoal' : fundgoal_lookup('npoacct')}),
+    (r'^npoacct', 'conservancy.static.views.index_with_fundraiser_data',
+                  {'fundraiser_sought' : 'npoacct'}),
     (r'^overview', 'conservancy.static.views.index'),
     (r'^privacy-policy', 'conservancy.static.views.index'),
     (r'^supporter', 'conservancy.static.views.index'),
