@@ -350,6 +350,13 @@ img.inside-faq {
   overflow: scroll;
 }
 
+#fundraiser-percentage {
+    float: right;
+    align: center;
+    vertical-align: middle;
+    margin-right: 40%;
+}
+
 /* Make dl's ( such as for FAQ entries) look nice on screens, both big and small. */
 
 dl {
