@@ -37,9 +37,9 @@ handler404 = 'conservancy.static.views.handler404'
 
 admin.autodiscover()
 
-def fundgoal_lookup(fundraiser):
+def fundgoal_lookup(fundraiser_sought):
  try:
-     return FundraisingGoal.objects.get(fundraiser_code_name)
+     return FundraisingGoal.objects.get(fundraiser_code_name=fundraiser_sought)
  except FundraisingGoal.DoesNotExist:
      # we have no object!  do something
      return None
