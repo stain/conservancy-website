@@ -22,7 +22,7 @@
 
 $<span id="fundraiser-so-far">{{ fundgoal.fundraiser_so_far_amount|floatformat:0|intcomma }}</span>
 of $<span id="fundraiser-goal">{{ fundgoal.fundraiser_goal_amount|floatformat:0|intcomma  }}</span> match met.<br/>
-<div id="progressbar"><span id="fundraiser-percentage">{{ fundgoal.percentage_there|floatformat:1 }}%</span></div>
+<div id="progressbar"><span id="fundraiser-percentage">(i.e., {{ fundgoal.percentage_there|floatformat:1 }}%)</span></div>
 
 <p>Donate now via PayPal:
 </p>

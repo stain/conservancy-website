@@ -106,7 +106,7 @@ el.attachEvent('on'+ev, function() {handler.apply(el);});
 <h3>Support NPO Accounting Project Now!</h3>
 $<span id="fundraiser-so-far">{{ fundgoal.fundraiser_so_far_amount|floatformat:0|intcomma }}</span> raised toward<br/>
 our $<span id="fundraiser-goal">{{ fundgoal.fundraiser_goal_amount|floatformat:0|intcomma  }}</span> goal.<br/>
-<div id="progressbar"><span id="fundraiser-percentage">{{ fundgoal.percentage_there|floatformat:1 }}%</span></div>
+<div id="progressbar"><span id="fundraiser-percentage">(i.e., {{ fundgoal.percentage_there|floatformat:1 }}%)</span></div>
 <p style="font-size: 75%">(Progress bar updated daily.)</p>
 <a id="donate" style="text-decoration:none"></a>
 <h3>Help us reach our goal:</h3>
