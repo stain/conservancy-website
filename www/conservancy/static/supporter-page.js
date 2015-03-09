@@ -10,16 +10,32 @@ $(document).ready(function() {
     var noCommaGoal = goal.replace(/,/g, "");
     var noCommaSoFar = soFar.replace(/,/g, "");
     var percentage = (parseFloat(noCommaSoFar) / parseFloat(noCommaGoal)) * 100;
+    var curValue = 0.00;
+    var incrementSoFar = 0.00;
 
-    $('span#fundraiser-percentage').text(percentage.toFixed(2) + "%");
+    $('span#fundraiser-percentage').text("");
     $('span#fundraiser-percentage').css({ 'color'        : 'green',
                                           'font-weight'  : 'bold',
                                           'float'        : 'right',
                                           'margin-right' : '40%',
                                           'margin-top'   : '2.5%',
                                           'text-align'   : 'inherit'});
+    $("#progressbar").progressbar({ value:  curValue });
 
-    $("#progressbar").progressbar({ value:  percentage });
+    function slowRise() {
+        if (curValue >= percentage) {
+            $('span#fundraiser-so-far').text(soFar);
+            $("#progressbar").progressbar({ value :  percentage });
+            $('span#fundraiser-percentage').text(percentage.toFixed(1) + "%");
+        } else {
+            var newVal = (curValue / 100.00) * noCommaGoal;
+            $("#progressbar").progressbar({ value:  curValue });
+            $('span#fundraiser-so-far').text(newVal.toLocaleString());
+            curValue += 0.5;
+            setTimeout(slowRise, 50);
+        }
+    }
+    slowRise();
 
     $('.toggle-content').hide();
 
