@@ -19,7 +19,7 @@
 
 from django.conf.urls import patterns, url, include
 from django.conf import settings
-from conservancy.app.news.models import PressRelease, ExternalArticle
+from conservancy.apps.news.models import PressRelease, ExternalArticle
 from conservancy.apps.news.views import NewsYearArchiveView, NewsMonthArchiveView, NewsDayArchiveView, NewsDateDetailView
 
 info_dict = {

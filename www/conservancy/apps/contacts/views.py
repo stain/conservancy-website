@@ -1,6 +1,6 @@
 from django.shortcuts import render_to_response
 from django import forms
-from conservancy.app.contacts.models import ContactEntry
+from conservancy.apps.contacts.models import ContactEntry
 from django.forms import ModelForm
 
 def subscribe(request):
