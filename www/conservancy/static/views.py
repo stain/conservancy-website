@@ -24,7 +24,7 @@ def handler404(request):
 def handler500(request):
     return handler(request, '500')
 
-def index(request):
+def index(request, *args, **kwargs):
     # return HttpResponse("Hello, static world: " + request.get_full_path())
     path = request.get_full_path()
     path = path.lstrip('/')
@@ -36,7 +36,7 @@ def index(request):
         # return HttpResponse("Sorry that's a 404: " + path)
         return handler404(request)
     template = loader.get_template(path)
-    context = RequestContext(request)
+    context = RequestContext(request, kwargs)
     return HttpResponse(template.render(context))
 
 def debug(request):

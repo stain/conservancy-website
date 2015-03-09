@@ -19,6 +19,7 @@
 
 from django.conf.urls import patterns, url, include
 from django.contrib import admin
+from conservancy.apps.fundgoal.models import FundraisingGoal as FundraisingGoal
 
 # import conservancy.settings
 from django.conf import settings
@@ -35,6 +36,13 @@ handler404 = 'conservancy.static.views.handler404'
 # handler500 = 'conservancy.static.views.handler500'
 
 admin.autodiscover()
+
+def fundgoal_lookup(fundraiser):
+ try:
+     return FundraisingGoal.objects.get(fundraiser_code_name)
+ except FundraisingGoal.DoesNotExist:
+     # we have no object!  do something
+     return None
 
 urlpatterns = patterns('',
     (r'^$', 'conservancy.frontpage.view'),
@@ -55,7 +63,7 @@ urlpatterns = patterns('',
     (r'^donate', 'conservancy.static.views.index'),
     (r'^linux-compliance', 'conservancy.static.views.index'),
     (r'^members', 'conservancy.static.views.index'),
-    (r'^npoacct', 'conservancy.static.views.index'),
+    (r'^npoacct', 'conservancy.static.views.index', {'fundgoal' : fundgoal_lookup('npoacct')}),
     (r'^overview', 'conservancy.static.views.index'),
     (r'^privacy-policy', 'conservancy.static.views.index'),
     (r'^supporter', 'conservancy.static.views.index'),
