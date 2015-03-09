@@ -25,6 +25,13 @@ def handler404(request):
 def handler500(request):
     return handler(request, '500')
 
+def fundgoal_lookup(fundraiser_sought):
+    try:
+        return FundraisingGoal.objects.get(fundraiser_code_name=fundraiser_sought)
+    except FundraisingGoal.DoesNotExist:
+     # we have no object!  do something
+        return None
+
 def index(request, *args, **kwargs):
     # return HttpResponse("Hello, static world: " + request.get_full_path())
     path = request.get_full_path()
@@ -37,18 +44,13 @@ def index(request, *args, **kwargs):
         # return HttpResponse("Sorry that's a 404: " + path)
         return handler404(request)
     template = loader.get_template(path)
+
+    if kwargs.has_key('fundraiser_sought'):
+        kwargs = kwargs.copy()
+        kwargs['fundgoal'] = fundgoal_lookup(kwargs['fundraiser_sought'])
+
     context = RequestContext(request, kwargs)
     return HttpResponse(template.render(context))
-
-def fundgoal_lookup(fundraiser_sought):
-    try:
-        return FundraisingGoal.objects.get(fundraiser_code_name=fundraiser_sought)
-    except FundraisingGoal.DoesNotExist:
-     # we have no object!  do something
-        return None
-
-def index_with_fundraiser_data(request, *args, **kwargs):
-    return index(request, { 'fundgoal' : fundgoal_lookup(kwargs['fundraiser_sought']) })
 
 def debug(request):
     path = request.get_full_path()
