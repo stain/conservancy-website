@@ -11,7 +11,7 @@ class FundraisingGoal(models.Model):
         return self.fundraiser_code_name
 
     def percentage_there(self):
-        return (self.fundraiser_so_far_amount / self.fundraiser_goal_amount ) * 100.00
+        return (self.fundraiser_so_far_amount / self.fundraiser_goal_amount ) * Decimal('100.00')
     
     class Meta:
         ordering = ('fundraiser_code_name',)
