@@ -126,9 +126,10 @@ h3 { margin-top: .6em; margin-bottom: .4em; }
 }
 
 #fundraiser-percentage {
-    width: 100%;
-    top: 2.5%;
-    position: absolute;
+    float: center;
+    align: center;
+    vertical-align: middle;
+    margin-right: 40%;
     font-style: bold;
     color: green;
 }
