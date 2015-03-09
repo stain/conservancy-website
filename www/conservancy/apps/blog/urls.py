@@ -1,8 +1,8 @@
 from django.conf.urls import patterns, url, include
-from models import Entry, EntryTag # relative import
+from conservancy.apps.blog.models import Entry, EntryTag # relative import
 from conservancy.apps.staff.models import Person
 from datetime import datetime
-from views import last_name, BlogYearArchiveView, BlogMonthArchiveView, BlogDayArchiveView, BlogDateDetailView
+from conservancy.apps.blog.views import last_name, BlogYearArchiveView, BlogMonthArchiveView, BlogDayArchiveView, BlogDateDetailView
 
 extra_context = {}
 

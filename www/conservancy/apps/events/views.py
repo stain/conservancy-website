@@ -3,7 +3,7 @@ from django.shortcuts import render_to_response
 from django.http import Http404, HttpResponse
 from django.template import loader
 from django.core.exceptions import ObjectDoesNotExist
-from models import Event # relative import
+from conservancy.apps.events.models import Event
 # for debugging...
 from django.http import HttpResponse
 

@@ -1,5 +1,5 @@
 from django.contrib import admin
-from models import SummitRegistration
+from conservancy.apps.summit_registration.models import SummitRegistration
 
 class SummitRegistrationAdmin(admin.ModelAdmin):
     list_display = ('name', 'email', 'affiliation', 'cle_credit')

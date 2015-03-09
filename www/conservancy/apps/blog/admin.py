@@ -1,5 +1,5 @@
 from django.contrib import admin
-from models import EntryTag, Entry
+from conservancy.apps.blog.models import EntryTag, Entry
 
 class EntryTagAdmin(admin.ModelAdmin):
     prepopulated_fields = {'slug': ('label',)}

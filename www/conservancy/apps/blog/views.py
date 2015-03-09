@@ -1,4 +1,4 @@
-from models import Entry, EntryTag # relative import
+from conservancy.apps.blog.models import Entry, EntryTag # relative import
 # from django.views.generic.list_detail import object_list
 from django.views.generic import ListView
 from django.views.generic.dates import YearArchiveView, MonthArchiveView, DayArchiveView, DateDetailView

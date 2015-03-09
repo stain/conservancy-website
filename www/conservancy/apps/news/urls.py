@@ -19,8 +19,8 @@
 
 from django.conf.urls import patterns, url, include
 from django.conf import settings
-from models import PressRelease, ExternalArticle # relative import
-from views import NewsYearArchiveView, NewsMonthArchiveView, NewsDayArchiveView, NewsDateDetailView
+from conservancy.app.news.models import PressRelease, ExternalArticle
+from conservancy.apps.news.views import NewsYearArchiveView, NewsMonthArchiveView, NewsDayArchiveView, NewsDateDetailView
 
 info_dict = {
     'queryset': PressRelease.objects.all().filter(sites__id__exact=settings.SITE_ID),

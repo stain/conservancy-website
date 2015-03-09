@@ -1,5 +1,5 @@
 from django.contrib import admin
-from models import PressRelease, ExternalArticleTag, ExternalArticle
+from conservancy.apps.news.models import PressRelease, ExternalArticleTag, ExternalArticle
 
 class PressReleaseAdmin(admin.ModelAdmin):
     list_display = ("headline", "pub_date")

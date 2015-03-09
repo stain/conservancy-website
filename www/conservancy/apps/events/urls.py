@@ -1,5 +1,5 @@
 from django.conf.urls import patterns, url, include
-from models import Event # relative import
+from conservancy.apps.events.models import Event
 
 info_dict = {
     'queryset': Event.objects.all(),

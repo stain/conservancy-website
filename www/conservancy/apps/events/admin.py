@@ -1,5 +1,5 @@
 from django.contrib import admin
-from models import EventTag, Event, EventMedia
+from conservancy.apps.event.models import EventTag, Event, EventMedia
 
 admin.site.register(EventTag)
 

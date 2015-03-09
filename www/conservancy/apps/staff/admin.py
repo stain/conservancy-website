@@ -1,5 +1,5 @@
 from django.contrib import admin
-from models import Person
+from conservancy.apps.staff.models import Person
 
 class PersonAdmin(admin.ModelAdmin):
     list_display = ("username", "formal_name", "casual_name",

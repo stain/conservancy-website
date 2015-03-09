@@ -1,5 +1,5 @@
 from django.contrib import admin
-from models import ContactEntry
+from conservancy.apps.contacts.models import ContactEntry
 
 class ContactEntryAdmin(admin.ModelAdmin):
     list_display = ('email', 'subscribe_conservancy')

@@ -1,6 +1,6 @@
 from django.shortcuts import render_to_response
 from django import forms
-from models import SummitRegistration
+from conervancy.apps.summit_registration.models import SummitRegistration
 
 def register(request):
     """Summit registration form view

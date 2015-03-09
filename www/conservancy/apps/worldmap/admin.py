@@ -1,5 +1,5 @@
 from django.contrib import admin
-from models import EarthLocation
+from conservancy.apps.worldmap.models import EarthLocation
 
 class EarthLocationAdmin(admin.ModelAdmin):
     list_display = ("label", "html_map_link")
