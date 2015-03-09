@@ -12,6 +12,13 @@ $(document).ready(function() {
     var percentage = (parseFloat(noCommaSoFar) / parseFloat(noCommaGoal)) * 100;
 
     $('span#fundraiser-percentage').text(percentage.toFixed(2) + "%");
+    $('span#fundraiser-percentage').css({ 'color'        : 'green',
+                                          'font-weight'  : 'bold',
+                                          'float'        : 'right',
+                                          'margin-right' : '40%',
+                                          'margin-top'   : '2.5%',
+                                          'text-align'   : 'right'});
+
     $("#progressbar").progressbar({ value:  percentage });
 
     $('.toggle-content').hide();
