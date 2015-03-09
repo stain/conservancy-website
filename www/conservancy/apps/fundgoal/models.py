@@ -1,4 +1,5 @@
 from django.db import models
+from decimal import *
 
 class FundraisingGoal(models.Model):
     """Conservancy fundraiser Goal"""
