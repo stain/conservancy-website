@@ -10,5 +10,8 @@ class FundraisingGoal(models.Model):
     def __unicode__(self):
         return self.fundraiser_code_name
 
+    def percentage_there(self):
+        return (fundraiser_so_far_amount / fundraiser_goal_amount ) * 100.00
+    
     class Meta:
         ordering = ('fundraiser_code_name',)
