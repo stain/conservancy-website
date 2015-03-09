@@ -8,40 +8,7 @@
 <link href="/jquery-ui.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="/jquery.min.js"></script>
 <script type="text/javascript" src="/jquery-ui.min.js"></script>
-
-<script type="text/javascript">
-  $(document).ready(function() {
-    $("#progressbar").progressbar({ value: (66274.98 / 75000) * 100 });
-
-    $('.toggle-content').hide();
-
-    $('.toggle-control')
-     .addClass('clickable')
-     .bind('click', function() {
-        var $control = $(this);
-        var $parent = $control.parents('.toggle-unit');
-
-        $parent.toggleClass('expanded');
-        $parent.find('.toggle-content').slideToggle();
-
-        // if control has HTML5 data attributes, use to update text
-        if ($parent.hasClass('expanded')) {
-            $control.html($control.attr('data-expanded-text'));
-        } else {
-            $control.html($control.attr('data-text'));
-        }
-    });
-    $('a.donate-now')
-      .addClass('clickable')
-      .bind('click', function() {
-        var $control = $('#donate-box');
-
-        $control.toggleClass('expanded');
-        $control.find('.toggle-content').slideUp("slow");
-        $control.find('.toggle-content').slideDown("slow");
-    });
-  });
-</script>
+<script type="text/javascript" src="/supporter-page.js"></script>
 {% endblock %}
 
 {% block content %}
@@ -136,11 +103,10 @@ el.attachEvent('on'+ev, function() {handler.apply(el);});
 */
 </script>
 -->
-${{ fundgoal.fundraiser_so_far_amount|floatformat:0|intcomma }} raised toward<br/>
-our ${{ fundgoal.fundraiser_goal_amount|floatformat:0|intcomma  }} goal.<br/>
-<div id="progressbar"><span style="float:right; align:center;
-                                   margin-right:40%">{{ fundgoal.percentage_there|floatformat:1 }}%</span></div>
-<p style="font-size: 75%">(Progress bar updated monthly.)</p>
+$<span id="fundraiser-so-far">{{ fundgoal.fundraiser_so_far_amount|floatformat:0|intcomma }}</span> raised toward<br/>
+our $<span id="fundraiser-goal">{{ fundgoal.fundraiser_goal_amount|floatformat:0|intcomma  }}</span> goal.<br/>
+<div id="progressbar"><span id="fundraiser-percentage" style="float:right; align:center; margin-right:40%">{{ fundgoal.percentage_there|floatformat:1 }}%</span></div>
+<p style="font-size: 75%">(Progress bar updated daily.)</p>
 <a id="donate" style="text-decoration:none"></a>
 <h3>Help us reach our goal:</h3>
 
