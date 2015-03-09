@@ -350,7 +350,7 @@ img.inside-faq {
   overflow: scroll;
 }
 
-#fundraiser-percentage {
+span#fundraiser-percentage {
     float: right;
     align: center;
     vertical-align: middle;
