@@ -17,7 +17,7 @@ $(document).ready(function() {
                                           'float'        : 'right',
                                           'margin-right' : '40%',
                                           'margin-top'   : '2.5%',
-                                          'text-align'   : 'right'});
+                                          'text-align'   : 'inherit'});
 
     $("#progressbar").progressbar({ value:  percentage });
 
