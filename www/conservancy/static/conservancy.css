@@ -125,6 +125,15 @@ h3 { margin-top: .6em; margin-bottom: .4em; }
     background: rgb(206, 31, 31);
 }
 
+#fundraiser-percentage {
+    float: right;
+    align: center;
+    vertical-align: middle;
+    margin-right: 40%;
+    font-style: bold;
+    color: green;
+}
+
 .content-with-donate-sidebar {
     align: left;
     width: 80%;
@@ -348,14 +357,6 @@ img.inside-faq {
   max-width: 100%;
   width: auto;
   overflow: scroll;
-}
-
-#fundraiser-percentage {
-    float: right;
-    align: center;
-    vertical-align: middle;
-    margin-right: 40%;
-    font-style: bold;
 }
 
 /* Make dl's ( such as for FAQ entries) look nice on screens, both big and small. */
