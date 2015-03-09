@@ -33,7 +33,7 @@ class Event(models.Model):
 
     title = models.CharField(max_length=400)
     date = models.DateField()
-    date_tentative = models.BooleanField()
+    date_tentative = models.BooleanField(default=False)
     datetime = models.CharField("Date and Time", max_length=300, blank=True)
     slug = models.SlugField(unique_for_year='date')
     description = models.TextField(blank=True)
@@ -81,7 +81,7 @@ class EventMedia(models.Model):
     # verify_exists removed https://docs.djangoproject.com/en/1.7/releases/1.4/
     remote = models.URLField(blank=True,
                              help_text="Remote URL of the resource.  Required if 'local' is not given.")
-    novel = models.BooleanField(help_text="Is it a new piece of media or another form of an old one?  If it is new it will be included in the event-media RSS feed and shown on the front page for a bit.")
+    novel = models.BooleanField(help_text="Is it a new piece of media or another form of an old one?  If it is new it will be included in the event-media RSS feed and shown on the front page for a bit.", default=False)
 
     date_created = models.DateTimeField(auto_now_add=True)
     date_last_modified = models.DateTimeField(auto_now=True)

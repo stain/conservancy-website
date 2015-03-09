@@ -9,7 +9,7 @@ class SummitRegistration(models.Model):
     email = models.EmailField(blank=True)
     phone = models.CharField(max_length=100, blank=True)
     date_created = models.DateField(auto_now_add=True)
-    cle_credit = models.BooleanField(null=True)
+    cle_credit = models.BooleanField(default=True)
 
     class Meta:
         ordering = ('name',)

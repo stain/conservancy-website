@@ -90,7 +90,7 @@ class ExternalArticle(models.Model):
     # verify_exists removed https://docs.djangoproject.com/en/1.7/releases/1.4/
     url = models.URLField(blank=True)
     date = models.DateField()
-    visible = models.BooleanField(help_text="Whether to display on website")
+    visible = models.BooleanField(help_text="Whether to display on website", default=True)
 
     tags = models.ManyToManyField(ExternalArticleTag, null=True, blank=True)
     people = models.ManyToManyField(Person, null=True, blank=True)
