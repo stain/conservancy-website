@@ -48,8 +48,7 @@ def fundgoal_lookup(fundraiser_sought):
         return None
 
 def index_with_fundraiser_data(request, *args, **kwargs):
-    kwargs['fundgoal'] = fundgoal_lookup(kwargs['fundraiser_sought'])
-    return index(request, kwargs)
+    return index(request, { 'fundgoal' : fundgoal_lookup(kwargs['fundraiser_sought']) })
 
 def debug(request):
     path = request.get_full_path()
