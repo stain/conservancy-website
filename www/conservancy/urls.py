@@ -19,7 +19,6 @@
 
 from django.conf.urls import patterns, url, include
 from django.contrib import admin
-from conservancy.apps.fundgoal.models import FundraisingGoal as FundraisingGoal
 
 # import conservancy.settings
 from django.conf import settings

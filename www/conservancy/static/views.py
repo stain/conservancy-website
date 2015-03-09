@@ -1,6 +1,7 @@
 import os.path
 from django.http import HttpResponse
 from django.template import RequestContext, loader
+from conservancy.apps.fundgoal.models import FundraisingGoal as FundraisingGoal
 
 def handler(request, errorcode):
     STATIC_ROOT = '/home/www/website/www/conservancy/static/'
