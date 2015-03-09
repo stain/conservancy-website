@@ -1,4 +1,6 @@
+{% load humanize %}
 {% extends "base_conservancy.html" %}
+
 {% block subtitle %}NPOAcct - {% endblock %}
 {% block category %}npoacct{% endblock %}
 
@@ -134,8 +136,8 @@ el.attachEvent('on'+ev, function() {handler.apply(el);});
 */
 </script>
 -->
-{{ fundgoal.fundraiser_so_far_amount }} raised toward<br/>
-our {{ fundgoal.fundraiser_goal_amount }} goal.<br/>
+${{ fundgoal.fundraiser_so_far_amount|floatformat:2|intcomma }} raised toward<br/>
+our ${{ fundgoal.fundraiser_goal_amount|floatformat:2|intcomma  }} goal.<br/>
 <div id="progressbar"><span style="float:right; align:center; margin-right:40%">88.4%</span></div>
 <p style="font-size: 75%">(Progress bar updated monthly.)</p>
 <a id="donate" style="text-decoration:none"></a>
