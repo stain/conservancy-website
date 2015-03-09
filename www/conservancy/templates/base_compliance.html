@@ -19,9 +19,9 @@
 
 <p>Support our GPL compliance work now &amp; <strong>donation counts double!</strong></p>
 
-$<span id="fundraiser-so-far">33,671.99</span>
-of $<span id="fundraiser-goal">50,000</span> match met.<br/>
-<div id="progressbar"><span id="fundraiser-percentage" style="float:right; align:center; margin-right:40%"></span></div>
+$<span id="fundraiser-so-far">{{ fundgoal.fundraiser_so_far_amount|floatformat:0|intcomma }}</span>
+of $<span id="fundraiser-goal">{{ fundgoal.fundraiser_goal_amount|floatformat:0|intcomma  }}</span> match met.<br/>
+<div id="progressbar"><span id="fundraiser-percentage">{{ fundgoal.percentage_there|floatformat:1 }}%</span></div>
 
 <p>Donate now via PayPal:
 </p>
