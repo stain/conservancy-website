@@ -59,10 +59,18 @@ $(document).ready(function() {
       .addClass('clickable')
       .bind('click', function() {
         var $control = $('#donate-box');
+        var $otherTextControl = $('.donate-sidebar');
 
-        $control.toggleClass('expanded');
-        $control.find('.toggle-content').slideUp("slow");
-        $control.find('.toggle-content').slideDown("slow");
+        setTimeout(function() { $control.find('.toggle-content').slideUp(100);
+                                $control.toggleClass('expanded');
+                                $control.find('.toggle-content').slideDown(800).fadeOut(10);
+                                $otherTextControl.find('.donate-box-highlight').fadeOut(100);
+                              }, 300);
+          setTimeout(function() { $control.find('.toggle-content').fadeIn(2000);
+                                  $otherTextControl.find('.donate-box-highlight')
+                                  .css({'font-weight': 'bold', 'font-size' : '110%' });
+                                  $otherTextControl.find('.donate-box-highlight').fadeIn(10000);
+                                }, 500);
     });
     $(".t-shirt-size-selector").hide();
     $('input[name=on0]:radio').change(function() {

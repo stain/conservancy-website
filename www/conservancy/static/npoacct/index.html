@@ -109,7 +109,7 @@ our $<span id="fundraiser-goal">{{ fundgoal.fundraiser_goal_amount|floatformat:0
 <div id="progressbar"><span id="fundraiser-percentage">(i.e., {{ fundgoal.percentage_there|floatformat:1 }}%)</span></div>
 <p style="font-size: 75%">(Progress bar updated daily.)</p>
 <a id="donate" style="text-decoration:none"></a>
-<h3>Help us reach our goal:</h3>
+<h3 class="donate-box-highlight">Help us reach our goal:</h3>
 
 <!-- PayPal start -->
 <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
@@ -204,7 +204,7 @@ evbind(document.getElementById('bank-account-form'), 'submit',
 - Balanced end -->
 
 <p>
-Other donation methods:
+  <span class="donate-box-highlight">Other donation methods:</span>
 <div class="toggle-unit">
     <h4 class="toggle-control" data-text="Wire Transfer" 
     data-expanded-text="Wire Transfer:">Wire Transfer</h4>

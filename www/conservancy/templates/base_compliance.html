@@ -19,7 +19,7 @@
 
 <h3>Support GPL Compliance Now!</h3>
 
-<p>Support our GPL compliance work now &amp; <strong>donations count double!</strong></p>
+<p>Support our GPL compliance work now &amp; <span class="donate-box-highlight">donations count double!</span></p>
 
 {% cache 3600 compliancedonation fundgoal.fundraiser_so_far_amount %}
 $<span id="fundraiser-so-far">{{ fundgoal.fundraiser_so_far_amount|floatformat:0|intcomma }}</span>
@@ -27,7 +27,7 @@ of $<span id="fundraiser-goal">{{ fundgoal.fundraiser_goal_amount|floatformat:0|
 <div id="progressbar"><span id="fundraiser-percentage">(i.e., {{ fundgoal.percentage_there|floatformat:1 }}%)</span></div>
 {% endcache %}
 
-<p>Donate now via PayPal:
+<p><span class="donate-box-highlight">Donate now via PayPal:</span>
 </p>
 <!-- PayPal start -->
 <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
@@ -38,8 +38,8 @@ of $<span id="fundraiser-goal">{{ fundgoal.fundraiser_goal_amount|floatformat:0|
 </form>
 <!-- PayPal end -->
 
-<p>Or, <a href="/supporter/#annual"><strong>become a Conservancy
-      Supporter</strong></a> (&mdash; a better option if you're donating more
+<p>Or, <a href="/supporter/#annual"><span class="donate-box-highlight">become a Conservancy
+      Supporter</span></a> (&mdash; a better option if you're donating more
       than $120, since you'll get a t-shirt!).</p>
 </td></tr></table>
 </div>
