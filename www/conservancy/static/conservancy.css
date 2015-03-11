@@ -157,7 +157,7 @@ h3 { margin-top: .6em; margin-bottom: .4em; }
     border: 1px solid #CCC;
     background: #fff url(/img/nav-bg.png) bottom repeat-x;
 }
-#container #sidebar li:hover a { background: #577632; color: #fff; }
+#container #sidebar li a:hover { background: #577632; color: #fff; }
 
 #container #sidebar.Directors ul li.Directors,
 #container #sidebar.Eval ul li.Eval,
