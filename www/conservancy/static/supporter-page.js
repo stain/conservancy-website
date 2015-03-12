@@ -48,7 +48,7 @@ $(document).ready(function() {
     if (noCommaDonationCount > 0) {
         riseDonationCount();
     }
-    if (noCommaSoFar > 0.00 and noCommaGoal > 0.00) {
+    if (noCommaSoFar > 0.00 && noCommaGoal > 0.00) {
         $('span#fundraiser-percentage').text("");
         $("#progressbar").progressbar({ value:  curValue });
         riseDonationProgressBar();
