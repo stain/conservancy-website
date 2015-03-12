@@ -8,23 +8,20 @@ $(document).ready(function() {
     var goal  = $('span#fundraiser-goal').text();
     var soFar = $('span#fundraiser-so-far').text();
     var donationCount = $('span#fundraiser-donation-count').text();
-    var noCommaGoal = goal.replace(/,/g, "");
-    var noCommaSoFar = soFar.replace(/,/g, "");
+    var noCommaGoal = parseFloat(goal.replace(/,/g, ""));
+    var noCommaSoFar = parseFloat(soFar.replace(/,/g, ""));
     var noCommaDonationCount = parseInt(donationCount.replace(/,/g, ""));
     var percentage = (parseFloat(noCommaSoFar) / parseFloat(noCommaGoal)) * 100;
     var curValue = 0.00;
     var incrementSoFar = 0.00;
     var incrementDonationCount = 0;
 
-    $('span#fundraiser-percentage').text("");
     $('span#fundraiser-percentage').css({ 'color'        : 'green',
                                           'font-weight'  : 'bold',
                                           'float'        : 'right',
                                           'margin-right' : '40%',
                                           'margin-top'   : '2.5%',
                                           'text-align'   : 'inherit'});
-    $("#progressbar").progressbar({ value:  curValue });
-
     function riseDonationProgressBar() {
         if (curValue >= percentage) {
             $('span#fundraiser-so-far').text(soFar);
@@ -50,7 +47,11 @@ $(document).ready(function() {
     if (noCommaDonationCount > 0) {
         riseDonationCount();
     }
-    riseDonationProgressBar();
+    if (noCommaSoFar > 0.00 and noCommaGoal > 0.00) {
+        $('span#fundraiser-percentage').text("");
+        $("#progressbar").progressbar({ value:  curValue });
+        riseDonationProgressBar();
+    }
 
     $('.toggle-content').hide();
 
