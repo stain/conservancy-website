@@ -41,11 +41,12 @@ $(document).ready(function() {
             $('span#fundraiser-donation-count').text(donationCount);
         } else {
             $('span#fundraiser-donation-count').text(curDonationCount.toLocaleString());
-            incrementDonationCount += incrementDonationCount;
+            curDonationCount += incrementDonationCount;
             setTimeout(riseDonationCount, 50);
         }
     }
     if (noCommaDonationCount > 0) {
+        $('span#fundraiser-donation-count').text("");
         riseDonationCount();
     }
     if (noCommaSoFar > 0.00 && noCommaGoal > 0.00) {
