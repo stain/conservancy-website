@@ -139,7 +139,7 @@
 <dd>
     <p>The GPL violation at issue involves VMware's ESXi product.
     Conservancy independently reviewed ESXi 5.5 and its incomplete
-      <acronym title="complete, corresponding source">CCS</acronym>
+      <abbr title="complete, corresponding source">CCS</abbr>
     release as part of our GPL enforcement efforts described above.</p>
 
     <p>Conservancy's preliminary investigation indicated that the operating
@@ -208,7 +208,8 @@ Code, and for which (at least some) source code is provided.
            called <code>vmkdrivers/src_92/vmklinux_92/vmware/linux_pci.c</code>,
            which can be found in the &ldquo;Open Source&rdquo; release for
            ESXi 5.5.0 Update 2 (5.5U2).  A small excerpt from that file, found in the
-           function <code>LinuxPCIDeviceRemoved()</code>, reads as follows:
+           function <code>LinuxPCIDeviceRemoved()</code>, reads as follows:</p>
+
 <pre>
 if (unlikely(
   /* NOTE: vmk_PCIGetDeviceName is defined in vmvisor64-vmkernel */
@@ -222,7 +223,7 @@ VMKAPI_MODULE_CALL_VOID(pciDevExt->moduleID,
                         linuxDev->driver->remove,
                         linuxDev);
 </pre>        
-</p>
+
 <p>The function, <code>vmk_PCIGetDeviceName()</code> must be defined, with an
       implementation, for this code above to work, or even compile.
       Inside <code>BLD/build/HEADERS/vmkapi-current-all-public/vmkernel64/release/device/vmkapi_pci_incompat.h</code>,
@@ -234,13 +235,16 @@ VMKAPI_MODULE_CALL_VOID(pciDevExt->moduleID,
 <p>Further evidence that the implementation of this function occurs elsewhere
   can by found by running <code>objdump -x</code> on the un-vmtar'ed
   <code>vmklinux_9</code> module.  Note the following output in the &ldquo;SYMBOL
-  TABLE&rdquo; section:
+  TABLE&rdquo; section:</p>
+
 <pre>
 0000000000000000         *UND*  0000000000000000 vmk_PCIGetDeviceName
 </pre>
 
+<p>
 &hellip;and the following lines found in the  &ldquo;RELOCATION RECORDS FOR
 [.text]&rdquo; section:
+</p>
 
 <pre>
 00000000000327ff R_X86_64_PC32     vmk_PCIGetDeviceName+0xfffffffffffffffc
@@ -248,7 +252,6 @@ VMKAPI_MODULE_CALL_VOID(pciDevExt->moduleID,
 00000000000387e1 R_X86_64_PC32     vmk_PCIGetDeviceName+0xfffffffffffffffc
 000000000003cf40 R_X86_64_PC32     vmk_PCIGetDeviceName+0xfffffffffffffffc
 </pre>
-</p>
 
 <p>The above two properties both suggest that the <code>vmklinux_9</code>
  module requires: (a) a definition of the <code>vmk_PCIGetDeviceName()</code>
@@ -264,12 +267,13 @@ VMKAPI_MODULE_CALL_VOID(pciDevExt->moduleID,
   compressed data, was &lsquo;vmvisor64-vmkernel.stripped&rsquo;&rdquo;.
   These findings strongly suggests this is an image of the
   &ldquo;vmkernel&rdquo; component.  An <code>objdump -x</code> yields this
-  &ldquo;SYMBOL TABLE&rdquo; section:
+  &ldquo;SYMBOL TABLE&rdquo; section:</p>
+
 <pre>
 000041800036a408 g     F .text  0000000000000137 vmk_PCIGetDeviceName
 </pre>
 
-&hellip; which indicated these binary file contains the function body
+<p>&hellip; which indicated these binary file contains the function body
 for  <code>vmk_PCIGetDeviceName</code>.</p>
 
 <p>Finally, after detailed searching, Conservancy found no evidence that any
@@ -280,7 +284,7 @@ for  <code>vmk_PCIGetDeviceName</code>.</p>
   yields similar results as above.</p>
 
 <p>Given this evidence and related contextual clues, the only logical
-  conclusions are:
+  conclusions are:</p>
     <ul><li><code>vmklinux_9</code>, as a binary object, dynamically links
  with <code>k.b00</code>, another binary object, to form a single running
  binary.</li>
@@ -300,7 +304,6 @@ for  <code>vmk_PCIGetDeviceName</code>.</p>
       compliance requires source code (or an offer therefor) for the material
         in <code>k.b00</code>.</li>
     </ul>
-    </p>
 <p>The above is but one piece of evidence among many, but hopefully it helps
   to explain the types of &ldquo;combined work&rdquo; violations found in
   VMware's ESXi product.</p>
@@ -313,7 +316,7 @@ previously-mentioned <code>linux_pci.c</code>,
 <code>vmkapi_pci_incompat.h</code>, and <code>k.b00</code> files, as well as
     <code>vmklinux_9</code> and the source code that builds the latter.</p>
 
-  <p>To obtain the source components, follow these steps (no login is required):
+  <p>To obtain the source components, follow these steps (no login is required):</p>
 
 <ol>
 <li>Visit <a href="https://my.vmware.com/web/vmware/details?downloadGroup=ESXI55U2_OSS&productId=353">https://my.vmware.com/web/vmware/details?downloadGroup=ESXI55U2_OSS&productId=353</a>.</li>
@@ -344,9 +347,8 @@ previously-mentioned <code>linux_pci.c</code>,
   f679e81ffb2f92729917bbc64c2d541cf75b5b94.</li>
 
 </ol>
-</p>
 
-  <p>To obtain the binary components, follow these steps (a login is required):
+  <p>To obtain the binary components, follow these steps (a login is required):<p>
 
 <ol>
 <li>Register for an account at <a href="https://my.vmware.com/web/vmware/registration">https://my.vmware.com/web/vmware/registration</a>.</li>
@@ -395,9 +397,8 @@ at <code>bin/vmtar</code> inside
 <code>sb.v00</code>, similar to <code>misc_dri.v00</code> above.</li>
 
 </ol>
-</p>
 
-  <p>Note that VMware may present you with <acronym title="End User Licensing Agreement">EULA</acronym>s and <acronym title="Terms of Service">ToS</acronym> when you download
+  <p>Note that VMware may present you with <abbr title="End User Licensing Agreement">EULA</abbr>s and <abbr title="Terms of Service">ToS</abbr> when you download
   software from VMware's website.  Conservancy strongly suggests that you review these
   terms in great detail with the assistance of your own legal counsel before
   downloading the software and/or engaging in the process that Conservancy
