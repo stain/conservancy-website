@@ -131,6 +131,276 @@
     (German)</a>.</p>
   </dd>
 
+  <dt>Can you explain further in words (rather than a picture) about the central
+  component in ESXi that the lawsuit alleges violates the GPL?</dt>
+<dd>
+    <p>The GPL violation at issue involves VMware's ESXi product.
+    Conservancy independently reviewed ESXi 5.5 and its incomplete
+      <acronym title="complete, corresponding source">CCS</acronym>
+    release as part of our GPL enforcement efforts described above.</p>
+
+    <p>Conservancy's preliminary investigation indicated that the operating
+    system kernel of VMware ESXi product consists of three key components:
+        <ul>
+          <li> the proprietary component &ldquo;vmkernel&rdquo;, which is
+            released in binary form only,</li>
+            <li>the kernel module &ldquo;vmklinux&rdquo;, which contains modified Linux
+Code, and for which (at least some) source code for which is provided.
+            <li>other kernel modules with device drivers, most of which are
+            modified Linux drivers, and for which (at least some) source code
+              is provided.</li>
+        </ul>
+
+    <p>Conservancy examined the incomplete CCS alongside the
+           binary &ldquo;vmkernel&rdquo; component.  Such examination indicates that function
+           in &ldquo;vmkernel&rdquo; do make function calls to Linux's kernel code
+           in the usual way for a single program written in C.</p>
+</p>
+
+    <dt>Doesn't VMware's &ldquo;shim layer&rdquo; insulate them from GPL
+    obligations and allow them to keep certain code in their kernel
+    proprietary?</dt>
+
+    <p>Many in the media have talked about the possibility that VMware might
+    use some so-called &ldquo;shim layer&rdquo; between Linux code and
+    VMware's proprietary code.  While, for decades, there has been much talk of
+    various mechanisms of GPL obligation avoidance, Conservancy believes that
+    merely modifying technical details of a combination's construction
+    does not typically influence the legal analysis in a combined or
+    derivative work scenario.</p>
+
+    <p>Furthermore, the technical details of VMware's alleged GPL violation
+    do not even mirror the typical scenarios that have usually been called
+    &ldquo;shim layers&rdquo;.  Conservancy's analysis of VMware's ESXi
+    product, in fact, indicates that VMware rather flagrantly combined Linux
+    code in their own kernel, and evidence seems to indicate the work as a
+    whole was developed by modifying Linux code in tandem with
+    modifications to &ldquo;vmkernel&rdquo; in a tightly coupled manner.</p>
+
+    <dt>Can you give a <em>specific</em> example, with code, showing how
+    VMware combined Linux source code with their binary-only components?</dt>
+
+     <dd><p>There are numerous examples available that show this.  The
+       details of alleged infringement specifically relating to Hellwig's
+       contributions to Linux are of course the main matter of the
+       allegations in the litigation, and Conservancy
+       released <a href="#diagram">the diagram above</a> to exemplify that
+       issue.  Conservancy continues to <a href="#court-documents">hope VMware will
+       agree to make public all court documents</a> as a matter of public
+       good, since the court documents discuss the specifics of alleged
+         infringement on Hellwig's copyrights.</p>
+
+       <p>However, Conservancy examined VMware's ESXi 5.5 product in detail
+       even before Hellwig's enforcement action began.  Below is one example
+       among many where VMware's CCS was incomplete per GPLv2&sect;2(c) and
+       GPLv2&sect;3(a).  (One can verify these results by
+       <a href="#verify">downloading and installing the binary and source
+       packages for VMware's ESXi 5.5 Update 2</a>.)  Note that this
+       example below is not necessarily regarding
+       Hellwig's copyrights; VMware incorporated Linux code copyrighted by
+       many others as well into their kernel.</p>
+
+       <h4>Example of &ldquo;vmkernel&rdquo;'s combination with Linux code</h4>
+       <p>As one example, examine the file
+           called <code>vmkdrivers/src_92/vmklinux_92/vmware/linux_pci.c</code>,
+           which can be found in the &ldquo;Open Source&rdquo; release for
+           ESXi 5.5.0 Update 2 (5.5U2).  A small excerpt from that file, found in the
+           function <code>LinuxPCIDeviceRemoved()</code>, reads as follows:
+<pre>
+if (unlikely(
+  /* NOTE: vmk_PCIGetDeviceName is defined in vmvisor64-vmkernel */
+  vmk_PCIGetDeviceName(vmkDev, vmkDevName, sizeof(vmkDevName)-1) != VMK_OK))
+{
+    vmkDevName[0] = 0;
+}
+[...]
+/* VMKAPI_MODULE_CALL_VOID is a macro calling driver's remove() here */
+VMKAPI_MODULE_CALL_VOID(pciDevExt->moduleID,
+                        linuxDev->driver->remove,
+                        linuxDev);
+</pre>        
+</p>
+<p>The function, <code>vmk_PCIGetDeviceName()</code> must be defined, with an
+      implementation, for this code above to work, or even compile.
+      Inside <code>BLD/build/HEADERS/vmkapi-current-all-public/vmkernel64/release/device/vmkapi_pci_incompat.h</code>,
+      found in the <code>vmkdrivers</code> package of ESXi 5.5U2, shows a
+      function header definition for <code>vmk_PCIGetDeviceName()</code>.
+      However, the source of its implementation is not provided there or
+      anywhere in the source release.</p>
+
+<p>Further evidence that the implementation of this function occurs elsewhere
+  can by found by running <code>objdump -x</code> on the un-vmtar'ed
+  <code>vmklinux_9</code> module.  Note the following output in the &ldquo;SYMBOL
+  TABLE&rdquo; section:
+
+<pre>
+0000000000000000         *UND*  0000000000000000 vmk_PCIGetDeviceName
+</pre>
+
+&hellip;and the following lines found in the  &ldquo;RELOCATION RECORDS FOR
+[.text]&rdquo; section:
+
+<pre>
+00000000000327ff R_X86_64_PC32     vmk_PCIGetDeviceName+0xfffffffffffffffc
+0000000000035318 R_X86_64_PC32     vmk_PCIGetDeviceName+0xfffffffffffffffc
+00000000000387e1 R_X86_64_PC32     vmk_PCIGetDeviceName+0xfffffffffffffffc
+000000000003cf40 R_X86_64_PC32     vmk_PCIGetDeviceName+0xfffffffffffffffc
+</pre>
+</p>
+
+<p>The above two properties both suggest that the <code>vmklinux_9</code>
+ module requires: (a) a definition of the <code>vmk_PCIGetDeviceName()</code>
+ function to operate, but (b) that function is not defined
+ inside <code>vmklinux_9</code> itself.</p>
+
+<p>The definition can however be found in binary-only software provided in
+  ESXi 5.5U2 &mdash; specifically, inside a file named <code>k.b00</code>,
+  which is located in partition 5 on a disk where ESXi has been installed (or
+  in the ESXi 5.5U2 installer ISO image).  Running <code>file</code>
+  after <code>gunzip</code> on this file yields &ldquo;ELF 64-bit LSB shared
+  object&rdquo;.  Meanwhile, <code>file k.b00</code> reports &ldquo;gzip
+  compressed data, was &lsquo;vmvisor64-vmkernel.stripped&rsquo;&rdquo;.
+  These findings strongly suggests this is an image of the
+  &ldquo;vmkernel&rdquo; component.  An <code>objdump -x</code> yields this
+  &ldquo;SYMBOL TABLE&rdquo; section:
+<pre>
+000041800036a408 g     F .text  0000000000000137 vmk_PCIGetDeviceName
+</pre>
+
+&hellip; which indicated these binary file contains the function body
+for  <code>vmk_PCIGetDeviceName</code>.</p>
+
+<p>Finally, after detailed searching, Conservancy found no evidence that any
+  other code (other than modified Linux code) makes calls
+  to <code>vmk_PCIGetDeviceName</code>.  This provides a strong indication
+  that this function's primary purpose is to combine Linux code with
+  &ldquo;vmkernel&rdquo;.  Conservancy also found other functions where similar analysis
+  yields similar results as above.</p>
+
+<p>Given this evidence and related contextual clues, the only logical
+  conclusions are:
+    <ul><li><code>vmklinux_9</code>, as a binary object, dynamically links
+ with <code>k.b00</code>, another binary object, to form a single running
+ binary.</li>
+      <li>That binary contains code licensed under the GPLv2, and can be
+       distributed in binary form only under permissions provided under
+        GPLv2 &mdash; in particular <a href="https://gnu.org/licenses/gpl-2.0.html#section2">GPLv2&sect;2</a> and <a href="https://gnu.org/licenses/gpl-2.0.html#section3">GPLv2&sect;3</a>.</li>
+      <li>GPLv2&sect;3(a&ndash;b) requires that <q>complete corresponding
+          machine-readable source code</q> must accompany binary
+          distributions such as these.  GPLv2&sect;3 further states
+          that <q>for an executable work, complete source code means all the
+          source code for all modules it contains</q>.</li>
+      <li>The binary work in question contains modules from <code>k.b00</code> and
+        <code>vmlinux_9</code>.</li>
+      <li>VMware did not provide source code for any modules found in
+        <code>k.b00</code>.</li>
+      <li>Therefore, VMware failed to comply with the GPLv2, as such
+      compliance requires source code (or an offer therefor) for the material
+        in <code>k.b00</code>.</li>
+    </ul>
+    </p>
+<p>The above is but one piece of evidence among many, but hopefully it helps
+  to explain the types of &ldquo;combined work&rdquo; violations found in
+  VMware's ESXi product.</p>
+
+<dt id="verify">How can I verify Conservancy's technical findings above?</dt>
+
+<dd><p>The binary and source packages mentioned above are available
+on VMware's website.  These packages contain the
+previously-mentioned <code>linux_pci.c</code>,
+<code>vmkapi_pci_incompat.h</code>, and <code>k.b00</code> files, as well as
+    <code>vmklinux_9</code> and the source code that builds the latter.</p>
+
+  <p>To obtain the source components, follow these steps (no login is required):
+
+<ol>
+<li>Visit <a href="https://my.vmware.com/web/vmware/details?downloadGroup=ESXI55U2_OSS&productId=353">https://my.vmware.com/web/vmware/details?downloadGroup=ESXI55U2_OSS&productId=353</a>.</li>
+
+<li>Click the &ldquo;Download&rdquo; button beside the text that reads
+&ldquo;Open Source Code for VMware vSphere ESXi 5.5 Update 2&rdquo;.</li>
+
+<li>Confirm that the SHA-1 hash matches the published one
+  (d121634668a137ec808b63679fd941cef9a59715), found under &ldquo;Read
+  More&rdquo; on that web page.</li>
+
+<li>Mount (or otherwise open) the
+  downloaded <code>VMware-ESX-550U2-ODP.iso</code>.</li>
+
+<li>Extract <code>vmkdrivers/src_92/vmklinux_92/vmware/linux_pci.c</code>
+  and <code>BLD/build/HEADERS/vmkapi-current-all-public/vmkernel64/release/device/vmkapi_pci_incompat.h</code>
+  from <code>vmkdrivers-gpl/vmkdrivers-gpl.tgz</code> with tar and gzip.</li>
+
+<li>Generate <code>vmklinux_9</code> by following the steps
+  in <code>vmkdrivers-gpl/BUILD.txt</code> in the ISO.
+  (Note: <code>vmklinux_9</code> is also available pre-built on a running
+  ESXi system; <a href="#vmklinux">see below for instructions on how to access it</a>).</li>
+
+<li>You may need the &ldquo;Supporting Toolchain packages for VMware
+  vSphere ESXi 5.5.0 Update 2&rdquo; file from the above download page to
+  complete the build &mdash; upon downloading you will find it is named
+  <code>VMware-TOOLCHAIN-550u2-ODP.iso</code> and has a SHA-1 hash of
+  f679e81ffb2f92729917bbc64c2d541cf75b5b94.</li>
+
+</ol>
+</p>
+
+  <p>To obtain the binary components, follow these steps (a login is required):
+
+<ol>
+<li>Register for an account at <a href="https://my.vmware.com/web/vmware/registration">https://my.vmware.com/web/vmware/registration</a>.</li>
+
+<li>Click the &ldquo;Activate Now&rdquo; link in the follow-up email.  Enter
+  the password used at registration time.  Click &ldquo;Continue&rdquo;.</li>
+
+<li>Visit <a href="https://my.vmware.com/web/vmware/evalcenter?p=free-esxi5">https://my.vmware.com/web/vmware/evalcenter?p=free-esxi5</a>.</li>
+
+<li>Click &ldquo;Register&rdquo; (under the text that reads &ldquo;You have
+  not registered for this product&rdquo;).</li>
+
+<li>Enter the number of servers you plan to install on (e.g., 1).  Click
+  &ldquo;Continue&rdquo;.</li>
+
+<li>If the &ldquo;VMware vSphere Hypervisor 5.5 Update 2 &ndash;
+  Binaries&rdquo; section is not expanded, click the plus sign next to it.</li>
+
+<li>Click the &ldquo;Manually Download&rdquo; link that's beside &ldquo;ESXi
+  5.5 Update 2 ISO image (Includes VMware Tools)&rdquo;.</li>
+
+<li>Confirm that the SHA-1 hash matches the published one (9475938b51cafc86c8b17d09f2493cb6b4fae927).</li>
+
+<li>Mount (or open via some other means) the
+downloaded <code>VMware-VMvisor-Installer-5.5.0.update02-2068190.x86_64.iso</code>.</li>
+
+<li>Find the <code>k.b00</code> file in the root directory.  Extract it
+using <code>zcat k.b00 &gt; vmvisor64-vmkernel</code> (or a similar command).
+Repeat the steps described above using <code>objdump -x
+vmvisor64-vmkernel</code>.</li>
+
+<li id="vmklinux">To retrieve <code>vmklinux_9</code> you will need to install
+ESXi on your system by booting the ISO and following the instructions.  Once
+booted, you can then enable SSH access using &ldquo;Customize System/View Logs -&gt;
+Troubleshooting Options -&gt; Enable SSH&rdquo;.  Login to the system with SSH
+and then run <code>find /vmfs -name misc_dri.v00 -print</code>.  On the
+resulting file, run <code>zcat misc_dri.v00 &gt; misc_dri.vmtar</code> then
+<code>vmtar -x misc_dri.vmtar -o misc_dri.tar</code>.  You can then extract
+<code>misc_dri.tar</code> using the usual <code>tar</code> to extract
+<code>usr/lib/vmware/vmkmod/vmklinux_9</code>.  The <code>misc_dri.v00</code>
+file is also available next to <code>k.b00</code> in the root directory of
+the ISO (mentioned above), but the <code>vmtar</code> command itself is only
+available when logged into an ESXi system. <code>vmtar</code> can be found
+at <code>bin/vmtar</code> inside
+<code>sb.v00</code> on the ISO, but one needs <code>vmtar</code> to open
+<code>sb.v00</code>, similar to <code>misc_dri.v00</code> above.</li>
+
+</ol>
+</p>
+
+  <p>Note that VMware may present you with <acronym title="End User Licensing Agreement">EULA</acronym>s and <acronym title="Terms of Service">ToS</acronym> when you download
+  software from VMware's website.  Conservancy strongly suggests that you review these
+  terms in great detail with the assistance of your own legal counsel before
+  downloading the software and/or engaging in the process that Conservancy
+  discusses above.</p>
+
   <dt>Have others issued statements of support about this action?</dt>
   <dd>Various individuals and groups have publicly stated their support for
     Conservancy's and Hellwig's actions in this matter.  They include:
