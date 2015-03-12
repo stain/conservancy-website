@@ -7,11 +7,14 @@
 $(document).ready(function() {
     var goal  = $('span#fundraiser-goal').text();
     var soFar = $('span#fundraiser-so-far').text();
+    var donationCount = $('span#fundraiser-donation-count').text();
     var noCommaGoal = goal.replace(/,/g, "");
     var noCommaSoFar = soFar.replace(/,/g, "");
+    var noCommaDonationCount = parseInt(donationCount.replace(/,/g, ""));
     var percentage = (parseFloat(noCommaSoFar) / parseFloat(noCommaGoal)) * 100;
     var curValue = 0.00;
     var incrementSoFar = 0.00;
+    var incrementDonationCount = 0;
 
     $('span#fundraiser-percentage').text("");
     $('span#fundraiser-percentage').css({ 'color'        : 'green',
@@ -22,7 +25,7 @@ $(document).ready(function() {
                                           'text-align'   : 'inherit'});
     $("#progressbar").progressbar({ value:  curValue });
 
-    function slowRise() {
+    function riseDonationProgressBar() {
         if (curValue >= percentage) {
             $('span#fundraiser-so-far').text(soFar);
             $("#progressbar").progressbar({ value :  percentage });
@@ -32,10 +35,22 @@ $(document).ready(function() {
             $("#progressbar").progressbar({ value:  curValue });
             $('span#fundraiser-so-far').text(newVal.toLocaleString());
             curValue += 0.5;
-            setTimeout(slowRise, 50);
+            setTimeout(riseDonationProgressBar, 50);
         }
     }
-    slowRise();
+    function riseDonationCount() {
+        if (incrementDonationCount >= noCommaDonationCount) {
+            $('span#fundraiser-donation-count').text(donationCount);
+        } else {
+            $('span#fundraiser-donation-count').text(incrementDonationCount.toLocaleString());
+            incrementDonationCount++;
+            setTimeout(riseDonationCount, 50);
+        }
+    }
+    if (noCommaDonationCount > 0) {
+        riseDonationCount();
+    }
+    riseDonationProgressBar();
 
     $('.toggle-content').hide();
 

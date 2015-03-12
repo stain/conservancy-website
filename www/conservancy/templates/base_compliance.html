@@ -22,6 +22,9 @@
 <p>Support our GPL compliance work now &amp; <span class="donate-box-highlight">donations count double!</span></p>
 
 {% cache 3600 compliancedonation fundgoal.fundraiser_so_far_amount %}
+{% if fundgoal.fundraiser_donation_count > fundgoal.fundraiser_donation_count_disclose_threshold %}
+Thanks to <span id="fundraiser-donation-count">{{ fundgoal.fundraiser_donation_count|intcomma }}</span> donations,<br/>
+{% endif %}
 $<span id="fundraiser-so-far">{{ fundgoal.fundraiser_so_far_amount|floatformat:0|intcomma }}</span>
 of $<span id="fundraiser-goal">{{ fundgoal.fundraiser_goal_amount|floatformat:0|intcomma  }}</span> match met.<br/>
 <div id="progressbar"><span id="fundraiser-percentage">(i.e., {{ fundgoal.percentage_there|floatformat:1 }}%)</span></div>
