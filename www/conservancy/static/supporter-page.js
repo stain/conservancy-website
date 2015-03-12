@@ -15,7 +15,8 @@ $(document).ready(function() {
     var curValue = 0.00;
     var incrementSoFar = 0.00;
     var curDonationCount = 0;
-    var incrementDonationCount = Math.round( 0.01 * donationCount );
+    var riseLevelPercent = 0.5;
+    var incrementDonationCount = Math.round( (riseLevelPercent / 100) * donationCount );
 
     $('span#fundraiser-percentage').css({ 'color'        : 'green',
                                           'font-weight'  : 'bold',
@@ -32,7 +33,7 @@ $(document).ready(function() {
             var newVal = (curValue / 100.00) * noCommaGoal;
             $("#progressbar").progressbar({ value:  curValue });
             $('span#fundraiser-so-far').text(newVal.toLocaleString());
-            curValue += 0.5;
+            curValue += riseLevelPercent;
             setTimeout(riseDonationProgressBar, 50);
         }
     }
