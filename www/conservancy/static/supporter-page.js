@@ -14,7 +14,8 @@ $(document).ready(function() {
     var percentage = (parseFloat(noCommaSoFar) / parseFloat(noCommaGoal)) * 100;
     var curValue = 0.00;
     var incrementSoFar = 0.00;
-    var incrementDonationCount = 0;
+    var curDonationCount = 0;
+    var incrementDonationCount = Math.round( 0.01 * donationCount );
 
     $('span#fundraiser-percentage').css({ 'color'        : 'green',
                                           'font-weight'  : 'bold',
@@ -36,11 +37,11 @@ $(document).ready(function() {
         }
     }
     function riseDonationCount() {
-        if (incrementDonationCount >= noCommaDonationCount) {
+        if (curDonationCount >= noCommaDonationCount) {
             $('span#fundraiser-donation-count').text(donationCount);
         } else {
-            $('span#fundraiser-donation-count').text(incrementDonationCount.toLocaleString());
-            incrementDonationCount++;
+            $('span#fundraiser-donation-count').text(curDonationCount.toLocaleString());
+            incrementDonationCount += incrementDonationCount;
             setTimeout(riseDonationCount, 50);
         }
     }
