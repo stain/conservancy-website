@@ -16,7 +16,7 @@ $(document).ready(function() {
     var incrementSoFar = 0.00;
     var curDonationCount = 0;
     var riseLevelPercent = 0.5;
-    var incrementDonationCount = Math.round( (riseLevelPercent / 100) * donationCount );
+    var incrementDonationCount = Math.round( (riseLevelPercent / 100) * noCommaDonationCount );
 
     $('span#fundraiser-percentage').css({ 'color'        : 'green',
                                           'font-weight'  : 'bold',
