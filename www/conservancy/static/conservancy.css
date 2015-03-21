@@ -353,6 +353,9 @@ img.inside-faq {
   width: auto;
   overflow: scroll;
 }
+pre {
+  overflow: auto;
+}
 
 /* Make dl's ( such as for FAQ entries) look nice on screens, both big and small. */
 
