@@ -254,5 +254,5 @@ def view(request):
     """Listing of all available feeds
     """
 
-    feeds = feed_dict.values()
+    feeds = (PressReleaseFeed, BlogFeed, OmnibusFeed)
     return render_to_response("feeds.html", {'feeds': feeds})
