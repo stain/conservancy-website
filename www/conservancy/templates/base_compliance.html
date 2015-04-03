@@ -19,18 +19,11 @@
 
 <h3>Support GPL Compliance Now!</h3>
 
-<p>Support our GPL compliance work <strong>today</strong>
-  &amp; <span class="donate-box-highlight">donations count double!</span>
-  This match expires tomorrow, so donate now!</p>
-
-{% cache 3600 compliancedonation fundgoal.fundraiser_so_far_amount %}
-{% if fundgoal.fundraiser_donation_count > fundgoal.fundraiser_donation_count_disclose_threshold %}
-Thanks to <span id="fundraiser-donation-count">{{ fundgoal.fundraiser_donation_count|intcomma }}</span> donations,<br/>
-{% endif %}
-$<span id="fundraiser-so-far">{{ fundgoal.fundraiser_so_far_amount|floatformat:0|intcomma }}</span>
-of $<span id="fundraiser-goal">{{ fundgoal.fundraiser_goal_amount|floatformat:0|intcomma  }}</span> match met.<br/>
-<div id="progressbar"><span id="fundraiser-percentage">(i.e., {{ fundgoal.percentage_there|floatformat:1 }}%)</span></div>
-{% endcache %}
+<p>Thanks to the generosity of 1,123 individual contributors, Conservancy
+  raised $100,000 in just one month!  Specifically, these contributors helped
+  us <a href="/news/2015/apr/03/match-success/">reach our an anonymous donation match goal</a> of $50,000.  However, we
+  still need additional support to proceed with our GPL compliance work, so
+  please donate now: </p>
 
 <p><span class="donate-box-highlight">Donate now via PayPal:</span>
 </p>
