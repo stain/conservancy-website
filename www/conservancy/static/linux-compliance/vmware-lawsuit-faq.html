@@ -313,7 +313,8 @@ for  <code>vmk_PCIGetDeviceName</code>.</p>
   that one of the local variables is <code>struct pci_dev *linuxDev;</code>.
   A definition of <code>pci_dev</code> is found in
   <code>vmkdrivers/src_92/include/linux/pci.h</code> (which
-  is <code>#include</code>'d above) reads:
+  is <code>#include</code>'d above) reads:</p>
+
   <pre>
 struct pci_dev {
 [...]
@@ -329,7 +330,7 @@ truct pci_driver {
         u8              revision;       /* PCI revision, low byte of class word */
 #endif /* defined(__VMKLNX__) */
   };
-</pre></p>
+</pre>
 
 <p>These structures, and based on those from Linux itself
   (<a href="http://lxr.free-electrons.com/source/include/linux/pci.h?v=2.6.24">a
@@ -342,7 +343,7 @@ truct pci_driver {
   and VMware's <code>vmware/linux_pci.c</code> is very tightly coupled and
   interdependent.</p>
 
-<h4><code>VMKAPI_MODULE_CALL_VOID</code> macro calls driver's code</code></h4>
+<h4><code>VMKAPI_MODULE_CALL_VOID</code> macro calls driver's code</h4>
 
 <p>The
   file <code>BLD/build/HEADERS/vmkapi-current-all-public/vmkernel64/release/base/vmkapi_module.h</code>
@@ -352,7 +353,7 @@ truct pci_driver {
 #define VMKAPI_MODULE_CALL_VOID(moduleID, function, args...)  \
 do {                                                    \
     vmk_ModInfoStack modStack;                          \
-    vmk_ModulePushId(moduleID, function, &modStack);    \
+    vmk_ModulePushId(moduleID, function, &amp;modStack);    \
     (function)(args);                                   \
     )                                                   \
     vmk_ModulePopId();                                  \
@@ -372,13 +373,13 @@ do {                                                    \
 <p>VMware includes a file <code>vmkdrivers/src_9/drivers/net/tg3/tg3.c</code>
   in their source release.  This file appears to be Linux's tg3 driver.  It
   includes a definition of the <code>struct pci_dev</code> for this device,
-  which reads:
+  which reads:</p>
+
 <pre>
 static struct pci_driver tg3_driver = {
 [...]
         .remove         = __devexit_p(tg3_remove_one),
 </pre>
-</p>
 
 <p>Therefore, when the code in <code>LinuxPCIDeviceRemoved()</code>
   calls <code>linuxDev->driver->remove(linuxDev)</code>, the code ultimately
