@@ -13,10 +13,11 @@ def view(request):
     if 'code_name' in GET: codeNames += GET.getlist('code_name')
 
     returnDict = {}
-    for code in FundraisingGoal.objects.filter(fundraiser_code_name__in=codeNames):
-        returnDict[code] = {}
+    for fundGoal in FundraisingGoal.objects.filter(fundraiser_code_name__in=codeNames):
+        codeName = fundGoal.fundraiser_code_name
+        returnDict[codeName] = {}
         for kk in keysForJSON:
-            if hasattr(code, kk):
-                returnDict[code][kk] = getattr(code, kk)
+            if hasattr(codeName, kk):
+                returnDict[codeName][kk] = getattr(codeName, kk)
 
     return JsonResponse( returnDict)
