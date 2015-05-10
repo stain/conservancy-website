@@ -18,6 +18,6 @@ def view(request):
         returnDict[codeName] = {}
         for kk in keysForJSON:
             if hasattr(codeName, kk):
-                returnDict[codeName][kk] = getattr(codeName, kk)
+                returnDict[codeName][kk] = getattr(fundGoal, kk)
 
     return JsonResponse( returnDict)
