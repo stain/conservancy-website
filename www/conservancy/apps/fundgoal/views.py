@@ -14,6 +14,9 @@ def view(request):
 
     returnDict = {}
     for code in FundraisingGoal.objects.filter(fundraiser_code_name__in=codeNames):
+        returnDict[code] = {}
         for kk in keysForJSON:
-            returnDict[code][kk] = getattr(code, kk)
+            if hasattr(code, kk):
+                returnDict[code][kk] = getattr(code, kk)
+
     return JsonResponse( returnDict)
