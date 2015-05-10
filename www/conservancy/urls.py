@@ -61,7 +61,7 @@ urlpatterns = patterns('',
     (r'^overview', 'conservancy.static.views.index'),
     (r'^privacy-policy', 'conservancy.static.views.index'),
     (r'^supporter', 'conservancy.static.views.index'),
-    (r'^fundraiser_data', 'conservancy.fundgoal.view'),
+    (r'^fundraiser_data', 'conservancy.fundgoal.views.view'),
 )
 
 # urlpatterns += url(regex  = r'^%s(?P<path>.*)$' % conservancy.settings.STATIC_URL[1:],
