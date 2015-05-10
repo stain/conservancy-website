@@ -17,7 +17,7 @@ def view(request):
         codeName = fundGoal.fundraiser_code_name
         returnDict[codeName] = {}
         for kk in keysForJSON:
-            if hasattr(codeName, kk):
+            if hasattr(fundGoal, kk):
                 returnDict[codeName][kk] = getattr(fundGoal, kk)
 
     return JsonResponse( returnDict)
