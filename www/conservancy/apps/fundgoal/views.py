@@ -8,7 +8,7 @@ def view(request):
     """
     keysForJSON = [ 'fundraiser_goal_amount', 'fundraiser_so_far_amount', 'fundraiser_donation_count',
                     'fundraiser_donation_count_disclose_threshold' ]
-    GET = obj.GET
+    GET = request.GET
     codeNames =  []
     if 'code_name' in GET: codeNames += GET.getlist('code_name')
 
