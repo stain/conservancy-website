@@ -36,7 +36,10 @@
   (unlike in the USA).  Conservancy will continue to update this FAQ with
   information that Conservancy knows about the case.  We would all also
   welcome an agreement with VMware whereby both sides would agree to publish
-  all Court documents. </dd>
+  all Court documents.  Unfortunately, VMware has explicitly asked for the
+  filings not to be published.   Accordingly, Conservancy itself has not
+  even been able to review VMware's statement of defense nor Christoph's
+  response to that statement of defense.</dd>
 
   <dt>Who's funding this lawsuit?</dt>
 
@@ -112,6 +115,37 @@
  non-litigation strategy and tactic to convince VMware to do the right thing
  before filing this litigation.</p>
   </dd>    
+
+  <dt>What are VMware's primary defenses for their alleged copyright
+    infringement?</dt>
+
+  <dd>With the guidance of counsel, Christoph was able to provide Conservancy
+  with a high-level summary of VMware's statement of defense, which we share
+  in this FAQ.  Specifically, VMware's statement of defense primarily focuses
+  on two issues.  First, VMware questions Christoph's copyright interest in
+  the Linux kernel and his right to bring this action.  Second, VMware claims
+  vmklinux is an &ldquo;interoperability module&rdquo; which communicates
+  through a stable interface called VMK API.</dd>
+
+  <dt>How did Christoph respond to VMware's statement of defense?</dt>
+
+  <dd>Christoph's response discusses his extensive contributions to the Linux
+  kernel and disputes the technical merits of VMware's assertions. The
+  response points out that vmklinux is <strong>not</strong> an
+  interoperability module, but rather an arbitrary separation of the Linux
+  derived module from vmkernel.   Specifically, vmklinux is nonfunctional
+  with any non-ESX OS, and vmklinux is tied intimately to a specific version
+  of ESXi.  Vmklinux does not allow reuse of unmodified Linux drivers in
+  binary or source form.  Christoph further points out that if the Court
+  allows proprietarization of an arbitrary split portion of GPL'd computer
+  programs, it could allow redistributors to trivially bypass the strong
+  copyleft terms found in the GPL.  Finally, the response explains that
+  vmkernel and vmklinux don't &ldquo;communicate over an interface&rdquo;,
+  rather they run in the same process as a single computer program.  Thus,
+  VMK API, as used by vmklinux, is not an &ldquo;interface&rdquo; as set
+  forth in
+  the <a href="http://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32009L0024&from=EN">EU
+      Directive 2009/24/EC</a>.</dd>
 
   <dt>Can you explain further how VMware incorporated code from Linux into
   their kernel?</dt>
@@ -441,7 +475,12 @@ previously-mentioned <code>linux_pci.c</code>,
 <code>vmkapi_pci_incompat.h</code>, and <code>k.b00</code> files, as well as
     <code>vmklinux_9</code> and the source code that builds the latter.</p>
 
-  <p>To obtain the source components, follow these steps (no login is required):</p>
+  <p>To speed up the process, Conservancy has provided
+  a <a href="https://git.sfconservancy.org/?p=vmkdrivers;a=summary">Git
+  repository that we built that includes the source components that VMware
+  released</a>, and which are discussed above in our examples.  However, one
+  can also obtain the source components directly from VMware, by following
+  these steps (no login is required):</p>
 
 <ol>
 <li>Visit <a href="https://my.vmware.com/web/vmware/details?downloadGroup=ESXI55U2_OSS&productId=353">https://my.vmware.com/web/vmware/details?downloadGroup=ESXI55U2_OSS&productId=353</a>.</li>
