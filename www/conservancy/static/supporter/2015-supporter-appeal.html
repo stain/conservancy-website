@@ -1,0 +1,245 @@
+{% extends "base_conservancy.html" %}
+{% block subtitle %}Support Conservancy - {% endblock %}
+{% block category %}supporter{% endblock %}
+
+{% block head %}
+<link href="/forms.css" rel="stylesheet" type="text/css"/>
+{% endblock %}
+
+{% block content %}
+<div class="donate-sidebar">
+<table style="background-color:#afe478;width:100%;">
+<tr><td style="text-align:center;padding:10px;padding-bottom:10px;">
+
+<div id="donate-box" class="toggle-unit"><h1 class="toggle-content">Support
+    Now!</h1></div>
+
+<h3 class="donate-box-highlight">Become a Supporter Now:</h3>
+
+<p>Support us now!</p>
+
+<h4><a href="#annual"><span class="donate-box-highlight">Annual supporter</span> via PayPal, ACH, or credit card.</a></h4>
+<h4><a href="#monthly"><span class="donate-box-highlight">Monthly supporter</span> via PayPal, ACH, or credit card.</a></h4>
+   
+<span class="donate-box-highlight">Other annual supporters methods:</span>
+<div class="toggle-unit">
+    <h4 class="toggle-control" data-text="Wire Transfer" 
+    data-expanded-text="Wire Transfer:">Wire Transfer</h4>
+    <div class="toggle-content">
+       Contact <a href="mailto:accounting@sfconservancy.org">Conservancy
+            by email</a><br/> for wire transfer instructions.<br/>
+            Include  currency &amp; country.<br/>
+    </div><!-- /.toggle-content -->
+</div><!-- /.toggle.unit -->
+
+<div class="toggle-unit">
+    <h4 class="toggle-control" data-text="Paper Check" 
+    data-expanded-text="Paper Check:">Paper Check</h4>
+    <div class="toggle-content">
+    Send paper check for $120 to:<br/>
+    Software Freedom Conservancy, Inc.<br/>
+    137 MONTAGUE ST  STE 380<br/>
+    BROOKLYN, NY 11201-3548 &nbsp; USA<br/>
+    Please write <q>SUPPORTER</q> and t-shirt size in memo line. 
+    </div><!-- /.toggle-content -->
+</div><!-- /.toggle.unit -->
+
+<p><a href="/donate">Even More Ways to Donate</a></p>
+<!-- Flattr end -->
+</td></tr></table>
+</div>
+
+
+<div class="content-with-donate-sidebar">
+  <h1><img class="appeal-header" alt="Become a Conservancy Supporter!" src="/img/conservancy-supporter-header.png"/></h1>
+
+<p>Software Freedom Conservancy is an essential organization to free and
+open source software. We are the home of over
+<a href="/members/current/">30 projects</a> like 
+<a href="http://git-scm.org">Git</a>,
+<a href="http://inkscape.org">Inkscape</a>, <a href="http://samba.org">Samba</a>,
+<a href="http://winehq.org">Wine</a>, <a href="http://www.seleniumhq.org/">Selenium</a>, the <a href="/linux-compliance/">GPL Compliance Project for Linux
+Developers</a>, <a href="http://pypy.org">PyPy</a> and
+<a href="http://sugarlabs.org/">Sugar Labs</a> just to name a few. Conservancy is a "fiscal sponsor plus",
+providing everything that our projects need in a nonprofit. We help our
+projects defend their trademarks, manage their assets, handle donations,
+improve their community management, manage risk and assist them with all
+legal needs they may have. While we do receive a portion of the revenue
+donated to our projects, we keep that number low enough that it doesn't
+even pay for a single staff member. <a href="#donate-box" class="donate-now">Help us</a> show that you care about
+community-focused free software and help us be able to continue our
+charitable work. Donating to Conservancy is a great non-technical way to
+contribute to the cause.</p>
+
+<img alt="*** The Conservancy T-Shirt that Supporters Receive ***" class="appeal" src="/img/conservancy-t-shirt.jpg"/>
+
+<p>For the first time, we're launching a Supporter
+program. For <a href="#donate-box" class="donate-now">an annual donation of $120</a>, you can
+download an official Supporter card and receive a Conservancy t-shirt<a id="return-footnote-shirts-when"></a>. If
+this is out of reach, please donate at whatever level you can - it makes a
+big difference to us to know that you <a href="#donate-box" class="donate-now">support us</a>, and a little goes a long
+way.</p>
+
+<p>In addition to supporting our projects,
+<ul>
+
+<li>we share our expertise across communities. We speak at many
+conferences, and publish materials to increase understanding about the
+organizational, community and legal issues around free and open source
+software. We advocate for free and open source software and provide
+education around that mission.  We form partnerships across our
+communities to work more effectively.  Check out <a 
+href="https://copyleft.org/">copyleft.org</a>
+or sign up to join the <a 
+href="http://sfconservancy.org/news/2014/aug/12/tax-exempt-working-group/">
+tax exempt working group</a>.</li>
+
+<li>we seek to solve problems for the public through free and open 
+source
+software.  We've launched a <a href="http://npoacct.sfconservancy.org/">
+nonprofits accounting project</a> to help all
+nonprofits (in free software and in other fields) avoid paying millions
+of dollars in licensing fees for subpar accounting software.</li>
+
+<li>as part of Conservancy's partnership in the program, we support Karen as
+  a co-organizer of the Free and Open Source Software Outreach Program.</li>
+
+<li>we encourage and support our employees to do volunteer work in the
+    community.  For example, Bradley and Karen together host an oggcast
+    called <cite><a href="http://faif.us">Free as in Freedom</a></cite> which
+    discusses important legal and policy issues in open source and free
+    software.</li></ul>
+
+<img class="appeal-footer" alt="*" src="/img/conservancy-supporter-heart.png"/>
+
+<p>As an organization, we try to do everything transparently; even 
+our
+<a 
+href="https://gitorious.org/conservancy/policies/source/master:">
+internal policies</a> are published and available for scrutiny.</p>
+
+<p>Please <a href="#donate-box" class="donate-now">join our Supporter program</a> and spread software freedom!</p>
+
+<br clear="left"/>
+
+<div class="supporter-type-selector">
+<hr/>
+  <strong>Become a Supporter Now:</strong>  <a id="annualSelector" href="#annual">Annual</a> | <a id="monthlySelector" href="#monthly">Monthly</a></div>
+<div id="annual" class="supporter-type-selection">
+<h3>Join as an Annual Supporter</h3>
+<a id="annual"></a>
+<form id="annual" class="supporter-form" action="https://www.paypal.com/cgi-bin/webscr" method="post" name="supporter">
+<div class="supporter-form-inputs">
+            <input type="hidden" name="return" value="https://sfconservancy.org/supporter/thank-you.html" />
+            <input type="hidden" name="cmd" value="_xclick" />
+            <input type="hidden" name="business" value="supporter@sfconservancy.org" />
+            <input type="hidden" name="item_name" value="Conservancy Supporter, Annual" />
+            <input id="no_shipping" type="hidden" name="no_shipping" value="0" />
+  <label for="amount"><strong>Amount:</strong> $</label>
+  <input id="amount" type="text" name="amount" size="7" minimum="120" value="120" />
+  <span id="error" class="form-error-show">$120 is a minimum for Conservancy
+  Supporters.  <a href="/donate">Donate smaller amounts here</a>.</span><br/>
+
+                      <label for="wantGift"><strong>Do you want to receive a t-shirt? </strong></label>
+                      <input type="radio" name="on0" value="wantGiftYes" />Yes
+                      <input type="radio" checked="checked" name="on0" value="wantGiftNo" />No
+                      <br />
+                      <span class="t-shirt-size-selector">
+                      <label for="tShirtSize"><strong>T-shirt size: </strong></label>
+                      <select name="os0" id="os0">
+                        <option name="os0" id="os0" value="MenS">Men's S</option>
+                        <option name="os0" id="os0" value="MenM">Men's M</option>
+                        <option name="os0" id="os0" value="MenL">Men's L</option>
+                        <option name="os0" id="os0" value="MenXL">Men's XL</option>
+                        <option name="os0" id="os0" value="Men2XL">Men's 2XL</option>
+                        <option name="os0" id="os0" value="LadiesS">Ladies' S</option>
+                        <option name="os0" id="os0" value="LadiesM">Ladies' M</option>
+                        <option name="os0" id="os0" value="LadiesL">Ladies' L</option>
+                         <option name="os0" id="os0" value="LadiesXL">Ladies' XL</option>
+                      </select><br/></span>
+                      <label for="publicAck"><strong>
+                          Should we <a href="/sponsors#supporters">list you publicly</a> as a Conservancy Supporter? </strong></label>
+                      <input type="radio" checked="checked" name="on1" value="publicAckYes" />Yes
+                      <input type="radio" name="on1" value="publicAckNo" />No<br/>
+            
+                      <label for="joinList"><strong>Join Conservancy's
+                      Low-Traffic Announcement Email List? </strong></label>
+                      <input type="radio" checked="checked" name="os1" value="joinListYes" />Yes
+                      <input type="radio" name="os1" value="joinListNo" />No<br/>
+                      <br />
+                      <br /></div>
+                      <div id="annual" class="supporter-form-submit">
+                      <input type="image"
+                             src="/img/supporter-payment-button-annual.png"
+                             height="81" width="188"
+                             border="0" name="submit" alt="Become an Annual Supporter Now!">
+                      <img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
+<br/><br/><small>Button above redirects to PayPal's site for credit
+        card, bank account or PayPal balance payment methods.  Select options first.</small>
+                      </div>
+
+</form>
+</div>
+<div id="monthly" class="supporter-type-selection">
+<h3>Join as an Monthly Supporter</h3>
+<a id="monthly"></a>
+<p>Monthly supporters will not receive any supporter benefits (including the t-shirt) until they've been
+  monthly supporters for 12 months.</p>
+<form id="monthly" class="supporter-form" action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+<div class="supporter-form-inputs">
+            <input type="hidden" name="business" value="supporter@sfconservancy.org" />
+            <input type="hidden" name="item_name" value="Conservancy Supporter, Monthly" />
+            <input type="hidden" name="return" value="https://sfconservancy.org/supporter/thank-you.html" />
+            <input type="hidden" name="cmd" value="_xclick-subscriptions">
+            <input id="no_shipping" type="hidden" name="no_shipping" value="0" />
+            <input type="hidden" name="lc" value="US">
+            <input type="hidden" name="no_note" value="1">
+            <input type="hidden" name="t3" value="M" />
+            <input type="hidden" name="p3" value="1" />
+            <input type="hidden" name="src" value="1" />
+            <input type="hidden" name="srt" value="0" />
+            <input type="hidden" name="item_name" value="Conservancy Supporter, Monthly" />
+  <label for="amount"><strong>Monthly Amount:</strong> $</label>
+  <input id="amount" type="text" name="a3" size="5" minimum="10" value="10" />
+  <span id="error" class="form-error-show">$10/month is a minimum for Conservancy
+  Supporters.  <a href="/donate">Donate smaller amounts here</a>.</span><br/>
+                      <label for="wantGift"><strong>Do you want to receive a t-shirt? </strong></label>
+                      <input type="radio" name="on0" value="wantGiftYes" />Yes
+                      <input type="radio" checked="checked" name="on0" value="wantGiftNo" />No
+                      <br />
+                      <span class="t-shirt-size-selector">
+                      <label for="tShirtSize"><strong>T-shirt size: </strong></label>
+                      <select name="os0" id="os0">
+                        <option name="os0" id="os0" value="MenS">Men's S</option>
+                        <option name="os0" id="os0" value="MenM">Men's M</option>
+                        <option name="os0" id="os0" value="MenL">Men's L</option>
+                        <option name="os0" id="os0" value="MenXL">Men's XL</option>
+                        <option name="os0" id="os0" value="Men2XL">Men's 2XL</option>
+                        <option name="os0" id="os0" value="LadiesS">Ladies' S</option>
+                        <option name="os0" id="os0" value="LadiesM">Ladies' M</option>
+                        <option name="os0" id="os0" value="LadiesL">Ladies' L</option>
+                         <option name="os0" id="os0" value="LadiesXL">Ladies' XL</option>
+                      </select><br/></span>
+                      <label for="publicAck"><strong>
+                          Should we  <a href="/sponsors#supporters">list you publicly</a> as a Conservancy Supporter? </strong></label>
+                      <input type="radio" checked="checked" name="on1" value="publicAckYes" />Yes
+                      <input type="radio" name="on1" value="publicAckNo" />No<br/>
+                      <label for="joinList"><strong>Join Conservancy's
+                      Low-Traffic Announcement Email List? </strong></label>
+                      <input type="radio" checked="checked" name="os1" value="joinListYes" />Yes
+                      <input type="radio" name="os1" value="joinListNo" />No<br/>
+                      <br /></div>
+                      <div id="monthly" class="supporter-form-submit">
+                      <input type="image"
+                      src="/img/supporter-payment-button-monthly.png"
+                      height="81" width="188"
+                      border="0" name="submit" alt="Become a Monthly Supporter Now!">
+<br/><br/><small>Button above redirects to PayPal's site for credit
+        card, bank account or PayPal balance payment methods.  Select
+                      options first.</small>
+                      </div>
+</form>
+</div>
+<span id="form-correction-needed" class="form-error">Please ensure all form data above is correct.</span>
+</div>
+{% endblock %}
