@@ -67,17 +67,39 @@ input.valid, textarea.valid {
     align: left;
 }
 
+h1.appeal {
+    margin-top: -.75em;
+}
+img.appeal-left {
+    float: left;
+    padding-right: 1em;
+    margin: .25em;
+    min-width: 8%;
+    max-width: 30%;
+    height: auto;
+}
+
+img.appeal-right {
+    float: right;
+    padding-left: 1em;
+    margin: .25em;
+    min-width: 8%;
+    max-width: 30%;
+    width: auto;
+}
+
 img.appeal {
     float: left;
-    padding-right: 2em;
+    padding-right: 1em;
     min-width: 10%;
-    max-width: 100%;
-    height: auto;
+    max-width: 85%;
+    width: auto;
 }
 
 img.appeal-header {
     max-width: 100%;
-    height: auto;
+    width: auto;
+    margin-top: 0em;
 }
 
 img.appeal-footer {
