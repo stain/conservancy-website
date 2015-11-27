@@ -125,6 +125,38 @@ h3 { margin-top: .6em; margin-bottom: .4em; }
     background: rgb(206, 31, 31);
 }
 
+#siteprogressbar {
+    margin: .5em 20% .5em 2%;
+}
+#siteprogressbar .goalText {
+    color: #557733;
+    font-size: 10pt;
+}
+#siteprogressbar .soFarText {
+    font-size: 10pt;
+}
+#siteprogressbar .progress {
+    background: #577632;
+}
+@media all and (max-width: 600px) {
+  .goalText {
+      font-size: 8pt;
+  }
+  .soFarText {
+      font-size: 8pt;
+  }
+}
+#siteprogressbar .progress {
+    background: #577632;
+}
+#siteprogressbar .middle-goal {
+    background: #d0d0d0;
+}
+
+#siteprogressbar .final-goal {
+    background: #eeeeee;
+}
+
 #fundraiser-percentage {
     text-align: center;
 }

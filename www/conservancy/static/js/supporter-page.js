@@ -5,6 +5,18 @@
 */
 
 $(document).ready(function() {
+    var siteFinalGoal = $('span#site-fundraiser-final-goal').text();
+    var noCommaSiteFinalGoal = parseInt(siteFinalGoal.replace(/,/g, ""));
+    var siteMiddleGoal = $('span#site-fundraiser-middle-goal').text();
+    var noCommaSiteMiddleGoal = parseInt(siteMiddleGoal.replace(/,/g, ""));
+    var siteSoFar = $('span#site-fundraiser-so-far').text();
+    var noCommaSiteSoFar = parseInt(siteSoFar.replace(/,/g, ""));
+    var siteMatchCount = $('span#site-fundraiser-match-count').text();
+    var noCommaSiteMatchCount = parseInt(siteMatchCount.replace(/,/g, ""));
+    if (! noCommaSiteMatchCount) {
+        noCommaSiteMatchCount = "0";
+    }
+    var noCommaMatchFinalGoal = noCommaSiteFinalGoal - noCommaSiteMatchCount;
     var goal  = $('span#fundraiser-goal').text();
     var soFar = $('span#fundraiser-so-far').text();
     var donationCount = $('span#fundraiser-donation-count').text();
@@ -17,6 +29,25 @@ $(document).ready(function() {
     var curDonationCount = 0;
     var riseLevelPercent = 0.5;
     var incrementDonationCount = Math.round( (riseLevelPercent / 100) * noCommaDonationCount );
+    $('#siteprogressbar').empty();
+
+    $('#siteprogressbar').
+        multiprogressbar({ parts: [
+          { value: (noCommaSiteSoFar / noCommaSiteFinalGoal) * 100,
+            text: siteSoFar + " joined!",
+            barClass: "progress", textClass: "soFarText" },
+            { value: ((noCommaSiteMiddleGoal - noCommaSiteSoFar) / noCommaSiteFinalGoal) * 100,
+            text: siteMiddleGoal + " will save our basic work",
+            barClass: "middle-goal", textClass: "goalText" },
+            { value: 
+              ((noCommaMatchFinalGoal - noCommaSiteMiddleGoal) / noCommaSiteFinalGoal) * 100,
+              text: noCommaMatchFinalGoal.toLocaleString() + " will save license compliance", 
+              barClass: "final-goal", textClass: "goalText" },
+            {  value: 100,
+               text: siteMatchCount + " matched!",
+               barClass: "progress", textClass: "soFarText" },
+
+        ]});
 
     $('span#fundraiser-percentage').css({ 'color'        : 'green',
                                           'font-weight'  : 'bold',
