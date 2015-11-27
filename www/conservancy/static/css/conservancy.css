@@ -11,7 +11,7 @@ p, h1, h2, h3, h4, h5, h6, #mainContent ul, #mainContent ol {
 
 body {
 /*  font-family: "Lucida Grande",Verdana,Lucida,Helvetica,Arial,sans-serif; */
-  font-family: Helvetica;
+  font-family: "Lucida Sans Unicode", "Lucida Grande", "Verdana", "FreeSans", sans-serif;
   font-size: 95%;
   background-color: #0000;
   color: #ffff;
