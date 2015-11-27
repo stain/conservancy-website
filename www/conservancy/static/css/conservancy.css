@@ -424,3 +424,10 @@ dd {
     margin: 0 0 2.5em 11.5em;
 }
 }
+.fundraiser-top-text {
+    background: #F0FFB8;
+    padding: .7em .7em .7em .7em;
+}
+.fundraiser-top-text em {
+    font-size: 120%;
+}
