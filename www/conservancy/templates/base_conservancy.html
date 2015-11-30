@@ -40,8 +40,28 @@
 	</ul>
       </div>
       <div id="navbar-clear"></div>
+
     </div>
-      {% block outercontent %}<div id="mainContent">{% block content %}{% endblock %}</div>{% endblock %}
+    <div class="fundraiser-top-text">
+   <em>Conservancy
+   <a href="/supporter/">needs <span id="site-fundraiser-middle-goal">{{ sitefundgoal.fundraiser_donation_count|intcomma }}</span> Supporters</a> to continue its basic community services &amp;
+   <span id="site-fundraiser-final-goal">{{ sitefundgoal.fundraiser_goal_amount|intcomma }}</span> to
+   avoid hibernating its enforcement efforts!
+{% if sitefundgoal.fundraiser_donation_count_disclose_threshold < 83 %}
+   The next {{ 83|subtract:sitefundgoal.fundraiser_donation_count_disclose_threshold }} supporters who sign up before Friday 
+     will count twice thanks to an anonymous match donor!
+{% endif %}
+</em>
+<a href="/supporter"><div id="siteprogressbar">
+    <span id="site-fundraiser-so-far">{{ sitefundgoal.fundraiser_so_far_amount|intcomma }}</span> have joined so far
+{% if sitefundgoal.fundraiser_donation_count_disclose_threshold > 0 %}
+{% if sitefundgoal.fundraiser_donation_count_disclose_threshold < 83 %}
+    and match pledges reduced our 2,500 maximum need by <span id="site-fundraiser-match-count">{{ sitefundgoal.fundraiser_donation_count_disclose_threshold|intcomma }}</span>
+{% endif %}
+{% endif %}
+!</div></a>
+</div>
+      {% block outercontent %}<div id="mainContent"> {% block content %}{% endblock %}</div>{% endblock %}
     <div id="conservancyfooter">
       <p><a href="/">Main Page</a> | <a href="/about/contact/">Contact</a> | <a href="/sponsors/">Sponsors</a> | <a href="/privacy-policy/">Privacy Policy</a> | <a href="/feeds/omnibus/">RSS Feed</a></p>
       <p>Follow Conservancy
