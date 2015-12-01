@@ -99,7 +99,11 @@ h3 { margin-top: .6em; margin-bottom: .4em; }
   margin-right: 3px;
   border: 1px solid #808080;
   font-size: .8em;
-  background: url(/img/nav-bg-campaign.png) bottom repeat-x;
+  background: #ffd843;
+  background: -moz-linear-gradient(top, #fff, #ffd533);
+  background: -webkit-linear-gradient(top, #fff, #ffd533);
+  background: linear-gradient(to bottom, #fff, #ffd533);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffff', endColorstr='#ffd533', GradientType=0);
   border-color: #ffffff;
 }
 #navbar li a {
@@ -109,7 +113,11 @@ h3 { margin-top: .6em; margin-bottom: .4em; }
   margin-right: 3px;
   border: 1px solid #808080;
   font-size: .8em;
-  background: #fff url(/img/nav-bg.png) bottom repeat-x;
+  background: #eaf1f1;
+  background: -moz-linear-gradient(top, #fff, #eaf1f1);
+  background: -webkit-linear-gradient(top, #fff, #eaf1f1);
+  background: linear-gradient(to bottom, #fff, #eaf1f1);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffff', endColorstr='#eaf1f1', GradientType=0);
   border-color: #ffffff;
 }
 #navbar li:hover a { background: #577632; color: #fff; }
@@ -188,10 +196,14 @@ h3 { margin-top: .6em; margin-bottom: .4em; }
 #container #sidebar li {
     text-align: center;
     list-style: none;
-    padding: 3px 10px 3px 10px; 
-    margin: 5px; 
+    padding: 3px 10px 3px 10px;
+    margin: 5px;
     border: 1px solid #CCC;
-    background: #fff url(/img/nav-bg.png) bottom repeat-x;
+    background: #ffd843;
+    background: -moz-linear-gradient(top, #fff, #ffd533);
+    background: -webkit-linear-gradient(top, #fff, #ffd533);
+    background: linear-gradient(to bottom, #fff, #ffd533);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffff', endColorstr='#ffd533', GradientType=0);
 }
 #container #sidebar li a:hover { background: #577632; color: #fff; }
 
@@ -214,7 +226,11 @@ h3 { margin-top: .6em; margin-bottom: .4em; }
 {
     color: #000033;
     font-weight: bold;
-    background: #fff url(/img/nav-bg-up.png) top repeat-x;
+    background: #ffd843;
+    background: -moz-linear-gradient(bottom, #fff, #ffd533);
+    background: -webkit-linear-gradient(bottom, #fff, #ffd533);
+    background: linear-gradient(to top, #fff, #ffd533);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffd533', endColorstr='#ffffff', GradientType=0);
 }
 #container #sidebar h2 {
     text-align: center;
@@ -327,16 +343,24 @@ body.conservancy-Compliance #navbar ul li.compliance a,
 body.conservancy-donate #navbar ul li.donate a,
 body.conservancy-npoacct #navbar ul li.npoacct a,
 body.conservancy-sponsors #navbar ul li.sponsors a /* NO COMMA HERE! */
-{ 
+{
     color: #000033;
     font-weight: bold;
-    background: #fff url(/img/nav-bg-up.png) top repeat-x;
+    background: #ffd843;
+    background: -moz-linear-gradient(bottom, #fff, #ffd533);
+    background: -webkit-linear-gradient(bottom, #fff, #ffd533);
+    background: linear-gradient(to top, #fff, #ffd533);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffd533', endColorstr='#ffffff', GradientType=0);
 }
 body.conservancy-supporter #navbar ul li.supporter a
-{ 
+{
     color: #000033;
     font-weight: bold;
-    background: url(/img/nav-bg-campaign-up.png) bottom repeat-x;
+    background: #ffd843;
+    background: -moz-linear-gradient(bottom, #fff, #ffd533);
+    background: -webkit-linear-gradient(bottom, #fff, #ffd533);
+    background: linear-gradient(to top, #fff, #ffd533);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffd533', endColorstr='#ffffff', GradientType=0);
 }
 
 #supporters ul {
