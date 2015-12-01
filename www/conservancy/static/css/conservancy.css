@@ -64,7 +64,10 @@ h3 { margin-top: .6em; margin-bottom: .4em; }
 /* Header */
 
 #conservancyheader {
-  height: 140px;
+  margin: 0;
+  /* Leave 0 padding on the right so the header image is clipped by the edge of
+   * the browser window. */
+  padding: 10px 0 10px 17px;
 /*  background-color: #d1ff96; */
 /*  background-color: #92CC58; */
 /*  background-color: #BDD8A2; */
@@ -72,15 +75,16 @@ h3 { margin-top: .6em; margin-bottom: .4em; }
 /*  background-color: #b5cd9d; */
   background-color: #ffffff;
   border-bottom: 1px solid #808080;
-}
-#conservancyheader h1 {
-  text-indent: -5000px;
-  margin: 0; /* hide in favor of image */
+  text-indent: -5000px; /* hide in favor of image */
 }
 #logobutton {
   display: block;
-  position: absolute; left: 17px; top: 10px; height: 120px; width: 933px;
-  background: url(/img/conservancy-header.png)  left center no-repeat;
+  margin: 0;
+  padding: 0;
+  height: 120px;
+  width: 100%;
+  min-width: 350px;  /* So at least tree and text is visible */
+  background: url(/img/conservancy-header.png) no-repeat;
 }
 
 /* Navigation bar */
