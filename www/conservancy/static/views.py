@@ -45,9 +45,11 @@ def index(request, *args, **kwargs):
         return handler404(request)
     template = loader.get_template(path)
 
+    kwargs = kwargs.copy()
     if kwargs.has_key('fundraiser_sought'):
-        kwargs = kwargs.copy()
         kwargs['fundgoal'] = fundgoal_lookup(kwargs['fundraiser_sought'])
+
+    kwargs['sitefundgoal'] = fundgoal_lookup('supporterrun')
 
     context = RequestContext(request, kwargs)
     return HttpResponse(template.render(context))

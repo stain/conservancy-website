@@ -1,4 +1,6 @@
 from django.shortcuts import render_to_response
+from conservancy import context_processors as context_processors
+from django.template import RequestContext
 from conservancy.apps.supporters.models import Supporter as Supporter
 from conservancy.apps.news.models import PressRelease
 from conservancy.apps.blog.models import Entry as BlogEntry
@@ -19,4 +21,4 @@ def view(request):
         'supporters_count': supporters_count,
         'blog' : blog
     }
-    return render_to_response("frontpage.html", c)
+    return render_to_response("frontpage.html", c, context_instance=RequestContext(request))

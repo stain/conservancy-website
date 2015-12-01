@@ -1,5 +1,8 @@
 from django.shortcuts import render_to_response
+from conservancy import context_processors as context_processors
+from django.template import RequestContext
 from django import forms
+from django.template import RequestContext
 from conervancy.apps.summit_registration.models import SummitRegistration
 
 def register(request):
@@ -20,9 +23,9 @@ def register(request):
         if form.is_valid():
             form.save()
             return render_to_response('summit_registration/register_success.html',
-                                      {'form': form.cleaned_data})
+                                      {'form': form.cleaned_data}, context_instance=RequestContext(request))
     else:
         form = SummitForm()
 
     return render_to_response('summit_registration/register.html',
-                              {'form': form})
+                              {'form': form}, context_instance=RequestContext(request))

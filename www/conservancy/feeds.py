@@ -2,7 +2,8 @@ from django.contrib.syndication.views import Feed
 from django.utils.feedgenerator import Rss201rev2Feed 
 from conservancy.apps.news.models import PressRelease
 from conservancy.apps.blog.models import Entry as BlogEntry
-
+from conservancy import context_processors as context_processors
+from django.template import RequestContext
 from django.shortcuts import render_to_response
 from django.conf import settings
 from datetime import datetime
@@ -255,4 +256,4 @@ def view(request):
     """
 
     feeds = (PressReleaseFeed, BlogFeed, OmnibusFeed)
-    return render_to_response("feeds.html", {'feeds': feeds})
+    return render_to_response("feeds.html", {'feeds': feeds}, context_instance=RequestContext(request))
