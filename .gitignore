@@ -6,3 +6,4 @@ www/conservancy/static/source
 logs
 www/conservancy/static/videos/*.webm
 www/conservancy/static/videos/*.ogv
+www/wsgi-password.wsgi
