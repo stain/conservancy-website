@@ -5,3 +5,4 @@ www/djangocommonsettings.py
 www/conservancy/static/source
 logs
 www/conservancy/static/videos/*.webm
+www/conservancy/static/videos/*.ogv
