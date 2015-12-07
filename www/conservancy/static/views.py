@@ -34,7 +34,7 @@ def fundgoal_lookup(fundraiser_sought):
 
 def index(request, *args, **kwargs):
     # return HttpResponse("Hello, static world: " + request.get_full_path())
-    path = request.get_full_path()
+    path = request.path
     path = path.lstrip('/')
     if path[-1:] == '/':
         path += 'index.html'
