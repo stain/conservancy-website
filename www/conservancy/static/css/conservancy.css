@@ -442,6 +442,8 @@ div.column video {
     height:auto !important;
     width:25% !important;
     max-width:50%;
+    margin-left: .7em;
+    margin-bottom: .4em;
 }
 
 body.conservancy-blog video {
@@ -449,4 +451,6 @@ body.conservancy-blog video {
     height:auto !important;
     width:50% !important;
     max-width:75%;
+    margin-left: .7em;
+    margin-bottom: .7em;
 }
