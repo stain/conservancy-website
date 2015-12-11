@@ -439,8 +439,8 @@ dd {
 
 div.column video {
     float: right;
-    height:auto !important;
-    width:25% !important;
+    height: auto !important;
+    width: 25% !important;
     max-width:50%;
     margin-left: .7em;
     margin-bottom: .4em;
@@ -448,9 +448,31 @@ div.column video {
 
 body.conservancy-blog video {
     float: right;
-    height:auto !important;
-    width:50% !important;
-    max-width:75%;
+    height: auto !important;
+    width: 50% !important;
+    max-width: 75%;
+    margin-left: .7em;
+    margin-bottom: .7em;
+}
+
+/* In older firefox/iceweasel, the above did not work.  The below is a legacy
+** hack, and requires you to remember to put class="small-right" and class="medium-right"
+*/
+
+video.small-right {
+    float: right;
+    height: auto !important;
+    width: 25% !important;
+    max-width:50%;
+    margin-left: .7em;
+    margin-bottom: .4em;
+}
+
+video.medium-right {
+    float: right;
+    height: auto !important;
+    width: 50% !important;
+    max-width: 75%;
     margin-left: .7em;
     margin-bottom: .7em;
 }
