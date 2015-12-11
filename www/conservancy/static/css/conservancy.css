@@ -431,3 +431,22 @@ dd {
 .fundraiser-top-text em {
     font-size: 120%;
 }
+
+/* These vido controls are based on the fact that our videos often appear on
+** the blog summary areas, which are in a div with class column, and in the
+** main blog, which is in the body with class conservancy-blog
+*/
+
+div.column video {
+    float: right;
+    height:auto !important;
+    width:25% !important;
+    max-width:50%;
+}
+
+body.conservancy-blog video {
+    float: right;
+    height:auto !important;
+    width:50% !important;
+    max-width:75%;
+}
