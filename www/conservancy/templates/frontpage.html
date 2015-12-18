@@ -106,7 +106,7 @@
 <hr/>
 <h3><a href="{{ blog.2.get_absolute_url }}">{{ blog.2.headline|safe }}</a></h3>
 <p class="date">Posted by {{ blog.2.author.formal_name }} on {{ blog.2.pub_date|date:"F j, Y" }}</p>
-{{ blog.1.summary|safe }}
+{{ blog.2.summary|safe }}
 <p><span class="continued"><a href="{{ blog.2.get_absolute_url }}">Read More from {{ blog.2.author.casual_name }} on this&hellip;</a></span></p>
 {% endif %}
 {% endif %}
@@ -116,7 +116,7 @@
 <hr/>
 <h3><a href="{{ blog.3.get_absolute_url }}">{{ blog.3.headline|safe }}</a></h3>
 <p class="date">Posted by {{ blog.3.author.formal_name }} on {{ blog.3.pub_date|date:"F j, Y" }}</p>
-{{ blog.1.summary|safe }}
+{{ blog.3.summary|safe }}
 <p><span class="continued"><a href="{{ blog.3.get_absolute_url }}">Read More from {{ blog.3.author.casual_name }} on this&hellip;</a></span></p>
 {% endif %}
 {% endif %}
@@ -126,7 +126,7 @@
 <hr/>
 <h3><a href="{{ blog.4.get_absolute_url }}">{{ blog.4.headline|safe }}</a></h3>
 <p class="date">Posted by {{ blog.4.author.formal_name }} on {{ blog.4.pub_date|date:"F j, Y" }}</p>
-{{ blog.1.summary|safe }}
+{{ blog.4.summary|safe }}
 <p><span class="continued"><a href="{{ blog.4.get_absolute_url }}">Read More from {{ blog.4.author.casual_name }} on this&hellip;</a></span></p>
 {% endif %}
 {% endif %}
@@ -136,7 +136,7 @@
 <hr/>
 <h3><a href="{{ blog.5.get_absolute_url }}">{{ blog.5.headline|safe }}</a></h3>
 <p class="date">Posted by {{ blog.5.author.formal_name }} on {{ blog.5.pub_date|date:"F j, Y" }}</p>
-{{ blog.1.summary|safe }}
+{{ blog.5.summary|safe }}
 <p><span class="continued"><a href="{{ blog.5.get_absolute_url }}">Read More from {{ blog.5.author.casual_name }} on this&hellip;</a></span></p>
 {% endif %}
 {% endif %}
