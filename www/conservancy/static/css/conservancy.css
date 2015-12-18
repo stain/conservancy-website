@@ -476,3 +476,12 @@ video.medium-right {
     margin-left: .7em;
     margin-bottom: .7em;
 }
+
+img.blog-right {
+    float: right;
+    padding-left: 1em;
+    margin: .25em;
+    min-width: 8%;
+    max-width: 30%;
+    width: auto;
+}
