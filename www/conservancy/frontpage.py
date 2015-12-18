@@ -14,7 +14,7 @@ def view(request):
 
     supporters_count = len(Supporter.objects.all().filter(display_until_date__gte=datetime.now()))
     press_releases = PressRelease.objects.all().filter(pub_date__lte=datetime.now(), sites=2)[:5]
-    blog = BlogEntry.objects.all().filter(pub_date__lte=datetime.now())[:3]
+    blog = BlogEntry.objects.all().filter(pub_date__lte=datetime.now())[:5]
 
     c = {
         'press_releases': press_releases,
