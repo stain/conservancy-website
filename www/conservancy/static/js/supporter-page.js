@@ -189,6 +189,7 @@ $(document).ready(function() {
     });
     /* Handle toggling of annual/monthly form selections */
     $('.supporter-type-selection#monthly').hide();
+    $('.supporter-type-selection#renewal').hide();
     $('#annualSelector').css("font-weight", "bold").css("font-size", "127%");
 
     $("a[href$='monthly']").bind('click', function() {
