@@ -181,6 +181,9 @@ $(document).ready(function() {
     $(".supporter-form-submit#annual").click(function (event) {
         validateFormAtSubmission($(".supporter-form#annual input#amount"), event);
     });
+    $(".supporter-form-submit#renewal").click(function (event) {
+        validateFormAtSubmission($(".supporter-form#renewal input#amount"), event);
+    });
     $(".dinner-form-submit").click(function (event) {
         validateFormAtSubmission($(".dinner-form input#amount"), event);
     });
@@ -190,16 +193,28 @@ $(document).ready(function() {
 
     $("a[href$='monthly']").bind('click', function() {
         $('.supporter-type-selection#annual').hide();
+        $('.supporter-type-selection#renewal').hide();
         $('.supporter-type-selection#monthly').show();
         $('#monthlySelector').css("font-weight", "bold").css("font-size", "127%");
         $('#annualSelector').css("font-weight", "normal").css("font-size", "125%");
+        $('#renewalSelector').css("font-weight", "normal").css("font-size", "125%");
         $("#form-correction-needed").removeClass("form-error-show").addClass("form-error");
     });
     $("a[href$='annual']").bind('click', function() {
-        $('.supporter-type-selection#annual').show();
+        $('.supporter-type-selection#renewal').hide();
         $('.supporter-type-selection#monthly').hide();
+        $('.supporter-type-selection#annual').show();
         $('#annualSelector').css("font-weight", "bold").css("font-size", "127%");
+        $('#renewalSelector').css("font-weight", "normal").css("font-size", "125%");
         $('#monthlySelector').css("font-weight", "normal").css("font-size", "125%");
+    });
+    $("a[href$='renewal']").bind('click', function() {
+        $('.supporter-type-selection#annual').hide();
+        $('.supporter-type-selection#monthly').hide();
+        $('.supporter-type-selection#renewal').show();
+        $('#renewalSelector').css("font-weight", "bold").css("font-size", "127%");
+        $('#monthlySelector').css("font-weight", "normal").css("font-size", "125%");
+        $('#annualSelector').css("font-weight", "normal").css("font-size", "125%");
     });
     $( ".footnote-mark" ).tooltip({
         items: "a",
@@ -230,12 +245,22 @@ $(window).load(function () {
             $('.supporter-type-selection#monthly').show();
             $('#monthlySelector').css("font-weight", "bold").css("font-size", "127%");
             $('#annualSelector').css("font-weight", "normal").css("font-size", "125%");
+            $('#renewalSelector').css("font-weight", "normal").css("font-size", "125%");
         }
         if (ourURL.search("#annual") > 0) {
             $('.supporter-type-selection#monthly').hide();
             $('.supporter-type-selection#annual').show();
             $('#annualSelector').css("font-weight", "bold").css("font-size", "127%");
             $('#monthlySelector').css("font-weight", "normal").css("font-size", "125%");
+            $('#renewalSelector').css("font-weight", "normal").css("font-size", "125%");
+        }
+        if (ourURL.search("#renewal") > 0) {
+            $('.supporter-type-selection#monthly').hide();
+            $('.supporter-type-selection#annual').hide();
+            $('.supporter-type-selection#renewal').show();
+            $('#renewalSelector').css("font-weight", "bold").css("font-size", "127%");
+            $('#monthlySelector').css("font-weight", "normal").css("font-size", "125%");
+            $('#annualSelector').css("font-weight", "normal").css("font-size", "125%");
         }
     }
     if (location.hash) {
