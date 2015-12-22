@@ -1,10 +1,10 @@
 Contributing
 ============
 
-The canonical location for this repository is
-[on Gitorious](https://gitorious.org/conservancy/website).  Copies of this
-repository elsewhere, such as Github, are for backup purposes only.  If you
-have contributions, submit them on Gitorious.
+The canonical location for this repository is [on Conservancy’s
+Kallithea instance](http://k.sfconservancy.org/website).  Copies of
+this repository elsewhere, such as Github, are for backup purposes
+only..
 
 License
 =======
