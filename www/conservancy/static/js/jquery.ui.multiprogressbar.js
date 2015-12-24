@@ -119,6 +119,7 @@
 						textForPart = part.text;
 					}
 					$('<div></div>').addClass("ju-multiprogressbar-valuetext").text(textForPart).addClass(part.textClass).appendTo(partElement);
+					partElement.attr('title', textForPart);
 				}
 			});
 			if (self.created === true) { // Don't trigger "change" when we are creating the progressbar for the first time 
