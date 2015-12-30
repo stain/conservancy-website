@@ -125,11 +125,8 @@ h3 { margin-top: .6em; margin-bottom: .4em; }
 #navbar li { float: left; display: inline; margin-bottom: 3px; }
 
 #mainContent {
-    margin-left: 150px;
+    margin-left: 50px;
     margin-right: 50px;
-    line-height: 1.25em;
-    max-width: 1000px;
-    font-size: medium;
 }
 
 #progressbar {
@@ -187,8 +184,12 @@ h3 { margin-top: .6em; margin-bottom: .4em; }
 }
 #container #mainContent {
     background: #ffffff;
-    margin-left: 210px;
+    margin-left: 280px;
     margin-right: 50px;
+    text-align: justify;
+    font-size: medium;
+    max-width: 1000px;
+    line-hight: 1.25em;
 }
 #container #sidebar {
     width: 200px;
