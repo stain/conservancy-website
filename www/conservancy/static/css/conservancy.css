@@ -125,8 +125,11 @@ h3 { margin-top: .6em; margin-bottom: .4em; }
 #navbar li { float: left; display: inline; margin-bottom: 3px; }
 
 #mainContent {
-    margin-left: 50px;
+    margin-left: 150px;
     margin-right: 50px;
+    line-height: 1.25em;
+    max-width: 1000px;
+    font-size: medium;
 }
 
 #progressbar {
