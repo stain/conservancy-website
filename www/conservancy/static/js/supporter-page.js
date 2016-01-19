@@ -31,7 +31,7 @@ $(document).ready(function() {
     var incrementDonationCount = Math.round( (riseLevelPercent / 100) * noCommaDonationCount );
     $('#siteprogressbar').empty();
 
-    if (noCommaSiteSoFar > noCommaSiteMiddleGoal) {
+    if (noCommaSiteSoFar >= noCommaSiteMiddleGoal) {
         // We've got
         var moreCount = noCommaSiteSoFar - noCommaSiteMiddleGoal;
         moreCount =  moreCount.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
