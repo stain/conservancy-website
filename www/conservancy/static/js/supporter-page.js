@@ -41,7 +41,7 @@ $(document).ready(function() {
                   text: "750 achieved! " + moreCount + " beyond that have joined!",
                   barClass: "progress", textClass: "soFarText" },
                 { value:
-                  ((noCommaMatchFinalGoal - noCommaSiteMiddleGoal) / noCommaSiteFinalGoal) * 100,
+                  (noCommaMatchFinalGoal / noCommaSiteFinalGoal) * 100,
                   text: noCommaMatchFinalGoal.toLocaleString() + " will save license compliance work",
                   barClass: "final-goal", textClass: "goalText" },
                 {  value: 100,
