@@ -31,24 +31,41 @@ $(document).ready(function() {
     var incrementDonationCount = Math.round( (riseLevelPercent / 100) * noCommaDonationCount );
     $('#siteprogressbar').empty();
 
-    $('#siteprogressbar').
-        multiprogressbar({ parts: [
-          { value: (noCommaSiteSoFar / noCommaSiteFinalGoal) * 100,
-            text: siteSoFar + " joined!",
-            barClass: "progress", textClass: "soFarText" },
-            { value: ((noCommaSiteMiddleGoal - noCommaSiteSoFar) / noCommaSiteFinalGoal) * 100,
-            text: siteMiddleGoal + " will save our basic work",
-            barClass: "middle-goal", textClass: "goalText" },
-            { value: 
-              ((noCommaMatchFinalGoal - noCommaSiteMiddleGoal) / noCommaSiteFinalGoal) * 100,
-              text: noCommaMatchFinalGoal.toLocaleString() + " will save license compliance", 
-              barClass: "final-goal", textClass: "goalText" },
-            {  value: 100,
-               text: siteMatchCount + " matched!",
-               barClass: "progress", textClass: "soFarText" },
-
-        ]});
-
+    if (noCommaSiteSoFar > noCommaSiteMiddleGoal) {
+        // We've got
+        var moreCount = noCommaSiteSoFar - noCommaSiteMiddleGoal;
+        moreCount =  moreCount.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+        $('#siteprogressbar').
+            multiprogressbar({ parts: [
+                { value: (noCommaSiteSoFar / noCommaSiteFinalGoal) * 100,
+                  text: "750 achieved! " + moreCount + " beyond that have joined!",
+                  barClass: "progress", textClass: "soFarText" },
+                { value:
+                  ((noCommaMatchFinalGoal - noCommaSiteMiddleGoal) / noCommaSiteFinalGoal) * 100,
+                  text: noCommaMatchFinalGoal.toLocaleString() + " will save license compliance work",
+                  barClass: "final-goal", textClass: "goalText" },
+                {  value: 100,
+                   text: siteMatchCount + " matched!",
+                   barClass: "progress", textClass: "soFarText" },
+            ]});
+    } else {
+        $('#siteprogressbar').
+            multiprogressbar({ parts: [
+                { value: (noCommaSiteSoFar / noCommaSiteFinalGoal) * 100,
+                  text: siteSoFar + " joined!",
+                  barClass: "progress", textClass: "soFarText" },
+                { value: ((noCommaSiteMiddleGoal - noCommaSiteSoFar) / noCommaSiteFinalGoal) * 100,
+                  text: siteMiddleGoal + " will save our basic work",
+                  barClass: "middle-goal", textClass: "goalText" },
+                { value:
+                  ((noCommaMatchFinalGoal - noCommaSiteMiddleGoal) / noCommaSiteFinalGoal) * 100,
+                  text: noCommaMatchFinalGoal.toLocaleString() + " will save license compliance",
+                  barClass: "final-goal", textClass: "goalText" },
+                {  value: 100,
+                   text: siteMatchCount + " matched!",
+                   barClass: "progress", textClass: "soFarText" },
+            ]});
+    }
     $('span#fundraiser-percentage').css({ 'color'        : 'green',
                                           'font-weight'  : 'bold',
                                           'float'        : 'right',

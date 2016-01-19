@@ -43,19 +43,31 @@
 
     </div>
     <div class="fundraiser-top-text">
+{% if sitefundgoal.fundraiser_so_far_amount < 750 %}
    <em>Conservancy
    <a href="/supporter/">needs <span id="site-fundraiser-middle-goal">{{ sitefundgoal.fundraiser_donation_count|intcomma }}</span> Supporters</a> to continue its basic community services &amp;
    <span id="site-fundraiser-final-goal">{{ sitefundgoal.fundraiser_goal_amount|intcomma }}</span> to
    avoid hibernating its enforcement efforts!
+{% else %}
+      <em>Conservancy will continue our basic community services, thanks to our
+        first 750 Supporters! However, we still need
+        <span id="site-fundraiser-middle-goal">{{ sitefundgoal.fundraiser_donation_count|intcomma }}</span> Supporters to avoid reducing licensing work and hibernating our
+        enforcement efforts!
+{% endif %}
 {% if sitefundgoal.fundraiser_donation_count_disclose_threshold < 632 %}
 The next {{ 632|subtract:sitefundgoal.fundraiser_donation_count_disclose_threshold }} supporters
 who sign up <a href="/news/2015/dec/24/private-internet-access-match/">by January 31 will count twice</a>, thanks to <a href="https://www.privateinternetaccess.com/">Private Internet Access</a>!
 {% endif %}
 </em>
-<a href="/supporter"><div id="siteprogressbar">
-    <span id="site-fundraiser-so-far">{{ sitefundgoal.fundraiser_so_far_amount|intcomma }}</span> have joined so far
+<div id="siteprogressbar">
+<a href="/supporter">
+<span id="site-fundraiser-so-far">{{ sitefundgoal.fundraiser_so_far_amount|intcomma }}</span> have joined so far.
+{% if sitefundgoal.fundraiser_so_far_amount > 750 %}
+Thus, our 750 goal was achieved and {{ sitefundgoal.fundraiser_so_far_amount|subtract:750|intcomma }}</span> have
+    joined beyond that.
+{% endif %}
 {% if sitefundgoal.fundraiser_donation_count_disclose_threshold > 0 %}
-    and match pledges reduced our 2,500 maximum need by <span id="site-fundraiser-match-count">{{ sitefundgoal.fundraiser_donation_count_disclose_threshold|min:632|intcomma }}</span>
+Also, match pledges reduced our 2,500 maximum need by <span id="site-fundraiser-match-count">{{ sitefundgoal.fundraiser_donation_count_disclose_threshold|min:632|intcomma }}</span>
 {% endif %}
 !</div></a>
 </div>
