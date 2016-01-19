@@ -38,7 +38,7 @@ $(document).ready(function() {
         $('#siteprogressbar').
             multiprogressbar({ parts: [
                 { value: (noCommaSiteSoFar / noCommaSiteFinalGoal) * 100,
-                  text: "750 achieved! " + moreCount + " beyond that have joined!",
+                  text: "750 achieved! " + moreCount + " beyond that have joined.",
                   barClass: "progress", textClass: "soFarText" },
                 { value:
                   ((noCommaMatchFinalGoal - noCommaSiteMiddleGoal) / noCommaSiteFinalGoal) * 100,
