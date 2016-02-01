@@ -55,11 +55,8 @@
         enforcement efforts.
 {% endif %}
 {% if sitefundgoal.fundraiser_donation_count_disclose_threshold < 632 %}
-We're still tallying the last-minute results of
-        the <a href="/news/2015/dec/24/private-internet-access-match/">January
-        31st deadline match</a>
-        from <a href="https://www.privateinternetaccess.com/">Private
-        Internet Access</a>.  It's looking like   {{sitefundgoal.fundraiser_donation_count_disclose_threshold|subtract:216 }} of 416 supporters needed for the match signed up! 
+The next {{ 632|subtract:sitefundgoal.fundraiser_donation_count_disclose_threshold }} supporters
+who sign up by March 1st will count twice</a>, thanks to <a href="https://www.privateinternetaccess.com/">Private Internet Access</a>!
 {% endif %}
 </em>
 <div id="siteprogressbar">
