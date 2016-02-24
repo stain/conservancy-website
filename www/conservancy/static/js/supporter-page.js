@@ -35,7 +35,6 @@ $(document).ready(function() {
         // We've got
         var leftOver = noCommaMatchFinalGoal - noCommaSiteSoFar;
 
-        moreCount =  moreCount.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
         $('#siteprogressbar').
             multiprogressbar({ parts: [
                 { value: (noCommaSiteSoFar / noCommaSiteFinalGoal) * 100,
