@@ -33,8 +33,7 @@ $(document).ready(function() {
 
     if (noCommaSiteSoFar >= noCommaSiteMiddleGoal) {
         // We've got
-        var moreCount = noCommaSiteSoFar - noCommaSiteMiddleGoal;
-        var leftOver = noCommaMatchFinalGoal - (moreCount + 750 + noCommaSiteMatchCount);
+        var leftOver = noCommaMatchFinalGoal - noCommaSiteSoFar;
 
         moreCount =  moreCount.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
         $('#siteprogressbar').
