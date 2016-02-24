@@ -38,11 +38,11 @@ $(document).ready(function() {
         $('#siteprogressbar').
             multiprogressbar({ parts: [
                 { value: (noCommaSiteSoFar / noCommaSiteFinalGoal) * 100,
-                  text: noCommaSiteSoFar.toLocaleString() + " have joined.",
+                  text: noCommaSiteSoFar.toLocaleString() + " have joined!",
                   barClass: "progress", textClass: "soFarText" },
                 { value:
                   ((noCommaMatchFinalGoal - noCommaSiteMiddleGoal) / noCommaSiteFinalGoal) * 100,
-                  text: leftOver.toLocaleString() + " more needed to save license compliance work",
+                  text: leftOver.toLocaleString() + " more needed to save license compliance work.",
                   barClass: "final-goal", textClass: "goalText" },
                 {  value: 100,
                    text: siteMatchCount + " matched!",
