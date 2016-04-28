@@ -47,12 +47,12 @@
    <em>Conservancy
    <a href="/supporter/">needs <span id="site-fundraiser-middle-goal">{{ sitefundgoal.fundraiser_donation_count|intcomma }}</span> Supporters</a> to continue its basic community services &amp;
    <span id="site-fundraiser-final-goal">{{ sitefundgoal.fundraiser_goal_amount|intcomma }}</span> to
-   avoid hibernating its enforcement efforts.
+   avoid hibernating its enforcement efforts in 2017.
 {% else %}
       <em>Conservancy will continue our basic community services, thanks to our
         first <span id="site-fundraiser-middle-goal">{{ sitefundgoal.fundraiser_donation_count|intcomma }}</span> Supporters! We still need
         {{ sitefundgoal.fundraiser_goal_amount|subtract:sitefundgoal.fundraiser_donation_count_disclose_threshold|subtract:sitefundgoal.fundraiser_so_far_amount|intcomma }} more Supporters to avoid reducing licensing work &amp; hibernating our
-        enforcement efforts.
+        enforcement efforts in 2017.
 {% endif %}
 {% if sitefundgoal.fundraiser_donation_count_disclose_threshold < 632 %}
 The <strong>next {{ 632|subtract:sitefundgoal.fundraiser_donation_count_disclose_threshold }} supporters
