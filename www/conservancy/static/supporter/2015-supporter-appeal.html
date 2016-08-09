@@ -51,6 +51,190 @@
 </div>
 <div class="content-with-donate-sidebar">
   <h1 class="appeal"><img class="appeal-header" alt="Become a Conservancy Supporter!" src="/img/conservancy-supporter-header.png"/></h1>
+
+  
+<div class="supporter-type-selector">
+<hr/>
+  <strong>Become a Supporter Now:</strong>   <a id="annualSelector" href="#annual">Annual</a> | <a id="monthlySelector" href="#monthly">Monthly</a> | <a id="renewalSelector" href="#renewal">Annual Renew</a></div>
+<div id="annual" class="supporter-type-selection">
+<h3>Join as an Annual Supporter</h3>
+<a id="annual"></a>
+<p><strong>Note:</strong> annual supporter is not an automatic renewal
+  relationship.  If you join today, you'll receive an email in about one year to remind you to
+  optionally renew.</p>
+<form id="annual" class="supporter-form" action="https://www.paypal.com/cgi-bin/webscr" method="post" name="supporter">
+<div class="supporter-form-inputs">
+            <input type="hidden" name="return" value="https://sfconservancy.org/supporter/thank-you.html" />
+            <input type="hidden" name="cmd" value="_xclick" />
+            <input type="hidden" name="business" value="supporter@sfconservancy.org" />
+            <input type="hidden" name="item_name" value="Conservancy Supporter, Annual" />
+            <input id="no_shipping" type="hidden" name="no_shipping" value="0" />
+  <label for="amount"><strong>Amount:</strong> $</label>
+  <input id="amount" type="text" name="amount" size="7" minimum="120" value="120" />
+  <span id="error" class="form-error-show">$120 is a minimum for Conservancy
+  Supporters.  <a href="/donate">Donate smaller amounts here</a>.</span><br/>
+
+                      <label for="wantGift"><strong>Do you want to receive a t-shirt? </strong></label>
+                      <input type="radio" name="on0" value="wantGiftYes" />Yes
+                      <input type="radio" checked="checked" name="on0" value="wantGiftNo" />No
+                      <br />
+                      <span class="t-shirt-size-selector">
+                      <label for="tShirtSize"><strong>T-shirt size: </strong></label>
+                      <select name="os0" id="os0">
+                        <option name="os0" id="os0" value="MenS">Men's S</option>
+                        <option name="os0" id="os0" value="MenM">Men's M</option>
+                        <option name="os0" id="os0" value="MenL">Men's L</option>
+                        <option name="os0" id="os0" value="MenXL">Men's XL</option>
+                        <option name="os0" id="os0" value="Men2XL">Men's 2XL</option>
+                        <option name="os0" id="os0" value="LadiesS">Ladies' S</option>
+                        <option name="os0" id="os0" value="LadiesM">Ladies' M</option>
+                        <option name="os0" id="os0" value="LadiesL">Ladies' L</option>
+                         <option name="os0" id="os0" value="LadiesXL">Ladies' XL</option>
+                      </select><br/></span>
+                      <label for="publicAck"><strong>
+                          Should we <a href="/sponsors#supporters">list you publicly</a> as a Conservancy Supporter? </strong></label>
+                      <input type="radio" checked="checked" name="on1" value="publicAckYes" />Yes
+                      <input type="radio" name="on1" value="publicAckNo" />No<br/>
+            
+                      <label for="joinList"><strong>Join Conservancy's
+                      Low-Traffic Announcement Email List? </strong></label>
+                      <input type="radio" checked="checked" name="os1" value="joinListYes" />Yes
+                      <input type="radio" name="os1" value="joinListNo" />No<br/>
+                      <br />
+                      <br /></div>
+                      <div id="annual" class="supporter-form-submit">
+                      <input type="image"
+                             src="/img/supporter-payment-button-annual.png"
+                             height="81" width="188"
+                             border="0" name="submit" alt="Become an Annual Supporter Now!">
+                      <img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
+<br/><br/><small>Button above redirects to PayPal's site for credit
+        card, bank account or PayPal balance payment methods.  Select options first.</small>
+                      </div>
+</form>
+</div>
+<div id="monthly" class="supporter-type-selection">
+<h3>Join as an Monthly Supporter</h3>
+<a id="monthly"></a>
+<p>Monthly renewal is automatic.  Also, monthly supporters might not receive tangible Supporter benefits (such as
+  the t-shirt) until they've reached at least $60 in monthly supporter
+  donations.  However, they will be included immediately
+  in <a href="/sponsors/#supporters">in the Supporters' list</a>.</p>
+<form id="monthly" class="supporter-form" action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+<div class="supporter-form-inputs">
+            <input type="hidden" name="business" value="supporter@sfconservancy.org" />
+            <input type="hidden" name="item_name" value="Conservancy Supporter, Monthly" />
+            <input type="hidden" name="return" value="https://sfconservancy.org/supporter/thank-you.html" />
+            <input type="hidden" name="cmd" value="_xclick-subscriptions">
+            <input id="no_shipping" type="hidden" name="no_shipping" value="0" />
+            <input type="hidden" name="lc" value="US">
+            <input type="hidden" name="no_note" value="1">
+            <input type="hidden" name="t3" value="M" />
+            <input type="hidden" name="p3" value="1" />
+            <input type="hidden" name="src" value="1" />
+            <input type="hidden" name="srt" value="0" />
+            <input type="hidden" name="item_name" value="Conservancy Supporter, Monthly" />
+  <label for="amount"><strong>Monthly Amount:</strong> $</label>
+  <input id="amount" type="text" name="a3" size="5" minimum="10" value="10" />
+  <span id="error" class="form-error-show">$10/month is a minimum for Conservancy
+  Supporters.  <a href="/donate">Donate smaller amounts here</a>.</span><br/>
+                      <label for="wantGift"><strong>Do you want to receive a t-shirt? </strong></label>
+                      <input type="radio" name="on0" value="wantGiftYes" />Yes
+                      <input type="radio" checked="checked" name="on0" value="wantGiftNo" />No
+                      <br />
+                      <span class="t-shirt-size-selector">
+                      <label for="tShirtSize"><strong>T-shirt size: </strong></label>
+                      <select name="os0" id="os0">
+                        <option name="os0" id="os0" value="MenS">Men's S</option>
+                        <option name="os0" id="os0" value="MenM">Men's M</option>
+                        <option name="os0" id="os0" value="MenL">Men's L</option>
+                        <option name="os0" id="os0" value="MenXL">Men's XL</option>
+                        <option name="os0" id="os0" value="Men2XL">Men's 2XL</option>
+                        <option name="os0" id="os0" value="LadiesS">Ladies' S</option>
+                        <option name="os0" id="os0" value="LadiesM">Ladies' M</option>
+                        <option name="os0" id="os0" value="LadiesL">Ladies' L</option>
+                         <option name="os0" id="os0" value="LadiesXL">Ladies' XL</option>
+                      </select><br/></span>
+                      <label for="publicAck"><strong>
+                          Should we  <a href="/sponsors#supporters">list you publicly</a> as a Conservancy Supporter? </strong></label>
+                      <input type="radio" checked="checked" name="on1" value="publicAckYes" />Yes
+                      <input type="radio" name="on1" value="publicAckNo" />No<br/>
+                      <label for="joinList"><strong>Join Conservancy's
+                      Low-Traffic Announcement Email List? </strong></label>
+                      <input type="radio" checked="checked" name="os1" value="joinListYes" />Yes
+                      <input type="radio" name="os1" value="joinListNo" />No<br/>
+                      <br /></div>
+                      <div id="monthly" class="supporter-form-submit">
+                      <input type="image"
+                      src="/img/supporter-payment-button-monthly.png"
+                      height="81" width="188"
+                      border="0" name="submit" alt="Become a Monthly Supporter Now!">
+<br/><br/><small>Button above redirects to PayPal's site for credit
+        card, bank account or PayPal balance payment methods.  Select
+                      options first.</small>
+                      </div>
+</form>
+</div>
+
+<div id="renewal" class="supporter-type-selection">
+<h3>Renew as an Annual Supporter</h3>
+<a id="renewal"></a>
+<p><strong>Note:</strong> This option is for existing annual supporters who
+  seek to renew for another year.  The annual renewal is not automatic;
+  annual supporters are emailed each year to invite them to optionally renew. </p>
+<form id="renewal" class="supporter-form" action="https://www.paypal.com/cgi-bin/webscr" method="post" name="supporter">
+<div class="supporter-form-inputs">
+            <input type="hidden" name="return" value="https://sfconservancy.org/supporter/thank-you.html" />
+            <input type="hidden" name="cmd" value="_xclick" />
+            <input type="hidden" name="business" value="supporter@sfconservancy.org" />
+            <input type="hidden" name="item_name" value="Conservancy Supporter, Annual Renewal" />
+            <input id="no_shipping" type="hidden" name="no_shipping" value="0" />
+  <label for="amount"><strong>Amount:</strong> $</label>
+  <input id="amount" type="text" name="amount" size="7" minimum="120" value="120" />
+  <span id="error" class="form-error-show">$120 is a minimum for Conservancy
+  Supporters.  <a href="/donate">Donate smaller amounts here</a>.</span><br/>
+
+                      <label for="wantGift"><strong>Do you want to receive (another) t-shirt? </strong></label>
+                      <input type="radio" name="on0" value="wantGiftYes" />Yes
+                      <input type="radio" checked="checked" name="on0" value="wantGiftNo" />No
+                      <br />
+                      <span class="t-shirt-size-selector">
+                      <label for="tShirtSize"><strong>T-shirt size: </strong></label>
+                      <select name="os0" id="os0">
+                        <option name="os0" id="os0" value="MenS">Men's S</option>
+                        <option name="os0" id="os0" value="MenM">Men's M</option>
+                        <option name="os0" id="os0" value="MenL">Men's L</option>
+                        <option name="os0" id="os0" value="MenXL">Men's XL</option>
+                        <option name="os0" id="os0" value="Men2XL">Men's 2XL</option>
+                        <option name="os0" id="os0" value="LadiesS">Ladies' S</option>
+                        <option name="os0" id="os0" value="LadiesM">Ladies' M</option>
+                        <option name="os0" id="os0" value="LadiesL">Ladies' L</option>
+                         <option name="os0" id="os0" value="LadiesXL">Ladies' XL</option>
+                      </select><br/></span>
+                      <label for="publicAck"><strong>
+                          Should we <a href="/sponsors#supporters">list you publicly</a> as a Conservancy Supporter? </strong></label>
+                      <input type="radio" checked="checked" name="on1" value="publicAckYes" />Yes
+                      <input type="radio" name="on1" value="publicAckNo" />No<br/>
+            
+                      <label for="joinList"><strong>Join Conservancy's
+                      Low-Traffic Announcement Email List? </strong></label>
+                      <input type="radio" checked="checked" name="os1" value="joinListYes" />Yes
+                      <input type="radio" name="os1" value="joinListNo" />No<br/>
+                      <br />
+                      <br /></div>
+                      <div id="renewal" class="supporter-form-submit">
+                      <input type="image"
+                             src="/img/supporter-payment-button-renewal.png"
+                             height="81" width="188"
+                             border="0" name="submit" alt="Renew as an Annual Supporter Now!">
+                      <img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
+<br/><br/><small>Button above redirects to PayPal's site for credit
+        card, bank account or PayPal balance payment methods.  Select options
+  first.  Choosing options here will change any previous settings.</small>
+</div></form></div>
+<span id="form-correction-needed" class="form-error">Please ensure all form data above is correct.</span>
+
+<br clear="all"/>
 <h4>Software Freedom needs your help. </h4>
 
 <p><em>Conservancy must move to a 
@@ -247,186 +431,5 @@ so we can stand up for the GPL together.</p>
 <p>Please <a href="#donate-box" class="donate-now">join our Supporter program</a> and spread software freedom!</p>
 
 <br clear="left"/>
-
-<div class="supporter-type-selector">
-<hr/>
-  <strong>Become a Supporter Now:</strong>   <a id="annualSelector" href="#annual">Annual</a> | <a id="monthlySelector" href="#monthly">Monthly</a> | <a id="renewalSelector" href="#renewal">Annual Renew</a></div>
-<div id="annual" class="supporter-type-selection">
-<h3>Join as an Annual Supporter</h3>
-<a id="annual"></a>
-<p><strong>Note:</strong> annual supporter is not an automatic renewal
-  relationship.  If you join today, you'll receive an email in about one year to remind you to
-  optionally renew.</p>
-<form id="annual" class="supporter-form" action="https://www.paypal.com/cgi-bin/webscr" method="post" name="supporter">
-<div class="supporter-form-inputs">
-            <input type="hidden" name="return" value="https://sfconservancy.org/supporter/thank-you.html" />
-            <input type="hidden" name="cmd" value="_xclick" />
-            <input type="hidden" name="business" value="supporter@sfconservancy.org" />
-            <input type="hidden" name="item_name" value="Conservancy Supporter, Annual" />
-            <input id="no_shipping" type="hidden" name="no_shipping" value="0" />
-  <label for="amount"><strong>Amount:</strong> $</label>
-  <input id="amount" type="text" name="amount" size="7" minimum="120" value="120" />
-  <span id="error" class="form-error-show">$120 is a minimum for Conservancy
-  Supporters.  <a href="/donate">Donate smaller amounts here</a>.</span><br/>
-
-                      <label for="wantGift"><strong>Do you want to receive a t-shirt? </strong></label>
-                      <input type="radio" name="on0" value="wantGiftYes" />Yes
-                      <input type="radio" checked="checked" name="on0" value="wantGiftNo" />No
-                      <br />
-                      <span class="t-shirt-size-selector">
-                      <label for="tShirtSize"><strong>T-shirt size: </strong></label>
-                      <select name="os0" id="os0">
-                        <option name="os0" id="os0" value="MenS">Men's S</option>
-                        <option name="os0" id="os0" value="MenM">Men's M</option>
-                        <option name="os0" id="os0" value="MenL">Men's L</option>
-                        <option name="os0" id="os0" value="MenXL">Men's XL</option>
-                        <option name="os0" id="os0" value="Men2XL">Men's 2XL</option>
-                        <option name="os0" id="os0" value="LadiesS">Ladies' S</option>
-                        <option name="os0" id="os0" value="LadiesM">Ladies' M</option>
-                        <option name="os0" id="os0" value="LadiesL">Ladies' L</option>
-                         <option name="os0" id="os0" value="LadiesXL">Ladies' XL</option>
-                      </select><br/></span>
-                      <label for="publicAck"><strong>
-                          Should we <a href="/sponsors#supporters">list you publicly</a> as a Conservancy Supporter? </strong></label>
-                      <input type="radio" checked="checked" name="on1" value="publicAckYes" />Yes
-                      <input type="radio" name="on1" value="publicAckNo" />No<br/>
-            
-                      <label for="joinList"><strong>Join Conservancy's
-                      Low-Traffic Announcement Email List? </strong></label>
-                      <input type="radio" checked="checked" name="os1" value="joinListYes" />Yes
-                      <input type="radio" name="os1" value="joinListNo" />No<br/>
-                      <br />
-                      <br /></div>
-                      <div id="annual" class="supporter-form-submit">
-                      <input type="image"
-                             src="/img/supporter-payment-button-annual.png"
-                             height="81" width="188"
-                             border="0" name="submit" alt="Become an Annual Supporter Now!">
-                      <img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
-<br/><br/><small>Button above redirects to PayPal's site for credit
-        card, bank account or PayPal balance payment methods.  Select options first.</small>
-                      </div>
-</form>
-</div>
-<div id="monthly" class="supporter-type-selection">
-<h3>Join as an Monthly Supporter</h3>
-<a id="monthly"></a>
-<p>Monthly renewal is automatic.  Also, monthly supporters might not receive tangible Supporter benefits (such as
-  the t-shirt) until they've reached at least $60 in monthly supporter
-  donations.  However, they will be included immediately
-  in <a href="/sponsors/#supporters">in the Supporters' list</a>.</p>
-<form id="monthly" class="supporter-form" action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
-<div class="supporter-form-inputs">
-            <input type="hidden" name="business" value="supporter@sfconservancy.org" />
-            <input type="hidden" name="item_name" value="Conservancy Supporter, Monthly" />
-            <input type="hidden" name="return" value="https://sfconservancy.org/supporter/thank-you.html" />
-            <input type="hidden" name="cmd" value="_xclick-subscriptions">
-            <input id="no_shipping" type="hidden" name="no_shipping" value="0" />
-            <input type="hidden" name="lc" value="US">
-            <input type="hidden" name="no_note" value="1">
-            <input type="hidden" name="t3" value="M" />
-            <input type="hidden" name="p3" value="1" />
-            <input type="hidden" name="src" value="1" />
-            <input type="hidden" name="srt" value="0" />
-            <input type="hidden" name="item_name" value="Conservancy Supporter, Monthly" />
-  <label for="amount"><strong>Monthly Amount:</strong> $</label>
-  <input id="amount" type="text" name="a3" size="5" minimum="10" value="10" />
-  <span id="error" class="form-error-show">$10/month is a minimum for Conservancy
-  Supporters.  <a href="/donate">Donate smaller amounts here</a>.</span><br/>
-                      <label for="wantGift"><strong>Do you want to receive a t-shirt? </strong></label>
-                      <input type="radio" name="on0" value="wantGiftYes" />Yes
-                      <input type="radio" checked="checked" name="on0" value="wantGiftNo" />No
-                      <br />
-                      <span class="t-shirt-size-selector">
-                      <label for="tShirtSize"><strong>T-shirt size: </strong></label>
-                      <select name="os0" id="os0">
-                        <option name="os0" id="os0" value="MenS">Men's S</option>
-                        <option name="os0" id="os0" value="MenM">Men's M</option>
-                        <option name="os0" id="os0" value="MenL">Men's L</option>
-                        <option name="os0" id="os0" value="MenXL">Men's XL</option>
-                        <option name="os0" id="os0" value="Men2XL">Men's 2XL</option>
-                        <option name="os0" id="os0" value="LadiesS">Ladies' S</option>
-                        <option name="os0" id="os0" value="LadiesM">Ladies' M</option>
-                        <option name="os0" id="os0" value="LadiesL">Ladies' L</option>
-                         <option name="os0" id="os0" value="LadiesXL">Ladies' XL</option>
-                      </select><br/></span>
-                      <label for="publicAck"><strong>
-                          Should we  <a href="/sponsors#supporters">list you publicly</a> as a Conservancy Supporter? </strong></label>
-                      <input type="radio" checked="checked" name="on1" value="publicAckYes" />Yes
-                      <input type="radio" name="on1" value="publicAckNo" />No<br/>
-                      <label for="joinList"><strong>Join Conservancy's
-                      Low-Traffic Announcement Email List? </strong></label>
-                      <input type="radio" checked="checked" name="os1" value="joinListYes" />Yes
-                      <input type="radio" name="os1" value="joinListNo" />No<br/>
-                      <br /></div>
-                      <div id="monthly" class="supporter-form-submit">
-                      <input type="image"
-                      src="/img/supporter-payment-button-monthly.png"
-                      height="81" width="188"
-                      border="0" name="submit" alt="Become a Monthly Supporter Now!">
-<br/><br/><small>Button above redirects to PayPal's site for credit
-        card, bank account or PayPal balance payment methods.  Select
-                      options first.</small>
-                      </div>
-</form>
-</div>
-
-<div id="renewal" class="supporter-type-selection">
-<h3>Renew as an Annual Supporter</h3>
-<a id="renewal"></a>
-<p><strong>Note:</strong> This option is for existing annual supporters who
-  seek to renew for another year.  The annual renewal is not automatic;
-  annual supporters are emailed each year to invite them to optionally renew. </p>
-<form id="renewal" class="supporter-form" action="https://www.paypal.com/cgi-bin/webscr" method="post" name="supporter">
-<div class="supporter-form-inputs">
-            <input type="hidden" name="return" value="https://sfconservancy.org/supporter/thank-you.html" />
-            <input type="hidden" name="cmd" value="_xclick" />
-            <input type="hidden" name="business" value="supporter@sfconservancy.org" />
-            <input type="hidden" name="item_name" value="Conservancy Supporter, Annual Renewal" />
-            <input id="no_shipping" type="hidden" name="no_shipping" value="0" />
-  <label for="amount"><strong>Amount:</strong> $</label>
-  <input id="amount" type="text" name="amount" size="7" minimum="120" value="120" />
-  <span id="error" class="form-error-show">$120 is a minimum for Conservancy
-  Supporters.  <a href="/donate">Donate smaller amounts here</a>.</span><br/>
-
-                      <label for="wantGift"><strong>Do you want to receive (another) t-shirt? </strong></label>
-                      <input type="radio" name="on0" value="wantGiftYes" />Yes
-                      <input type="radio" checked="checked" name="on0" value="wantGiftNo" />No
-                      <br />
-                      <span class="t-shirt-size-selector">
-                      <label for="tShirtSize"><strong>T-shirt size: </strong></label>
-                      <select name="os0" id="os0">
-                        <option name="os0" id="os0" value="MenS">Men's S</option>
-                        <option name="os0" id="os0" value="MenM">Men's M</option>
-                        <option name="os0" id="os0" value="MenL">Men's L</option>
-                        <option name="os0" id="os0" value="MenXL">Men's XL</option>
-                        <option name="os0" id="os0" value="Men2XL">Men's 2XL</option>
-                        <option name="os0" id="os0" value="LadiesS">Ladies' S</option>
-                        <option name="os0" id="os0" value="LadiesM">Ladies' M</option>
-                        <option name="os0" id="os0" value="LadiesL">Ladies' L</option>
-                         <option name="os0" id="os0" value="LadiesXL">Ladies' XL</option>
-                      </select><br/></span>
-                      <label for="publicAck"><strong>
-                          Should we <a href="/sponsors#supporters">list you publicly</a> as a Conservancy Supporter? </strong></label>
-                      <input type="radio" checked="checked" name="on1" value="publicAckYes" />Yes
-                      <input type="radio" name="on1" value="publicAckNo" />No<br/>
-            
-                      <label for="joinList"><strong>Join Conservancy's
-                      Low-Traffic Announcement Email List? </strong></label>
-                      <input type="radio" checked="checked" name="os1" value="joinListYes" />Yes
-                      <input type="radio" name="os1" value="joinListNo" />No<br/>
-                      <br />
-                      <br /></div>
-                      <div id="renewal" class="supporter-form-submit">
-                      <input type="image"
-                             src="/img/supporter-payment-button-renewal.png"
-                             height="81" width="188"
-                             border="0" name="submit" alt="Renew as an Annual Supporter Now!">
-                      <img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
-<br/><br/><small>Button above redirects to PayPal's site for credit
-        card, bank account or PayPal balance payment methods.  Select options
-  first.  Choosing options here will change any previous settings.</small>
-</div></form></div>
-<span id="form-correction-needed" class="form-error">Please ensure all form data above is correct.</span>
 </div>
 {% endblock %}
