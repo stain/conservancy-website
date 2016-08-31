@@ -238,39 +238,23 @@ evbind(document.getElementById('bank-account-form'), 'submit',
 </div>
 
 <div class="content-with-donate-sidebar">
-<!-- begin campaign text -->
 
-<h2>Fundraising Campaign: Non-Profit Accounting Software</h2>
+<h2>Non-Profit Accounting Software</h2>
 
 <img src="/img/conservancy-accounting-campaign-logo.png" alt="Conservancy accounting campaign logo" style="float:left;" />
 
-<blockquote>
-<p><strong>Update on 2014-12-03:</strong> As can be seen, Conservancy sadly
-  never reached our fundraising target for this project.  However, as we
-  promised below, we <a href="http://npoacct.sfconservancy.org/">continue to
-  work on this project</a>.  We'd really appreciate more donations, as we've
-  needed to make a lot of compromises in our plans since we didn't reach our
-  fundraising goal.  We did complete Phase 0 described below
-  (<a href="http://npoacct.sfconservancy.org/">results are on our wiki</a>),
-  and Phase 1 now comprises the development of an REST API for double-entry
-  accounting  which many applications (including this one) can use.</p>
-</blockquote>
-<br/>
-<hr/>
 <p>Conservancy has a plan to help all non-profit organizations (NPOs) by
 creating an Open Source and Free Software accounting system usable by
 non-technical bookkeepers, accountants, and non-profit managers.  You can
 help us do it by donating now.
 </p>
 
+<h3>What is the Non-Profit Accounting Software Project?</h3>
+
 <p>To keep their books and produce annual government filings, most NPOs rely
 on proprietary software, paying exorbitant licensing fees.  This is
 fundamentally at cross purposes with their underlying missions of charity,
 equality, democracy, and sharing.</p>
-
-<p>You can help Conservancy fix this problem by <a href="#donate-box" class="donate-now">donating now</a>.  We seek to
-raise $75,000 to employ a 
-developer for one year to make substantial progress on this project.</p>
 
 <p>This project has the potential to save the non-profit sector
 millions in licensing fees every year.  Even non-profits that continue to use proprietary accounting
@@ -282,13 +266,6 @@ software will benefit, since the existence of quality Open Source and Free
 will increase the agility and collaborative potential
 for the non-profit sector &mdash; a boon to funders, boards, and employees &mdash;  bringing the Free Software and general NPO communities
 into closer collaboration and understanding.</p>
-
-<p>Thanks in advance for <a href="#donate-box" class="donate-now">helping us</a> develop Free Software to benefit all
-non-profit organizations, and the 
-populations they serve.</p>
-
-<p>Donors of $500 or more will be acknowledged in the THANKS file and other
-  appropriate places in the codebase itself.</p>
 
 <p><a href="#endorsements">Endorsers of this effort</a> include April, Fractured Atlas, The Free Software
 Foundation, Mozilla Foundation, GNOME Foundation, OpenHatch, Open
@@ -356,83 +333,6 @@ Foundation</a>, The <a href="http://www.gnome.org/foundation/">GNOME Foundation<
   and Conservancy therefore believes a solution that handles fiscal sponsors
   will also handle the simpler case as well.</p>
 
-<h3>The Plan</h3>
-
-<p>Conservancy proposes to hire a software developer for one year to
-  accomplish the first two phases of this project.  Conservancy seeks to
-  raise $75,000 toward this project to help cover salary and benefits for a
-  full-time staffer to work on this project.  We ask that you give generously
-  via the donation buttons on this page to support our work.</p>
-
-<h4>Phase 0</h4>
-
-<p>Some Free Software accounting systems do exist.  A previous informal
-  survey of these systems that Conservancy conducted in 2007 led us to the
-  conclusion that, in general, these systems were heavily geared toward
-  for-profit endeavors, ignored the unique needs of NPOs generally, and
-  were completely hopeless for the specific needs of a fiscal sponsoring
-  organization.  Conservancy's assessment at the time was that these
-  challenges could be addressed only with a large rewrite of one of these
-  systems.  Conservancy chose
-  <a href="http://www.ledger-cli.org/">Ledger CLI</a> precisely because
-  it provided flexibility and configurability not present in any other Free Software
-  double-entry accounting system.</p>
-
-<p>However, while that previous informal survey informs Conservancy's
-  existing hypothesis that Ledger CLI is the right base system here,
-  Conservancy will first test that hypothesis.  The first phase of this
-  project (estimated to last approximately 6-8 full-time weeks) will produce
-  a written survey of all known Free Software accounting systems, and
-  indicate what challenges exist to adapt such systems for the needs of
-  NPOs.  The <a href="https://fsf.org/">Free Software Foundation</a> has
-  pledged their help in the evaluation of SQL-Ledger,
-  and <a href="http://www.gnome.org/foundation/">the GNOME Foundation</a> has pledged their
-  help in the evaluation of <a href="http://www.gnucash.org/">GNUcash</a> (which they
-  currently use, respectively).</p>
-
-<h4>Phase 1</h4>
-
-<p>Phase 1 of the project will select the preferred codebase from Phase 0,
-  and improve that system to create a basic accounting system for
-  small-to-medium sized USA NPOs (i.e., Form 990-filers) &mdash; including fiscal
-  sponsors &mdash; with the following features:
-<ul>
-<li>Basic accounts payable/receivable (with invoicing)</li>
-<li>Tracking and reporting of non-profit income types (related business
-  income, unrelated business taxable income, donations, etc.)</li>
-<li>Basic backup documentation tracking for expenses and payments</li>
-<li>Basic bank statement reconciliation reporting</li>
-<li>Basic annual audit preparation reporting
-  (A <a href="https://github.com/ledger/ledger/tree/next/contrib/non-profit-audit-reports">prototype
-  of this portion is already complete</a> and has been relied on for
-  real-life audits; but the prototype is just a hack and needs to be
-  rewritten.)</li>
-<li>Ability to easily handle all these features on a project-by-project
-  subset of the accounts, and to easily export and excise that subset from
-  the system. (i.e., support for temporarily restricted assets, earmarked for
-  fiscal-sponsored projects)</li>
-<li>Multi-currency support and reporting</li>
-</ul>
-
-<p>We will consider the first year of this project successful <em>only if all these
-  functions can be performed by a bookkeeper who is generally qualified as a
-  bookkeeper</em>, but not necessarily familiar with standard Free Software tools
-  such as GNU/Linux, Emacs, version control, and command line scripts.  This
-  requirement is essential: Conservancy's existing system using Ledger CLI
-  already provides sufficient functionality to manage non-profit accounting,
-  but our system requires a bookkeeper who is also adept with the
-  aforementioned tools already.</p>
-
-<p>Finally, while the first year of work focuses on USA NPO needs,
-  Conservancy seeks to lead an international effort, and welcomes
-  contributions and input from everyone in the non-profit community from
-  around the world.  Conservancy has created
-  a <a href="http://lists.sfconservancy.org/mailman/listinfo/npo-accounting">mailing
-  list for discussion of this project</a> and
-  a <a href="http://npoacct.sfconservancy.org">Wiki for collaboration</a>  and encourages interested parties
-  from around the world to join the mailing list and contribute to the
-  project!</p>
-  
 <h3>Why Conservancy Must Fund This Work</h3>
 
 <p>As it stands, nearly all Open Source and Free Software NPOs either use
@@ -552,31 +452,7 @@ effort; it would let us spend more of our time on programs and less on
 paperwork.  I have already personally <a href="#donate-box" class="donate-now">donated</a>.</q> &mdash; Asheesh Laroia,
 Executive Director, <a href="https://openhatch.org/">OpenHatch</a></p>
 
-<h3>Some Important Details for this Fundraiser</h3>
-
-<ul>
-<li>Donations made are general donations to the Software Freedom
-  Conservancy, Inc., a 501(c)(3) charity incorporated in New York.
-  Conservancy is committed to doing this work described herein, but cannot
-  promise to complete the work if the fundraising goal is not reached.  If
-  the fundraising goal is not reached, Conservancy will do its best to make
-  progress on the plan above with the resources available.  It's expected
-  that work will simply proceed, but more slowly and take more time, if the
-  fundraising goal is not reached.</li>
-
-<li>The license for the project is not yet chosen, since Phase 0 might
-  prescribe contribution to particular upstream projects, and Conservancy is
-  committed to contributing to upstream projects under their chosen license,
-  where possible.  However, Conservancy promises that all software that is
-  written will be released under a license that is both approved by
-  the <a href="http://www.gnu.org/licenses/license-list.html#GPLCompatibleLicenses">FSF as a Free
-  Software license</a> <strong>and</strong> by the OSI as
-  an <a href="http://opensource.org/licenses">OSI-approved license</a>.  New
-  documentation that is written will be released under some license
-  compatible with <a href="https://creativecommons.org/licenses/by-sa/3.0/us/">CC BY-SA 3.0 USA</a>.</li>
-</ul>
-
-<!-- end campaign text -->
+<!-- closes div.content-with-donate-sidebar -->
 </div>
 
 {% endblock %}
