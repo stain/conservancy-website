@@ -6,6 +6,7 @@
 
 {% block head %}
 <link href="/jquery-ui.css" rel="stylesheet" type="text/css"/>
+<link href="/forms.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="/jquery.min.js"></script>
 <script type="text/javascript" src="/jquery-ui.min.js"></script>
 <script type="text/javascript" src="/supporter-page.js"></script>
@@ -16,104 +17,17 @@
 <div class="donate-sidebar">
 <table style="background-color:#afe478;width:100%;">
 <tr><td style="text-align:center;padding:10px;padding-bottom:10px;">
+<div id="donate-box" class="toggle-unit"><h1 class="toggle-content">Support
+    Now!</h1></div>
 
-<div id="donate-box" class="toggle-unit"><h1 class="toggle-content">Donate Now!</h1></div>
+<h3>Support NPOAcct Now!</h3>
 
-<!--
-<script type="text/javascript" src="https://js.balancedpayments.com/v1/balanced.js"></script>
+<p>
+  To support our non-profit accounting work,
+  please&hellip; </p>
 
-<script type="text/javascript">
-   // FOR DEMONSTRATION PURPOSES ONLY - if you already have a server you can POST to, replace
-   //                                   the URL with the URL to post to.
-   // go to http://requestb.in/
-   // click create new request bin and COPY that URL without the ?inspect at the end
-   var requestBinURL = 'http://requestb.in/1dk2x8y1';  // make sure it doesn't end in ?inspect
-
-   var marketplaceUri = '/v1/marketplaces/TEST-MPMp7ZUPDpbj69vk2wGHRVY';
-   //var marketplaceUri = 'https://www.balancedpayments.com/marketplaces/TEST-MPMp7ZUPDpbj69vk2wGHRVY';
-   balanced.init(marketplaceUri);
-
-var cardData = {
-  "name": "Bernhard Riemann",                 // Optional
-  "card_number": "4111 1111 1111 1111",
-  "expiration_month": 4,
-  "expiration_year": 2014,
-};
-
-function evbind(el, ev, handler) {
-if(el.addEventListener) {
-el.addEventListener(ev, handler, false);
-} else if(el.attachEvent) {
-el.attachEvent('on'+ev, function() {handler.apply(el);});
-}
-}
-
-/*
-
-   function responseCallbackHandler(response) {
-      alert(response.status);
-      switch (response.status) {
-        case 400:
-            // missing or invalid field - check response.error for details
-            console.log(response.error);
-            break;
-        case 404:
-            // your marketplace URI is incorrect
-            console.log(response.error);
-            break;
-        case 201:
-            // WOO HOO! MONEY!
-            // response.data.uri == URI of the bank account resource you
-            // should store this bank account URI to later credit it
-            console.log(response.data);
-            var $form = $("#bank-account-form");
-            // the uri is an opaque token referencing the tokenized bank account
-            var bank_account_uri = response.data['uri'];
-            // append the token as a hidden field to submit to the server
-            $('<input>').attr({
-               type: 'hidden',
-               value: bank_account_uri,
-               name: 'balancedBankAccountURI'
-            }).appendTo($form);
-            $form.attr({action: requestBinURL});
-            $form.get(0).submit();
-        break;
-    default:
-        console.log(response.status);
-        }
-    }
-   //alert('allo?');
-
-   var tokenizeInstrument = function(e) {
-        alert('what"s going on?');
-        e.preventDefault();
-   
-        var $form = $('#bank-account-form');
-        var bankAccountData = {
-            name: $form.find('.ba-name').val(),
-            account_number: $form.find('.ba-an').val(),
-            bank_code: $form.find('.ba-rn').val(),
-            type: $form.find('select').val()
-        };
- 
- 
-        balanced.bankAccount.create(bankAccountData, responseCallbackHandler);
-    };
-   $('#bank-account-form').submit(tokenizeInstrument);
-*/
-</script>
--->
-<h3>Support NPO Accounting Project Now!</h3>
-{% if fundgoal.fundraiser_donation_count > fundgoal.fundraiser_donation_count_disclose_threshold %}
-Thanks to <span id="fundraiser-donation-count">{{ fundgoal.fundraiser_donation_count|intcomma }}</span> donations,<br/>
-{% endif %}
-$<span id="fundraiser-so-far">{{ fundgoal.fundraiser_so_far_amount|floatformat:0|intcomma }}</span> raised toward<br/>
-our $<span id="fundraiser-goal">{{ fundgoal.fundraiser_goal_amount|floatformat:0|intcomma  }}</span> goal.<br/>
-<div id="progressbar"><span id="fundraiser-percentage">(i.e., {{ fundgoal.percentage_there|floatformat:1 }}%)</span></div>
-<p style="font-size: 75%">(Progress bar updated daily.)</p>
-<a id="donate" style="text-decoration:none"></a>
-<h3 class="donate-box-highlight">Help us reach our goal:</h3>
-
+<p><span class="donate-box-highlight">Donate now via PayPal:</span>
+</p>
 <!-- PayPal start -->
 <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
 <input type="hidden" name="cmd" value="_s-xclick">
@@ -123,120 +37,11 @@ our $<span id="fundraiser-goal">{{ fundgoal.fundraiser_goal_amount|floatformat:0
 </form>
 <!-- PayPal end -->
 
-<!-- Balanced start -
-<div class="container">
-- <form action="#" method="POST" id="bank-account-form" class="form-horizontal" onsubmit="balanced.card.create(cardData, function(response) { alert(response.status); });"> -
-<form action="#" method="POST" id="bank-account-form" class="form-horizontal">
-    <fieldset>
-        <legend>Bank Account Information</legend>
-        <p><label>Account Holder's Name
-            <input type="text"
-                   autocomplete="off"
-                   placeholder="Bank Account Holder's name"
-                   class="ba-name"
-                   name="ba_name"
-                   value="4111 1111 1111 1111">
-        </label></p>
-        <p><label>Routing Number
-            <input type="text"
-                   autocomplete="off"
-                   placeholder="Routing Number"
-                   class="ba-rn"
-                   name="ba_rn"
-                   value="4">
-        </label></p>
-        <p><label>Account Number
-            <input type="text"
-                   autocomplete="off"
-                   placeholder="Account Number"
-                   class="ba-an"
-                   name="ba_an"
-                   value="2014">
-        </label></p>
-        <p><label>Account Something
-            <input type="text"
-                   autocomplete="off"
-                   placeholder="Account Something"
-                   class="ba-as"
-                   name="ba_as"
-                   value="something someone">
-        </label></p>
-        <p><label>Account Type
-            <select name="ba_type">
-                <option value='' disabled selected style='display:none;'>
-                    Select Account Type
-                </option>
-                <option value="checking" default>CHECKING</option>
-                <option value="savings">SAVINGS</option>
-            </select>
-        </label></p>
-        <button type="submit" class="btn">
-            Tokenize
-        </button>
-    </fieldset>
-</form>
-</div>
-<script type="text/javascript">
-
-evbind(document.getElementById('bank-account-form'), 'submit',
-  function(e) {
-    e.preventDefault();
-    console.log(this.ba_as.value);
-    balanced.card.create(
- {
-  "name": this.ba_as.value,
-  "card_number": this.ba_name.value,
-  "expiration_month": this.ba_rn.value,
-  "expiration_year": this.ba_an.value,
-/*
-  "name": "Bernhard Riemann",                 // Optional
-  "card_number": "4111 1111 1111 1111",
-  "expiration_month": 4,
-  "expiration_year": 2014,
-*/
- },
-    function(response) {
-      console.log(response);
-      console.log(response.data.uri);
-      $.ajax("/campaign/?token=" + response.data.uri + '&amount=' + document.getElementById('bank-account-form').ba_an.value);
-      alert(response.status);
-    });
-});
-
-</script>
-- Balanced end -->
-
-<p>
-  <span class="donate-box-highlight">Other donation methods:</span>
-<div class="toggle-unit">
-    <h4 class="toggle-control" data-text="Wire Transfer" 
-    data-expanded-text="Wire Transfer:">Wire Transfer</h4>
-    <div class="toggle-content">
-        Please
-            contact <a href="mailto:accounting@sfconservancy.org">Conservancy
-            by email</a><br/> for wire transfer instructions.<br/>
-            Please Include your currency and country.<br/>
-    </div><!-- /.toggle-content -->
-</div><!-- /.toggle.unit -->
-
-<div class="toggle-unit">
-    <h4 class="toggle-control" data-text="Paper Check" 
-    data-expanded-text="Paper Check:">Paper Check</h4>
-    <div class="toggle-content">
-    Send paper check donations to:<br/>
-    Software Freedom Conservancy, Inc.<br/>
-    137 MONTAGUE ST  STE 380<br/>
-    BROOKLYN, NY 11201-3548<br/>
-    Please write <q>NPO ACCOUNTING</q> in the memo line. 
-    </div><!-- /.toggle-content -->
-</div><!-- /.toggle.unit -->
-
-<!-- Flattr start -->
-<p><a href="https://flattr.com/thing/1296704/NPOAcct-to-develop-Free-and-Open-Source-Non-Profit-Accounting-Software" target="_blank"><img src="https://api.flattr.com/button/flattr-badge-large.png" alt="Flattr this" title="Flattr this" style="border:0" /></a></p>
-<!-- Flattr end -->
+<p>Or, <a href="/supporter/#annual"><span class="donate-box-highlight">become a Conservancy
+      Supporter</span></a> (&mdash; a better option if you're donating more
+      than $120, since you'll get a t-shirt!).</p>
 </td></tr></table>
 </div>
-
 <div class="content-with-donate-sidebar">
 
 <h2>Non-Profit Accounting Software</h2>
