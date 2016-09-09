@@ -218,18 +218,24 @@ $(document).ready(function() {
             }
         });
         $("#form-correction-needed").removeClass("form-error-show").addClass("form-error");
+        return false;
     };
     $(".supporter-type-selector a").bind("click", selectSupportType);
 
-    var selectSupportTypeFromHash = function() {
-        var urlHash = window.location.hash;
-        if ((urlHash !== "#monthly") && (urlHash !== "#renewal")) {
-            urlHash = "#annual";
-        }
-        $(".supporter-type-selector a[href=" + urlHash + "]").click();
+    var supportTypeSelector = function(supportTypeHash) {
+        return $(".supporter-type-selector a[href=" + supportTypeHash + "]");
     };
-    $(window).bind("hashchange", selectSupportTypeFromHash);
-    selectSupportTypeFromHash();
+    var selectSupportTypeFromHash = function() {
+        return supportTypeSelector(window.location.hash).click();
+    };
+    var $window = $(window);
+    $window.bind("hashchange", selectSupportTypeFromHash);
+    var $selectorLink = selectSupportTypeFromHash();
+    if ($selectorLink.length === 0) {
+        supportTypeSelector("#annual").click();
+    } else {
+        $window.scrollTop($selectorLink.offset().top);
+    }
 
     $( ".footnote-mark" ).tooltip({
         items: "a",
