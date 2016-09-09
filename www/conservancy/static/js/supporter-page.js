@@ -4,6 +4,19 @@
 **  Find a copy of GPL at https://sfconservancy.org/GPLv3
 */
 
+var supportTypeSelector = function(supportTypeHash) {
+    return $(".supporter-type-selector a[href=" + supportTypeHash + "]");
+};
+
+var $window = $(window);
+
+$window.load(function() {
+    var $selectorLink = supportTypeSelector(window.location.hash);
+    if ($selectorLink.length > 0) {
+        $window.scrollTop($selectorLink.offset().top);
+    }
+});
+
 $(document).ready(function() {
     var siteFinalGoal = $('span#site-fundraiser-final-goal').text();
     var noCommaSiteFinalGoal = parseInt(siteFinalGoal.replace(/,/g, ""));
@@ -222,21 +235,13 @@ $(document).ready(function() {
     };
     $(".supporter-type-selector a").bind("click", selectSupportType);
 
-    var supportTypeSelector = function(supportTypeHash) {
-        return $(".supporter-type-selector a[href=" + supportTypeHash + "]");
-    };
     var selectSupportTypeFromHash = function() {
         return supportTypeSelector(window.location.hash).click();
     };
-    var $window = $(window);
     $window.bind("hashchange", selectSupportTypeFromHash);
     var $selectorLink = selectSupportTypeFromHash();
     if ($selectorLink.length === 0) {
         supportTypeSelector("#annual").click();
-    } else {
-        $window.bind("ready", function() {
-            scrollTop($selectorLink.offset().top);
-        });
     }
 
     $( ".footnote-mark" ).tooltip({
