@@ -1,5 +1,6 @@
 /* Copyright (C) 2012-2013 Denver Gingerich, 
-** Copyright (C) 2013-2014 Bradley M. Kuhn.
+** Copyright (C) 2013-2014 Bradley M. Kuhn,
+** Copyright (C) 2016 Brett Smith.
 ** License: GPLv3-or-later
 **  Find a copy of GPL at https://sfconservancy.org/GPLv3
 */
