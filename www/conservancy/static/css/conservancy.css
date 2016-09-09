@@ -420,6 +420,16 @@ pre {
   overflow: auto;
 }
 
+.supporter-type-selector a {
+    font-size: 125%;
+    font-weight: normal;
+}
+
+.supporter-type-selector a.supporter-type-selector-selected {
+    font-size: 127%;
+    font-weight: bold;
+}
+
 /* Make dl's ( such as for FAQ entries) look nice on screens, both big and small. */
 
 dl {

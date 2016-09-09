@@ -204,36 +204,34 @@ $(document).ready(function() {
     $(".dinner-form-submit").click(function (event) {
         validateFormAtSubmission($(".dinner-form input#amount"), event);
     });
-    /* Handle toggling of annual/monthly form selections */
-    $('.supporter-type-selection#monthly').hide();
-    $('.supporter-type-selection#renewal').hide();
-    $('#annualSelector').css("font-weight", "bold").css("font-size", "127%");
 
-    $("a[href$='monthly']").bind('click', function() {
-        $('.supporter-type-selection#annual').hide();
-        $('.supporter-type-selection#renewal').hide();
-        $('.supporter-type-selection#monthly').show();
-        $('#monthlySelector').css("font-weight", "bold").css("font-size", "127%");
-        $('#annualSelector').css("font-weight", "normal").css("font-size", "125%");
-        $('#renewalSelector').css("font-weight", "normal").css("font-size", "125%");
+    var selectSupportType = function(event) {
+        var $selectedLink = $(event.target);
+        $(".supporter-type-selector a").removeClass("supporter-type-selector-selected");
+        $selectedLink.addClass("supporter-type-selector-selected");
+        $(".supporter-type-selection").each(function(index, element) {
+            var $element = $(element);
+            if (event.target.href.endsWith("#" + element.id)) {
+                $element.show();
+            } else {
+                $element.hide();
+            }
+        });
         $("#form-correction-needed").removeClass("form-error-show").addClass("form-error");
-    });
-    $("a[href$='annual']").bind('click', function() {
-        $('.supporter-type-selection#renewal').hide();
-        $('.supporter-type-selection#monthly').hide();
-        $('.supporter-type-selection#annual').show();
-        $('#annualSelector').css("font-weight", "bold").css("font-size", "127%");
-        $('#renewalSelector').css("font-weight", "normal").css("font-size", "125%");
-        $('#monthlySelector').css("font-weight", "normal").css("font-size", "125%");
-    });
-    $("a[href$='renewal']").bind('click', function() {
-        $('.supporter-type-selection#annual').hide();
-        $('.supporter-type-selection#monthly').hide();
-        $('.supporter-type-selection#renewal').show();
-        $('#renewalSelector').css("font-weight", "bold").css("font-size", "127%");
-        $('#monthlySelector').css("font-weight", "normal").css("font-size", "125%");
-        $('#annualSelector').css("font-weight", "normal").css("font-size", "125%");
-    });
+    };
+    $(".supporter-type-selector a").bind("click", selectSupportType);
+
+    var selectSupportTypeFromHash = function() {
+        var urlHash = window.location.hash;
+        if ((urlHash !== "#monthly") && (urlHash !== "#renewal")) {
+            urlHash = "#annual";
+        }
+        $(".supporter-type-selector a[href=" + urlHash + "]").click();
+        console.log("fromHash done");
+    };
+    $(window).bind("hashchange", selectSupportTypeFromHash);
+    selectSupportTypeFromHash();
+
     $( ".footnote-mark" ).tooltip({
         items: "a",
         hide: { duration: 5000 },
@@ -253,36 +251,4 @@ $(document).ready(function() {
             return $('.footnote-1-text').text();
         }
     });
-});
-
-$(window).load(function () {
-    verifySelctionCorrectOnPageLoad = function() {
-        var ourURL = document.URL;
-        if (ourURL.search("#monthly") > 0) {
-            $('.supporter-type-selection#annual').hide();
-            $('.supporter-type-selection#monthly').show();
-            $('#monthlySelector').css("font-weight", "bold").css("font-size", "127%");
-            $('#annualSelector').css("font-weight", "normal").css("font-size", "125%");
-            $('#renewalSelector').css("font-weight", "normal").css("font-size", "125%");
-        }
-        if (ourURL.search("#annual") > 0) {
-            $('.supporter-type-selection#monthly').hide();
-            $('.supporter-type-selection#annual').show();
-            $('#annualSelector').css("font-weight", "bold").css("font-size", "127%");
-            $('#monthlySelector').css("font-weight", "normal").css("font-size", "125%");
-            $('#renewalSelector').css("font-weight", "normal").css("font-size", "125%");
-        }
-        if (ourURL.search("#renewal") > 0) {
-            $('.supporter-type-selection#monthly').hide();
-            $('.supporter-type-selection#annual').hide();
-            $('.supporter-type-selection#renewal').show();
-            $('#renewalSelector').css("font-weight", "bold").css("font-size", "127%");
-            $('#monthlySelector').css("font-weight", "normal").css("font-size", "125%");
-            $('#annualSelector').css("font-weight", "normal").css("font-size", "125%");
-        }
-    }
-    if (location.hash) {
-        setTimeout(verifySelctionCorrectOnPageLoad, 1);
-    }
-    window.addEventListener("hashchange", verifySelctionCorrectOnPageLoad);
 });
