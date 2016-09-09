@@ -234,7 +234,9 @@ $(document).ready(function() {
     if ($selectorLink.length === 0) {
         supportTypeSelector("#annual").click();
     } else {
-        $window.scrollTop($selectorLink.offset().top);
+        $window.bind("ready", function() {
+            scrollTop($selectorLink.offset().top);
+        });
     }
 
     $( ".footnote-mark" ).tooltip({
