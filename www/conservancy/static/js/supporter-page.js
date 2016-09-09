@@ -227,7 +227,6 @@ $(document).ready(function() {
             urlHash = "#annual";
         }
         $(".supporter-type-selector a[href=" + urlHash + "]").click();
-        console.log("fromHash done");
     };
     $(window).bind("hashchange", selectSupportTypeFromHash);
     selectSupportTypeFromHash();
