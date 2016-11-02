@@ -4,6 +4,7 @@ from django.template import RequestContext, loader
 from conservancy.apps.fundgoal.models import FundraisingGoal as FundraisingGoal
 
 STATIC_ROOT = '/home/www/website/www/conservancy/static/'
+FILESYSTEM_ENCODING = 'utf-8'
 
 def handler(request, errorcode):
     path = os.path.join('error', errorcode, 'index.html')
@@ -36,9 +37,14 @@ def fundgoal_lookup(fundraiser_sought):
 def index(request, *args, **kwargs):
     # return HttpResponse("Hello, static world: " + request.get_full_path())
     path = request.path
+    try:
+        path_bytes = path.encode(FILESYSTEM_ENCODING)
+    except UnicodeEncodeError:
+        # If the path can't be expressed on the filesystem, it must not exist.
+        return handler404(request)
     if path.endswith(u'/'):
         path += u'index.html'
-    fullpath = os.path.join(STATIC_ROOT, path)
+    fullpath = os.path.join(STATIC_ROOT, path_bytes)
     if not os.path.exists(fullpath):
         # return HttpResponse("Sorry that's a 404: " + path)
         return handler404(request)
