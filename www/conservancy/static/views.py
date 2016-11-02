@@ -1,3 +1,4 @@
+import mimetypes
 import os.path
 from django.http import HttpResponse
 from django.template import RequestContext, loader
@@ -35,7 +36,6 @@ def fundgoal_lookup(fundraiser_sought):
         return None
 
 def index(request, *args, **kwargs):
-    # return HttpResponse("Hello, static world: " + request.get_full_path())
     path = request.path
     try:
         path_bytes = path.encode(FILESYSTEM_ENCODING)
@@ -46,18 +46,23 @@ def index(request, *args, **kwargs):
         path += u'index.html'
     fullpath = os.path.join(STATIC_ROOT, path_bytes)
     if not os.path.exists(fullpath):
-        # return HttpResponse("Sorry that's a 404: " + path)
         return handler404(request)
-    template = loader.get_template(path)
+    content_type, _ = mimetypes.guess_type(path)
+    if content_type != 'text/html':
+        content = open(fullpath)
+    else:
+        content_type = None  # Let Django use its default
+        template = loader.get_template(path)
 
-    kwargs = kwargs.copy()
-    if kwargs.has_key('fundraiser_sought'):
-        kwargs['fundgoal'] = fundgoal_lookup(kwargs['fundraiser_sought'])
+        kwargs = kwargs.copy()
+        if kwargs.has_key('fundraiser_sought'):
+            kwargs['fundgoal'] = fundgoal_lookup(kwargs['fundraiser_sought'])
 
-    kwargs['sitefundgoal'] = fundgoal_lookup('supporterrun')
+        kwargs['sitefundgoal'] = fundgoal_lookup('supporterrun')
 
-    context = RequestContext(request, kwargs)
-    return HttpResponse(template.render(context))
+        context = RequestContext(request, kwargs)
+        content = template.render(context)
+    return HttpResponse(content, content_type)
 
 def debug(request):
     path = request.get_full_path()
