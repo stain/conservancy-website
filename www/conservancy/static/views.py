@@ -3,10 +3,11 @@ from django.http import HttpResponse
 from django.template import RequestContext, loader
 from conservancy.apps.fundgoal.models import FundraisingGoal as FundraisingGoal
 
+STATIC_ROOT = '/home/www/website/www/conservancy/static/'
+
 def handler(request, errorcode):
-    STATIC_ROOT = '/home/www/website/www/conservancy/static/'
-    path = 'error/' + errorcode + '/index.html'
-    fullpath = STATIC_ROOT + path
+    path = os.path.join('error', errorcode, 'index.html')
+    fullpath = os.path.join(STATIC_ROOT, path)
     if not os.path.exists(fullpath):
         return HttpResponse("Internal error: " + path)
     template = loader.get_template(path)
@@ -35,11 +36,9 @@ def fundgoal_lookup(fundraiser_sought):
 def index(request, *args, **kwargs):
     # return HttpResponse("Hello, static world: " + request.get_full_path())
     path = request.path
-    path = path.lstrip('/')
-    if path[-1:] == '/':
-        path += 'index.html'
-    STATIC_ROOT = '/home/www/website/www/conservancy/static/'
-    fullpath = STATIC_ROOT + path
+    if path.endswith(u'/'):
+        path += u'index.html'
+    fullpath = os.path.join(STATIC_ROOT, path)
     if not os.path.exists(fullpath):
         # return HttpResponse("Sorry that's a 404: " + path)
         return handler404(request)
