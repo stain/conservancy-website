@@ -36,14 +36,14 @@ def fundgoal_lookup(fundraiser_sought):
         return None
 
 def index(request, *args, **kwargs):
-    path = request.path
+    path = request.path.lstrip(u'/')
+    if path.endswith(u'/'):
+        path += u'index.html'
     try:
         path_bytes = path.encode(FILESYSTEM_ENCODING)
     except UnicodeEncodeError:
         # If the path can't be expressed on the filesystem, it must not exist.
         return handler404(request)
-    if path.endswith(u'/'):
-        path += u'index.html'
     fullpath = os.path.join(STATIC_ROOT, path_bytes)
     if not os.path.exists(fullpath):
         return handler404(request)
