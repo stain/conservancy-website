@@ -7,14 +7,12 @@
 <h2>Conservancy Blog Archive: {{ day|date:"F j, Y" }}</h2>
 
 {% for object in object_list %}
-    <div class="shaded">
     <p class="date">{{ object.pub_date|date:"F j, Y" }}</p>
     <h3><a href="{{ object.get_absolute_url }}">{{ object.headline|safe }}</a></h3>
         {{ object.summary|safe }}
     <p><span class="continued"><a href="{{ object.get_absolute_url }}">Read More...</a></span></p>
     <p class="date small">Posted by <strong>{{ object.author.formal_name }}</strong> on {{ object.pub_date|date:"F j, Y" }}</p>
     {% if object.tags.all %}<p class="blog-tags small">Tags: {% for tag in object.tags.all %}<a href="{{ tag.get_absolute_url }}">{{ tag.label }}</a>{% if not forloop.last %}, {% endif %}{% endfor %}</p>{% endif %}
-    </div>
 {% endfor %}
 
 {% endblock %}

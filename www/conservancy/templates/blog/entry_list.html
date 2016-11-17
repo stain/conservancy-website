@@ -13,13 +13,11 @@
 {% endif %}
 
 {% for entry in blog_entries %}
-    <div class="shaded">
     <p class="date">{{ entry.pub_date|date:"F j, Y" }} by {{ entry.author.formal_name }}</p>
     <h3><a href="{{ entry.get_absolute_url }}">{{ entry.headline|safe }}</a></h3>
         {{ entry.body|safe }}
     <p class="date small">Posted by <strong>{{ entry.author.formal_name}}</strong> on {{ entry.pub_date|date:"F j, Y" }}</p>
     {% if entry.tags.all %}<p class="blog-tags small">Tags: {% for tag in entry.tags.all %}<a href="{{ tag.get_absolute_url }}">{{ tag.label }}</a>{% if not forloop.last %}, {% endif %}{% endfor %}</p>{% endif %}
-    </div>
 {% endfor %}
 
 <p>
