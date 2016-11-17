@@ -7,7 +7,6 @@
 <h2>Conservancy Blog Archive: {{ month|date:"F, Y" }}</h2>
 
 {% for object in object_list %}
-    <p class="date">{{ object.pub_date|date:"F j, Y" }}</p>
     <h3><a href="{{ object.get_absolute_url }}">{{ object.headline|safe }}</a></h3>
         {{ object.summary|safe }}
     <p><span class="continued"><a href="{{ object.get_absolute_url }}">Read More...</a></span></p>
