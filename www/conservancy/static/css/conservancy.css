@@ -12,6 +12,7 @@ p, h1, h2, h3, h4, h5, h6, #mainContent ul, #mainContent ol {
 body {
 /*  font-family: "Lucida Grande",Verdana,Lucida,Helvetica,Arial,sans-serif; */
   font-family: "Lucida Sans Unicode", "Lucida Grande", "Verdana", "FreeSans", sans-serif;
+  font-size: large;
 }
 
 a { text-decoration: none; color: #557733; }
@@ -183,7 +184,6 @@ h3 { margin-top: .6em; margin-bottom: .4em; }
     background: #ffffff;
     margin-left: 225px;
     margin-right: 50px;
-    font-size: medium;
     max-width: 1000px;
     line-hight: 1.25em;
 }
@@ -235,7 +235,7 @@ h3 { margin-top: .6em; margin-bottom: .4em; }
 }
 #container #sidebar h2 {
     text-align: center;
-    font-size: 150%;
+    font-size: 1.25em;
     margin: 1.5em 0 0.8em 0;
 }
 #container #sidebar hr {
@@ -262,7 +262,7 @@ h3 { margin-top: .6em; margin-bottom: .4em; }
 .column h2 a { text-decoration: none; color: #000000; }
 .column h2 a:hover { text-decoration: underline; }
 
-@media all and (min-width: 90em) {
+@media all and (min-width: 78em) {
     .column:nth-child(odd) {
         clear: both;
         float: left;
@@ -283,7 +283,7 @@ h3 { margin-top: .6em; margin-bottom: .4em; }
 
 span.continued {
   display: block;
-  font-size: .83em;
+  font-size: .9em;
   font-weight: bold;
   margin-top: 1em;
   margin-bottom: 1em;
@@ -291,7 +291,7 @@ span.continued {
 
 p.date {
   font-style: italic;
-  font-size: .83em;
+  font-size: .9em;
   margin-bottom: .3em;
   margin-top: .3em;
 }
@@ -467,7 +467,7 @@ dd {
     padding: .7em .7em .7em .7em;
 }
 .fundraiser-top-text em {
-    font-size: 120%;
+    font-size: 110%;
 }
 
 /* These vido controls are based on the fact that our videos often appear on
