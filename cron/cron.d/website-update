@@ -1,0 +1,1 @@
+*/5 * * * * www $HOME/website/cron/scripts/website-update.sh
