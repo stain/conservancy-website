@@ -1,0 +1,39 @@
+{% extends "base_conservancy.html" %}
+
+{% block head %}
+<style>
+#subhed {
+  margin-top: -0.8em;
+  font-style: italic;
+}
+</style>
+{% endblock %}
+
+{% block content %}
+<h1>ContractPatch</h1>
+
+<div id="subhed">Everything is negotiable</div>
+
+<p style="clear: both;">Many free and open source software developers sign employment agreements with their employers.  These agreements can affect whether and how developers contribute to FOSS—whether it’s done as part of their employment, after hours, or both.  ContractPatch is Conservancy’s initiative to give developers the words they need to make sure they can continue to do the work that’s important to them and our community.  Whether those words are negotiation tactics for the hiring process, or language to suggest for a prospective employment agreement, ContractPatch helps developers defend their own interests.</p>
+
+<p>In the coming months, we’ll write about legal and strategic points in contract negotiation strategies, pre-negotiation prep and practice, methods for negotiating, and general information on your legal rights around contracts.  We’ll also look at specific contract provisions—especially those that impact tech workers the most, such as non-compete agreements and intellectual property assignment clauses.  This will all go hand-in-hand with a Git repository with forkable sample language for key contract provisions, such as payment terms, benefits, non-competition and non-solicitation agreements, and intellectual property assignment clauses.</p>
+
+<h3>Follow ContractPatch</h3>
+
+<p><a href="https://lists.sfconservancy.org/mailman/listinfo/contractpatch">Subscribe to our discussion mailing list.</a>  This is a great place to talk about issues in employment agreements, and suggest what ContractPatch might tackle next.</p>
+
+<p><a href="https://twitter.com/ContractPatch">Follow ContractPatch on Twitter.</a></p>
+
+<h3>Blog posts</h3>
+
+{# FIXME: This is duplicated from blog/entry_list.html #}
+{% for entry in blog_entries %}
+    <h3><a href="{{ entry.get_absolute_url }}">{{ entry.headline|safe }}</a></h3>
+        {{ entry.body|safe }}
+    <p class="date small">Posted by <strong>{{ entry.author.formal_name }}</strong> on {{ entry.pub_date|date:"F j, Y" }}
+    {% if entry.tags.all %}<span class="blog-tags">/ Tags: {% for tag in entry.tags.all %}<a href="{{ tag.get_absolute_url }}">{{ tag.label }}</a>{% if not forloop.last %}, {% endif %}{% endfor %}</span>{% endif %}
+    </p>
+{% endfor %}
+
+<p><span class="continued"><a href="/blog/?tag=ContractPatch">Read all ContractPatch blog posts…</a></span></p>
+{% endblock %}
