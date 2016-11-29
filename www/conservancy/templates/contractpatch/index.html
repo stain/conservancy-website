@@ -26,10 +26,10 @@
 
 <h3>Blog posts</h3>
 
-{#
+{% comment %}
 FIXME:
 This is duplicated from blog/entry_list.html
-#}
+{% endcomment %}
 {% for entry in blog_entries %}
     <h3><a href="{{ entry.get_absolute_url }}">{{ entry.headline|safe }}</a></h3>
         {{ entry.body|safe }}
