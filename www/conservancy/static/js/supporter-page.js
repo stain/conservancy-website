@@ -48,19 +48,21 @@ $(document).ready(function() {
     if (noCommaSiteSoFar >= noCommaSiteMiddleGoal) {
         // We've got
         var leftOver = noCommaMatchFinalGoal - noCommaSiteSoFar;
+        var supporterProgress = (noCommaSiteSoFar / noCommaSiteFinalGoal) * 100;
+        var matchProgress = (noCommaSiteMatchCount / noCommaSiteFinalGoal) * 100;
+        var needProgress = 100 - matchProgress;
 
         $('#siteprogressbar').
             multiprogressbar({ parts: [
-                { value: (noCommaSiteSoFar / noCommaSiteFinalGoal) * 100,
+                { value: supporterProgress,
                   text: noCommaSiteSoFar.toLocaleString() + " have joined!",
                   barClass: "progress", textClass: "soFarText" },
-                { value:
-                  ((noCommaMatchFinalGoal - noCommaSiteMiddleGoal) / noCommaSiteFinalGoal) * 100,
-                  text: leftOver.toLocaleString() + " more needed to save license compliance work.",
+                { value: needProgress,
+                  text: leftOver.toLocaleString() + " more needed",
                   barClass: "final-goal", textClass: "goalText" },
-                {  value: 100,
-                   text: siteMatchCount + " matched!",
-                   barClass: "progress", textClass: "soFarText" },
+                { value: 100,
+                  text: noCommaSiteMatchCount.toLocaleString() + " matched!",
+                  barClass: "progress", textClass: "soFarText" },
             ]});
     } else {
         $('#siteprogressbar').
