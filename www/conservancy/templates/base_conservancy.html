@@ -67,7 +67,7 @@ PIA will match up to 416.
         {% if sitefundgoal.fundraiser_donation_count_disclose_threshold > 1076 %}
         416 Supporters were matched
         {% else %}
-        The next {% 1076|subtract:sitefundgoal.fundraiser_donation_count_disclose_threshold|intcomma %} Supporters who join or renew by January 15 <a href="/news/2016/nov/29/private-internet-access-2016-fundraising-match/">will count twice</a>,
+        The next {{ 1076|subtract:sitefundgoal.fundraiser_donation_count_disclose_threshold|intcomma }} Supporters who join or renew by January 15 <a href="/news/2016/nov/29/private-internet-access-2016-fundraising-match/">will count twice</a>,
         {% endif %}
         thanks to <a href="https://www.privateinternetaccess.com/">Private Internet Access</a>!
       </em>
