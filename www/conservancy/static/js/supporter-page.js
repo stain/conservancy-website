@@ -52,8 +52,7 @@ $(document).ready(function() {
         // We've got
         var leftOver = noCommaMatchFinalGoal - noCommaSiteSoFar;
         var supporterProgress = (noCommaSiteSoFar / noCommaSiteFinalGoal) * 100;
-        var matchProgress = (noCommaSiteMatchCount / noCommaSiteFinalGoal) * 100;
-        var needProgress = supporterProgress + (100 - matchProgress);
+        var needProgress = (leftOver / noCommaSiteFinalGoal) * 100;
 
         $('#siteprogressbar').
             multiprogressbar({ parts: [
