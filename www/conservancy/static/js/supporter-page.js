@@ -23,6 +23,9 @@ $(document).ready(function() {
     var noCommaSiteFinalGoal = parseInt(siteFinalGoal.replace(/,/g, ""));
     var siteMiddleGoal = $('span#site-fundraiser-middle-goal').text();
     var noCommaSiteMiddleGoal = parseInt(siteMiddleGoal.replace(/,/g, ""));
+    if (!noCommaSiteMiddleGoal) {
+        noCommaSiteMiddleGoal = 0;
+    }
     var siteSoFar = $('span#site-fundraiser-so-far').text();
     var noCommaSiteSoFar = parseInt(siteSoFar.replace(/,/g, ""));
     var siteMatchCount = $('span#site-fundraiser-match-count').text();
