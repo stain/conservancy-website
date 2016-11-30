@@ -1,0 +1,12 @@
+/* "Big screen" means, approximately, bigger than a phone */
+
+.column:nth-child(odd) {
+    clear: both;
+    float: left;
+    width: 49%;
+}
+
+.column:nth-child(even) {
+    float: right;
+    width: 49%;
+}

@@ -262,18 +262,6 @@ h3 { margin-top: .6em; margin-bottom: .4em; }
 .column h2 a { text-decoration: none; color: #000000; }
 .column h2 a:hover { text-decoration: underline; }
 
-@media all and (min-width: 67em) {
-    .column:nth-child(odd) {
-        clear: both;
-        float: left;
-        width: 49%;
-    }
-    .column:nth-child(even) {
-        float: right;
-        width: 49%;
-    }
-}
-
 #conservancyfooter {
   margin-top: 1em;
   border-top: 1px solid #ccc;
