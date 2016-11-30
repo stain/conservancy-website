@@ -10,3 +10,16 @@
     float: right;
     width: 49%;
 }
+
+#contractpatch-follow {
+    float: left;
+    width: 30em;
+    margin-right: 1.5em;
+    /* Below from .shaded, but we don't want the class on non-big screens. */
+    padding: .75em;
+    background: #F0FFB8;
+}
+
+#contractpatch-follow h2 {
+    font-size: large;
+}
