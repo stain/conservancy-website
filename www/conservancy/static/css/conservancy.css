@@ -298,6 +298,15 @@ blockquote, div.quote /* div.quote is used by conservancy whitepaper */ {
 .newsgraphic { float: right; }
 .newsgraphic img { border: 1px solid #000; }
 
+.picture {
+    text-align: center;
+    font-style: italic;
+}
+.picture img {
+    margin: 0 auto;
+    max-width: 100%;
+}
+
 .secondary_info { font-size: 83%; }
 .next_page_button { float: right; }
 .pagination_list { text-align: center; }

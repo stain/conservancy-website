@@ -11,6 +11,21 @@
     width: 49%;
 }
 
+.left {
+    float: left;
+    margin-right: 1.5em;
+}
+
+.right {
+    float: right;
+    margin-left: 1.5em;
+}
+
+.picture {
+    width: 30em;
+    padding: .75em;
+}
+
 #contractpatch-follow {
     float: left;
     width: 30em;
