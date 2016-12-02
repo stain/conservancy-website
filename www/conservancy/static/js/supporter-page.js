@@ -117,7 +117,7 @@ $(document).ready(function() {
         noCommaValue = value.replace(/,/g, "");
         var re = /^((\d{1,3}(,?\d{3})*?(\.\d{0,2})?)|\d+(\.\d{0,2})?)$/;
         var isValid = ( re.test(value) &&
-                        parseInt(noCommaValue) >= parseInt(input.attr("minimum")));
+                        parseInt(noCommaValue) >= parseInt(input.attr("min")));
         if (isValid)  {
            input.removeClass("invalid").addClass("valid");
            errorElement.removeClass("form-error-show").addClass("form-error");
