@@ -41,9 +41,7 @@ $(document).ready(function() {
             textClass: "goalText",
         });
     }
-    var $progressBar = $('#siteprogressbar');
-    $progressBar.empty();
-    $progressBar.multiprogressbar(barParts);
+    $('#siteprogressbar').empty().multiprogressbar({parts: barParts});
 
     $('span#fundraiser-percentage').css({ 'color'        : 'green',
                                           'font-weight'  : 'bold',
