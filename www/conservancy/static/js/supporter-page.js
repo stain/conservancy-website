@@ -21,106 +21,34 @@ $window.load(function() {
 $(document).ready(function() {
     var siteFinalGoal = $('span#site-fundraiser-final-goal').text();
     var noCommaSiteFinalGoal = parseInt(siteFinalGoal.replace(/,/g, ""));
-    var siteMiddleGoal = $('span#site-fundraiser-middle-goal').text();
-    var noCommaSiteMiddleGoal = parseInt(siteMiddleGoal.replace(/,/g, ""));
-    if (!noCommaSiteMiddleGoal) {
-        noCommaSiteMiddleGoal = 0;
-    }
-    var siteSoFar = $('span#site-fundraiser-so-far').text();
-    var noCommaSiteSoFar = parseInt(siteSoFar.replace(/,/g, ""));
     var siteMatchCount = $('span#site-fundraiser-match-count').text();
     var noCommaSiteMatchCount = parseInt(siteMatchCount.replace(/,/g, ""));
     if (! noCommaSiteMatchCount) {
         noCommaSiteMatchCount = "0";
     }
-    var noCommaMatchFinalGoal = noCommaSiteFinalGoal - noCommaSiteMatchCount;
-    var goal  = $('span#fundraiser-goal').text();
-    var soFar = $('span#fundraiser-so-far').text();
-    var donationCount = $('span#fundraiser-donation-count').text();
-    var noCommaGoal = parseFloat(goal.replace(/,/g, ""));
-    var noCommaSoFar = parseFloat(soFar.replace(/,/g, ""));
-    var noCommaDonationCount = parseInt(donationCount.replace(/,/g, ""));
-    var percentage = (parseFloat(noCommaSoFar) / parseFloat(noCommaGoal)) * 100;
-    var curValue = 0.00;
-    var incrementSoFar = 0.00;
-    var curDonationCount = 0;
-    var riseLevelPercent = 0.5;
-    var incrementDonationCount = Math.round( (riseLevelPercent / 100) * noCommaDonationCount );
-    $('#siteprogressbar').empty();
-
-    if (noCommaSiteSoFar >= noCommaSiteMiddleGoal) {
-        // We've got
-        var leftOver = noCommaMatchFinalGoal - noCommaSiteSoFar;
-        var supporterProgress = (noCommaSiteSoFar / noCommaSiteFinalGoal) * 100;
-        var needProgress = (leftOver / noCommaSiteFinalGoal) * 100;
-
-        $('#siteprogressbar').
-            multiprogressbar({ parts: [
-                { value: supporterProgress,
-                  text: noCommaSiteSoFar.toLocaleString() + " have joined!",
-                  barClass: "progress", textClass: "soFarText" },
-                { value: needProgress,
-                  text: leftOver.toLocaleString() + " more needed",
-                  barClass: "final-goal", textClass: "goalText" },
-                { value: 100,
-                  text: noCommaSiteMatchCount.toLocaleString() + " matched!",
-                  barClass: "progress", textClass: "soFarText" },
-            ]});
-    } else {
-        $('#siteprogressbar').
-            multiprogressbar({ parts: [
-                { value: (noCommaSiteSoFar / noCommaSiteFinalGoal) * 100,
-                  text: siteSoFar + " joined!",
-                  barClass: "progress", textClass: "soFarText" },
-                { value: ((noCommaSiteMiddleGoal - noCommaSiteSoFar) / noCommaSiteFinalGoal) * 100,
-                  text: siteMiddleGoal + " will save our basic work",
-                  barClass: "middle-goal", textClass: "goalText" },
-                { value:
-                  ((noCommaMatchFinalGoal - noCommaSiteMiddleGoal) / noCommaSiteFinalGoal) * 100,
-                  text: noCommaMatchFinalGoal.toLocaleString() + " will save license compliance",
-                  barClass: "final-goal", textClass: "goalText" },
-                {  value: 100,
-                   text: siteMatchCount + " matched!",
-                   barClass: "progress", textClass: "soFarText" },
-            ]});
+    var barParts = [{
+        value: (noCommaSiteMatchCount / noCommaSiteFinalGoal) * 100,
+        text: noCommaSiteMatchCount.toLocaleString() + " matched!",
+        barClass: "progress",
+        textClass: "soFarText",
+    }];
+    if (barParts[0].value < 100) {
+        var matchesLeft = noCommaSiteFinalGoal - noCommaSiteMatchCount;
+        barParts.push({
+            value: 100,
+            text: matchesLeft.toLocaleString() + " to go!",
+            barClass: "final-goal",
+            textClass: "goalText",
+        });
     }
+    $('#siteprogressbar').empty().multiprogressbar(barParts);
+
     $('span#fundraiser-percentage').css({ 'color'        : 'green',
                                           'font-weight'  : 'bold',
                                           'float'        : 'right',
                                           'margin-right' : '40%',
                                           'margin-top'   : '2.5%',
                                           'text-align'   : 'inherit'});
-    function riseDonationProgressBar() {
-        if (curValue >= percentage) {
-            $('span#fundraiser-so-far').text(soFar);
-            $("#progressbar").progressbar({ value :  percentage });
-            $('span#fundraiser-percentage').text(percentage.toFixed(1) + "%");
-        } else {
-            var newVal = (curValue / 100.00) * noCommaGoal;
-            $("#progressbar").progressbar({ value:  curValue });
-            $('span#fundraiser-so-far').text(newVal.toLocaleString());
-            curValue += riseLevelPercent;
-            setTimeout(riseDonationProgressBar, 50);
-        }
-    }
-    function riseDonationCount() {
-        if (curDonationCount >= noCommaDonationCount) {
-            $('span#fundraiser-donation-count').text(donationCount);
-        } else {
-            $('span#fundraiser-donation-count').text(curDonationCount.toLocaleString());
-            curDonationCount += incrementDonationCount;
-            setTimeout(riseDonationCount, 50);
-        }
-    }
-    if (noCommaDonationCount > 0) {
-        $('span#fundraiser-donation-count').text("");
-        riseDonationCount();
-    }
-    if (noCommaSoFar > 0.00 && noCommaGoal > 0.00) {
-        $('span#fundraiser-percentage').text("");
-        $("#progressbar").progressbar({ value:  curValue });
-        riseDonationProgressBar();
-    }
 
     $('.toggle-content').hide();
 
