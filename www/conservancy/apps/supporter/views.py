@@ -7,7 +7,7 @@ def index(request):
         except (KeyError, ValueError):
             validator.fail()
         else:
-            validator.validate('{.2f}'.format(amount_param))
+            validator.validate('{:.2f}'.format(amount_param))
     partial_amount = amount_param if validator.valid else 0
     context = {
         'partial_amount': partial_amount,
