@@ -61,7 +61,7 @@ urlpatterns = patterns('',
     (r'^contractpatch', include('conservancy.apps.contractpatch.urls')),
     (r'^overview', 'conservancy.static.views.index'),
     (r'^privacy-policy', 'conservancy.static.views.index'),
-    (r'^supporter', 'conservancy.static.views.index'),
+    (r'^supporter', include('conservancy.apps.supporter.urls')),
     (r'^fundraiser_data', 'conservancy.apps.fundgoal.views.view'),
 )
 
