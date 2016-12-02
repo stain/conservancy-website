@@ -61,7 +61,8 @@
 <p><strong>Note:</strong> annual supporter is not an automatic renewal
   relationship.  If you join today, you'll receive an email in about one year to remind you to
   optionally renew.</p>
-<form id="annual" class="supporter-form" action="https://www.paypal.com/cgi-bin/webscr" method="post" name="supporter">
+<form id="annual" class="supporter-form" action="https://www.paypal.com/cgi-bin/webscr" method="post" name="supporter"
+      data-upgrade-from-amount="{{ partial_amount }}">
 <div class="supporter-form-inputs">
             <input type="hidden" name="return" value="https://sfconservancy.org/supporter/thank-you.html" />
             <input type="hidden" name="cmd" value="_xclick" />
@@ -69,7 +70,7 @@
             <input type="hidden" name="item_name" value="Conservancy Supporter, Annual" />
             <input id="no_shipping" type="hidden" name="no_shipping" value="0" />
   <label for="amount"><strong>Amount:</strong> $</label>
-  <input id="amount" type="number" name="amount" size="7" min="120" value="120" />
+  <input id="amount" type="number" name="amount" size="7" min="{{ minimum_amount }}" value="{{ minimum_amount }}" />
   <span id="error" class="form-error-show">$120 is a minimum for Conservancy
   Supporters.  <a href="/donate">Donate smaller amounts here</a>.</span><br/>
 
