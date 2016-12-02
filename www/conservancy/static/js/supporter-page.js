@@ -173,7 +173,7 @@ $(document).ready(function() {
     };
     $window.bind("hashchange", selectSupportTypeFromHash);
     var $selectorLink = selectSupportTypeFromHash();
-    if (parseInt($("form#annual").upgradeFromAmount) > 0) {
+    if (parseFloat($("form#annual").get(0).dataset.upgradeFromAmount) > 0) {
         supportTypeSelector("#annual").click();
         $(".supporter-type-selector").hide();
     }
