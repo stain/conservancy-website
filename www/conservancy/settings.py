@@ -17,6 +17,8 @@
 # along with this program in a file in the toplevel directory called
 # "AGPLv3".  If not, see <http://www.gnu.org/licenses/>.
 
+import os.path
+
 from djangocommonsettings import *
 
 SITE_ID = 2
@@ -31,15 +33,12 @@ REDIRECT_TABLE = {
     'www.sf-conservancy.org': 'sfconservancy.org',
 }
 
-# import os
-# BASE_DIR = os.path.dirname(os.path.dirname(__file__))
-
-# from os.path import join
-# TEMPLATE_DIRS = (
-#     join(BASE_DIR,  'templates'),
-# )
-# NOTE: trailing comma is required to force this to be a tuple
-TEMPLATE_DIRS = ( '/var/www/conservancy/templates', '/var/www/conservancy/static', )
+_root_dir = os.path.abspath(os.path.dirname(__file__))
+TEMPLATE_DIRS = (
+    os.path.join(_root_dir, 'templates'),
+    os.path.join(_root_dir, 'static'),
+)
+del _root_dir
 
 # try:
 #     from djangodebug import conservancy_hostname as FORCE_CANONICAL_HOSTNAME
