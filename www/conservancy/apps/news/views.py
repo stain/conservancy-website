@@ -1,7 +1,6 @@
 # from django.views.generic.list_detail import object_list
 from django.views.generic import ListView
 from django.template import RequestContext
-from conservancy import context_processors as context_processors
 from django.shortcuts import render_to_response
 from django.views.generic.dates import YearArchiveView, MonthArchiveView, DayArchiveView, DateDetailView
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger

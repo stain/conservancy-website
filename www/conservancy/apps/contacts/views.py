@@ -1,5 +1,4 @@
 from django.shortcuts import render_to_response
-from conservancy import context_processors as context_processors
 from django.template import RequestContext
 from django import forms
 from conservancy.apps.contacts.models import ContactEntry

@@ -1,5 +1,4 @@
 from django.shortcuts import render_to_response
-from conservancy import context_processors as context_processors
 from django.template import RequestContext
 from conservancy.apps.supporters.models import Supporter as Supporter
 from datetime import datetime, timedelta
