@@ -14,7 +14,7 @@ def handler(request, errorcode):
         return HttpResponse("Internal error: " + path)
     template = loader.get_template(path)
     context = RequestContext(request)
-    return HttpResponse(template.render(context), status=errorcode)
+    return HttpResponse(template.render(context), status=int(errorcode))
 
 def handler401(request):
     return handler(request, 401)

@@ -50,6 +50,7 @@ urlpatterns = patterns('',
     (r'^news(/|$)', include('conservancy.apps.news.urls')),
     (r'^blog(/|$)', include('conservancy.apps.blog.urls')),
     # formerly static templated things... (dirs with templates)
+    (r'^error/(40[134]|500)(?:/index\.html|/|)$', 'conservancy.static.views.handler'),
     (r'^error', 'conservancy.static.views.index'),
     (r'^about', 'conservancy.static.views.index'),
     (r'^donate', 'conservancy.static.views.index'),
