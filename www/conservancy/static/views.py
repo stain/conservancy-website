@@ -4,7 +4,7 @@ from django.http import HttpResponse
 from django.template import RequestContext, loader
 from conservancy.apps.fundgoal.models import FundraisingGoal as FundraisingGoal
 
-STATIC_ROOT = '/home/www/website/www/conservancy/static/'
+STATIC_ROOT = os.path.abspath(os.path.dirname(__file__))
 FILESYSTEM_ENCODING = 'utf-8'
 
 def handler(request, errorcode):
