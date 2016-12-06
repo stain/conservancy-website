@@ -8,25 +8,25 @@ STATIC_ROOT = os.path.abspath(os.path.dirname(__file__))
 FILESYSTEM_ENCODING = 'utf-8'
 
 def handler(request, errorcode):
-    path = os.path.join('error', errorcode, 'index.html')
+    path = os.path.join('error', str(errorcode), 'index.html')
     fullpath = os.path.join(STATIC_ROOT, path)
     if not os.path.exists(fullpath):
         return HttpResponse("Internal error: " + path)
     template = loader.get_template(path)
     context = RequestContext(request)
-    return HttpResponse(template.render(context))
+    return HttpResponse(template.render(context), status=errorcode)
 
 def handler401(request):
-    return handler(request, '401')
+    return handler(request, 401)
 
 def handler403(request):
-    return handler(request, '403')
+    return handler(request, 403)
 
 def handler404(request):
-    return handler(request, '404')
+    return handler(request, 404)
 
 def handler500(request):
-    return handler(request, '500')
+    return handler(request, 500)
 
 def fundgoal_lookup(fundraiser_sought):
     try:
