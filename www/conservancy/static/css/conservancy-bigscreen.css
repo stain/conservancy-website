@@ -23,6 +23,7 @@
 
 .picture {
     width: 30em;
+    max-width: 35%;
     padding: .75em;
 }
 
