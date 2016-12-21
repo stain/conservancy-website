@@ -313,6 +313,9 @@ blockquote, div.quote /* div.quote is used by conservancy whitepaper */ {
 .document_format { border: 1px solid #888; padding: .2em; background: #fff99d;}
 .copyright_info { font-size: 90%; }
 hr.footnote-separator { width: 80%; margin-left: auto; margin-right: auto; }
+.doc-footer { font-style: italic; }
+.doc-footer > *:first-child::before { content: "["; }
+.doc-footer > *:last-child::after   { content: "]"; }
 
 /* Resources pages */
 div.download-formats { margin-top: 2em; margin-bottom: 2em; }
