@@ -12,6 +12,11 @@ var supportTypeSelector = function(supportTypeHash) {
 var $window = $(window);
 
 $window.load(function() {
+    /* We've sometimes published links that say #renew instead of #renewal.
+       Rewrite that to work as intended. */
+    if (window.location.hash === "#renew") {
+        window.location.hash = "#renewal";
+    }
     var $selectorLink = supportTypeSelector(window.location.hash);
     if ($selectorLink.length > 0) {
         $window.scrollTop($selectorLink.offset().top);
