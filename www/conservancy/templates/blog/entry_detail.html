@@ -1,6 +1,6 @@
 {% extends "base_blog.html" %}
 
-{% block subtitle %}{{ object.headline|striptags }} - Conservancy Blog - {% endblock %}
+{% block subtitle %}{{ object.headline|striptags|safe }} - Conservancy Blog - {% endblock %}
 
 {% block content %}
 
