@@ -33,16 +33,8 @@
 <div id="contractpatch-blog" class="section">
 <h2>Blog posts</h2>
 
-{% comment %}
-FIXME:
-This is duplicated from blog/entry_list.html
-{% endcomment %}
 {% for entry in blog_entries %}
-    <h3><a href="{{ entry.get_absolute_url }}">{{ entry.headline|safe }}</a></h3>
-        {{ entry.body|safe }}
-    <p class="date small">Posted by <strong>{{ entry.author.formal_name }}</strong> on {{ entry.pub_date|date:"F j, Y" }}
-    {% if entry.tags.all %}<span class="blog-tags">/ Tags: {% for tag in entry.tags.all %}<a href="{{ tag.get_absolute_url }}">{{ tag.label }}</a>{% if not forloop.last %}, {% endif %}{% endfor %}</span>{% endif %}
-    </p>
+  {% include "blog/entry_partial.html" with entry=entry only %}
 {% endfor %}
 
 <p><span class="continued"><a href="/blog/?tag=ContractPatch">Read all ContractPatch blog posts…</a></span></p>

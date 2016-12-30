@@ -1,0 +1,49 @@
+{% comment %}
+
+This partial requires these parameters:
+
+* `entry`: The BlogEntry object to render.
+
+This partial accepts these optional parameters:
+
+* `show`: How much of the BlogEntry to render.  Accepted values are
+  "headline", "dateline", "summary", "summary+tags", and "body".
+  Every value will render the parts listed before it, except "body"
+  doesn't include "summary".  Default "body".
+* `htag`: Name of the HTML tag to render the entry headline.  Default "h3".
+
+{% endcomment %}
+
+<div class="blog-entry">
+
+<{{ htag|default:"h3" }}
+  >{% if show|default:"body" != "body" %}<a href="{{ entry.get_absolute_url }}"
+  >{% endif %}{{ entry.headline|safe }}{% if show|default:"body" != "body" %}</a>{% endif %}</{{ htag|default:"h3" }}>
+
+{% if show != "headline" %}
+<p class="date">by <span class="author">{{ entry.author.formal_name }}</span>
+  on {{ entry.pub_date|date:"F j, Y" }}
+</p>
+
+{% if show != "dateline" %}
+
+{% if show|default:"body" == "body" %}
+{{ entry.body|safe }}
+{% else %}
+{{ entry.summary|safe }}
+{% endif %}
+
+{% if show|default:"body" != "body" %}
+<p><a class="continued" href="{{ entry.get_absolute_url }}">Read More&hellip;</a></p>
+{% endif %}
+
+{% if show != "summary" and entry.tags.exists %}
+<p class="blog-tags">Tags:
+  {% for tag in entry.tags.iterator %}
+  <a href="{{ tag.get_absolute_url }}">{{ tag.label }}</a>{% if not forloop.last %}, {% endif %}{% endfor %}</p>
+{% endif %}
+
+{% endif %}{# show != "dateline" #}
+{% endif %}{# show != "headline" #}
+
+</div>

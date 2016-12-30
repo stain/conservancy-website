@@ -6,11 +6,8 @@
 
 <h2>Conservancy Blog Archive: {{ year|date:"Y" }}</h2>
 
-<ul>
-{% for object in object_list %}
-    <li><a href="{{ object.get_absolute_url }}"><b>{{ object.headline|safe }}</b></a><br/>
-    <i>{{ object.pub_date|date:"F j, Y" }} by {{ object.author.formal_name }}</i></li>
+{% for entry in object_list %}
+  {% include "blog/entry_partial.html" with entry=entry show="dateline" only %}
 {% endfor %}
-</ul>
 
 {% endblock %}

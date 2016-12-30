@@ -4,12 +4,10 @@
 
 {% block content %}
 
-<p class="date">{{ object.pub_date|date:"F j, Y" }} by {{ object.author.formal_name }}</p>
-<h2>{{ object.headline|safe }}</h2>
-{{ object.body|safe }}
-<p><i>Posted by <strong>{{ object.author.formal_name }}</strong> on {{object.pub_date|date:"F j, Y" }}.  Please email any comments on this entry to <a href="mailto:info@sfconservancy.org">info@sfconservancy.org</a>.</i></p>
+{% include "blog/entry_partial.html" with entry=object htag="h2" only %}
 
-{% if object.tags.all %}<p class="blog-tags">Tags: {% for tag in object.tags.all %}<a href="{{ tag.get_absolute_url }}">{{ tag.label }}</a>{% if not forloop.last %}, {% endif %}{% endfor %}</p>{% endif %}
+<p class="blog-comments">Please email any comments on this entry to
+  <a href="mailto:info@sfconservancy.org">info@sfconservancy.org</a>.</p>
 
 <p><span class="continued"><a href="/blog/">Other Conservancy Blog entries&hellip;</a></span></p>
 

@@ -49,42 +49,12 @@
 
 <div class="column">
 <h2><a href="/feeds/blog/" class="feedlink"><img src="/img/feed-icon-14x14.png" alt="[RSS]"/></a> <a href="/blog/">Conservancy Blog</a></h2>
-<h3><a href="{{ blog.0.get_absolute_url }}">{{ blog.0.headline|safe }}</a></h3>
-<p class="date">Posted by {{ blog.0.author.formal_name }} on {{ blog.0.pub_date|date:"F j, Y" }}</p>
-{{ blog.0.summary|safe }}
-<p><span class="continued"><a href="{{ blog.0.get_absolute_url }}">Read More from {{ blog.0.author.casual_name }} on this&hellip;</a></span></p>
-
-{% if blog.1 and blog.1.pub_date|date_within_past_days:30 %}
-<hr/>
-<h3><a href="{{ blog.1.get_absolute_url }}">{{ blog.1.headline|safe }}</a></h3>
-<p class="date">Posted by {{ blog.1.author.formal_name }} on {{ blog.1.pub_date|date:"F j, Y" }}</p>
-{{ blog.1.summary|safe }}
-<p><span class="continued"><a href="{{ blog.1.get_absolute_url }}">Read More from {{ blog.1.author.casual_name }} on this&hellip;</a></span></p>
-{% endif %}
-
-{% if blog.2 and blog.2.pub_date|date_within_past_days:30 %}
-<hr/>
-<h3><a href="{{ blog.2.get_absolute_url }}">{{ blog.2.headline|safe }}</a></h3>
-<p class="date">Posted by {{ blog.2.author.formal_name }} on {{ blog.2.pub_date|date:"F j, Y" }}</p>
-{{ blog.2.summary|safe }}
-<p><span class="continued"><a href="{{ blog.2.get_absolute_url }}">Read More from {{ blog.2.author.casual_name }} on this&hellip;</a></span></p>
-{% endif %}
-
-{% if blog.3 and blog.3.pub_date|date_within_past_days:30 %}
-<hr/>
-<h3><a href="{{ blog.3.get_absolute_url }}">{{ blog.3.headline|safe }}</a></h3>
-<p class="date">Posted by {{ blog.3.author.formal_name }} on {{ blog.3.pub_date|date:"F j, Y" }}</p>
-{{ blog.3.summary|safe }}
-<p><span class="continued"><a href="{{ blog.3.get_absolute_url }}">Read More from {{ blog.3.author.casual_name }} on this&hellip;</a></span></p>
-{% endif %}
-
-{% if blog.4 and blog.4.pub_date|date_within_past_days:30 %}
-<hr/>
-<h3><a href="{{ blog.4.get_absolute_url }}">{{ blog.4.headline|safe }}</a></h3>
-<p class="date">Posted by {{ blog.4.author.formal_name }} on {{ blog.4.pub_date|date:"F j, Y" }}</p>
-{{ blog.4.summary|safe }}
-<p><span class="continued"><a href="{{ blog.4.get_absolute_url }}">Read More from {{ blog.4.author.casual_name }} on this&hellip;</a></span></p>
-{% endif %}
+{% for entry in blog|slice:":5" %}
+  {% if forloop.first or entry.pub_date|date_within_past_days:30 %}
+    {% if not forloop.first %}<hr>{% endif %}
+    {% include "blog/entry_partial.html" with entry=entry show="summary" only %}
+  {% endif %}
+{% endfor %}
 
 <p><span class="continued"><a href="/blog/">Conservancy Blog Archive&hellip;</a></span></p>
 </div>

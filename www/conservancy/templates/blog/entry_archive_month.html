@@ -6,13 +6,8 @@
 
 <h2>Conservancy Blog Archive: {{ month|date:"F, Y" }}</h2>
 
-{% for object in object_list %}
-    <h3><a href="{{ object.get_absolute_url }}">{{ object.headline|safe }}</a></h3>
-        {{ object.summary|safe }}
-    <p><span class="continued"><a href="{{ object.get_absolute_url }}">Read More...</a></span></p>
-    <p class="date small">Posted by <strong>{{ object.author.formal_name }}</strong> on {{ object.pub_date|date:"F j, Y" }}
-    {% if object.tags.all %}<span class="blog-tags">/ Tags: {% for tag in object.tags.all %}<a href="{{ tag.get_absolute_url }}">{{ tag.label }}</a>{% if not forloop.last %}, {% endif %}{% endfor %}</span>{% endif %}
-    </p>
+{% for entry in object_list %}
+  {% include "blog/entry_partial.html" with entry=entry show="summary+tags" only %}
 {% endfor %}
 
 {% endblock %}
