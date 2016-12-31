@@ -24,87 +24,6 @@ $window.load(function() {
 });
 
 $(document).ready(function() {
-    var siteFinalGoal = $('span#site-fundraiser-final-goal').text();
-    var noCommaSiteFinalGoal = parseInt(siteFinalGoal.replace(/,/g, ""));
-    var siteMatchCount = $('span#site-fundraiser-match-count').text();
-    var noCommaSiteMatchCount = parseInt(siteMatchCount.replace(/,/g, ""));
-    if (! noCommaSiteMatchCount) {
-        noCommaSiteMatchCount = "0";
-    }
-    var barParts = [{
-        value: (noCommaSiteMatchCount / noCommaSiteFinalGoal) * 100,
-        text: noCommaSiteMatchCount.toLocaleString() + " matched!",
-        barClass: "progress",
-        textClass: "soFarText",
-    }];
-    if (barParts[0].value < 100) {
-        var matchesLeft = noCommaSiteFinalGoal - noCommaSiteMatchCount;
-        barParts.push({
-            value: 100,
-            text: matchesLeft.toLocaleString() + " to go!",
-            barClass: "final-goal",
-            textClass: "goalText",
-        });
-    }
-    $('#siteprogressbar').empty().multiprogressbar({parts: barParts});
-
-    $('span#fundraiser-percentage').css({ 'color'        : 'green',
-                                          'font-weight'  : 'bold',
-                                          'float'        : 'right',
-                                          'margin-right' : '40%',
-                                          'margin-top'   : '2.5%',
-                                          'text-align'   : 'inherit'});
-
-    $('.toggle-content').hide();
-
-    $('.toggle-control')
-     .addClass('clickable')
-     .bind('click', function() {
-        var $control = $(this);
-        var $parent = $control.parents('.toggle-unit');
-
-        $parent.toggleClass('expanded');
-        $parent.find('.toggle-content').slideToggle();
-
-        // if control has HTML5 data attributes, use to update text
-        if ($parent.hasClass('expanded')) {
-            $control.html($control.attr('data-expanded-text'));
-        } else {
-            $control.html($control.attr('data-text'));
-        }
-    });
-    $('a.donate-now')
-      .addClass('clickable')
-      .bind('click', function() {
-        var $control = $('#donate-box');
-        var $otherTextControl = $('.donate-sidebar');
-
-        setTimeout(function() { $control.find('.toggle-content').slideUp(100);
-                                $control.toggleClass('expanded');
-                                $control.find('.toggle-content').slideDown(800).fadeOut(10);
-                                $otherTextControl.find('.donate-box-highlight').fadeOut(100);
-                              }, 300);
-          setTimeout(function() { $control.find('.toggle-content').fadeIn(2000);
-                                  $otherTextControl.find('.donate-box-highlight')
-                                  .css({'font-weight': 'bold', 'font-size' : '110%' });
-                                  $otherTextControl.find('.donate-box-highlight').fadeIn(10000);
-                                }, 500);
-    });
-    $(".t-shirt-size-selector").hide();
-    $('input[name=on0]:radio').change(function() {
-        var input=$(this);
-        var tShirtSelector = input.parent().children('.t-shirt-size-selector')
-        var noShippingSelector = input.parent().children('input#no_shipping');
-        var value = input.val();
-        if (value == "wantGiftYes") {
-            tShirtSelector.show();
-            noShippingSelector.val("2");
-        } else {
-            tShirtSelector.hide();
-            noShippingSelector.val("0");
-        }
-    });
-
     // Forms start in "invalid" form, with the errors shown, so that
     // non-Javascript users see the errors by default and know what they must
     // enter.  The following two lines correct that.
@@ -185,24 +104,4 @@ $(document).ready(function() {
     else if ($selectorLink.length === 0) {
         supportTypeSelector("#annual").click();
     }
-
-    $( ".footnote-mark" ).tooltip({
-        items: "a",
-        hide: { duration: 5000 },
-        position: {
-            my: "center bottom-20",
-            at: "center left",
-            using: function( position, feedback ) {
-                $( this ).css( position );
-                $( "<div>" )
-                    .addClass( "arrow" )
-                    .addClass( feedback.vertical )
-                    .addClass( feedback.horizontal )
-                    .appendTo( this );
-            }
-        },
-        content: function() {
-            return $('.footnote-1-text').text();
-        }
-    });
 });

@@ -1,0 +1,90 @@
+/* Copyright (C) 2012-2013 Denver Gingerich,
+** Copyright (C) 2013-2014 Bradley M. Kuhn,
+** Copyright (C) 2016 Brett Smith.
+** License: GPLv3-or-later
+**  Find a copy of GPL at https://sfconservancy.org/GPLv3
+*/
+
+$(document).ready(function() {
+    /* Set up the fundraiser multiprogressbar near the top of each page. */
+    var siteFinalGoal = $('span#site-fundraiser-final-goal').text();
+    var noCommaSiteFinalGoal = parseInt(siteFinalGoal.replace(/,/g, ""));
+    var siteMatchCount = $('span#site-fundraiser-match-count').text();
+    var noCommaSiteMatchCount = parseInt(siteMatchCount.replace(/,/g, ""));
+    if (! noCommaSiteMatchCount) {
+        noCommaSiteMatchCount = "0";
+    }
+    var barParts = [{
+        value: (noCommaSiteMatchCount / noCommaSiteFinalGoal) * 100,
+        text: noCommaSiteMatchCount.toLocaleString() + " matched!",
+        barClass: "progress",
+        textClass: "soFarText",
+    }];
+    if (barParts[0].value < 100) {
+        var matchesLeft = noCommaSiteFinalGoal - noCommaSiteMatchCount;
+        barParts.push({
+            value: 100,
+            text: matchesLeft.toLocaleString() + " to go!",
+            barClass: "final-goal",
+            textClass: "goalText",
+        });
+    }
+    $('#siteprogressbar').empty().multiprogressbar({parts: barParts});
+
+    $('span#fundraiser-percentage').css({ 'color'        : 'green',
+                                          'font-weight'  : 'bold',
+                                          'float'        : 'right',
+                                          'margin-right' : '40%',
+                                          'margin-top'   : '2.5%',
+                                          'text-align'   : 'inherit'});
+
+    /* Set up donation form elements used across the whole site. */
+    $('.toggle-content').hide();
+    $('.toggle-control')
+     .addClass('clickable')
+     .bind('click', function() {
+        var $control = $(this);
+        var $parent = $control.parents('.toggle-unit');
+
+        $parent.toggleClass('expanded');
+        $parent.find('.toggle-content').slideToggle();
+
+        // if control has HTML5 data attributes, use to update text
+        if ($parent.hasClass('expanded')) {
+            $control.html($control.attr('data-expanded-text'));
+        } else {
+            $control.html($control.attr('data-text'));
+        }
+    });
+    $('a.donate-now')
+      .addClass('clickable')
+      .bind('click', function() {
+        var $control = $('#donate-box');
+        var $otherTextControl = $('.donate-sidebar');
+
+        setTimeout(function() { $control.find('.toggle-content').slideUp(100);
+                                $control.toggleClass('expanded');
+                                $control.find('.toggle-content').slideDown(800).fadeOut(10);
+                                $otherTextControl.find('.donate-box-highlight').fadeOut(100);
+                              }, 300);
+          setTimeout(function() { $control.find('.toggle-content').fadeIn(2000);
+                                  $otherTextControl.find('.donate-box-highlight')
+                                  .css({'font-weight': 'bold', 'font-size' : '110%' });
+                                  $otherTextControl.find('.donate-box-highlight').fadeIn(10000);
+                                }, 500);
+    });
+    $(".t-shirt-size-selector").hide();
+    $('input[name=on0]:radio').change(function() {
+        var input=$(this);
+        var tShirtSelector = input.parent().children('.t-shirt-size-selector')
+        var noShippingSelector = input.parent().children('input#no_shipping');
+        var value = input.val();
+        if (value == "wantGiftYes") {
+            tShirtSelector.show();
+            noShippingSelector.val("2");
+        } else {
+            tShirtSelector.hide();
+            noShippingSelector.val("0");
+        }
+    });
+});
