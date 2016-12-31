@@ -1,6 +1,6 @@
 {% extends "base_news.html" %}
 
-{% block subtitle %}{{ object.headline|striptags }} - {% endblock %}
+{% block subtitle %}{{ object.headline|striptags|safe }} - {% endblock %}
 
 {% block content %}
 
