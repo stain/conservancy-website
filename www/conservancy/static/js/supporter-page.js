@@ -70,14 +70,11 @@ $(document).ready(function() {
         var $selectedLink = $(event.target);
         $(".supporter-type-selector a").removeClass("supporter-type-selector-selected");
         $selectedLink.addClass("supporter-type-selector-selected");
-        $(".supporter-type-selection").each(function(index, element) {
-            var $element = $(element);
-            if (event.target.href.endsWith("#" + element.id)) {
-                $element.show();
-            } else {
-                $element.hide();
-            }
-        });
+        $(".supporter-type-selection").hide();
+        var hashIndex = event.target.href.lastIndexOf('#');
+        if (hashIndex > -1) {
+            $(event.target.href.slice(hashIndex)).show();
+        }
         $formCorrectionNeeded.addClass('hidden');
         return false;
     };
@@ -88,7 +85,7 @@ $(document).ready(function() {
     };
     $window.bind("hashchange", selectSupportTypeFromHash);
     var $selectorLink = selectSupportTypeFromHash();
-    if (parseFloat($("form#annual").get(0).dataset.upgradeFromAmount) > 0) {
+    if (parseFloat($("#annual form").data('upgradeFromAmount')) > 0) {
         supportTypeSelector("#annual").click();
         $(".supporter-type-selector").hide();
     }
