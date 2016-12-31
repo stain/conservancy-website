@@ -5,14 +5,6 @@
 {% block content %}
 
 <div id="mainContent">
-<p class="date">{{ object.pub_date|date:"F j, Y" }}</p>
-<h2>{{ object.headline|safe }}</h2>
-{% if object.subhead %}
-<h3>{{ object.subhead|safe }}</h3>
-{% endif %}
-
-{{ object.summary|safe }}
-
-{{ object.body|safe }}
+{% include "news/pressrelease_partial.html" with pressr=object htag="h2" only %}
 </div>
 {% endblock %}

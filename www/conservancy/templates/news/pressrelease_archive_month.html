@@ -6,13 +6,8 @@
 
 <h2>Conservancy News Index - {{ month|date:"F Y" }}</h2>
 
-<ul>
-
-{% for object in object_list %}
-    <li><a href="{{ object.get_absolute_url }}"><b>{{ object.headline|safe }}</b></a><br/>
-    <i>{{ object.pub_date|date:"F j, Y" }}</i></li>
+{% for pressr in object_list %}
+  {% include "news/pressrelease_partial.html" with pressr=pressr show="dateline" only %}
 {% endfor %}
-
-</ul>
 
 {% endblock %}

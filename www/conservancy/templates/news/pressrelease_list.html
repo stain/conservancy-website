@@ -15,14 +15,12 @@
 
 {% ifnotequal news.number 1 %}<p>(Page {{ news.number }} of {{ news.paginator.num_pages }})</p>{% endifnotequal %}
 
-{% for news_item in news %}
-    <p class="date">{{ news_item.pub_date|date:"F j, Y" }}</p>
-    <h3><a href="{{ news_item.get_absolute_url }}">{{ news_item.headline|safe }}</a></h3>
-    {% if news_item.is_recent %}
-        {% if news_item.subhead %}<h4>{{ news_item.subhead|safe }}</h4>{% endif %}
-        {{ news_item.summary|safe }}
-    {% if news_item.body %}<p><span class="continued"><a href="{{ news_item.get_absolute_url }}">Read More...</a></span></p>{% endif %}
-    {% endif %}
+{% for pressr in news %}
+  {% if pressr.is_recent %}
+    {% include "news/pressrelease_partial.html" with pressr=pressr show="summary" only %}
+  {% else %}
+    {% include "news/pressrelease_partial.html" with pressr=pressr show="dateline" only %}
+  {% endif %}
 {% endfor %}
 
 <p>

@@ -26,24 +26,13 @@
 
 <div class="column">
 <h2><a href="/feeds/news/" class="feedlink"><img src="/img/feed-icon-14x14.png" alt="[RSS]"/></a> <a href="/news/">Recent News</a></h2>
-<p class="date">{{ press_releases.0.pub_date|date:"F j, Y" }}</p>
-<h3><a href="{{ press_releases.0.get_absolute_url }}">{{ press_releases.0.headline|safe }}</a></h3>
-{{ press_releases.0.summary|safe }}
-{% if press_releases.0.body %}<p><span class="continued"><a href="{{ press_releases.0.get_absolute_url }}">Read More...</a></span></p>{% endif %}
-{% if press_releases.1 and press_releases.1.pub_date|date_within_past_days:30 %}
-<hr/>
-<p class="date">{{ press_releases.1.pub_date|date:"F j, Y" }}</p>
-<h3><a href="{{ press_releases.1.get_absolute_url }}">{{ press_releases.1.headline|safe }}</a></h3>
-{{ press_releases.1.summary|safe }}
-{% if press_releases.1.body %}<p><span class="continued"><a href="{{ press_releases.1.get_absolute_url }}">Read More...</a></span></p>{% endif %}
-{% endif %}
-{% if press_releases.2 and press_releases.2.pub_date|date_within_past_days:30 %}
-<hr/>
-<p class="date">{{ press_releases.2.pub_date|date:"F j, Y" }}</p>
-<h3><a href="{{ press_releases.2.get_absolute_url }}">{{ press_releases.2.headline|safe }}</a></h3>
-{{ press_releases.2.summary|safe }}
-{% if press_releases.2.body %}<p><span class="continued"><a href="{{ press_releases.2.get_absolute_url }}">Read More...</a></span></p>{% endif %}
-{% endif %}
+{% for pressr in press_releases|slice:":5" %}
+  {% if forloop.first or pressr.pub_date|date_within_past_days:30 %}
+    {% if not forloop.first %}<hr class="clear">{% endif %}
+    {% include "news/pressrelease_partial.html" with pressr=pressr show="summary" only %}
+  {% endif %}
+{% endfor %}
+
 <p><span class="continued"><a href="/news/">Conservancy News Archive&hellip;</a></span></p>
 </div>
 

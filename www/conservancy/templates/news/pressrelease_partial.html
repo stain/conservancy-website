@@ -1,0 +1,49 @@
+{% comment %}
+
+This partial requires these parameters:
+
+* `pressr`: The PressRelease object to render.
+
+This partial accepts these optional parameters:
+
+* `show`: How much of the PressRelease to render.  Accepted values are
+  "headline", "dateline", "subhead", "summary", and "body".
+  Every value will render the parts listed before it.  Default "body".
+* `htag`: Name of the HTML tag to render the pressr headline.
+  If you're passing show="subhead" or a greater detail level, this
+  must be a headline tag h1 through h5, inclusive.  Default "h3".
+
+{% endcomment %}
+
+<div class="press-release">
+
+<{{ htag|default:"h3" }} class="clear"
+  >{% if show|default:"body" != "body" %}<a href="{{ pressr.get_absolute_url }}"
+  >{% endif %}{{ pressr.headline|safe }}{% if show|default:"body" != "body" %}</a>{% endif %}</{{ htag|default:"h3" }}>
+
+{% if show != "headline" %}
+{% if show != "dateline" and pressr.subhead %}
+  {# This filter sequence generates the "next" hN tag from htag #}
+  <h{{ htag|default:"3"|last|get_digit:1|add:1 }}
+     >{{ pressr.subhead|safe }}</h{{ htag|default:"3"|last|get_digit:1|add:1 }}>
+{% endif %}
+
+<p class="date">{{ pressr.pub_date|date:"F j, Y" }}</p>
+
+{% if show != "dateline" and show != "subhead" %}
+  {% if pressr.summary %}
+    {{ pressr.summary|safe }}
+  {% endif %}
+
+  {% if pressr.body %}
+    {% if show == "summary" %}
+      <p><a class="continued" href="{{ pressr.get_absolute_url }}">Read More&hellip;</a></p>
+    {% else %}
+      {{ pressr.body|safe }}
+    {% endif %}
+  {% endif %}
+{% endif %}
+
+{% endif %}{# show != "headline" #}
+
+</div>
