@@ -90,7 +90,7 @@ $(document).ready(function() {
     $('input[name=on0]:radio').change(function() {
         var input=$(this);
         var tShirtSelector = input.parent().children('.t-shirt-size-selector')
-        var noShippingSelector = input.parent().children('input#no_shipping');
+        var noShippingSelector = input.parent().children('input[name=no_shipping]');
         var value = input.val();
         if (value == "wantGiftYes") {
             tShirtSelector.show();
