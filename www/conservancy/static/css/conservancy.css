@@ -257,7 +257,7 @@ h3 { margin-top: .6em; margin-bottom: .4em; }
 
 .column h2 { font-size: 1.25em; }
 .column h3 { font-size: 1.1em; }
-.column hr { width: 50%; align: center; }
+.column hr { width: 50%; margin-left: auto; margin-right: auto; }
 
 .column h2 a { text-decoration: none; color: #000000; }
 .column h2 a:hover { text-decoration: underline; }
