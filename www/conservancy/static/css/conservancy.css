@@ -452,3 +452,11 @@ dd {
 .fundraiser-top-text em {
     font-size: 110%;
 }
+
+/* Fallback elements created by conservancy.js when no video source is
+   supported. */
+div.small-right, div.medium-right {
+    border: thick solid #577632;
+    padding: .3em;
+    text-align: center;
+}

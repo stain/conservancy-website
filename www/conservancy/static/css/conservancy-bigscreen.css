@@ -50,7 +50,7 @@ dd {
     margin: 0 0 2.5em 11.5em;
 }
 
-video.small-right {
+.small-right {
     float: right;
     height: auto;
     width: 25%;
@@ -58,7 +58,7 @@ video.small-right {
     margin-bottom: .4em;
 }
 
-video.medium-right {
+.medium-right {
     float: right;
     height: auto;
     width: 50%;

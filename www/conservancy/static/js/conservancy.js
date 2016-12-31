@@ -6,6 +6,19 @@
 */
 
 $(document).ready(function() {
+    /* When the browser doesn't support any video source, replace it
+       with the HTML inside the <video> element. */
+    var showVideoInnerHTML = function(event) {
+        var video = event.target.parentNode;
+        var div = document.createElement('div');
+        div.classList = video.classList;
+        div.innerHTML = video.innerHTML;
+        video.parentNode.replaceChild(div, video);
+    }
+    $('video').each(function(index, video) {
+        $('source', video).last().on('error', showVideoInnerHTML);
+    });
+
     /* Set up the fundraiser multiprogressbar near the top of each page. */
     var siteFinalGoal = $('span#site-fundraiser-final-goal').text();
     var noCommaSiteFinalGoal = parseInt(siteFinalGoal.replace(/,/g, ""));
