@@ -5,6 +5,19 @@
 **  Find a copy of GPL at https://sfconservancy.org/GPLv3
 */
 
+var flipClass = function(elem, byeClass, hiClass) {
+    var classList = elem.classList;
+    classList.remove(byeClass);
+    classList.add(hiClass);
+}
+
+var amountIsValid = function(amountInput) {
+    var value = parseFloat(amountInput.value);
+    var min = parseFloat(amountInput.min);
+    /* Is the value is a valid float, it will stringify back to itself. */
+    return (String(value) === amountInput.value) && (value >= min);
+}
+
 var supportTypeSelector = function(supportTypeHash) {
     return $(".supporter-type-selector a[href=" + supportTypeHash + "]");
 };
@@ -26,53 +39,31 @@ $window.load(function() {
 $(document).ready(function() {
     // Forms start in "invalid" form, with the errors shown, so that
     // non-Javascript users see the errors by default and know what they must
-    // enter.  The following two lines correct that.
-    $('*#amount').addClass("valid");
-    $('.supporter-form-inputs .form-error-show')
-        .removeClass('form-error-show').addClass('form-error');
-    $('.dinner-form-inputs .form-error-show')
-        .removeClass('form-error-show').addClass('form-error');
+    // enter.  Now we hide those for JavaScript users:
+    $('.form-error').addClass('hidden');
+    var $formCorrectionNeeded = $('#form-correction-needed');
 
-    $('*#amount').on('input', function() {
-        var input=$(this);
-        var value = input.val();
-        var errorElement=$("span#error", input.parent());
-        var noCommaValue = value;
-        noCommaValue = value.replace(/,/g, "");
-        var re = /^((\d{1,3}(,?\d{3})*?(\.\d{0,2})?)|\d+(\.\d{0,2})?)$/;
-        var isValid = ( re.test(value) &&
-                        parseInt(noCommaValue) >= parseInt(input.attr("min")));
-        if (isValid)  {
-           input.removeClass("invalid").addClass("valid");
-           errorElement.removeClass("form-error-show").addClass("form-error");
-           $("#form-correction-needed").removeClass("form-error-show").addClass("form-error");
-        }
-        else {
-            input.removeClass("valid").addClass("invalid");
-            errorElement.removeClass("form-error").addClass("form-error-show");
+    $('form.supporter-form input[type=number]').on('focusout', function(event) {
+        var amountInput = event.target;
+        var wasValid = !amountInput.classList.contains('invalid');
+        var isValid = amountIsValid(amountInput);
+        if (!wasValid && isValid) {
+            flipClass(amountInput, 'invalid', 'valid');
+            $('.form-error', amountInput.parentNode).addClass('hidden');
+        } else if (wasValid && !isValid) {
+            flipClass(amountInput, 'valid', 'invalid');
+            $('.form-error', amountInput.parentNode).removeClass('hidden');
         }
     });
-    var validateFormAtSubmission = function(element, event) {
-            var valid = element.hasClass("valid");
-            if (! valid) {
-                $("#form-correction-needed").removeClass("form-error").addClass("form-error-show")
-                                        .css("font-weight", "bold").css("font-size", "150%");
-	        event.preventDefault();
-            } else {
-                $("#form-correction-needed").removeClass("form-error-show").addClass("form-error");
-            }
-    };
-    $(".supporter-form-submit#monthly").click(function (event) {
-        validateFormAtSubmission($(".supporter-form#monthly input#amount"), event);
-    });
-    $(".supporter-form-submit#annual").click(function (event) {
-        validateFormAtSubmission($(".supporter-form#annual input#amount"), event);
-    });
-    $(".supporter-form-submit#renewal").click(function (event) {
-        validateFormAtSubmission($(".supporter-form#renewal input#amount"), event);
-    });
-    $(".dinner-form-submit").click(function (event) {
-        validateFormAtSubmission($(".dinner-form input#amount"), event);
+
+    $('form.supporter-form').on('submit', function(event) {
+        if (amountIsValid($('input[name=amount]', event.target)[0])) {
+            $formCorrectionNeeded.addClass('hidden');
+        } else {
+            $formCorrectionNeeded.removeClass('hidden')
+                .css("font-weight", "bold").css("font-size", "150%");
+            event.preventDefault();
+        }
     });
 
     var selectSupportType = function(event) {
@@ -87,7 +78,7 @@ $(document).ready(function() {
                 $element.hide();
             }
         });
-        $("#form-correction-needed").removeClass("form-error-show").addClass("form-error");
+        $formCorrectionNeeded.addClass('hidden');
         return false;
     };
     $(".supporter-type-selector a").bind("click", selectSupportType);
