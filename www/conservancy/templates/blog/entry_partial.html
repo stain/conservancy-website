@@ -16,7 +16,7 @@ This partial accepts these optional parameters:
 
 <div class="blog-entry">
 
-<{{ htag|default:"h3" }}
+<{{ htag|default:"h3" }} class="clear"
   >{% if show|default:"body" != "body" %}<a href="{{ entry.get_absolute_url }}"
   >{% endif %}{{ entry.headline|safe }}{% if show|default:"body" != "body" %}</a>{% endif %}</{{ htag|default:"h3" }}>
 

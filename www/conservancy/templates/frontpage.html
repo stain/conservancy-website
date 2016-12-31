@@ -51,7 +51,7 @@
 <h2><a href="/feeds/blog/" class="feedlink"><img src="/img/feed-icon-14x14.png" alt="[RSS]"/></a> <a href="/blog/">Conservancy Blog</a></h2>
 {% for entry in blog|slice:":5" %}
   {% if forloop.first or entry.pub_date|date_within_past_days:30 %}
-    {% if not forloop.first %}<hr>{% endif %}
+    {% if not forloop.first %}<hr class="clear">{% endif %}
     {% include "blog/entry_partial.html" with entry=entry show="summary" only %}
   {% endif %}
 {% endfor %}

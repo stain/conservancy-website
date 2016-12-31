@@ -126,6 +126,9 @@ h3 { margin-top: .6em; margin-bottom: .4em; }
     margin-left: 50px;
     margin-right: 50px;
 }
+#sidebar + #mainContent {
+    float: left;
+}
 
 #progressbar {
     height: 1.8em;
@@ -182,7 +185,7 @@ h3 { margin-top: .6em; margin-bottom: .4em; }
 }
 #container #mainContent {
     background: #ffffff;
-    margin-left: 225px;
+    margin-left: 25px;
     margin-right: 50px;
     max-width: 1000px;
 }

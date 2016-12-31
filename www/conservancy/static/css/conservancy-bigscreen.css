@@ -39,3 +39,8 @@
 #contractpatch-follow h2 {
     font-size: large;
 }
+
+#contractpatch-blog h3:first-child {
+    /* Don't let the first blog headline clear below #contractpatch-follow. */
+    clear: right;
+}
