@@ -33,6 +33,7 @@ dl {
 }
 
 dt {
+    clear: left;
     float: left;
     text-align: center;
     width: 10em;
