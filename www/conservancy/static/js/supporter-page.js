@@ -11,11 +11,13 @@ var flipClass = function(elem, byeClass, hiClass) {
     classList.add(hiClass);
 }
 
-var amountIsValid = function(amountInput) {
+var checkAmountValid = function(amountInput) {
     var value = parseFloat(amountInput.value);
     var min = parseFloat(amountInput.min);
     /* Is the value is a valid float, it will stringify back to itself. */
-    return (String(value) === amountInput.value) && (value >= min);
+    var isValid = (String(value) === amountInput.value) && (value >= min);
+    amountInput.dataset.valid = isValid ? '1' : '0';
+    return isValid;
 }
 
 var supportTypeSelector = function(supportTypeHash) {
@@ -40,24 +42,35 @@ $(document).ready(function() {
     // Forms start in "invalid" form, with the errors shown, so that
     // non-Javascript users see the errors by default and know what they must
     // enter.  Now we hide those for JavaScript users:
-    $('.form-error').addClass('hidden');
     var $formCorrectionNeeded = $('#form-correction-needed');
+    $formCorrectionNeeded.addClass('hidden');
 
-    $('form.supporter-form input[type=number]').on('focusout', function(event) {
+    $('form.supporter-form input[type=number]').on('input', function(event) {
+        event.target.classList.remove('invalid');
+    }).on('focusout', function(event) {
         var amountInput = event.target;
-        var wasValid = !amountInput.classList.contains('invalid');
-        var isValid = amountIsValid(amountInput);
-        if (!wasValid && isValid) {
+        var wasValid = amountInput.dataset.valid === '1';
+        var isValid = checkAmountValid(amountInput);
+        if (isValid) {
             flipClass(amountInput, 'invalid', 'valid');
-            $('.form-error', amountInput.parentNode).addClass('hidden');
-        } else if (wasValid && !isValid) {
+            if (!wasValid) {
+                $('.form-error', amountInput.parentNode).fadeOut();
+            }
+        } else if (wasValid) {
             flipClass(amountInput, 'valid', 'invalid');
-            $('.form-error', amountInput.parentNode).removeClass('hidden');
+            $('.form-error', amountInput.parentNode).fadeIn();
+        }
+    }).each(function(index, elem) {
+        if (checkAmountValid(elem)) {
+            $('.form-error', elem.parentNode).addClass('hidden');
+        } else {
+            elem.classList.add('invalid');
+            $('.form-error', elem.parentNode).removeClass('hidden');
         }
     });
 
     $('form.supporter-form').on('submit', function(event) {
-        if (amountIsValid($('input[name=amount]', event.target)[0])) {
+        if (checkAmountValid($('input[name=amount]', event.target)[0])) {
             $formCorrectionNeeded.addClass('hidden');
         } else {
             $formCorrectionNeeded.removeClass('hidden')
