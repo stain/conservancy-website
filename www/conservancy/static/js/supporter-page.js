@@ -19,7 +19,7 @@ var amountIsValid = function(amountInput) {
 }
 
 var supportTypeSelector = function(supportTypeHash) {
-    return $(".supporter-type-selector a[href=" + supportTypeHash + "]");
+    return $(supportTypeHash + "Selector");
 };
 
 var $window = $(window);
@@ -84,12 +84,7 @@ $(document).ready(function() {
         return supportTypeSelector(window.location.hash).click();
     };
     $window.bind("hashchange", selectSupportTypeFromHash);
-    var $selectorLink = selectSupportTypeFromHash();
-    if (parseFloat($("#annual form").data('upgradeFromAmount')) > 0) {
-        supportTypeSelector("#annual").click();
-        $(".supporter-type-selector").hide();
-    }
-    else if ($selectorLink.length === 0) {
+    if (selectSupportTypeFromHash().length === 0) {
         supportTypeSelector("#annual").click();
     }
 });

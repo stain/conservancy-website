@@ -54,15 +54,23 @@
   <h1 class="appeal"><img class="appeal-header" alt="Become a Conservancy Supporter!" src="/img/conservancy-supporter-header.png"/></h1>
 
   
-<div class="supporter-type-selector">
-  <strong>Become a Supporter Now:</strong>   <a id="annualSelector" href="#annual">Annual</a> | <a id="monthlySelector" href="#monthly">Monthly</a> | <a id="renewalSelector" href="#renewal">Annual Renew</a></div>
+{% if partial_amount > 0 %}
+  {% include "supporter/form_partial.html" with form_id="annual" min_amt=minimum_amount partial_amt=partial_amount article="an" only %}
+{% else %}
+  <div class="supporter-type-selector">
+    <strong>Become a Supporter Now:</strong>
+    <a id="annualSelector" href="#annual">Annual</a>
+    | <a id="monthlySelector" href="#monthly">Monthly</a>
+    | <a id="renewalSelector" href="#renewal">Annual Renew</a>
+  </div>
 
-{% include "supporter/form_partial.html" with form_id="annual" min_amt=minimum_amount partial_amt=partial_amount article="an" only %}
+  {% include "supporter/form_partial.html" with form_id="annual" min_amt=120 article="an" only %}
 
-{% include "supporter/form_partial.html" with form_id="monthly" min_amt=10 only %}
+  {% include "supporter/form_partial.html" with form_id="monthly" min_amt=10 only %}
 
-<a name="renew" class="hidden"></a>
-{% include "supporter/form_partial.html" with form_id="renewal" min_amt=120 verb="renew" article="an" supptype="annual" only %}
+  <a name="renew" class="hidden"></a>
+  {% include "supporter/form_partial.html" with form_id="renewal" min_amt=120 verb="renew" article="an" supptype="annual" only %}
+{% endif %}
 
 <span id="form-correction-needed" class="form-error">Please ensure all form data above is correct.</span>
 
