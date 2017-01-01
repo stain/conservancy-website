@@ -72,18 +72,21 @@ This partial accepts these optional parameters:
         <input type="hidden" name="p3" value="1">
         <input type="hidden" name="src" value="1">
         <input type="hidden" name="srt" value="0">
-        <label for="a3">Monthly Amount: $</label>
-        <input type="number" name="a3" size="5"
+        <label for="a3">Monthly Amount: </label>
+        <div class="input-group">
+        $ <input type="number" name="a3" size="5"
                min="{{ min_amt }}" value="{{ default_amt }}">
         {% else %}
         <input type="hidden" name="cmd" value="_xclick">
-        <label for="amount">Amount: $</label>
-        <input type="number" name="amount" size="5"
+        <label for="amount">Amount: </label>
+        <div class="input-group">
+        $ <input type="number" name="amount" size="5"
                min="{{ min_amt }}" value="{{ default_amt }}">
         {% endif %}
-        <span class="form-error">${{ min_amt|add:partial_amt }} is a minimum for
+        <p class="form-error">${{ min_amt|add:partial_amt }} is a minimum for
           Conservancy Supporters.
-          <a href="/donate">Donate smaller amounts here</a>.</span>
+          <a href="/donate">Donate smaller amounts here</a>.</p>
+        </div>
       </div>
 
       <div class="supporter-form-input">
@@ -94,41 +97,49 @@ This partial accepts these optional parameters:
           a
           {% endif %}
           t-shirt? </label>
-        <input type="radio" name="on0" value="wantGiftYes">Yes
-        <input type="radio" checked="checked" name="on0" value="wantGiftNo">No
+        <div class="input-group">
+          <input type="radio" name="on0" value="wantGiftYes">Yes
+          <input type="radio" checked="checked" name="on0" value="wantGiftNo">No
+        </div>
       </div>
 
       <div class="supporter-form-input t-shirt-size-selector">
         <label for="tShirtSize">T-shirt size: </label>
-        <select name="os0">
-          <option value="MenS">Men's S</option>
-          <option value="MenM">Men's M</option>
-          <option value="MenL">Men's L</option>
-          <option value="MenXL">Men's XL</option>
-          <option value="Men2XL">Men's 2XL</option>
-          <option value="StandardLadiesS">Standard Ladies' S</option>
-          <option value="StandardLadiesM">Standard Ladies' M</option>
-          <option value="StandardLadiesL">Standard Ladies' L</option>
-          <option value="StandardLadiesXL">Standard Ladies' XL</option>
-          <option value="FittedLadiesS">Fitted Ladies' S</option>
-          <option value="FittedLadiesM">Fitted Ladies' M</option>
-          <option value="FittedLadiesL">Fitted Ladies' L</option>
-          <option value="FittedLadiesXL">Fitted Ladies' XL</option>
-        </select>
+        <div class="input-group">
+          <select name="os0">
+            <option value="MenS">Men's S</option>
+            <option value="MenM">Men's M</option>
+            <option value="MenL">Men's L</option>
+            <option value="MenXL">Men's XL</option>
+            <option value="Men2XL">Men's 2XL</option>
+            <option value="StandardLadiesS">Standard Ladies' S</option>
+            <option value="StandardLadiesM">Standard Ladies' M</option>
+            <option value="StandardLadiesL">Standard Ladies' L</option>
+            <option value="StandardLadiesXL">Standard Ladies' XL</option>
+            <option value="FittedLadiesS">Fitted Ladies' S</option>
+            <option value="FittedLadiesM">Fitted Ladies' M</option>
+            <option value="FittedLadiesL">Fitted Ladies' L</option>
+            <option value="FittedLadiesXL">Fitted Ladies' XL</option>
+          </select>
+        </div>
       </div>
 
       <div class="supporter-form-input">
         <label for="publicAck">
           Should we <a href="/sponsors#supporters">list you publicly</a> as a Conservancy Supporter? </label>
-        <input type="radio" checked="checked" name="on1" value="publicAckYes">Yes
-        <input type="radio" name="on1" value="publicAckNo">No
+        <div class="input-group">
+          <input type="radio" checked="checked" name="on1" value="publicAckYes">Yes
+          <input type="radio" name="on1" value="publicAckNo">No
+        </div>
       </div>
 
       <div class="supporter-form-input">
         <label for="joinList">Join Conservancy's
           Low-Traffic Announcement Email List? </label>
-        <input type="radio" checked="checked" name="os1" value="joinListYes">Yes
-        <input type="radio" name="os1" value="joinListNo">No
+        <div class="input-group">
+          <input type="radio" checked="checked" name="os1" value="joinListYes">Yes
+          <input type="radio" name="os1" value="joinListNo">No
+        </div>
       </div>
     </div>
 

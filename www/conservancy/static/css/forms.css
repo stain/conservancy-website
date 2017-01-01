@@ -2,42 +2,40 @@
     font-weight: bold;
 }
 
-.supporter-form label {
-    display: inline-block;
-    width: 200px;
-    text-align: right;
-    font-weight: bold;
-}
-.dinner-form label {
-    display: inline-block;
-    width: 200px;
-    text-align: right;
-}
-.supporter-form-inputs {
-    float: left;
-}
-.dinner-form-inputs {
-    float: left;
-}
-.supporter-form-submit {
-    padding-left: 20em;
-    padding-top: 40px;
-    font-size: small;
-}
-.dinner-form-submit {
-    padding-left: 20em;
-    padding-top: 40px;
-    float: center;
+.supporter-form-input {
+    margin-bottom: .5em;
+    white-space: nowrap;
 }
 
-.dinner-form div {
-    margin-top: 1em;
+.supporter-form-input label {
+    display: inline-block;
+    font-weight: bold;
+    white-space: normal;
+}
+
+.supporter-form-input input[name=amount],
+.supporter-form-input input[name=a3] {
+    width: 5em;
+}
+
+.supporter-form-input input[type=radio] {
+    margin-left: 1em;
+    margin-right: .2em;
+}
+
+.supporter-form-input input[type=radio]:first-of-type {
+    margin-left: 0;
+}
+
+.supporter-form-submit {
+    text-align: center;
 }
 
 .form-error {
     color: red;
     margin-left: 10px;
     font-size: 75%;
+    white-space: normal;
 }
 
 input.invalid, textarea.invalid {
@@ -49,22 +47,15 @@ input.valid, textarea.valid {
 }
 
 .supporter-type-selector {
+    clear: both;
     font-size: 125%;
     text-align: center;
-    width: 80%;
-    align: left;
-}
-
-.supporter-type-selection {
-    clear: both;
-    padding-bottom: 60px;
-    width: 80%;
-    align: left;
 }
 
 h1.appeal {
     margin-top: -.75em;
 }
+
 img.appeal-left {
     float: left;
     padding-right: 1em;
