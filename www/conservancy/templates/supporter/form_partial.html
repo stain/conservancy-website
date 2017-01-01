@@ -32,23 +32,20 @@ This partial accepts these optional parameters:
 
   <p class="prolog"><span>Note:</span>
     {% if form_id == "annual" %}
-    annual supporter is not an automatic renewal
-    relationship.  If you join today, you'll receive an email in about one
-    year to remind you to optionally renew.
+    Annual Supporters do not automatically renew.  If you join today, you'll
+    receive an email to renew in about a year.
     {% elif form_id == "monthly" %}
-    Monthly renewal is automatic.  Also, monthly supporters might not
-    receive tangible Supporter benefits (such as the t-shirt) until they've
-    reached at least
+    Monthly Supporters automatically pay each month until you cancel
+    payments in PayPal.  You'll be added to
+    our <a href="/sponsors/#supporters">Supporters list</a> as soon as we
+    process your first payment.  You may not receive other benefits (like
+    the shirt) until you've paid at least
     {# Six months of payments #}
-    ${{ min_amt|add:min_amt|add:min_amt|add:min_amt|add:min_amt|add:min_amt }}
-    in monthly supporter donations.
-    However, they will be included immediately in
-    the <a href="/sponsors/#supporters">Supporters' list</a>.
+    ${{ min_amt|add:min_amt|add:min_amt|add:min_amt|add:min_amt|add:min_amt }}.
     {% elif form_id == "renewal" %}
-    This option is for existing annual supporters
-    who seek to renew for another year.  The annual renewal is not
-    automatic; annual supporters are emailed each year to invite them to
-    optionally renew.
+    This form is for annual Supporters who want to renew their support this
+    year.  If you're a new Conservancy Supporter, please select another
+    form.
     {% endif %}
   </p>
 
@@ -96,7 +93,7 @@ This partial accepts these optional parameters:
           {% else %}
           a
           {% endif %}
-          t-shirt? </label>
+          shirt? </label>
         <div class="input-group">
           <input type="radio" tabindex="20" name="on0" value="wantGiftYes">Yes
           <input type="radio" tabindex="20" checked="checked" name="on0" value="wantGiftNo">No
@@ -104,7 +101,7 @@ This partial accepts these optional parameters:
       </div>
 
       <div class="supporter-form-input t-shirt-size-selector">
-        <label for="os0">T-shirt size: </label>
+        <label for="os0">Shirt size: </label>
         <div class="input-group">
           <select name="os0" tabindex="30">
             <option value="MenS">Men's S</option>
@@ -126,7 +123,7 @@ This partial accepts these optional parameters:
 
       <div class="supporter-form-input">
         <label for="publicAck">
-          Should we <a href="/sponsors#supporters">list you publicly</a> as a Conservancy Supporter? </label>
+          Should we add you to the <a href="/sponsors#supporters">Conservancy Supporters list</a>? </label>
         <div class="input-group">
           <input type="radio" tabindex="40" checked="checked" name="on1" value="publicAckYes">Yes
           <input type="radio" tabindex="40" name="on1" value="publicAckNo">No
@@ -135,7 +132,7 @@ This partial accepts these optional parameters:
 
       <div class="supporter-form-input">
         <label for="joinList">Join Conservancy's
-          Low-Traffic Announcement Email List? </label>
+          low-traffic announcement list? </label>
         <div class="input-group">
           <input type="radio" tabindex="50" checked="checked" name="os1" value="joinListYes">Yes
           <input type="radio" tabindex="50" name="os1" value="joinListNo">No
@@ -148,9 +145,9 @@ This partial accepts these optional parameters:
              src="/img/supporter-payment-button-{{ form_id }}.png"
              height="81" width="188" border="0"
              alt="{{ verb|capfirst }} as {{ article }} {{ supptype|capfirst }} Supporter Now!">
-      <p>Button above redirects to PayPal's site for credit
-        card, bank account or PayPal balance payment methods.  Select
-        options first.</p>
+      <p>This button will send you to PayPal's site to select a payment
+        method and finish this process.  Please double-check your selections
+        first.</p>
     </div>
   </form>
 </div>
