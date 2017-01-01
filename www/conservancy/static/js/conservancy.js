@@ -86,18 +86,18 @@ $(document).ready(function() {
                                   $otherTextControl.find('.donate-box-highlight').fadeIn(10000);
                                 }, 500);
     });
-    $(".t-shirt-size-selector").hide();
-    $('input[name=on0]:radio').change(function() {
+
+    $('input[name=on0]:radio').on('change', function(event, duration) {
         var $input = $(this);
+        var wantShirt = $input.val() == "wantGiftYes";
         var $form = $input.parents('form').last();
         var $tShirtSelector = $('.t-shirt-size-selector', $form);
-        var $noShippingSelector = $('input[name=no_shipping]', $form);
-        if ($input.val() == "wantGiftYes") {
-            $tShirtSelector.show();
-            $noShippingSelector.val("2");
+        $('input', $tShirtSelector).prop('disabled', wantShirt);
+        $('input[name=no_shipping]', $form).val(wantShirt ? '2' : '0');
+        if (wantShirt) {
+            $tShirtSelector.slideDown(duration);
         } else {
-            $tShirtSelector.hide();
-            $noShippingSelector.val("0");
+            $tShirtSelector.slideUp(duration);
         }
-    });
+    }).filter(':checked').trigger('change', 0);
 });
