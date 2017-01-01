@@ -1,0 +1,130 @@
+{% comment %}
+
+This partial requires these parameters:
+
+* `form_id`: The type of Supportership this form enrolls.  One of "annual",
+  "monthly", or "renewal".
+  Note that the form substantially changes the form based on this value.
+  If you're changing this later to add a type, you'll want to consider how
+  to handle all those.
+* `min_amt`: The lowest amount of support the form will accept.
+
+This partial accepts these optional parameters:
+
+* `supptype`: Used in text to describe what type of Supporter this is.
+  By default, it's generated from form_id.
+  Override it for renewals.
+* `article`: Used in front of `form_id` when it's written in the form.
+  Default "a".  Set it to "an" when `supptype` begins with a vowel.
+* `verb`: Used in form text to describe the sign-up process.
+  Default "join".  Use "renew" when `form_id` is "renewal".
+* `default_amt`: The amount of support the form loads with.
+  Default `min_amt`.
+* `partial_amt`: This form is for a donor who previously gave `partial_amt`,
+  and is letting them contribute `min_amt` more to get up the usual
+  Supporter amount.  This is attached to the form as a data attribute.
+
+{% endcomment %}
+
+{% with supptype=supptype|default:form_id article=article|default:"a" verb=verb|default:"join" default_amt=default_amt|default:min_amt partial_amt=partial_amt|default:0 %}
+<div id="{{ form_id }}" class="supporter-type-selection">
+  <h3>{{ verb|capfirst }} as {{ article }} {{ supptype|capfirst }} Supporter</h3>
+
+  {% if form_id == "annual" %}
+  <p><strong>Note:</strong> annual supporter is not an automatic renewal
+    relationship.  If you join today, you'll receive an email in about one
+    year to remind you to optionally renew.</p>
+  {% elif form_id == "monthly" %}
+  <p>Monthly renewal is automatic.  Also, monthly supporters might not
+    receive tangible Supporter benefits (such as the t-shirt) until they've
+    reached at least
+    {# Six months of payments #}
+    ${{ min_amt|add:min_amt|add:min_amt|add:min_amt|add:min_amt|add:min_amt }}
+    in monthly supporter donations.
+    However, they will be included immediately in
+    the <a href="/sponsors/#supporters">Supporters' list</a>.</p>
+  {% elif form_id == "renewal" %}
+  <p><strong>Note:</strong> This option is for existing annual supporters
+    who seek to renew for another year.  The annual renewal is not
+    automatic; annual supporters are emailed each year to invite them to
+    optionally renew.</p>
+  {% endif %}
+
+  <form class="supporter-form" method="post" target="_top"
+        action="https://www.paypal.com/cgi-bin/webscr"
+        data-upgrade-from-amount="{{ partial_amt }}">
+    <div class="supporter-form-inputs">
+      <input type="hidden" name="business" value="supporter@sfconservancy.org">
+      <input type="hidden" name="return" value="https://sfconservancy.org/supporter/thank-you.html">
+      <input type="hidden" name="no_shipping" value="0">
+      <input type="hidden" name="item_name"
+             value="Conservancy Supporter, {{ supptype|capfirst }}{% if form_id == "renewal" %} Renewal{% endif %}"
+             >
+      {% if form_id == "monthly" %}
+      <input type="hidden" name="cmd" value="_xclick-subscriptions">
+      <input type="hidden" name="lc" value="US">
+      <input type="hidden" name="no_note" value="1">
+      <input type="hidden" name="t3" value="M">
+      <input type="hidden" name="p3" value="1">
+      <input type="hidden" name="src" value="1">
+      <input type="hidden" name="srt" value="0">
+      <label for="a3"><strong>Monthly Amount:</strong> $</label>
+      <input type="number" name="a3" size="5"
+             min="{{ min_amt }}" value="{{ default_amt }}">
+      {% else %}
+      <input type="hidden" name="cmd" value="_xclick">
+      <label for="amount"><strong>Amount:</strong> $</label>
+      <input type="number" name="amount" size="5"
+             min="{{ min_amt }}" value="{{ default_amt }}">
+      {% endif %}
+      <span class="form-error">${{ min_amt|add:partial_amt }} is a minimum for
+        Conservancy Supporters.
+        <a href="/donate">Donate smaller amounts here</a>.</span><br>
+      <label for="wantGift"><strong>Do you want to receive
+          {% if form_id == "renewal" %}
+          another
+          {% else %}
+          a
+          {% endif %}
+          t-shirt? </strong></label>
+      <input type="radio" name="on0" value="wantGiftYes">Yes
+      <input type="radio" checked="checked" name="on0" value="wantGiftNo">No
+      <br>
+      <span class="t-shirt-size-selector">
+        <label for="tShirtSize"><strong>T-shirt size: </strong></label>
+        <select name="os0">
+          <option value="MenS">Men's S</option>
+          <option value="MenM">Men's M</option>
+          <option value="MenL">Men's L</option>
+          <option value="MenXL">Men's XL</option>
+          <option value="Men2XL">Men's 2XL</option>
+          <option value="StandardLadiesS">Standard Ladies' S</option>
+          <option value="StandardLadiesM">Standard Ladies' M</option>
+          <option value="StandardLadiesL">Standard Ladies' L</option>
+          <option value="StandardLadiesXL">Standard Ladies' XL</option>
+          <option value="FittedLadiesS">Fitted Ladies' S</option>
+          <option value="FittedLadiesM">Fitted Ladies' M</option>
+          <option value="FittedLadiesL">Fitted Ladies' L</option>
+          <option value="FittedLadiesXL">Fitted Ladies' XL</option>
+        </select><br></span>
+      <label for="publicAck"><strong>
+          Should we <a href="/sponsors#supporters">list you publicly</a> as a Conservancy Supporter? </strong></label>
+      <input type="radio" checked="checked" name="on1" value="publicAckYes">Yes
+      <input type="radio" name="on1" value="publicAckNo">No<br>
+      <label for="joinList"><strong>Join Conservancy's
+          Low-Traffic Announcement Email List? </strong></label>
+      <input type="radio" checked="checked" name="os1" value="joinListYes">Yes
+      <input type="radio" name="os1" value="joinListNo">No<br>
+      <br></div>
+    <div>
+      <input type="image" name="submit"
+             src="/img/supporter-payment-button-{{ form_id }}.png"
+             height="81" width="188" border="0"
+             alt="{{ verb|capfirst }} as {{ article }} {{ supptype|capfirst }} Supporter Now!">
+      <br><br><small>Button above redirects to PayPal's site for credit
+        card, bank account or PayPal balance payment methods.  Select
+        options first.</small>
+    </div>
+  </form>
+</div>
+{% endwith %}
