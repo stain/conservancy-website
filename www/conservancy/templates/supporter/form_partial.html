@@ -74,13 +74,13 @@ This partial accepts these optional parameters:
         <input type="hidden" name="srt" value="0">
         <label for="a3">Monthly Amount: </label>
         <div class="input-group">
-        $ <input type="number" name="a3" size="5"
+        $ <input type="number" name="a3" size="5" tabindex="10"
                min="{{ min_amt }}" value="{{ default_amt }}">
         {% else %}
         <input type="hidden" name="cmd" value="_xclick">
         <label for="amount">Amount: </label>
         <div class="input-group">
-        $ <input type="number" name="amount" size="5"
+        $ <input type="number" name="amount" size="5" tabindex="10"
                min="{{ min_amt }}" value="{{ default_amt }}">
         {% endif %}
         <p class="form-error">${{ min_amt|add:partial_amt }} is a minimum for
@@ -98,15 +98,15 @@ This partial accepts these optional parameters:
           {% endif %}
           t-shirt? </label>
         <div class="input-group">
-          <input type="radio" name="on0" value="wantGiftYes">Yes
-          <input type="radio" checked="checked" name="on0" value="wantGiftNo">No
+          <input type="radio" tabindex="20" name="on0" value="wantGiftYes">Yes
+          <input type="radio" tabindex="20" checked="checked" name="on0" value="wantGiftNo">No
         </div>
       </div>
 
       <div class="supporter-form-input t-shirt-size-selector">
         <label for="tShirtSize">T-shirt size: </label>
         <div class="input-group">
-          <select name="os0">
+          <select name="os0" tabindex="30">
             <option value="MenS">Men's S</option>
             <option value="MenM">Men's M</option>
             <option value="MenL">Men's L</option>
@@ -128,8 +128,8 @@ This partial accepts these optional parameters:
         <label for="publicAck">
           Should we <a href="/sponsors#supporters">list you publicly</a> as a Conservancy Supporter? </label>
         <div class="input-group">
-          <input type="radio" checked="checked" name="on1" value="publicAckYes">Yes
-          <input type="radio" name="on1" value="publicAckNo">No
+          <input type="radio" tabindex="40" checked="checked" name="on1" value="publicAckYes">Yes
+          <input type="radio" tabindex="40" name="on1" value="publicAckNo">No
         </div>
       </div>
 
@@ -137,14 +137,14 @@ This partial accepts these optional parameters:
         <label for="joinList">Join Conservancy's
           Low-Traffic Announcement Email List? </label>
         <div class="input-group">
-          <input type="radio" checked="checked" name="os1" value="joinListYes">Yes
-          <input type="radio" name="os1" value="joinListNo">No
+          <input type="radio" tabindex="50" checked="checked" name="os1" value="joinListYes">Yes
+          <input type="radio" tabindex="50" name="os1" value="joinListNo">No
         </div>
       </div>
     </div>
 
     <div class="supporter-form-submit">
-      <input type="image" name="submit"
+      <input type="image" name="submit" tabindex="60"
              src="/img/supporter-payment-button-{{ form_id }}.png"
              height="81" width="188" border="0"
              alt="{{ verb|capfirst }} as {{ article }} {{ supptype|capfirst }} Supporter Now!">
