@@ -88,16 +88,16 @@ $(document).ready(function() {
     });
     $(".t-shirt-size-selector").hide();
     $('input[name=on0]:radio').change(function() {
-        var input=$(this);
-        var tShirtSelector = input.parent().children('.t-shirt-size-selector')
-        var noShippingSelector = input.parent().children('input[name=no_shipping]');
-        var value = input.val();
-        if (value == "wantGiftYes") {
-            tShirtSelector.show();
-            noShippingSelector.val("2");
+        var $input = $(this);
+        var $form = $input.parents('form').last();
+        var $tShirtSelector = $('.t-shirt-size-selector', $form);
+        var $noShippingSelector = $('input[name=no_shipping]', $form);
+        if ($input.val() == "wantGiftYes") {
+            $tShirtSelector.show();
+            $noShippingSelector.val("2");
         } else {
-            tShirtSelector.hide();
-            noShippingSelector.val("0");
+            $tShirtSelector.hide();
+            $noShippingSelector.val("0");
         }
     });
 });

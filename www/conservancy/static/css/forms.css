@@ -1,7 +1,12 @@
+.supporter-type-selection .prolog > span:first-child {
+    font-weight: bold;
+}
+
 .supporter-form label {
     display: inline-block;
     width: 200px;
     text-align: right;
+    font-weight: bold;
 }
 .dinner-form label {
     display: inline-block;
@@ -17,16 +22,12 @@
 .supporter-form-submit {
     padding-left: 20em;
     padding-top: 40px;
-    float: center;
+    font-size: small;
 }
 .dinner-form-submit {
     padding-left: 20em;
     padding-top: 40px;
     float: center;
-}
-
-.supporter-form div {
-    margin-top: 1em;
 }
 
 .dinner-form div {
