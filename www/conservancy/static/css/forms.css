@@ -31,11 +31,14 @@
     text-align: center;
 }
 
+.form-error, .supporter-form-input .input-group p {
+    margin-left: 1em;
+    font-size: 80%;
+    white-space: normal;
+}
+
 .form-error {
     color: red;
-    margin-left: 10px;
-    font-size: 75%;
-    white-space: normal;
 }
 
 input.invalid, textarea.invalid {

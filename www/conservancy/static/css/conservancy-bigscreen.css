@@ -107,3 +107,7 @@ img.blog-right {
     text-align: right;
     padding-right: .3em;
 }
+
+.supporter-form-input .inline {
+    display: inline-block;
+}
