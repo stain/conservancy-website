@@ -5,19 +5,23 @@
 **  Find a copy of GPL at https://sfconservancy.org/GPLv3
 */
 
+var NEW_AMOUNT_EVENT = 'conservancy:newamount';
+
 var flipClass = function(elem, byeClass, hiClass) {
     var classList = elem.classList;
     classList.remove(byeClass);
     classList.add(hiClass);
 }
 
-var checkAmountValid = function(amountInput) {
-    var value = parseFloat(amountInput.value);
-    var min = parseFloat(amountInput.min);
-    /* Is the value is a valid float, it will stringify back to itself. */
-    var isValid = (String(value) === amountInput.value) && (value >= min);
-    amountInput.dataset.valid = isValid ? '1' : '0';
-    return isValid;
+var buildAmountData = function(amountInput) {
+    var amountData = {
+        minAmount: parseFloat(amountInput.min),
+        newAmount: parseFloat(amountInput.value),
+    }
+    if (amountInput.dataset.oldAmount !== undefined) {
+        amountData.oldAmount = parseFloat(amountInput.dataset.oldAmount);
+    }
+    return amountData;
 }
 
 var supportTypeSelector = function(supportTypeHash) {
@@ -45,38 +49,47 @@ $(document).ready(function() {
     var $formCorrectionNeeded = $('#form-correction-needed');
     $formCorrectionNeeded.addClass('hidden');
 
-    $('form.supporter-form input[type=number]').on('input', function(event) {
-        event.target.classList.remove('invalid');
-    }).on('focusout', function(event) {
-        var amountInput = event.target;
-        var wasValid = amountInput.dataset.valid === '1';
-        var isValid = checkAmountValid(amountInput);
-        if (isValid) {
-            flipClass(amountInput, 'invalid', 'valid');
-            if (!wasValid) {
-                $('.form-error', amountInput.parentNode).fadeOut();
-            }
-        } else if (wasValid) {
-            flipClass(amountInput, 'valid', 'invalid');
-            $('.form-error', amountInput.parentNode).fadeIn();
-        }
-    }).each(function(index, elem) {
-        if (checkAmountValid(elem)) {
-            $('.form-error', elem.parentNode).addClass('hidden');
-        } else {
-            elem.classList.add('invalid');
-            $('.form-error', elem.parentNode).removeClass('hidden');
-        }
-    });
+    $('form.supporter-form').each(function(index, form) {
+        var $amountInput = $('input[type=number]', form).first();
+        var $amountError = $('.form-error', $amountInput[0].parentNode);
 
-    $('form.supporter-form').on('submit', function(event) {
-        if (checkAmountValid($('input[name=amount]', event.target)[0])) {
-            $formCorrectionNeeded.addClass('hidden');
-        } else {
-            $formCorrectionNeeded.removeClass('hidden')
-                .css("font-weight", "bold").css("font-size", "150%");
-            event.preventDefault();
-        }
+        $amountError.on(NEW_AMOUNT_EVENT, function(event, amountData) {
+            var isValid = amountData.newAmount >= amountData.minAmount;
+            if (amountData.oldAmount === undefined) {
+                if (isValid) {
+                    $amountError.addClass('hidden');
+                } else {
+                    flipClass($amountInput[0], 'valid', 'invalid');
+                    $amountError.removeClass('hidden');
+                }
+            } else if (isValid) {
+                flipClass($amountInput[0], 'invalid', 'valid');
+                $amountError.fadeOut();
+            } else if (amountData.oldAmount >= amountData.minAmount) {
+                flipClass($amountInput[0], 'valid', 'invalid');
+                $amountError.fadeIn();
+            }
+        });
+
+        $amountInput.on('input', function(event) {
+            event.target.classList.remove('invalid');
+        }).on('focusout', function(event) {
+            var amountInput = event.target;
+            var amountData = buildAmountData(amountInput);
+            $amountError.trigger(NEW_AMOUNT_EVENT, amountData);
+            amountInput.dataset.oldAmount = amountData.newAmount;
+        }).trigger('focusout');
+
+        $(form).on('submit', function(event) {
+            var amountData = buildAmountData($amountInput[0]);
+            if (amountData.newAmount >= amountData.minAmount) {
+                $formCorrectionNeeded.addClass('hidden');
+            } else {
+                $formCorrectionNeeded.removeClass('hidden')
+                    .css("font-weight", "bold").css("font-size", "150%");
+                event.preventDefault();
+            }
+        });
     });
 
     var selectSupportType = function(event) {
