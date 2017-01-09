@@ -31,8 +31,7 @@
     text-align: center;
 }
 
-.form-error, .supporter-form-input .input-group p {
-    margin-left: 1em;
+.form-error, .supporter-form-input p {
     font-size: 80%;
     white-space: normal;
 }

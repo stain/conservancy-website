@@ -51,7 +51,7 @@ $(document).ready(function() {
 
     $('form.supporter-form').each(function(index, form) {
         var $amountInput = $('input[type=number]', form).first();
-        var $amountError = $('.form-error', $amountInput[0].parentNode);
+        var $amountError = $('.form-error', $amountInput.parents('.supporter-form-input'));
 
         $amountError.on(NEW_AMOUNT_EVENT, function(event, amountData) {
             var isValid = amountData.newAmount >= amountData.minAmount;

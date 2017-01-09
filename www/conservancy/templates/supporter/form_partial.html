@@ -80,10 +80,10 @@ This partial accepts these optional parameters:
         $ <input type="number" name="amount" size="5" tabindex="10"
                min="{{ min_amt }}" value="{{ default_amt }}">
         {% endif %}
-        <p class="form-error">${{ min_amt|add:partial_amt }} is a minimum for
-          Conservancy Supporters.
-          <a href="/donate">Donate smaller amounts here</a>.</p>
         </div>
+      <p class="form-error">${{ min_amt|add:partial_amt }} is a minimum for
+        Conservancy Supporters.
+        <a href="/donate">Donate smaller amounts here</a>.</p>
       </div>
 
       <div class="supporter-form-input">
@@ -124,8 +124,8 @@ This partial accepts these optional parameters:
               <option value="FittedLadiesXL">Fitted Women's XL</option>
             </optgroup>
           </select>
-          <p class="inline"><a href="https://gildanonline.com/sizechart" target="_blank" title="T-shirt size chart">Size information</a></p>
         </div>
+        <p><a href="https://gildanonline.com/sizechart" target="_blank" title="T-shirt size chart">Size information</a></p>
       </div>
 
       <div class="supporter-form-input">

@@ -108,6 +108,6 @@ img.blog-right {
     padding-right: .3em;
 }
 
-.supporter-form-input .inline {
-    display: inline-block;
+.form-error, .supporter-form-input p {
+    margin-left: 51%;
 }
