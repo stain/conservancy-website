@@ -184,15 +184,23 @@ h3 { margin-top: .6em; margin-bottom: .4em; }
     overflow: hidden;
 }
 #container #mainContent {
+    /* All the measurements here are relative to #sidebar's 13em width.
+       Leave enough space for it plus 1.5em margins on either side. */
+    position: relative;
+    left: 14.5em;
+    width: calc(100% - 16em);
+    max-width: 50em;
+    margin: 0;
+    padding: 0;
     background: #ffffff;
-    margin-left: 25px;
-    margin-right: 50px;
-    max-width: 1000px;
 }
 #container #sidebar {
-    width: 200px;
-    float: left;
+    position: absolute;
+    width: 13em;
     background-color: #ccd4a3;
+    /* Gives symmetry with the margin-top of the first h2.
+       1.25em font-size * 1.5em margin == 1.875em */
+    padding-bottom: 1.875em;
 }
 
 #container #sidebar li {
