@@ -59,11 +59,11 @@ PIA will match up to 416.
 
     <div class="fundraiser-top-text">
       <em>
-        Let's stand up for software freedom together!
         {% if sitefundgoal.fundraiser_donation_count_disclose_threshold >= 1076 %}
         Thanks to 416 Supporters we earned our full <a href="https://www.privateinternetaccess.com/">Private Internet Access</a> match!  Help us go further to stand up for software
         freedom &mdash; sign up now!
         {% else %}
+        Let's stand up for software freedom together!
         The next {{ 1076|subtract:sitefundgoal.fundraiser_donation_count_disclose_threshold|intcomma }} Supporters who join or renew by January 22 (anywhere on earth time) <a href="/news/2016/nov/29/private-internet-access-2016-fundraising-match/">will count twice</a>,
         thanks to <a href="https://www.privateinternetaccess.com/">Private Internet Access</a>!
         {% endif %}
