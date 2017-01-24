@@ -57,6 +57,7 @@ PIA will match up to 416.
 660+416==1076, so we use that constant to see if our match is done.
 {% endcomment %}
 
+{% comment %}
     <div class="fundraiser-top-text">
       <em>
         {% if sitefundgoal.fundraiser_donation_count_disclose_threshold >= 1076 %}
@@ -80,6 +81,8 @@ PIA will match up to 416.
 </a>
 </div>
 </div>
+{% endcomment %}
+
       {% block outercontent %}<div id="mainContent"> {% block content %}{% endblock %}</div>{% endblock %}
     <div id="conservancyfooter">
       <p><a href="/">Main Page</a> | <a href="/about/contact/">Contact</a> | <a href="/sponsors/">Sponsors</a> | <a href="/privacy-policy/">Privacy Policy</a> | <a href="/feeds/omnibus/">RSS Feed</a></p>
