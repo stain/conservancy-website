@@ -21,12 +21,8 @@ def custom_index(request, queryset, *args, **kwargs):
     year.
     """
 
-    kwargs = kwargs.copy()
-    kwargs['extra_context'] = kwargs.get('extra_context', {}).copy()
-    extra_context = kwargs['extra_context']
-
+    extra_context = kwargs.get('extra_context', {}).copy()
     date_field = kwargs['date_field']
-    del kwargs['date_field']
 
     if not kwargs.get('allow_future', False):
         queryset = queryset.filter(**{'%s__lte' % date_field: datetime.now()})
@@ -54,13 +50,8 @@ def custom_index(request, queryset, *args, **kwargs):
         date_list = queryset.dates(date_field, 'year')
         extra_context['date_list'] = date_list
 
-    # return object_list(request, queryset, *args, **kwargs)
-    kwargs['queryset'] = queryset
-    kwargs['extra_context'] = extra_context
-
     paginate_by = kwargs.get('paginate_by', 6)  # Show 6 news items per page, by default
     paginator = Paginator(queryset, paginate_by)
-
     page = request.GET.get('page')
 
     try:
