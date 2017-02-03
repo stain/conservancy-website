@@ -70,7 +70,7 @@ def custom_index(request, queryset, *args, **kwargs):
         blog_entries = paginator.page(1)
     except EmptyPage:
         # If page is out of range (e.g. 9999), deliver last page of results.
-        blog_entires = paginator.page(paginator.num_pages)
+        blog_entries = paginator.page(paginator.num_pages)
 
     extra_context['blog_entries'] = blog_entries
 
