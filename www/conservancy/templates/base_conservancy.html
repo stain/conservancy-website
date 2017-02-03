@@ -52,36 +52,37 @@ fundraiser_so_far_amount: The number of Supporters we have
 fundraiser_donation_count: The "minimum" number of Supporters we want (not currently used)
 fundraiser_donation_count_disclose_threshold: The number of Supporters that have been matched
 
-When we started the fundraiser, we had 660 Supporters matched.
-PIA will match up to 416.
-660+416==1076, so we use that constant to see if our match is done.
+When we started this match, we had 1076 Supporters matched, so we subtract
+that from count_disclose_threshold to determine how many happened in the
+current match.
 {% endcomment %}
 
-{% comment %}
+{% with this_match_goal=150 this_match_so_far=sitefundgoal.fundraiser_donation_count_disclose_threshold|subtract:1076 %}
+{% with this_match_remaining=this_match_goal|subtract:this_match_so_far %}
     <div class="fundraiser-top-text">
       <em>
-        {% if sitefundgoal.fundraiser_donation_count_disclose_threshold >= 1076 %}
-        Thanks to 416 Supporters we earned our full match by <a href="https://www.privateinternetaccess.com/">Private Internet Access</a>!  Help us go further to stand up for software
+        {% if this_match_remaining <= 0 %}
+        Thanks to {{ this_match_goal|intcomma }} Supporters we earned our full match!  Help us go further to stand up for software
         freedom &mdash; <a href="/supporter">sign up now</a>!
         {% else %}
         Let's stand up for software freedom together!
-        The next {{ 1076|subtract:sitefundgoal.fundraiser_donation_count_disclose_threshold|intcomma }} Supporters who join or renew by January 22 (anywhere on earth time) <a href="/news/2016/nov/29/private-internet-access-2016-fundraising-match/">will count twice</a>,
-        thanks to <a href="https://www.privateinternetaccess.com/">Private Internet Access</a>!
+        The next {{ this_match_remaining|intcomma }} Supporters who join or renew by February 13 will be matched by an anonymous donor!
         {% endif %}
       </em>
 <div id="siteprogressbar">
 <a href="/supporter">
-  {% if sitefundgoal.fundraiser_donation_count_disclose_threshold < 1076 %}
-  <span id="site-fundraiser-match-count">{{ sitefundgoal.fundraiser_donation_count_disclose_threshold|subtract:660|intcomma }}</span>
+  {% if this_match_remaining <= 0 %}
+  <span id="site-fundraiser-match-count">{{ this_match_goal|intcomma }}</span>
   {% else %}
-  <span id="site-fundraiser-match-count">416</span>
+  <span id="site-fundraiser-match-count">{{ this_match_so_far|intcomma }}</span>
   {% endif %}
   Supporters have been matched, out of
-  <span id="site-fundraiser-final-goal">416</span> possible.
+  <span id="site-fundraiser-final-goal">{{ this_match_goal|intcomma }}</span> possible.
 </a>
 </div>
 </div>
-{% endcomment %}
+{% endwith %}
+{% endwith %}
 
       {% block outercontent %}<div id="mainContent"> {% block content %}{% endblock %}</div>{% endblock %}
     <div id="conservancyfooter">
