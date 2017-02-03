@@ -55,6 +55,7 @@ This partial accepts these optional parameters:
     <div class="supporter-form-inputs">
       <input type="hidden" name="business" value="supporter@sfconservancy.org">
       <input type="hidden" name="return" value="https://sfconservancy.org/supporter/thank-you.html">
+      <input type="hidden" name="lc" value="US">
       <input type="hidden" name="no_shipping" value="0">
       <input type="hidden" name="item_name"
              value="Conservancy Supporter, {{ supptype|capfirst }}{% if form_id == "renewal" %} Renewal{% endif %}"
@@ -63,7 +64,6 @@ This partial accepts these optional parameters:
       <div class="supporter-form-input">
         {% if form_id == "monthly" %}
         <input type="hidden" name="cmd" value="_xclick-subscriptions">
-        <input type="hidden" name="lc" value="US">
         <input type="hidden" name="no_note" value="1">
         <input type="hidden" name="t3" value="M">
         <input type="hidden" name="p3" value="1">
