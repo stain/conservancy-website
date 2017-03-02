@@ -57,6 +57,7 @@ that from count_disclose_threshold to determine how many happened in the
 current match.
 {% endcomment %}
 
+{% comment %}
 {% with this_match_goal=150 this_match_so_far=sitefundgoal.fundraiser_donation_count_disclose_threshold|subtract:1076 %}
 {% with this_match_remaining=this_match_goal|subtract:this_match_so_far %}
     <div class="fundraiser-top-text">
@@ -84,6 +85,7 @@ current match.
 </div>
 {% endwith %}
 {% endwith %}
+{% endcomment %}
 
       {% block outercontent %}<div id="mainContent"> {% block content %}{% endblock %}</div>{% endblock %}
     <div id="conservancyfooter">
