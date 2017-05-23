@@ -1,19 +1,19 @@
 // Handles related-objects functionality: lookup link for raw_id_admin=True
 // and Add Another links.
 
-function showRelatedObjectLookupPopup(triggeringLink) {
-    var name = triggeringLink.id.replace(/^lookup_/, '');
+function showPopupFromLink(elem, nameTrimRegexp, popupParamName) {
+    var name = elem.id.replace(nameTrimRegexp, '');
     // IE doesn't like periods in the window name, so convert temporarily.
     name = name.replace(/\./g, '___');
-    var href;
-    if (triggeringLink.href.search(/\?/) >= 0) {
-        href = triggeringLink.href + '&pop=1';
-    } else {
-        href = triggeringLink.href + '?pop=1';
-    }
-    var win = window.open(href, name, 'height=500,width=740,resizable=yes,scrollbars=yes');
+    var url = new URL(elem.href);
+    url.searchParams.set(popupParamName, '1');
+    var win = window.open(url.toString(), name, 'height=500,width=800,resizable=yes,scrollbars=yes');
     win.focus();
     return false;
+}
+
+function showRelatedObjectLookupPopup(triggeringLink) {
+    return showPopupFromLink(triggeringLink, /^lookup_/, 'pop');
 }
 
 function dismissRelatedLookupPopup(win, chosenId) {
@@ -28,11 +28,7 @@ function dismissRelatedLookupPopup(win, chosenId) {
 }
 
 function showAddAnotherPopup(triggeringLink) {
-    var name = triggeringLink.id.replace(/^add_/, '');
-    name = name.replace(/\./g, '___');
-    var win = window.open(triggeringLink.href + '?_popup=1', name, 'height=500,width=800,resizable=yes,scrollbars=yes');
-    win.focus();
-    return false;
+    return showPopupFromLink(triggeringLink, /^add_/, '_popup');
 }
 
 function dismissAddAnotherPopup(win, newId, newRepr) {
