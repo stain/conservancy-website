@@ -36,6 +36,9 @@ This partial accepts these optional parameters:
 {% if show|default:"body" != "body" %}
 <p><a class="continued" href="{{ entry.get_absolute_url }}">Read More&hellip;</a></p>
 {% endif %}
+{% if show != "summary"}
+<p class="permalink"><a href="{{ entry.get_absolute_url }}">[permalink]</a></p>
+{% endif %}
 
 {% if show != "summary" and entry.tags.exists %}
 <p class="blog-tags">Tags:
