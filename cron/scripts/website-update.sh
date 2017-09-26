@@ -45,7 +45,7 @@ if [ "$(git rev-parse "$PRODUCTION_BRANCH")" = "$(git rev-parse "$git_upstream")
 fi
 
 git merge --quiet --ff-only "$git_remote" "$git_refspec"
-python2 -m compileall -q www || exitcode=$?
+python2 -m compileall -q -x - www || exitcode=$?
 chgrp -R www-data www || exitcode=$?
 chmod -R g+rX-w,o+X-w www || exitcode=$?
 chmod -R o+r www/conservancy/static || exitcode=$?
