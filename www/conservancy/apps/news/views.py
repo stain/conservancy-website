@@ -1,7 +1,6 @@
 # from django.views.generic.list_detail import object_list
 from django.views.generic import ListView
-from django.template import RequestContext
-from django.shortcuts import render_to_response
+from django.shortcuts import render
 from django.views.generic.dates import YearArchiveView, MonthArchiveView, DayArchiveView, DateDetailView
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from conservancy.apps.news.models import ExternalArticle
@@ -42,7 +41,7 @@ def listing(request, *args, **kwargs):
         # If page is out of range (e.g. 9999), deliver last page of results.
         news = paginator.page(paginator.num_pages)
 
-    return render_to_response('news/pressrelease_list.html', {"news": news, "date_list" : date_list}, context_instance=RequestContext(request))
+    return render(request, 'news/pressrelease_list.html', {"news": news, "date_list" : date_list})
 
 class NewsYearArchiveView(YearArchiveView):
     # queryset = Article.objects.all()

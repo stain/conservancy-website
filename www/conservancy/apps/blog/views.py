@@ -4,8 +4,7 @@ from django.views.generic import ListView
 from django.views.generic.dates import YearArchiveView, MonthArchiveView, DayArchiveView, DateDetailView
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from conservancy.apps.staff.models import Person
-from django.shortcuts import get_object_or_404, render_to_response
-from django.template import RequestContext
+from django.shortcuts import get_object_or_404, render
 from datetime import datetime
 
 def OR_filter(field_name, objs):
@@ -65,7 +64,7 @@ def custom_index(request, queryset, *args, **kwargs):
 
     extra_context['blog_entries'] = blog_entries
 
-    return render_to_response('blog/entry_list.html', extra_context, context_instance=RequestContext(request))
+    return render(request, 'blog/entry_list.html', extra_context)
 
 def techblog_redirect(request):
     """Redirect from the old 'techblog' to the new blog
@@ -103,8 +102,7 @@ def query(request):
                                                entry__isnull=False).distinct(),
                          key=last_name)
         tags = EntryTag.objects.all().order_by('label')
-        return render_to_response('blog/query.html',
-                                  {'authors': authors, 'tags': tags}, context_instance=RequestContext(request))
+        return render(request, 'blog/query.html', {'authors': authors, 'tags': tags})
 
 def relative_redirect(request, path):
     from django import http

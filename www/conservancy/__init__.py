@@ -1,8 +1,11 @@
 import hashlib
 
 from django.conf import settings
-from django.shortcuts import render_to_response
 from django.template import RequestContext
+
+# This is backwards compatibilty support for a custom function we wrote
+# ourselves that is no longer necessary in modern Django.
+from django.shortcuts import render as render_template_with_context
 
 class ParameterValidator(object):
     def __init__(self, given_hash_or_params, params_hash_key=None):
@@ -41,8 +44,3 @@ class ParameterValidator(object):
 
     def fail(self):
         self.valid = False
-
-
-def render_template_with_context(request, template_path, context_dict):
-    return render_to_response(template_path, context_dict,
-                              context_instance=RequestContext(request))
