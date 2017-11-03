@@ -27,6 +27,8 @@ ROOT_URLCONF = 'conservancy.urls'
 FORCE_CANONICAL_HOSTNAME = False if DEBUG else 'sfconservancy.org'
 
 ALLOWED_HOSTS = [ 'www.sfconservancy.org', 'aspen.sfconservancy.org', 'sfconservancy.org',  u'104.130.70.210' ]
+if DEBUG:
+    ALLOWED_HOSTS.append('localhost')
 
 REDIRECT_TABLE = {
     'www.sf-conservancy.org': 'sfconservancy.org',
