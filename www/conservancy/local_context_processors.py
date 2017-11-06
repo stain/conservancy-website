@@ -1,3 +1,4 @@
+import conservancy.settings
 from conservancy.apps.fundgoal.models import FundraisingGoal as FundraisingGoal
 
 def fundgoal_lookup(fundraiser_sought):
@@ -9,3 +10,11 @@ def fundgoal_lookup(fundraiser_sought):
 
 def sitefundraiser(request):
     return {'sitefundgoal': fundgoal_lookup('supporterrun') }
+
+if conservancy.settings.FORCE_CANONICAL_HOSTNAME:
+    _HOST_URL_VAR = {'host_url': 'https://' + conservancy.settings.FORCE_CANONICAL_HOSTNAME}
+    def host_url(request):
+        return _HOST_URL_VAR
+else:
+    def host_url(request):
+        return {'host_url': request.build_absolute_uri('/').rstrip('/')}
