@@ -1,0 +1,38 @@
+{% comment %}
+
+Include this partial in a head section to include basic Open Graph metadata.
+Pass a variable `NAME` to give a value for the `og:NAME` property.
+
+These properties are only listed if you give a value for them:
+
+* url: A URL string that includes at least an absolute path.  This partial
+  will fill in a default scheme and host if needed.
+* title: A string.  Tags are stripped, then the rest is assumed HTML-safe.
+* description: A string.  Tags are stripped, then the rest is assumed
+  HTML-safe.
+
+These properties are always included.  You can override them but you
+normally shouldn't need to:
+
+* type: Default "website".
+* locale: Default "en_US".
+* site_name: Default "Software Freedom Conservancy"
+
+{% endcomment %}
+
+<meta property="og:type" content="{{ type|default:"website" }}">
+<meta property="og:locale" content="{{ locale|default:"en_US" }}">
+<meta property="og:site_name" content="{{ site_name|default:"Software Freedom Conservancy" }}">
+
+{% if url %}
+{% load fill_url %}
+<meta property="og:url" content="{{ url|fill_url:host_url }}">
+{% endif %}
+
+{% if title %}
+<meta property="og:title" content="{{ title|striptags|safe }}">
+{% endif %}
+
+{% if description %}
+<meta property="og:description" content="{{ description|striptags|safe }}">
+{% endif %}

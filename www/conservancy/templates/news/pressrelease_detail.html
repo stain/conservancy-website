@@ -1,5 +1,11 @@
 {% extends "base_news.html" %}
 
+{% block head %}
+{% include "opengraph_partial.html" with url=object.get_absolute_url title=object.headline description=object.get_description %}
+{% include "opengraph_urllist_partial.html" with property='image' urls=object.get_image_urls fallback='/img/conservancy-logo.png' %}
+{% include "opengraph_urllist_partial.html" with property='video' urls=object.get_video_urls %}
+{% endblock %}
+
 {% block subtitle %}{{ object.headline|striptags|safe }} - {% endblock %}
 
 {% block content %}

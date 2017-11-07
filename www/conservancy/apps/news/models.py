@@ -1,11 +1,12 @@
 from django.db import models
 from django.conf import settings
+from conservancy import bsoup
 from conservancy.apps.staff.models import Person
 from conservancy.apps.events.models import Event
 from django.contrib.sites.models import Site
 from datetime import datetime, timedelta
 
-class PressRelease(models.Model):
+class PressRelease(models.Model, bsoup.SoupModelMixin):
     """News release model"""
 
     headline = models.CharField(max_length=300)
@@ -23,6 +24,8 @@ class PressRelease(models.Model):
     class Meta:
         ordering = ("-pub_date",)
         get_latest_by = "pub_date"
+
+    SOUP_ATTRS = ['summary', 'body']
 
     def __unicode__(self):
         return self.headline
