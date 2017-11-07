@@ -17,10 +17,10 @@
 # along with this program in a file in the toplevel directory called
 # "AGPLv3".  If not, see <http://www.gnu.org/licenses/>.
 
-from django.conf.urls import patterns, url, include
+from django.conf.urls import url, include
 from django.conf import settings
 from conservancy.apps.news.models import PressRelease, ExternalArticle
-from conservancy.apps.news.views import NewsYearArchiveView, NewsMonthArchiveView, NewsDayArchiveView, NewsDateDetailView
+from conservancy.apps.news.views import NewsYearArchiveView, NewsMonthArchiveView, NewsDayArchiveView, NewsDateDetailView, listing
 
 info_dict = {
     'queryset': PressRelease.objects.all().filter(sites__id__exact=settings.SITE_ID),
@@ -31,18 +31,10 @@ external_article_dict = {
     'articles': ExternalArticle.objects.all()
 }
 
-urlpatterns = patterns('',
-#    (r'^(?P<year>\d{4})/(?P<month>[a-z]{3})/(?P<day>\w{1,2})/(?P<slug>[-\w]+)/$', 'conservancy.apps.news.views.object_detail', info_dict),
-   (r'^(?P<year>\d{4})/(?P<month>[a-z]{3})/(?P<day>\w{1,2})/(?P<slug>[-\w]+)/$', NewsDateDetailView.as_view(**info_dict)),
-#   (r'^(?P<year>\d{4})/(?P<month>[a-z]{3})/(?P<day>\w{1,2})/$', 'conservancy.apps.news.views.archive_day', info_dict),
-   (r'^(?P<year>\d{4})/(?P<month>[a-z]{3})/(?P<day>\w{1,2})/$', NewsDayArchiveView.as_view(**info_dict)),
-#   (r'^(?P<year>\d{4})/(?P<month>[a-z]{3})/$', 'conservancy.apps.news.views.archive_month', info_dict),
-   (r'^(?P<year>\d{4})/(?P<month>[a-z]{3})/$', NewsMonthArchiveView.as_view(**info_dict)),
-#   (r'^(?P<year>\d{4})/$', 'conservancy.apps.news.views.archive_year',
-#    dict(info_dict, make_object_list=True)),
-   (r'^(?P<year>\d{4})/$', NewsYearArchiveView.as_view(**info_dict)),
-)
-
-urlpatterns += patterns('',
-   (r'^/?$', 'conservancy.apps.news.views.listing', dict(info_dict, paginate_by=6)),
-)
+urlpatterns = [
+   url(r'^(?P<year>\d{4})/(?P<month>[a-z]{3})/(?P<day>\w{1,2})/(?P<slug>[-\w]+)/$', NewsDateDetailView.as_view(**info_dict)),
+   url(r'^(?P<year>\d{4})/(?P<month>[a-z]{3})/(?P<day>\w{1,2})/$', NewsDayArchiveView.as_view(**info_dict)),
+   url(r'^(?P<year>\d{4})/(?P<month>[a-z]{3})/$', NewsMonthArchiveView.as_view(**info_dict)),
+   url(r'^(?P<year>\d{4})/$', NewsYearArchiveView.as_view(**info_dict)),
+   url(r'^/?$', listing, dict(info_dict, paginate_by=6)),
+]

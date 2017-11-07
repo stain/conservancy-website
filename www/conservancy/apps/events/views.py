@@ -1,6 +1,5 @@
 # from django.views.generic.list_detail import object_list
-from django.shortcuts import render_to_response
-from django.template import RequestContext
+from django.shortcuts import render
 from django.http import Http404, HttpResponse
 from django.template import loader
 from django.core.exceptions import ObjectDoesNotExist
@@ -21,7 +20,7 @@ def event_detail(request, year, slug, queryset, **kwargs):
         event = queryset.get(date__year=year, slug__exact=slug)
     except ObjectDoesNotExist:
         raise Http404, "Event does not exist"
-    return render_to_response('events/event_detail.html', {'event': event}, context_instance=RequestContext(request))
+    return render(request, 'events/event_detail.html', {'event': event})
 
 def custom_index(request, queryset, *args, **kwargs):
     """Scrollable index of future and past events, with date index.

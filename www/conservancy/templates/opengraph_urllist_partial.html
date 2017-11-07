@@ -1,0 +1,26 @@
+{% comment %}
+
+Include this partial in a head section to include a series of URLs for a
+given property, like og:image or og:video.
+
+You must pass the following variables:
+
+* property: A string with the name of the property, like 'image' or 'video'.
+* urls: A sequence of URL strings.  Each should include at least an absolute
+  path.  This partial will fill in a scheme and host if needed.
+
+You may also pass:
+
+* fallback: A URL string, following the same rules as in `urls`.  This URL
+  will be used if `urls` is empty.
+
+{% endcomment %}
+
+{% load fill_url %}
+{% for url in urls %}
+<meta property="og:{{ property }}" content="{{ url|fill_url:host_url }}">
+{% empty %}
+{% if fallback %}
+<meta property="og:{{ property }}" content="{{ fallback|fill_url:host_url }}">
+{% endif %}
+{% endfor %}

@@ -1,5 +1,6 @@
 from django.db import models
 from django.conf import settings
+from conservancy import bsoup
 from conservancy.apps.staff.models import Person
 from datetime import datetime, timedelta
 
@@ -18,7 +19,7 @@ class EntryTag(models.Model):
     def get_absolute_url(self):
         return u"/blog/?tag=%s" % self.slug
 
-class Entry(models.Model):
+class Entry(models.Model, bsoup.SoupModelMixin):
     """Blog entry"""
 
     headline = models.CharField(max_length=200)
@@ -37,6 +38,8 @@ class Entry(models.Model):
         verbose_name_plural = 'entries'
         ordering = ('-pub_date',)
         get_latest_by = 'pub_date'
+
+    SOUP_ATTRS = ['body']
 
     def __unicode__(self):
         return self.headline
