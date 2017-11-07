@@ -17,8 +17,14 @@ normally shouldn't need to:
 * type: Default "website".
 * locale: Default "en_US".
 * site_name: Default "Software Freedom Conservancy"
+* twitter_site: The name of the Twitter account that publishes this page.
+  Default "@conservancy"
 
 {% endcomment %}
+
+{# This partial needs work before other cards besides "summary" are supported. #}
+<meta property="twitter:card" content="summary">
+<meta property="twitter:site" content="{{ twitter_site|default:"@conservancy" }}">
 
 <meta property="og:type" content="{{ type|default:"website" }}">
 <meta property="og:locale" content="{{ locale|default:"en_US" }}">
