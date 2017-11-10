@@ -21,7 +21,7 @@ trap 'rmdir "$LOCKDIR"' 0 INT TERM QUIT
 
 exitcode=0
 if [ "$DB_SCRIPT" -nt "$DB_FILE" ]; then
-    sqlite3 "$DB_FILE" <"$DB_SCRIPT" || exitcode=$?
+    sqlite3 -bail -cmd ".timeout 30000" "$DB_FILE" <"$DB_SCRIPT" || exitcode=$?
 fi
 
 # If the checkout is not on the production branch,
