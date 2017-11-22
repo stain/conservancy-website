@@ -11,6 +11,10 @@
     width: 49%;
 }
 
+li.column {
+    margin-bottom: 1em;
+}
+
 .left {
     float: left;
     margin-right: 1.5em;
