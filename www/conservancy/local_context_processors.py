@@ -9,7 +9,7 @@ def fundgoal_lookup(fundraiser_sought):
         return None
 
 def sitefundraiser(request):
-    return {'sitefundgoal': fundgoal_lookup('supporterrun') }
+    return {'sitefundgoal': fundgoal_lookup('fy-2018-main-match') }
 
 if conservancy.settings.FORCE_CANONICAL_HOSTNAME:
     _HOST_URL_VAR = {'host_url': 'https://' + conservancy.settings.FORCE_CANONICAL_HOSTNAME}

@@ -29,7 +29,7 @@ $(document).ready(function() {
     }
     var barParts = [{
         value: (noCommaSiteMatchCount / noCommaSiteFinalGoal) * 100,
-        text: noCommaSiteMatchCount.toLocaleString() + " matched!",
+        text: "$" + noCommaSiteMatchCount.toLocaleString() + " matched!",
         barClass: "progress",
         textClass: "soFarText",
     }];
@@ -37,7 +37,7 @@ $(document).ready(function() {
         var matchesLeft = noCommaSiteFinalGoal - noCommaSiteMatchCount;
         barParts.push({
             value: 100,
-            text: matchesLeft.toLocaleString() + " to go!",
+            text: "$" + matchesLeft.toLocaleString() + " to go!",
             barClass: "final-goal",
             textClass: "goalText",
         });
