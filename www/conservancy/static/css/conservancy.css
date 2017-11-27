@@ -138,9 +138,6 @@ h3 { margin-top: .6em; margin-bottom: .4em; }
     background: rgb(206, 31, 31);
 }
 
-#siteprogressbar {
-    margin: .5em 20% .5em 2%;
-}
 #siteprogressbar .goalText {
     color: #557733;
     font-size: 10pt;
@@ -455,10 +452,17 @@ dd {
 
 .fundraiser-top-text {
     background: #F0FFB8;
-    padding: .7em .7em .7em .7em;
+    padding: .2em .7em;
 }
-.fundraiser-top-text em {
+.fundraiser-top-text * {
+    margin: .5em auto;
+    max-width: 70em;
+    width: 95%;
+}
+.fundraiser-top-text p {
     font-size: 110%;
+    font-style: italic;
+    text-align: center;
 }
 
 /* Fallback elements created by conservancy.js when no video source is
