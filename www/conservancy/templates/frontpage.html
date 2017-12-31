@@ -27,7 +27,7 @@
 <div class="column">
 <h2><a href="/feeds/news/" class="feedlink"><img src="/img/feed-icon-14x14.png" alt="[RSS]"/></a> <a href="/news/">Recent News</a></h2>
 {% for pressr in press_releases|slice:":5" %}
-  {% if forloop.first or pressr.pub_date|date_within_past_days:30 %}
+  {% if forloop.first or pressr.pub_date|date_within_past_days:90 %}
     {% if not forloop.first %}<hr class="clear">{% endif %}
     {% include "news/pressrelease_partial.html" with pressr=pressr show="summary" only %}
   {% endif %}
@@ -39,7 +39,7 @@
 <div class="column">
 <h2><a href="/feeds/blog/" class="feedlink"><img src="/img/feed-icon-14x14.png" alt="[RSS]"/></a> <a href="/blog/">Conservancy Blog</a></h2>
 {% for entry in blog|slice:":5" %}
-  {% if forloop.first or entry.pub_date|date_within_past_days:30 %}
+  {% if forloop.first or entry.pub_date|date_within_past_days:45 %}
     {% if not forloop.first %}<hr class="clear">{% endif %}
     {% include "blog/entry_partial.html" with entry=entry show="summary" only %}
   {% endif %}
